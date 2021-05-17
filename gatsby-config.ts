@@ -1,10 +1,6 @@
-/**
- * Configure your Gatsby site with this file.
- *
- * See: https://www.gatsbyjs.com/docs/gatsby-config/
- */
+import { GatsbyConfig } from "gatsby";
 
-module.exports = {
+const gatsbyConfig: GatsbyConfig = {
   siteMetadata: {
     title: "< elboudali />",
     titleTemplate: "%s · < elboudali />",
@@ -15,3 +11,5 @@ module.exports = {
   },
   plugins: ["gatsby-plugin-styled-components"],
 };
+
+export default gatsbyConfig;
