@@ -10,9 +10,6 @@ const GlobalStyles = createGlobalStyle`
     }
 
    * {
-    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif,
-    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -28,6 +25,8 @@ const GlobalStyles = createGlobalStyle`
   }
 
   body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
     color: var(--black);
     font-size: 14px;
     line-height: 18px;
