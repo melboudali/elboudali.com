@@ -1,7 +1,7 @@
 {
-  "name": "gatsby-starter-hello-world",
+  "name": "elboudali",
   "private": true,
-  "description": "A simplified bare-bones starter for Gatsby",
+  "description": "elboudali.com",
   "version": "0.1.0",
   "license": "0BSD",
   "scripts": {
@@ -14,6 +14,7 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "dependencies": {
+    "@types/styled-components": "^5.1.9",
     "babel-plugin-styled-components": "^1.12.0",
     "gatsby": "^3.4.1",
     "react": "^17.0.1",
@@ -25,9 +26,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-hello-world"
+    "url": "https://github.com/melboudali/elboudali.com"
   },
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/melboudali/elboudali.com/issues"
   }
 }
