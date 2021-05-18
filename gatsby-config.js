@@ -1,15 +1,10 @@
 "use strict";
-// require("source-map-support").install();
-// require("ts-node").register({
-//   compilerOptions: {
-//     module: "commonjs",
-//     target: "es2017",
-//   },
-// });
 
-// // typescript files
-// exports.createPages = require("./lib/createPages");
-// exports.onCreateNode = require("./lib/onCreateNode");
+/**
+ * Source-map-support mimics node's stack trace making debugging easier.
+ * ts-node register helps importing and compiling TypeScript modules into JS.
+ * @see: https://www.extensive.one/converting-gatsby-config-and-node-api-to-typescript/
+ */
 require("source-map-support").install();
 require("ts-node").register();
 

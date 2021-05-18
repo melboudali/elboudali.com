@@ -46,6 +46,7 @@ const GlobalStyles = createGlobalStyle`
     line-height: 18px;
     max-width: 1280px;
     padding: 0 48px;
+    margin: 0 auto;
   }
 
  

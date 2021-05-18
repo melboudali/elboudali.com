@@ -9,11 +9,12 @@ interface LayoutProps {
 const Layout = ({ children }: LayoutProps) => {
   return (
     <>
+      <p>gggg</p>
       <GlobalStyles />
       <header>
         {/* <Navbar /> */}
         <ul>
-          <li>test</li>
+          <li>test1</li>
           <li>test</li>
           <li>test</li>
         </ul>

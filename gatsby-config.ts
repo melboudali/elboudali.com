@@ -1,6 +1,4 @@
-import { GatsbyConfig } from "gatsby";
-
-const gatsbyConfig: GatsbyConfig = {
+export default {
   siteMetadata: {
     title: "< elboudali />",
     titleTemplate: "%s · < elboudali />",
@@ -9,7 +7,5 @@ const gatsbyConfig: GatsbyConfig = {
     siteUrl: "https://elboudali.com",
     twitter: "@moelboudali",
   },
-  plugins: ["gatsby-plugin-styled-components"],
+  plugins: ["gatsby-plugin-styled-components", "gatsby-plugin-typescript"],
 };
-
-export default gatsbyConfig;
