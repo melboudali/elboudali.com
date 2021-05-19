@@ -18,7 +18,6 @@ const GlobalStyles = createGlobalStyle`
 
 
   html {
-    background-color: var(--white);
     position: relative;
     overflow-y: auto;
     scrollbar-width: thin;
@@ -27,12 +26,13 @@ const GlobalStyles = createGlobalStyle`
 
   body {
     color: var(--black);
-    background: var(white);
+    background: ${({ theme }) => theme.body};
     font-size: 1rem;
     line-height: 1rem;
     font-weight: 400;
     font-family: 'Roboto', sans-serif;
     font-style: normal;
+    transition: background 0.2s linear;
   }
 
  
