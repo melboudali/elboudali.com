@@ -9,24 +9,11 @@ const GlobalStyles = createGlobalStyle`
         --grey: #efefef;
     }
 
-    /* roboto-regular - latin */
-    @font-face {
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 400;
-    src: url('../assets/fonts/roboto-v27-latin-regular.eot'); /* IE9 Compat Modes */
-    src: local(''),
-        url('../assets/fonts/roboto-v27-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-        url('../assets/fonts/roboto-v27-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
-        url('../assets/fonts/roboto-v27-latin-regular.woff') format('woff'), /* Modern Browsers */
-        url('../assets/fonts/roboto-v27-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
-        url('../assets/fonts/roboto-v27-latin-regular.svg#Roboto') format('svg'); /* Legacy iOS */
-    }
-
    * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+
     };
 
 
@@ -39,14 +26,13 @@ const GlobalStyles = createGlobalStyle`
   }
 
   body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif,
-    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
     color: var(--black);
-    font-size: 14px;
-    line-height: 18px;
-    max-width: 1280px;
-    padding: 0 48px;
-    margin: 0 auto;
+    background: var(white);
+    font-size: 1rem;
+    line-height: 1rem;
+    font-weight: 400;
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
   }
 
  
