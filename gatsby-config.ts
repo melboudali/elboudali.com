@@ -7,5 +7,9 @@ export default {
     siteUrl: "https://elboudali.com",
     twitter: "@moelboudali",
   },
-  plugins: ["gatsby-plugin-styled-components", "gatsby-plugin-typescript"],
+  plugins: [
+    "gatsby-plugin-styled-components",
+    "gatsby-plugin-typescript",
+    "gatsby-plugin-react-helmet",
+  ],
 };
