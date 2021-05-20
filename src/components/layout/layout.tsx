@@ -2,23 +2,20 @@ import React from "react";
 import { Helmet } from "react-helmet";
 import { Navbar } from "../common/Navbar";
 import GlobalStyles from "../../styles/GlobalStyles";
-import styled, { css, ThemeProvider } from "styled-components";
+import styled, { ThemeProvider } from "styled-components";
 import { lightTheme, darkTheme } from "../common/Themes";
 import PropTypes from "prop-types";
 import { useDarkMode } from "../../hook/useDarkMode";
 
-const WidthAndMargin = css`
-  max-width: 1280px;
-  padding: 0 48px;
-  margin: 0 auto;
-`;
-
 const Header = styled.header`
-  ${WidthAndMargin}
+  background-color: ${({ theme }) => theme.navbarBackground};
+  box-shadow: 0px 3px 8px -2px rgba(0, 0, 0, 0.1);
 `;
 
 const Main = styled.main`
-  ${WidthAndMargin}
+  max-width: 1280px;
+  padding: 0 48px;
+  margin: 0 auto;
 `;
 
 interface LayoutProps {
