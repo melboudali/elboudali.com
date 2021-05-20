@@ -2,11 +2,19 @@ import { createGlobalStyle } from "styled-components";
 
 const GlobalStyles = createGlobalStyle`
     :root {
-        --red: #FF4949;
         --black: #000;
-        --yellow: #ffc600;
         --white: #fff;
-        --grey: #efefef;
+        --primaryColorDark: #dedee3;
+        --primaryColorLight: #000;
+        --secondaryColor: #A5A5A5;
+        --primaryBackgroundColorDark: #16141F;
+        --primaryBackgroundColorLight: #FBFBFB;
+        --secondaryBackgroundColorDark: #1C1A25;
+        --secondaryBackgroundColorLight: #fff;
+        --linearRightColorLight: #DB469F;
+        --linearRightColorDark: #E8714B;
+        --linearLeftColorLight: #2188FF;
+        --linearLeftColorDark: #7031C0;
     }
 
    * {
@@ -26,7 +34,7 @@ const GlobalStyles = createGlobalStyle`
 
   body {
     color: var(--black);
-    background: ${({ theme }) => theme.body};
+    background: ${({ theme }) => theme.bodyBackground};
     font-size: 1rem;
     line-height: 1rem;
     font-weight: 400;
