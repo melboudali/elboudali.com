@@ -1,15 +1,23 @@
 import { DefaultTheme } from "styled-components";
 
 export const lightTheme: DefaultTheme = {
-  body: "var(--white)",
-  text: "#363537",
-  toggleBorder: "#FFF",
-  background: "#363537",
+  navbarBackground: "var(--primaryBackgroundColorLight)",
+  bodyBackground: "var(--secondaryBackgroundColorLight)",
+  navColor: "var(--black)",
+  titleColor: "var(--primaryColorLight)",
+  iconsColor: "var(--primaryColorLight)",
+  textColor: "var(--black)",
+  linearRightColor: "var(--linearRightColorLight)",
+  linearLeftColor: "var(--linearLeftColorLight)",
 };
 
 export const darkTheme: DefaultTheme = {
-  body: "#363537",
-  text: "#FAFAFA",
-  toggleBorder: "#6B8096",
-  background: "#999",
+  navbarBackground: "var(--primaryBackgroundColorDark)",
+  bodyBackground: "var(--secondaryBackgroundColorDark)",
+  navColor: "var(--white)",
+  titleColor: "var(--primaryColorDark)",
+  iconsColor: "var(--secondaryColor)",
+  textColor: "var(--primaryColorDark)",
+  linearRightColor: "var(--linearRightColorDark)",
+  linearLeftColor: "var(--linearLeftColorDark)",
 };
