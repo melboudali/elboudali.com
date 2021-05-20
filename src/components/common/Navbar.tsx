@@ -1,4 +1,4 @@
-import React, { MouseEventHandler } from "react";
+import React from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
 
@@ -7,21 +7,23 @@ const Logo = styled.h1`
   font-weight: 700;
   letter-spacing: 1.6px;
   text-transform: uppercase;
-  background: linear-gradient(92.01deg, #2188ff -14.07%, #db469f 102.13%);
+  background: ${({ theme }) =>
+    `linear-gradient(92.01deg, ${theme.linearLeftColor} -14.07%, ${theme.linearRightColor} 102.13%)`};
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
 `;
 
 const NavbarWrapper = styled.div`
+  max-width: 1280px;
+  padding: 10px 48px;
+  margin: 0 auto;
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding: 20px 0;
+  justify-content: space-between;
 `;
 
 const Nav = styled.nav`
-  margin-left: auto;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -33,7 +35,7 @@ const CustomLink = styled(Link)`
   font-size: 0.75rem;
   letter-spacing: 1.6px;
   text-transform: uppercase;
-  color: var(--black);
+  color: ${({ theme }) => theme.navColor};
   &[aria-current="page"] {
     font-weight: 700;
   }
@@ -45,7 +47,7 @@ const CustomLink = styled(Link)`
     width: 0;
     left: 0;
     bottom: 0;
-    background-color: var(--black);
+    background-color: ${({ theme }) => theme.navColor};
     transition: width 1s, opacity 1s;
   }
   &:hover::before {
@@ -96,10 +98,6 @@ export const Navbar = ({ themeToggler, theme }: NavbarProps) => {
               />
             </svg>
           )}
-
-          {/* <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-            <path fill-rule="evenodd" clip-rule="evenodd" />
-          </svg> */}
         </button>
       </Nav>
     </NavbarWrapper>
