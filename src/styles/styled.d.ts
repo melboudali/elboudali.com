@@ -4,9 +4,13 @@ import "styled-components";
 // and extend them!
 declare module "styled-components" {
   export interface DefaultTheme {
-    body: string;
-    text: string;
-    toggleBorder: string;
-    background: string;
+    navbarBackground: string;
+    bodyBackground: string;
+    navColor: string;
+    titleColor: string;
+    iconsColor: string;
+    textColor: string;
+    linearRightColor: string;
+    linearLeftColor: string;
   }
 }
