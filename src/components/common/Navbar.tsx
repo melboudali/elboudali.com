@@ -28,6 +28,10 @@ const Nav = styled.nav`
   align-items: center;
   justify-content: center;
   gap: 20px;
+  button {
+    width: 24px;
+    height: 24px;
+  }
 `;
 
 const CustomLink = styled(Link)`
