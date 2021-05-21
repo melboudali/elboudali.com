@@ -9,7 +9,8 @@ export default {
   },
   plugins: [
     "gatsby-plugin-styled-components",
-    "gatsby-plugin-typescript",
     "gatsby-plugin-react-helmet",
+    `gatsby-plugin-image`,
+    `gatsby-plugin-sharp`
   ],
 };
