@@ -1,11 +1,11 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 import { Navbar } from "../common/Navbar";
-import GlobalStyles from "../../styles/GlobalStyles";
 import styled, { ThemeProvider } from "styled-components";
+import GlobalStyles from "../../styles/GlobalStyles";
 import { lightTheme, darkTheme } from "../common/Themes";
-import PropTypes from "prop-types";
 import { useDarkMode } from "../../hook/useDarkMode";
+import PropTypes from "prop-types";
 
 const Header = styled.header`
   background-color: ${({ theme }) => theme.navbarBackground};
@@ -23,26 +23,26 @@ interface LayoutProps {
 }
 
 const Layout = ({ children }: LayoutProps) => {
-  const { theme, themeToggler } = useDarkMode();
+  const { theme, themeToggler, componentMounted } = useDarkMode();
 
-  const themeMode = theme === "light" ? lightTheme : darkTheme;
+  //TODO: add loading component
+  if (!componentMounted) {
+    return <div />;
+  }
 
   return (
-    <ThemeProvider theme={themeMode}>
-      <>
-        <Helmet>
-          <link
-            href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
-            rel="stylesheet"
-          />
-        </Helmet>
-        <GlobalStyles />
-        <Header>
-          <Navbar themeToggler={themeToggler} theme={theme} />
-        </Header>
-        <Main>{children}</Main>
-        {/* <Footer /> */}
-      </>
+    <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
+      <Helmet>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
+          rel="stylesheet"
+        />
+      </Helmet>
+      <GlobalStyles />
+      <Header>
+        <Navbar themeToggler={themeToggler} theme={theme} />
+      </Header>
+      <Main>{children}</Main>
     </ThemeProvider>
   );
 };
