@@ -9,6 +9,8 @@ export const lightTheme: DefaultTheme = {
   textColor: "var(--black)",
   linearRightColor: "var(--linearRightColorLight)",
   linearLeftColor: "var(--linearLeftColorLight)",
+  balackAndWhite: "var(--black)",
+  modalBackground: "var(--modalLightBackground)",
 };
 
 export const darkTheme: DefaultTheme = {
@@ -20,4 +22,6 @@ export const darkTheme: DefaultTheme = {
   textColor: "var(--primaryColorDark)",
   linearRightColor: "var(--linearRightColorDark)",
   linearLeftColor: "var(--linearLeftColorDark)",
+  balackAndWhite: "var(--white)",
+  modalBackground: "var(--modalDarkBackground)",
 };
