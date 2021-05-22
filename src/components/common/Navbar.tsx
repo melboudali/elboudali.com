@@ -40,6 +40,7 @@ const CustomLink = styled(Link)`
   letter-spacing: 1.6px;
   text-transform: uppercase;
   color: ${({ theme }) => theme.navColor};
+  margin-top: 1px;
   &[aria-current="page"] {
     font-weight: 700;
   }
@@ -49,8 +50,8 @@ const CustomLink = styled(Link)`
     position: absolute;
     height: 2px;
     width: 0;
-    left: 0;
-    bottom: 0;
+    left: -1px;
+    bottom: -3px;
     background-color: ${({ theme }) => theme.navColor};
     transition: width 1s, opacity 1s;
   }
@@ -95,8 +96,8 @@ export const Navbar = ({ themeToggler, theme }: NavbarProps) => {
           ) : (
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
               <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
+                fillRule="evenodd"
+                clipRule="evenodd"
                 d="M21.795 15.795C19.8966 16.5316 17.8249 16.7002 15.8324 16.2804C13.8398 15.8606 12.0123 14.8705 10.5724 13.4306C9.13253 11.9907 8.1424 10.1632 7.72259 8.17063C7.30279 6.17807 7.47143 4.10643 8.20798 2.20801C5.92764 3.09668 4.02917 4.75369 2.84034 6.89293C1.65152 9.03218 1.24696 11.5194 1.69653 13.9251C2.14609 16.3309 3.42155 18.5041 5.3027 20.0697C7.18385 21.6352 9.5526 22.4948 12 22.5C14.1184 22.5006 16.1874 21.8605 17.9355 20.6639C19.6836 19.4673 21.0289 17.7701 21.795 15.795V15.795Z"
                 fill="black"
               />
