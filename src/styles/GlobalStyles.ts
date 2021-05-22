@@ -15,6 +15,10 @@ const GlobalStyles = createGlobalStyle`
         --linearRightColorDark: #E8714B;
         --linearLeftColorLight: #2188FF;
         --linearLeftColorDark: #7031C0;
+        --modalLightBackground: rgba(255, 255, 255, 0.8);
+        --modalDarkBackground: rgba(28, 26, 37, 0.8);
+        /* Padding */
+        --navbarPadding: 10px 12px;
     }
 
    * {
