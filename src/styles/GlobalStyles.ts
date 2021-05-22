@@ -21,7 +21,6 @@ const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-
     };
 
 
@@ -36,7 +35,7 @@ const GlobalStyles = createGlobalStyle`
     color: var(--black);
     background: ${({ theme }) => theme.bodyBackground};
     font-size: 1rem;
-    line-height: 1rem;
+    line-height: normal;
     font-weight: 400;
     font-family: 'Roboto', sans-serif;
     font-style: normal;
