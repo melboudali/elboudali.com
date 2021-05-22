@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useRef } from "react";
 import { StaticImage } from "gatsby-plugin-image";
 import Seo from "../components/common/Seo";
 import styled from "styled-components";
+import useAppearOnScroll from "../hook/useAppearOnScroll";
 import PropTypes from "prop-types";
 
 const IndexWrapper = styled.div``;
@@ -26,14 +27,16 @@ const CertificatesDiplomasAndDegreesWrapper = styled.div``;
 interface indexProps {}
 
 const index = ({}: indexProps) => {
-  console.log("mounted");
+  // const LongAboutWrapperRef = useRef<HTMLDivElement>(null);
+  // const { appear } = useAppearOnScroll(LongAboutWrapperRef);
+
   return (
     <IndexWrapper>
       <Seo title="A B O U T" />
       <ShortAboutWrapper>
         <ImageWrapper>
           <StaticImage
-            src="../static/images/FB_IMG_1438101555768.jpg"
+            src="../static/images/elboudali.jpg"
             alt="EL BOUDALI"
             className="my_image"
             placeholder="blurred"
