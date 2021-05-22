@@ -1,6 +1,6 @@
 import React from "react";
 import { Helmet } from "react-helmet";
-import { Navbar } from "../common/Navbar";
+import { Navbar } from "../common/navbar";
 import styled, { ThemeProvider } from "styled-components";
 import GlobalStyles from "../../styles/GlobalStyles";
 import { lightTheme, darkTheme } from "../../themes";
@@ -19,7 +19,7 @@ const Main = styled.main`
 `;
 
 interface LayoutProps {
-  children: React.ReactNode;
+  children: Object;
 }
 
 const Layout = ({ children }: LayoutProps) => {
@@ -33,10 +33,7 @@ const Layout = ({ children }: LayoutProps) => {
   return (
     <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
       <Helmet>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
-          rel="stylesheet"
-        />
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet" />
       </Helmet>
       <GlobalStyles />
       <Header>
