@@ -9,6 +9,10 @@ const IndexWrapper = styled.div``;
 
 const ShortAboutWrapper = styled.div``;
 
+const ShortAbout = styled.div`
+  display: flex;
+`;
+
 const ImageWrapper = styled.div`
   width: 256px;
   height: 256px;
@@ -20,7 +24,9 @@ const ImageWrapper = styled.div`
   }
 `;
 
-const LongAboutWrapper = styled.div``;
+const LongAboutWrapper = styled.div`
+  margin-top: 500px;
+`;
 
 const CertificatesDiplomasAndDegreesWrapper = styled.div``;
 
@@ -35,13 +41,9 @@ const index = ({}: indexProps) => {
       <Seo title="A B O U T" />
       <ShortAboutWrapper>
         <ImageWrapper>
-          <StaticImage
-            src="../static/images/elboudali.jpg"
-            alt="EL BOUDALI"
-            className="my_image"
-            placeholder="blurred"
-          />
+          <StaticImage src="../static/images/elboudali.jpg" alt="EL BOUDALI" className="my_image" placeholder="blurred" />
         </ImageWrapper>
+        <ShortAbout></ShortAbout>
       </ShortAboutWrapper>
       <LongAboutWrapper></LongAboutWrapper>
       <CertificatesDiplomasAndDegreesWrapper></CertificatesDiplomasAndDegreesWrapper>
