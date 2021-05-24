@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { Link } from "gatsby";
 import styled, { css } from "styled-components";
-import Modal from "./MenuModal";
+import Modal from "./Modal";
+import CustomLink from "./CustomLink";
 
 const NavStyle = css`
   display: flex;
@@ -22,6 +22,7 @@ const Logo = styled.h1`
 `;
 
 const NavbarWrapper = styled.div`
+  --navbarPadding: 10px 12px;
   max-width: 1280px;
   padding: var(--navbarPadding);
   margin: 0 auto;
@@ -50,33 +51,6 @@ const LinkWrapper = styled.div`
   display: none;
   @media (min-width: 700px) {
     ${NavStyle}
-  }
-`;
-
-const CustomLink = styled(Link)`
-  position: relative;
-  font-size: 0.75rem;
-  letter-spacing: 1.6px;
-  text-transform: uppercase;
-  color: ${({ theme }) => theme.navColor};
-  margin-top: 1px;
-  &[aria-current="page"] {
-    font-weight: 700;
-  }
-  &:before {
-    opacity: 0;
-    content: "";
-    position: absolute;
-    height: 2px;
-    width: 0;
-    left: -1px;
-    bottom: -3px;
-    background-color: ${({ theme }) => theme.navColor};
-    transition: width 1s, opacity 1s;
-  }
-  &:hover::before {
-    opacity: 1;
-    width: 100%;
   }
 `;
 
@@ -110,22 +84,14 @@ export const Navbar = ({ themeToggler, theme }: NavbarProps) => {
 
   return (
     <NavbarWrapper>
-      {menuIsOpen && <Modal setMenuIsOpen={setMenuIsOpen} Scrollbar={Scrollbar} />}
+      {menuIsOpen && <Modal setMenuIsOpen={setMenuIsOpen} Scrollbar={Scrollbar} menuIsOpen={menuIsOpen} />}
       <Logo>{"< el boudali />"}</Logo>
       <Nav>
         <LinkWrapper>
-          <CustomLink to="/" title="about">
-            about
-          </CustomLink>
-          <CustomLink to="/projects" title="projects">
-            projects
-          </CustomLink>
-          <CustomLink to="/blog" title="blog">
-            blog
-          </CustomLink>
-          <CustomLink to="/contact" title="contact">
-            contact
-          </CustomLink>
+          <CustomLink to="/" title="about" />
+          <CustomLink to="/projects" title="projects" />
+          <CustomLink to="/blog" title="blog" />
+          <CustomLink to="/contact" title="contact" />
         </LinkWrapper>
         <button type="button" onClick={themeToggler}>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
