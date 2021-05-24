@@ -15,10 +15,10 @@ const GlobalStyles = createGlobalStyle`
         --linearRightColorDark: #E8714B;
         --linearLeftColorLight: #2188FF;
         --linearLeftColorDark: #7031C0;
-        --modalLightBackground: rgba(255, 255, 255, 0.8);
-        --modalDarkBackground: rgba(28, 26, 37, 0.8);
-        /* Padding */
-        --navbarPadding: 10px 12px;
+        --modalLightBackground: rgba(255, 255, 255, 0.95);
+        --modalDarkBackground: rgba(28, 26, 37, 0.95);
+        --modalDarkShadow:#7455ff4c;
+        --modalLightShadow:#0000006c;
     }
 
    * {
@@ -71,13 +71,13 @@ const GlobalStyles = createGlobalStyle`
   }
 
   ::-webkit-scrollbar-track {
-    background: var(--white);
+    background: ${({ theme }) => theme.bodyBackground};
   }
 
   ::-webkit-scrollbar-thumb {
-    background-color: var(--black) ;
+    background-color: ${({ theme }) => theme.titleColor};
     border-radius: 6px;
-    border: 3px solid var(--white);
+    border: 3px solid ${({ theme }) => theme.bodyBackground};
   }
  
   img {
