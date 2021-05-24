@@ -14,5 +14,6 @@ declare module "styled-components" {
     linearLeftColor: string;
     balackAndWhite: string;
     modalBackground: sring;
+    modalShadow: string;
   }
 }
