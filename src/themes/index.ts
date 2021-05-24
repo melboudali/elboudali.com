@@ -11,6 +11,7 @@ export const lightTheme: DefaultTheme = {
   linearLeftColor: "var(--linearLeftColorLight)",
   balackAndWhite: "var(--black)",
   modalBackground: "var(--modalLightBackground)",
+  modalShadow: "var(--modalLightShadow)",
 };
 
 export const darkTheme: DefaultTheme = {
@@ -24,4 +25,5 @@ export const darkTheme: DefaultTheme = {
   linearLeftColor: "var(--linearLeftColorDark)",
   balackAndWhite: "var(--white)",
   modalBackground: "var(--modalDarkBackground)",
+  modalShadow: "var(--modalDarkShadow)",
 };
