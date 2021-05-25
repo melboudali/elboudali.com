@@ -1,12 +1,13 @@
+import config from "./src/data/config";
+
 export default {
   siteMetadata: {
-    title: "< elboudali />",
-    titleTemplate: "%s · < elboudali />",
-    description: "< elboudali />",
+    title: config.title,
+    titleTemplate: `%s · ${config.title}`,
+    description: config.desciption,
     image: "/thumbnail.jpg",
-    siteUrl: "https://elboudali.com",
-    twitter: "@moelboudali",
+    siteUrl: config.siteUrl,
+    twitter: config.socialLinks.twitterId,
   },
-  flags: { PRESERVE_WEBPACK_CACHE: true },
   plugins: ["gatsby-plugin-styled-components", "gatsby-plugin-react-helmet", `gatsby-plugin-image`, `gatsby-plugin-sharp`],
 };
