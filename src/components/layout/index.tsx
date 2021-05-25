@@ -13,9 +13,13 @@ const Header = styled.header`
 `;
 
 const Main = styled.main`
+  --mainPadding: 0 12px;
   max-width: 1280px;
-  padding: 0 48px;
+  padding: var(--mainPadding);
   margin: 50px auto;
+  @media (min-width: 700px) {
+    --mainPadding: 0 48px;
+  }
 `;
 
 interface LayoutProps {
