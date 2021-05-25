@@ -8,7 +8,6 @@ declare module "styled-components" {
     bodyBackground: string;
     navColor: string;
     titleColor: string;
-    iconsColor: string;
     textColor: string;
     linearRightColor: string;
     linearLeftColor: string;
