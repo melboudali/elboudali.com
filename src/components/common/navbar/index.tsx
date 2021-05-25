@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled, { css } from "styled-components";
 import Modal from "./Modal";
 import CustomLink from "./CustomLink";
+import config from "../../../data/config";
 
 const NavStyle = css`
   display: flex;
@@ -85,7 +86,7 @@ export const Navbar = ({ themeToggler, theme }: NavbarProps) => {
   return (
     <NavbarWrapper>
       {menuIsOpen && <Modal setMenuIsOpen={setMenuIsOpen} Scrollbar={Scrollbar} menuIsOpen={menuIsOpen} />}
-      <Logo>{"< el boudali />"}</Logo>
+      <Logo>{config.title}</Logo>
       <Nav>
         <LinkWrapper>
           <CustomLink to="/" title="about" />
@@ -94,7 +95,7 @@ export const Navbar = ({ themeToggler, theme }: NavbarProps) => {
           <CustomLink to="/contact" title="contact" />
         </LinkWrapper>
         <button type="button" onClick={themeToggler}>
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
               fillRule="evenodd"
               clipRule="evenodd"
@@ -107,7 +108,7 @@ export const Navbar = ({ themeToggler, theme }: NavbarProps) => {
           </svg>
         </button>
         <MenuButton type="button" onClick={menuToggler}>
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M2 5L22 5" strokeWidth="3" strokeLinecap="round" />
             <path d="M8 12L22 12" strokeWidth="3" strokeLinecap="round" />
             <path d="M14 19L22 19" strokeWidth="3" strokeLinecap="round" />
