@@ -49,11 +49,15 @@ const ImageWrapper = styled.div`
 `;
 
 const ProfileName = styled.h1`
+  --fontSize: 1.8rem;
   color: ${({ theme }) => theme.titleColor};
-  font-size: 1.875rem;
+  font-size: var(--fontSize);
   font-weight: 700;
   letter-spacing: -0.04em;
   text-transform: uppercase;
+  @media (min-width: 375px) {
+    --fontSize: 1.875rem;
+  }
 `;
 
 const ShortAboutText = styled.p`
@@ -62,6 +66,8 @@ const ShortAboutText = styled.p`
   font-size: 1rem;
   font-weight: 300;
   letter-spacing: 0.1em;
+  line-height: 24px;
+
   text-align: var(--textAlignValue);
   span {
     margin: 0 5px;
@@ -81,7 +87,18 @@ const IconsWrapper = styled.div`
 `;
 
 const LongAboutWrapper = styled.div`
-  margin-top: 500px;
+  margin-top: 50px;
+  p {
+    text-align: justify;
+    font-weight: 300;
+    line-height: 24px;
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+    color: ${({ theme }) => theme.titleColor};
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+  }
 `;
 
 const CertificatesDiplomasAndDegreesWrapper = styled.div``;
@@ -127,7 +144,18 @@ const index = () => {
           </IconsWrapper>
         </ShortAbout>
       </ShortAboutWrapper>
-      <LongAboutWrapper></LongAboutWrapper>
+      <LongAboutWrapper>
+        <p>
+          I'm a self-taught Full Stack Developer, proficient in Front End, with 2+ years of hands-on experience designing, developing, and
+          implementing applications and solutions using a range of technologies.
+        </p>
+        <p>
+          Seeking to leverage broad development experience and hands-on technical expertise in a challenging role as a Full Stack or a Front End
+          Developer.
+        </p>
+        <p>I love open source and building side projects using JavaScript tools.</p>
+        <p>This website is my digital garden — a compendium of the things I've learned and created over the years.</p>
+      </LongAboutWrapper>
       <CertificatesDiplomasAndDegreesWrapper></CertificatesDiplomasAndDegreesWrapper>
     </IndexWrapper>
   );
