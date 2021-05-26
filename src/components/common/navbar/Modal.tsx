@@ -35,8 +35,8 @@ const ModalClose = styled.button`
   height: 30px;
   padding: 5px;
   position: absolute;
-  top: 12px;
-  right: 12px;
+  top: 7px;
+  right: 7px;
   /* z-index: 2; */
   background-color: ${({ theme }) => theme.balackAndWhite};
   border-radius: 100%;
