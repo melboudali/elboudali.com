@@ -17,8 +17,8 @@ export default {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `download`,
-        path: `${__dirname}/src/static/download/`,
+        name: `others`,
+        path: `${__dirname}/src/assets/others/`,
       },
     },
   ],
