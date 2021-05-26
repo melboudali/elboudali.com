@@ -3,12 +3,12 @@ import { StaticImage } from "gatsby-plugin-image";
 import Seo from "../components/common/Seo";
 import styled from "styled-components";
 import useAppearOnScroll from "../hook/useAppearOnScroll";
-import PropTypes from "prop-types";
 import IconWithTitle from "../components/about/IconWithTitle";
 import Icons from "../components/about/Icons";
 import config from "../data/config";
 import Button from "../components/about/Button";
-import { graphql } from "gatsby";
+import { graphql, useStaticQuery } from "gatsby";
+import PropTypes from "prop-types";
 
 const IndexWrapper = styled.div``;
 
@@ -86,13 +86,21 @@ const LongAboutWrapper = styled.div`
 
 const CertificatesDiplomasAndDegreesWrapper = styled.div``;
 
-interface indexProps {
-  data: any;
-}
-
-const index = ({ data }: indexProps) => {
+const index = () => {
   // const LongAboutWrapperRef = useRef<HTMLDivElement>(null);
   // const { appear } = useAppearOnScroll(LongAboutWrapperRef);
+  const { allFile } = useStaticQuery(graphql`
+    query {
+      allFile(filter: { extension: { eq: "pdf" } }) {
+        edges {
+          node {
+            publicURL
+          }
+        }
+      }
+    }
+  `);
+
   return (
     <IndexWrapper>
       <Seo title="A B O U T" />
@@ -115,7 +123,7 @@ const index = ({ data }: indexProps) => {
             <Icons name="Freecodecamp" />
             <Icons name="Hackerrank" />
             <Icons name="Reddit" />
-            <Button url={data.allFile.edges[0].node.publicURL} />
+            <Button url={allFile.edges[0].node.publicURL} />
           </IconsWrapper>
         </ShortAbout>
       </ShortAboutWrapper>
@@ -128,15 +136,3 @@ const index = ({ data }: indexProps) => {
 index.propTypes = {};
 
 export default index;
-
-export const query = graphql`
-  query($extention: String = "pdf") {
-    allFile(filter: { extension: { eq: $extention } }) {
-      edges {
-        node {
-          publicURL
-        }
-      }
-    }
-  }
-`;
