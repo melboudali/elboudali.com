@@ -8,6 +8,7 @@ import IconWithTitle from "../components/about/IconWithTitle";
 import Icons from "../components/about/Icons";
 import config from "../data/config";
 import Button from "../components/about/Button";
+import { graphql } from "gatsby";
 
 const IndexWrapper = styled.div``;
 
@@ -85,12 +86,13 @@ const LongAboutWrapper = styled.div`
 
 const CertificatesDiplomasAndDegreesWrapper = styled.div``;
 
-interface indexProps {}
+interface indexProps {
+  data: any;
+}
 
-const index = ({}: indexProps) => {
+const index = ({ data }: indexProps) => {
   // const LongAboutWrapperRef = useRef<HTMLDivElement>(null);
   // const { appear } = useAppearOnScroll(LongAboutWrapperRef);
-
   return (
     <IndexWrapper>
       <Seo title="A B O U T" />
@@ -113,7 +115,7 @@ const index = ({}: indexProps) => {
             <Icons name="Freecodecamp" />
             <Icons name="Hackerrank" />
             <Icons name="Reddit" />
-            <Button />
+            <Button url={data.allFile.edges[0].node.publicURL} />
           </IconsWrapper>
         </ShortAbout>
       </ShortAboutWrapper>
@@ -126,3 +128,15 @@ const index = ({}: indexProps) => {
 index.propTypes = {};
 
 export default index;
+
+export const query = graphql`
+  query($extention: String = "pdf") {
+    allFile(filter: { extension: { eq: $extention } }) {
+      edges {
+        node {
+          publicURL
+        }
+      }
+    }
+  }
+`;
