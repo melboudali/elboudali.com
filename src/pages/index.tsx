@@ -145,7 +145,7 @@ const index = () => {
       <Seo title="A B O U T" />
       <ShortAboutWrapper>
         <ImageWrapper>
-          <StaticImage src="../static/images/elboudali.jpg" alt="EL BOUDALI" className="my_image" placeholder="blurred" />
+          <StaticImage src="../assets/images/elboudali.jpg" alt="EL BOUDALI" className="my_image" placeholder="blurred" />
         </ImageWrapper>
         <ShortAbout>
           <ProfileName>{config.fullName}</ProfileName>
