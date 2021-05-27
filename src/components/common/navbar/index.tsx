@@ -3,6 +3,7 @@ import styled, { css } from "styled-components";
 import Modal from "./Modal";
 import CustomLink from "./CustomLink";
 import config from "../../../data/config";
+import PropTypes from "prop-types";
 
 const NavStyle = css`
   display: flex;
@@ -24,12 +25,12 @@ const Logo = styled.h1`
 
 const NavbarWrapper = styled.div`
   --navbarPadding: 10px 12px;
-  max-width: 1280px;
-  padding: var(--navbarPadding);
-  margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: var(--navbarPadding);
   @media (min-width: 700px) {
     --navbarPadding: 10px 48px;
   }
@@ -71,7 +72,7 @@ interface NavbarProps {
   theme: string;
 }
 
-export const Navbar = ({ themeToggler, theme }: NavbarProps) => {
+const Navbar = ({ themeToggler, theme }: NavbarProps) => {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
 
   const Scrollbar = (arg: "show" | "hide") => {
@@ -118,3 +119,10 @@ export const Navbar = ({ themeToggler, theme }: NavbarProps) => {
     </NavbarWrapper>
   );
 };
+
+Navbar.prototype = {
+  themeToggler: PropTypes.func.isRequired,
+  theme: PropTypes.string.isRequired,
+};
+
+export default Navbar;
