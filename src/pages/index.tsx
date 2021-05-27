@@ -1,15 +1,14 @@
 import React, { useRef } from "react";
 import { StaticImage } from "gatsby-plugin-image";
+import { graphql, useStaticQuery } from "gatsby";
+import config from "../data/config";
 import Seo from "../components/common/Seo";
-import styled from "styled-components";
 import useAppearOnScroll from "../hook/useAppearOnScroll";
 import IconWithTitle from "../components/about/IconWithTitle";
 import Icons from "../components/about/Icons";
-import config from "../data/config";
 import Button from "../components/about/Button";
-import { graphql, useStaticQuery } from "gatsby";
-import PropTypes from "prop-types";
 import SchoolDegree from "../components/about/SchoolDegree";
+import styled from "styled-components";
 
 const IndexWrapper = styled.div`
   display: flex;
@@ -32,9 +31,9 @@ const ShortAboutWrapper = styled.div`
 const ShortAbout = styled.div`
   --alignItemsValue: center;
   display: flex;
-  gap: 10px;
-  flex-direction: column;
   align-items: var(--alignItemsValue);
+  flex-direction: column;
+  gap: 10px;
   flex: 2;
   height: 100%;
   @media (min-width: 833px) {
@@ -55,11 +54,11 @@ const ImageWrapper = styled.div`
 
 const ProfileName = styled.h1`
   --fontSize: 1.8rem;
-  color: ${({ theme }) => theme.titleColor};
   font-size: var(--fontSize);
   font-weight: 700;
   letter-spacing: -0.04em;
   text-transform: uppercase;
+  color: ${({ theme }) => theme.titleColor};
   @media (min-width: 375px) {
     --fontSize: 1.875rem;
   }
@@ -67,12 +66,12 @@ const ProfileName = styled.h1`
 
 const ShortAboutText = styled.p`
   --textAlignValue: center;
-  color: ${({ theme }) => theme.titleColor};
   font-size: 1rem;
   font-weight: 300;
   letter-spacing: 0.1em;
   line-height: 24px;
   text-align: var(--textAlignValue);
+  color: ${({ theme }) => theme.titleColor};
   span {
     margin: 0 5px;
     color: var(--red);
@@ -92,11 +91,11 @@ const IconsWrapper = styled.div`
 
 const LongAboutWrapper = styled.div`
   p {
-    text-align: justify;
+    font-size: 1rem;
     font-weight: 300;
     line-height: 24px;
-    font-size: 1rem;
     letter-spacing: 0.1em;
+    text-align: justify;
     color: ${({ theme }) => theme.titleColor};
     &:not(:last-child) {
       margin-bottom: 10px;
@@ -132,17 +131,16 @@ const CDADTitle = styled.h1`
     text-transform: capitalize;
   }
   div {
-    background: var(--secondaryColor);
-    width: 15px;
-    height: 15px;
     display: flex;
     align-items: center;
     justify-content: center;
     align-self: flex-start;
-    justify-self: start;
+    width: 15px;
+    height: 15px;
     margin-left: -10px;
-    border-radius: 4px;
     font-size: 0.6875rem;
+    border-radius: 4px;
+    background: var(--secondaryColor);
   }
   @media (min-width: 375px) {
     --fontSize: 1.25rem;
@@ -216,7 +214,5 @@ const index = () => {
     </IndexWrapper>
   );
 };
-
-index.propTypes = {};
 
 export default index;
