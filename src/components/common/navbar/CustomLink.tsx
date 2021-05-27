@@ -15,13 +15,13 @@ const CustomLinkWrapper = styled(Link)`
     font-weight: 700;
   }
   &:before {
-    opacity: 0;
     content: "";
     position: absolute;
     height: 2px;
     width: 0;
     left: -1px;
     bottom: -3px;
+    opacity: 0;
     background-color: ${({ theme }) => theme.navColor};
     transition: width 1s, opacity 1s;
   }
@@ -44,15 +44,14 @@ interface CustomLinkProps {
 }
 
 const CustomLink = ({ to, title, closeModal, menuIsOpen }: CustomLinkProps) => {
-  const onClick = () => {
+  const onClickFunction = () => {
     if (menuIsOpen && closeModal) {
-      console.log("Menu Clicked");
       closeModal();
     }
   };
 
   return (
-    <CustomLinkWrapper to={to} title={title} onClick={onClick}>
+    <CustomLinkWrapper to={to} title={title} onClick={onClickFunction}>
       {title}
     </CustomLinkWrapper>
   );
