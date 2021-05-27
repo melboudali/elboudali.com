@@ -8,7 +8,6 @@ const IconWithTitleWrapper = styled.div`
   align-items: center;
   gap: 5px;
   h2 {
-    font-size: 1rem;
     color: var(--secondaryColor);
     text-transform: capitalize;
     font-weight: 300;
