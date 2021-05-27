@@ -1,10 +1,10 @@
 import React from "react";
 import { Helmet } from "react-helmet";
-import { Navbar } from "../common/navbar";
-import styled, { ThemeProvider } from "styled-components";
+import { useDarkMode } from "../../hook/useDarkMode";
+import Navbar from "../common/navbar";
 import GlobalStyles from "../../styles/GlobalStyles";
 import { lightTheme, darkTheme } from "../../themes";
-import { useDarkMode } from "../../hook/useDarkMode";
+import styled, { ThemeProvider } from "styled-components";
 import PropTypes from "prop-types";
 
 const Header = styled.header`
