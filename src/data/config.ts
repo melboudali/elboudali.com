@@ -15,6 +15,17 @@ const config = {
     reddit: "https://www.reddit.com/user/mflyback/",
     twitterId: "@moelboudali",
   },
+  SchoolDegrees: [
+    { title: "front end development libraries certification.", schoolName: "freecodecamp", certificationLink: "/" },
+    { title: "javaScript algorithms and data structures certification.", schoolName: "freecodecamp", certificationLink: "/" },
+    { title: "responsive web design certification.", schoolName: "freecodecamp", certificationLink: "/" },
+    {
+      title: "diploma of specialized technician in computer network techniques.",
+      schoolName: "ofppt - ista ntic",
+      abbrExpantion: "specialized institute of applied technology NTIC",
+    },
+    { title: "baccalauréat in experimental science, life and earth.", schoolName: "hassan ii high school" },
+  ],
   siteUrl: "https://elboudali.com",
 };
 
