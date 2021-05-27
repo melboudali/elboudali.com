@@ -3,12 +3,12 @@ import styled from "styled-components";
 import PropTypes from "prop-types";
 
 const ButtonWrapper = styled.a`
-  width: 86px;
-  height: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 5px;
+  width: 86px;
+  height: 24px;
   background: ${({ theme }) => `linear-gradient(92.01deg, ${theme.linearLeftColor} -14.07%, ${theme.linearRightColor} 102.13%)`};
   filter: drop-shadow(2px 2px 0px ${({ theme }) => theme.balackAndWhite});
   span {
@@ -39,6 +39,6 @@ const Button = ({ url }: ButtonProps) => {
   );
 };
 
-Button.propTypes = {};
+Button.propTypes = { url: PropTypes.string.isRequired };
 
 export default Button;
