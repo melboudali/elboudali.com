@@ -9,6 +9,7 @@ import config from "../data/config";
 import Button from "../components/about/Button";
 import { graphql, useStaticQuery } from "gatsby";
 import PropTypes from "prop-types";
+import SchoolDegree from "../components/about/SchoolDegree";
 
 const IndexWrapper = styled.div`
   display: flex;
@@ -103,7 +104,16 @@ const LongAboutWrapper = styled.div`
   }
 `;
 
-const CertificatesDiplomasAndDegreesWrapper = styled.div``;
+const CertificatesDiplomasAndDegreesWrapper = styled.div`
+  --alignSelf: center;
+  display: flex;
+  flex-direction: column;
+  align-self: var(--alignSelf);
+  gap: 25px;
+  @media (min-width: 700px) {
+    --alignSelf: flex-start;
+  }
+`;
 
 const CDADTitle = styled.h1`
   --fontSize: 1.05rem;
@@ -112,6 +122,7 @@ const CDADTitle = styled.h1`
   gap: 15px;
   font-weight: 700;
   font-size: var(--fontSize);
+  text-align: justify;
   svg > path {
     fill: ${({ theme }) => theme.titleColor};
   }
@@ -119,6 +130,19 @@ const CDADTitle = styled.h1`
     color: ${({ theme }) => theme.titleColor};
     letter-spacing: -0.04em;
     text-transform: capitalize;
+  }
+  div {
+    background: var(--secondaryColor);
+    width: 15px;
+    height: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: flex-start;
+    justify-self: start;
+    margin-left: -10px;
+    border-radius: 4px;
+    font-size: 0.6875rem;
   }
   @media (min-width: 375px) {
     --fontSize: 1.25rem;
@@ -185,7 +209,9 @@ const index = () => {
             <path d="M29.0578 11.1621V11.1556C29.0426 11.007 28.9922 10.8642 28.9107 10.739C28.8291 10.6139 28.7189 10.51 28.589 10.4361L15.464 2.93608C15.3224 2.8551 15.162 2.8125 14.9988 2.8125C14.8356 2.8125 14.6753 2.8551 14.5336 2.93608L1.40858 10.4361C1.26513 10.5181 1.14591 10.6366 1.06299 10.7795C0.980073 10.9224 0.936401 11.0847 0.936401 11.2499C0.936401 11.4152 0.980073 11.5775 1.06299 11.7204C1.14591 11.8633 1.26513 11.9818 1.40858 12.0638L14.5336 19.5638C14.6753 19.6448 14.8356 19.6874 14.9988 19.6874C15.162 19.6874 15.3224 19.6448 15.464 19.5638L27.0117 12.9656C27.0296 12.9553 27.0498 12.9499 27.0704 12.9499C27.091 12.9499 27.1113 12.9553 27.1291 12.9657C27.1469 12.976 27.1617 12.9909 27.172 13.0088C27.1822 13.0266 27.1876 13.0469 27.1875 13.0675V21.5361C27.1875 22.0406 27.5754 22.4736 28.0799 22.4988C28.2066 22.5049 28.3333 22.4852 28.4522 22.4409C28.5712 22.3966 28.6798 22.3286 28.7717 22.2411C28.8636 22.1535 28.9367 22.0482 28.9867 21.9316C29.0367 21.8149 29.0625 21.6894 29.0625 21.5624V11.2499C29.0624 11.2206 29.0609 11.1913 29.0578 11.1621Z" />
           </svg>
           <span>Certificates, Diplomas, and Degrees</span>
+          <div>{config.SchoolDegrees.length}</div>
         </CDADTitle>
+        <SchoolDegree />
       </CertificatesDiplomasAndDegreesWrapper>
     </IndexWrapper>
   );
