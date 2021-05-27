@@ -1,25 +1,25 @@
-import React, { useRef, useState, useEffect } from "react";
-import styled from "styled-components";
-import PropTypes from "prop-types";
+import React, { useRef, useEffect } from "react";
 import useClickOutside from "../../../hook/useClickOutside";
 import CustomLink from "./CustomLink";
+import styled from "styled-components";
+import PropTypes from "prop-types";
 
 const ModalWrapper = styled.div`
-  background-color: ${({ theme }) => theme.modalBackground};
-  position: fixed;
   display: flex;
   align-items: center;
   justify-content: center;
+  position: fixed;
   height: 100vh;
   left: 0;
   right: 0;
   top: 0;
   bottom: 0;
   z-index: 2;
+  background-color: ${({ theme }) => theme.modalBackground};
   backdrop-filter: blur(1.5px);
   @media (min-width: 700px) {
     display: none;
-  } ;
+  }
 `;
 
 const ModalMain = styled.div`
@@ -31,10 +31,10 @@ const ModalMain = styled.div`
 `;
 
 const ModalClose = styled.button`
+  position: absolute;
   width: 30px;
   height: 30px;
   padding: 5px;
-  position: absolute;
   top: 7px;
   right: 7px;
   /* z-index: 2; */
@@ -95,6 +95,6 @@ const Modal = ({ setMenuIsOpen, Scrollbar, menuIsOpen }: ModalProps) => {
   );
 };
 
-Modal.propTypes = { setMenuIsOpen: PropTypes.func.isRequired, Scrollbar: PropTypes.func.isRequired };
+Modal.propTypes = { setMenuIsOpen: PropTypes.func.isRequired, Scrollbar: PropTypes.func.isRequired, menuIsOpen: PropTypes.bool.isRequired };
 
 export default Modal;
