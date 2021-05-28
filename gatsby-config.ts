@@ -12,12 +12,18 @@ export default {
   plugins: [
     "gatsby-plugin-styled-components",
     "gatsby-plugin-react-helmet",
-    `gatsby-plugin-image`,
-    `gatsby-plugin-sharp`,
+    "gatsby-plugin-image",
+
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: "gatsby-plugin-sharp",
       options: {
-        name: `others`,
+        defaults: { placeholder: "blurred" },
+      },
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "others",
         path: `${__dirname}/src/assets/others/`,
       },
     },
