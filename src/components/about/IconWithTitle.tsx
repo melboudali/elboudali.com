@@ -10,6 +10,7 @@ const IconWithTitleWrapper = styled.div`
   h2 {
     color: var(--secondaryColor);
     text-transform: capitalize;
+    font-size: 1rem;
     font-weight: 300;
     letter-spacing: 0.1em;
     margin-top: 1px;
