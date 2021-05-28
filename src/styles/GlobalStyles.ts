@@ -1,32 +1,32 @@
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyles = createGlobalStyle`
-    :root {
-        --black: #000;
-        --white: #fff;
-        --red: #FF8686;
-        --primaryColorDark: #dedee3;
-        --primaryColorLight: #000;
-        --secondaryColor: #A5A5A5;
-        --primaryBackgroundColorDark: #16141F;
-        --primaryBackgroundColorLight: #FBFBFB;
-        --secondaryBackgroundColorDark: #1C1A25;
-        --secondaryBackgroundColorLight: #fff;
-        --linearRightColorLight: #DB469F;
-        --linearRightColorDark: #E8714B;
-        --linearLeftColorLight: #2188FF;
-        --linearLeftColorDark: #7031C0;
-        --modalLightBackground: rgba(255, 255, 255, 0.95);
-        --modalDarkBackground: rgba(28, 26, 37, 0.95);
-        --modalDarkShadow:#7455ff4c;
-        --modalLightShadow:#0000006c;
-    }
+  :root {
+      --black: #000;
+      --white: #fff;
+      --red: #FF8686;
+      --primaryColorDark: #dedee3;
+      --primaryColorLight: #000;
+      --secondaryColor: #A5A5A5;
+      --primaryBackgroundColorDark: #16141F;
+      --primaryBackgroundColorLight: #FBFBFB;
+      --secondaryBackgroundColorDark: #1C1A25;
+      --secondaryBackgroundColorLight: #fff;
+      --linearRightColorLight: #DB469F;
+      --linearRightColorDark: #E8714B;
+      --linearLeftColorLight: #2188FF;
+      --linearLeftColorDark: #7031C0;
+      --modalLightBackground: rgba(255, 255, 255, 0.95);
+      --modalDarkBackground: rgba(28, 26, 37, 0.95);
+      --modalDarkShadow:#7455ff4c;
+      --modalLightShadow:#0000006c;
+  }
 
-   * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    };
+  * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  };
 
 
   html {
