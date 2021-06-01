@@ -17,7 +17,7 @@ const IndexWrapper = styled.div`
   gap: 50px;
 `;
 
-const ShortAboutWrapper = styled.div`
+const ShortAboutWrapper = styled.section`
   --flexDirection: column;
   display: flex;
   justify-content: center;
@@ -78,7 +78,7 @@ const IconsWrapper = styled.div`
   flex-wrap: wrap;
 `;
 
-const LongAboutWrapper = styled.div`
+const LongAboutWrapper = styled.section`
   p {
     font-size: 1rem;
     font-weight: 300;
@@ -92,7 +92,7 @@ const LongAboutWrapper = styled.div`
   }
 `;
 
-const CertificatesDiplomasAndDegreesWrapper = styled.div`
+const CertificatesDiplomasAndDegreesWrapper = styled.section`
   --alignSelf: center;
   display: flex;
   flex-direction: column;
