@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 
-const ProfileName = styled.h1`
+const PageTitleWrapper = styled.h1`
   --fontSize: 1.8rem;
   font-size: var(--fontSize);
   font-weight: 700;
@@ -18,7 +18,7 @@ interface PageTitleProps {
   children: string;
 }
 
-const PageTitle = ({ children }: PageTitleProps) => <ProfileName>{children}</ProfileName>;
+const PageTitle = ({ children }: PageTitleProps) => <PageTitleWrapper>{children}</PageTitleWrapper>;
 
 PageTitle.propTypes = { children: PropTypes.string.isRequired };
 
