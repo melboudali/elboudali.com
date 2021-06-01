@@ -8,13 +8,34 @@ const ContactWrapper = styled.section`
   padding: 0 193px;
 `;
 
-const FormWrapper = styled.form``;
+const FormWrapper = styled.form`
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin-top: 60px;
+`;
 
-const InputGroupWrapper = styled.div``;
+const InputGroupWrapper = styled.div`
+  display: flex;
+  align-items: center;
+`;
 
-const InoutLabel = styled.label``;
+const InoutLabel = styled.label`
+  flex: 1 1 30%;
+`;
 
-const Input = styled.input``;
+const Input = styled.input`
+  flex: 2 1 70%;
+  height: 42px;
+  border-radius: 5px;
+  border: none;
+  background-color: #e4e4e4;
+  box-shadow: none;
+  &:focus {
+    outline: auto #e4e4e4;
+    background-color: transparent;
+  }
+`;
 
 interface contactProps {}
 
@@ -47,7 +68,7 @@ const InputGroup = ({ values, updateValue, name }: InputGroupProps) => {
   return (
     <InputGroupWrapper>
       <InoutLabel>your {name}</InoutLabel>
-      <Input name={name} type={name === "email" ? "email" : "text"} value={values.name} onChange={updateValue} />
+      <Input name={name} type={name === "email" ? "email" : "text"} value={values[name]} onChange={updateValue} />
     </InputGroupWrapper>
   );
 };
