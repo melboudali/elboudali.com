@@ -9,6 +9,7 @@ import Icons from "../components/about/Icons";
 import Button from "../components/about/Button";
 import SchoolDegree from "../components/about/SchoolDegree";
 import styled from "styled-components";
+import PageTitle from "../components/common/PageTitle";
 
 const IndexWrapper = styled.div`
   display: flex;
@@ -49,18 +50,6 @@ const ImageWrapper = styled.div`
   .my_image {
     transform: scale(1.9);
     transform-origin: 35% 15%;
-  }
-`;
-
-const ProfileName = styled.h1`
-  --fontSize: 1.8rem;
-  font-size: var(--fontSize);
-  font-weight: 700;
-  letter-spacing: -0.04em;
-  text-transform: uppercase;
-  color: ${({ theme }) => theme.titleColor};
-  @media (min-width: 375px) {
-    --fontSize: 1.875rem;
   }
 `;
 
@@ -170,7 +159,7 @@ const index = () => {
           <StaticImage src="../assets/images/elboudali.jpg" alt="EL BOUDALI" className="my_image" />
         </ImageWrapper>
         <ShortAbout>
-          <ProfileName>{config.fullName}</ProfileName>
+          <PageTitle>{config.fullName}</PageTitle>
           <IconWithTitle type="role" />
           <ShortAboutText>
             I<span>❤</span>coding w/ JavaScript, TypeScript, React, Gatsby, Next, graphQL and Express.
