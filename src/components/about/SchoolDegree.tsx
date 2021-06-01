@@ -75,8 +75,9 @@ interface SchoolDegreeItemProps {
 const SchoolDegree = () => {
   return (
     <SchoolDegreesWrapper>
-      {config.SchoolDegrees.map(SchoolDegree => (
+      {config.SchoolDegrees.map((SchoolDegree, index) => (
         <SchoolDegreeItem
+          key={index}
           title={SchoolDegree.title}
           schoolName={SchoolDegree.schoolName}
           certificationLink={SchoolDegree.certificationLink}
