@@ -27,7 +27,7 @@ const ModalMain = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  gap: 5rem;
+  gap: 60px;
 `;
 
 const ModalClose = styled.button`
