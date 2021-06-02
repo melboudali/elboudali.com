@@ -14,5 +14,7 @@ declare module "styled-components" {
     balackAndWhite: string;
     modalBackground: sring;
     modalShadow: string;
+    inputBackground: string;
+    buttonBackground: string;
   }
 }
