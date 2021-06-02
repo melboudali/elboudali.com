@@ -11,6 +11,8 @@ export const lightTheme: DefaultTheme = {
   balackAndWhite: "var(--black)",
   modalBackground: "var(--modalLightBackground)",
   modalShadow: "var(--modalLightShadow)",
+  inputBackground: "var(--inputLightBackground)",
+  buttonBackground: "var(--buttonBackgroundLight)",
 };
 
 export const darkTheme: DefaultTheme = {
@@ -24,4 +26,6 @@ export const darkTheme: DefaultTheme = {
   balackAndWhite: "var(--white)",
   modalBackground: "var(--modalDarkBackground)",
   modalShadow: "var(--modalDarkShadow)",
+  inputBackground: "var(--inputDarkBackground)",
+  buttonBackground: "var(--buttonBackgroundDark)",
 };
