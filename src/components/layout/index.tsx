@@ -23,7 +23,7 @@ const Main = styled.main`
 `;
 
 interface LayoutProps {
-  children: Object;
+  children: React.ReactNode;
 }
 
 const Layout = ({ children }: LayoutProps) => {
