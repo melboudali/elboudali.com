@@ -97,13 +97,16 @@ const SubmitButton = styled.input`
   font-size: 1.1rem;
   letter-spacing: 0.3em;
   text-transform: uppercase;
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 interface contactProps {}
 
 interface InputGroupProps {
   values: { name: string; email: string; message: string };
-  updateValue: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  updateValue: (e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>) => void;
   name: "name" | "email" | "message";
 }
 
@@ -114,10 +117,16 @@ const contact = ({}: contactProps) => {
     message: "",
   });
 
+  const onSubmitFunction = (e: React.FormEvent) => {
+    e.preventDefault();
+    clearValues();
+    console.log(values);
+  };
+
   return (
     <ContactWrapper>
       <PageTitle>Send an email to Mohamed EL BOUDALI</PageTitle>
-      <FormWrapper>
+      <FormWrapper onSubmit={onSubmitFunction}>
         <InputGroup values={values} updateValue={updateValue} name="name" />
         <InputGroup values={values} updateValue={updateValue} name="email" />
         <InputGroup values={values} updateValue={updateValue} name="message" />
@@ -132,7 +141,7 @@ const InputGroup = ({ values, updateValue, name }: InputGroupProps) => {
     <InputGroupWrapper type={name === "message" ? "textarea" : "text"}>
       <InoutLabel name={name}>your {name}</InoutLabel>
       {name === "message" ? (
-        <TextArea rows={15} />
+        <TextArea rows={15} name={name} value={values[name]} onChange={updateValue} />
       ) : (
         <Input name={name} type={name === "email" ? "email" : "text"} value={values[name]} onChange={updateValue} />
       )}
