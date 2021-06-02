@@ -14,9 +14,6 @@ const CustomLinkWrapper = styled(Link)`
   &[aria-current="page"] {
     font-weight: 700;
   }
-  &:focus {
-    outline: none;
-  }
   &:before {
     content: "";
     position: absolute;
@@ -28,8 +25,7 @@ const CustomLinkWrapper = styled(Link)`
     background-color: ${({ theme }) => theme.navColor};
     transition: width 1s, opacity 1s;
   }
-  &:hover::before,
-  &:focus::before {
+  &:hover::before {
     opacity: 1;
     width: 100%;
   }
