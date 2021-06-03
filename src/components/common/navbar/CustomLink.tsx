@@ -51,7 +51,7 @@ const CustomLink = ({ to, title, closeModal, menuIsOpen }: CustomLinkProps) => {
   };
 
   return (
-    <CustomLinkWrapper to={to} title={title} onClick={onClickFunction}>
+    <CustomLinkWrapper to={to} aria-label={title} title={title} onClick={onClickFunction}>
       {title}
     </CustomLinkWrapper>
   );
