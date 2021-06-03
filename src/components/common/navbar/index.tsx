@@ -95,7 +95,7 @@ const Navbar = ({ themeToggler, theme }: NavbarProps) => {
           <CustomLink to="/blog" title="blog" />
           <CustomLink to="/contact" title="contact" />
         </LinkWrapper>
-        <button type="button" aria-label="theme-toggler" onClick={themeToggler}>
+        <button type="button" aria-label="theme toggler" onClick={themeToggler}>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
               fillRule="evenodd"
@@ -108,7 +108,7 @@ const Navbar = ({ themeToggler, theme }: NavbarProps) => {
             />
           </svg>
         </button>
-        <MenuButton type="button" aria-label="menu-button" onClick={menuToggler}>
+        <MenuButton type="button" aria-label="menu" onClick={menuToggler}>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M2 5L22 5" strokeWidth="3" strokeLinecap="round" />
             <path d="M8 12L22 12" strokeWidth="3" strokeLinecap="round" />
