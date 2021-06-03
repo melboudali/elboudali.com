@@ -1,0 +1,16 @@
+{
+  "name": "contact",
+  "version": "1.0.0",
+  "description": "contact function",
+  "main": "contact.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Moe",
+  "license": "MIT",
+  "dependencies": {
+    "@netlify/functions": "^0.7.2",
+    "@types/nodemailer": "^6.4.2",
+    "nodemailer": "^6.6.1"
+  }
+}
