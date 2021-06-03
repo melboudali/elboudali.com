@@ -7,7 +7,7 @@ const config = {
   location: "morocco",
   socialLinks: {
     email: "mailto:contact@elboudali.com",
-    Linkedin: "https://www.linkedin.com/in/elboudali",
+    linkedin: "https://www.linkedin.com/in/elboudali",
     github: "https://github.com/melboudali",
     twitter: "https://twitter.com/moelboudali",
     freecodecamp: "https://www.freecodecamp.org/elboudali",
