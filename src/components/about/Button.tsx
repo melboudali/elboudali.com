@@ -27,7 +27,7 @@ interface ButtonProps {
 
 const Button = ({ url }: ButtonProps) => {
   return (
-    <ButtonWrapper href={url} download>
+    <ButtonWrapper href={url} aria-label="resume" rel="noreferrer" download>
       <span>resume</span>
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path
