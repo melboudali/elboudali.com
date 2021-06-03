@@ -69,7 +69,7 @@ const Modal = ({ setMenuIsOpen, Scrollbar, menuIsOpen }: ModalProps) => {
 
   return (
     <ModalWrapper>
-      <ModalClose type="button" onClick={closeModal}>
+      <ModalClose type="button" aria-label="close-button" onClick={closeModal}>
         <svg
           width="20"
           height="20"
