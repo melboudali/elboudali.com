@@ -130,7 +130,7 @@ const contact = ({}: contactProps) => {
         <InputGroup values={values} updateValue={updateValue} name="name" />
         <InputGroup values={values} updateValue={updateValue} name="email" />
         <InputGroup values={values} updateValue={updateValue} name="message" />
-        <SubmitButton type="submit" value="send" />
+        <SubmitButton type="submit" aria-label="submit-button" value="send" />
       </FormWrapper>
     </ContactWrapper>
   );
