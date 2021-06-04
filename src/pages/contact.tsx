@@ -2,14 +2,55 @@ import React from "react";
 import styled, { css, keyframes } from "styled-components";
 import PageTitle from "../components/common/PageTitle";
 import useForm from "../hook/useForm";
-import PropTypes from "prop-types";
 import useContact from "../hook/useContact";
+import config from "../data/config";
+import PropTypes from "prop-types";
 
 const ContactWrapper = styled.section`
   --paddingLeftRigth: 0;
   padding: 0 var(--paddingLeftRigth);
   @media (min-width: 1100px) {
     --paddingLeftRigth: 193px;
+  }
+`;
+
+const CopyEmailWrapper = styled.div`
+  --margin: 0 auto;
+  margin: var(--margin);
+  display: flex;
+  align-items: center;
+  width: 241px;
+  height: 30px;
+  background-color: #f6f6f6;
+  margin-top: 24px;
+  border: 1px solid #e4e4e4;
+  border-radius: 5px;
+  @media (min-width: 700px) {
+    --margin: 0;
+  }
+`;
+
+const EmailWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  height: 100%;
+  font-weight: bold;
+  color: #bdbdbd;
+  font-size: 0.9375rem;
+  padding: 0 5px;
+  border-right: 1px solid #e4e4e4;
+`;
+
+const CopyButtonWrapper = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  &:hover {
+    background-color: #e4e4e4;
   }
 `;
 
@@ -165,6 +206,7 @@ const contact = ({}: contactProps) => {
   return (
     <ContactWrapper>
       <PageTitle>Send an email to Mohamed EL BOUDALI</PageTitle>
+      <CopyEmail></CopyEmail>
       <FormWrapper onSubmit={onSubmit}>
         <InputGroup values={values} updateValue={updateValue} name="name" />
         <InputGroup values={values} updateValue={updateValue} name="email" />
@@ -213,6 +255,30 @@ const ResponseMessage = ({ error, responseMessage }: ResponseMessageProps) => {
       )}
       {responseMessage}
     </ResponseMessageWrapper>
+  );
+};
+
+const CopyEmail = () => {
+  return (
+    <CopyEmailWrapper>
+      <EmailWrapper>
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M18.125 2.5H1.875C0.839453 2.5 0 3.33945 0 4.375V15.625C0 16.6605 0.839453 17.5 1.875 17.5H18.125C19.1605 17.5 20 16.6605 20 15.625V4.375C20 3.33945 19.1605 2.5 18.125 2.5ZM18.125 4.375V5.96895C17.2491 6.68219 15.8528 7.79125 12.8677 10.1287C12.2098 10.6462 10.9067 11.8893 10 11.8748C9.09344 11.8895 7.78988 10.646 7.1323 10.1287C4.14766 7.7916 2.75098 6.6823 1.875 5.96895V4.375H18.125ZM1.875 15.625V8.37492C2.77008 9.08785 4.03941 10.0883 5.97414 11.6033C6.82793 12.2754 8.32312 13.759 10 13.75C11.6686 13.759 13.1449 12.2969 14.0255 11.6036C15.9602 10.0886 17.2299 9.08793 18.125 8.37496V15.625H1.875Z"
+            fill="#BDBDBD"
+          />
+        </svg>
+        {config.socialLinks.email}
+      </EmailWrapper>
+      <CopyButtonWrapper onClick={() => navigator.clipboard.writeText(config.socialLinks.email)}>
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M13.75 17.5V19.0625C13.75 19.5803 13.3303 20 12.8125 20H2.1875C1.66973 20 1.25 19.5803 1.25 19.0625V4.6875C1.25 4.16973 1.66973 3.75 2.1875 3.75H5V15.3125C5 16.5187 5.98129 17.5 7.1875 17.5H13.75ZM13.75 4.0625V0H7.1875C6.66973 0 6.25 0.419727 6.25 0.9375V15.3125C6.25 15.8303 6.66973 16.25 7.1875 16.25H17.8125C18.3303 16.25 18.75 15.8303 18.75 15.3125V5H14.6875C14.1719 5 13.75 4.57812 13.75 4.0625ZM18.4754 2.85043L15.8996 0.27457C15.7238 0.0987666 15.4853 1.29998e-06 15.2367 0L15 0V3.75H18.75V3.51332C18.75 3.26469 18.6512 3.02624 18.4754 2.85043V2.85043Z"
+            fill="#747474"
+          />
+        </svg>
+      </CopyButtonWrapper>
+    </CopyEmailWrapper>
   );
 };
 
