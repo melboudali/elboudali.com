@@ -18,6 +18,24 @@ const useContact = ({ name, email, message, clearValues }: useContactProps) => {
     setError(false);
     setResponseMessage("");
 
+    const lengthError = (fieldName: string, fieldLength: string) => {
+      setError(true);
+      setLoading(false);
+      setResponseMessage(`${fieldName} field length should be greater than ${fieldLength}.`);
+    };
+
+    if (name.length <= 4) {
+      return lengthError("name", "4");
+    }
+
+    if (email.length <= 10) {
+      return lengthError("email", "10");
+    }
+
+    if (message.length <= 20) {
+      return lengthError("message", "20");
+    }
+
     const res = await fetch(`${process.env.GATSBY_SERVERLESS_BASE}/contact`, {
       method: "POST",
       headers: {
