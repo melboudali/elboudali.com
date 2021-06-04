@@ -6,7 +6,7 @@ const config = {
   role: "front end developer",
   location: "morocco",
   socialLinks: {
-    email: "mailto:contact@elboudali.com",
+    email: "contact@elboudali.com",
     linkedin: "https://www.linkedin.com/in/elboudali",
     github: "https://github.com/melboudali",
     twitter: "https://twitter.com/moelboudali",
