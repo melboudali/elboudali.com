@@ -84,6 +84,26 @@ const TextArea = styled.textarea`
   ${InputAndTextArea}
 `;
 
+const ResponseMessageWrapper = styled.div<{ error: boolean }>`
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  color: ${({ error }) => (error ? "var(--red)" : "var(--green)")};
+  svg > path {
+    &:nth-child(1) {
+      stroke: ${({ error }) => (error ? "var(--red)" : "var(--green)")};
+      stroke-width: 1.5;
+      stroke-miterlimit: 10;
+    }
+    &:nth-child(2) {
+      stroke: ${({ error }) => (error ? "var(--red)" : "var(--green)")};
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+  }
+`;
+
 const SvgAnimation = keyframes`
 	0% {
 		transform: rotate(180deg);
@@ -128,6 +148,11 @@ interface InputGroupProps {
   name: "name" | "email" | "message";
 }
 
+interface ResponseMessageProps {
+  error: boolean;
+  responseMessage: string;
+}
+
 const contact = ({}: contactProps) => {
   const { values, updateValue, clearValues } = useForm({
     name: "",
@@ -135,7 +160,7 @@ const contact = ({}: contactProps) => {
     message: "",
   });
 
-  const { loading, error, message, onSubmit } = useContact({ name: values.name, email: values.email, message: values.message, clearValues });
+  const { loading, error, responseMessage, onSubmit } = useContact({ name: values.name, email: values.email, message: values.message, clearValues });
 
   return (
     <ContactWrapper>
@@ -144,6 +169,7 @@ const contact = ({}: contactProps) => {
         <InputGroup values={values} updateValue={updateValue} name="name" />
         <InputGroup values={values} updateValue={updateValue} name="email" />
         <InputGroup values={values} updateValue={updateValue} name="message" />
+        {responseMessage && <ResponseMessage error={error} responseMessage={responseMessage} />}
         <SubmitButton type="submit" aria-label="submit">
           {loading ? (
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -163,11 +189,30 @@ const InputGroup = ({ values, updateValue, name }: InputGroupProps) => {
     <InputGroupWrapper type={name === "message" ? "textarea" : "text"}>
       <InoutLabel name={name}>your {name}</InoutLabel>
       {name === "message" ? (
-        <TextArea rows={15} name={name} value={values[name]} onChange={updateValue} />
+        <TextArea rows={10} name={name} value={values[name]} onChange={updateValue} />
       ) : (
         <Input name={name} type={name === "email" ? "email" : "text"} value={values[name]} onChange={updateValue} />
       )}
     </InputGroupWrapper>
+  );
+};
+
+const ResponseMessage = ({ error, responseMessage }: ResponseMessageProps) => {
+  return (
+    <ResponseMessageWrapper error={error}>
+      {error ? (
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M21 12C21 7.03125 16.9688 3 12 3C7.03125 3 3 7.03125 3 12C3 16.9688 7.03125 21 12 21C16.9688 21 21 16.9688 21 12Z" />
+          <path d="M9 15L15 9M15 15L9 9L15 15Z" />
+        </svg>
+      ) : (
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M21 12C21 7.03125 16.9688 3 12 3C7.03125 3 3 7.03125 3 12C3 16.9688 7.03125 21 12 21C16.9688 21 21 16.9688 21 12Z" />
+          <path d="M16.5 8.25L10.2 15.75L7.5 12.75" />
+        </svg>
+      )}
+      {responseMessage}
+    </ResponseMessageWrapper>
   );
 };
 
