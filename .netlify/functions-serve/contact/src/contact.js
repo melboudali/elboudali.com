@@ -9389,13 +9389,13 @@ var handler = async (event) => {
   try {
     await transporter.sendMail({
       from: `${body.name} <contact@elboudali.com>`,
-      to: `Mohamed EL BOUDALI <contact@elboudali.com>`,
+      to: `Mohamed EL BOUDALI <hello@elboudali.com>`,
       subject: "New email from elboudali.com",
       html: generateContactEmail({name: body.name, email: body.email, message: body.message})
     });
-    return responseFunction(200, "Success!");
-  } catch (error) {
-    return responseFunction(400, `Mail is not sent - Message: ${error.message}`);
+    return responseFunction(200, "We have received your message, we will reply by email as soon as possible.");
+  } catch {
+    return responseFunction(400, `An error occurred, please try again later.`);
   }
 };
 // Annotate the CommonJS export names for ESM import in node:
