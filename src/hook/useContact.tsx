@@ -9,12 +9,14 @@ interface useContactProps {
 
 const useContact = ({ name, email, message, clearValues }: useContactProps) => {
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
+  const [error, setError] = useState(false);
+  const [responseMessage, setResponseMessage] = useState("");
 
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    setError("");
+    setError(false);
+    setResponseMessage("");
 
     const res = await fetch(`${process.env.GATSBY_SERVERLESS_BASE}/contact`, {
       method: "POST",
@@ -31,17 +33,18 @@ const useContact = ({ name, email, message, clearValues }: useContactProps) => {
     const text = JSON.parse(await res.text());
 
     if (res.status >= 400 && res.status < 600) {
-      setError(text.message);
+      setError(true);
     } else {
       clearValues();
     }
+    setResponseMessage(text.message);
     setLoading(false);
   };
 
   return {
     loading,
     error,
-    message,
+    responseMessage,
     onSubmit,
   };
 };
