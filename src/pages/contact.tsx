@@ -1,8 +1,9 @@
 import React from "react";
-import styled, { css } from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 import PageTitle from "../components/common/PageTitle";
 import useForm from "../hook/useForm";
 import PropTypes from "prop-types";
+import useContact from "../hook/useContact";
 
 const ContactWrapper = styled.section`
   --paddingLeftRigth: 0;
@@ -83,20 +84,37 @@ const TextArea = styled.textarea`
   ${InputAndTextArea}
 `;
 
-const SubmitButton = styled.input`
+const SvgAnimation = keyframes`
+	0% {
+		transform: rotate(180deg);
+	}
+	to {
+		transform: rotate(540deg);
+	}
+`;
+
+const SubmitButton = styled.button`
   width: 210px;
   height: 52px;
-  border: none;
-  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   align-self: flex-end;
   background-color: ${({ theme }) => theme.buttonBackground};
-  color: var(--white);
   box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.08);
   border-radius: 5px;
+  color: var(--secondaryColor);
   font-weight: 300;
   font-size: 1.1rem;
   letter-spacing: 0.3em;
   text-transform: uppercase;
+  svg {
+    path {
+      stroke-width: 2;
+      stroke: var(--secondaryColor);
+    }
+    animation: ${SvgAnimation} 1s steps(20) infinite;
+  }
   &:hover {
     cursor: pointer;
   }
@@ -117,20 +135,24 @@ const contact = ({}: contactProps) => {
     message: "",
   });
 
-  const onSubmitFunction = (e: React.FormEvent) => {
-    e.preventDefault();
-    clearValues();
-    console.log(values);
-  };
+  const { loading, error, message, onSubmit } = useContact({ name: values.name, email: values.email, message: values.message, clearValues });
 
   return (
     <ContactWrapper>
       <PageTitle>Send an email to Mohamed EL BOUDALI</PageTitle>
-      <FormWrapper onSubmit={onSubmitFunction}>
+      <FormWrapper onSubmit={onSubmit}>
         <InputGroup values={values} updateValue={updateValue} name="name" />
         <InputGroup values={values} updateValue={updateValue} name="email" />
         <InputGroup values={values} updateValue={updateValue} name="message" />
-        <SubmitButton type="submit" aria-label="submit-button" value="send" />
+        <SubmitButton type="submit" aria-label="submit">
+          {loading ? (
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 12C1 14.1756 1.64514 16.3023 2.85383 18.1113C4.06253 19.9202 5.7805 21.3301 7.79048 22.1627C9.80047 22.9952 12.0122 23.2131 14.146 22.7886C16.2798 22.3642 18.2398 21.3166 19.7782 19.7782C21.3166 18.2398 22.3642 16.2798 22.7886 14.146C23.2131 12.0122 22.9952 9.80047 22.1627 7.79048C21.3301 5.78049 19.9202 4.06253 18.1113 2.85383C16.3023 1.64514 14.1756 1 12 1" />
+            </svg>
+          ) : (
+            "send"
+          )}
+        </SubmitButton>
       </FormWrapper>
     </ContactWrapper>
   );
