@@ -5,6 +5,7 @@ interface ErrorPageProps {}
 
 const ErrorPage = ({}: ErrorPageProps) => (
   <>
+    // FIXME: fix this page later
     <h1>Not Found Page</h1>
   </>
 );
