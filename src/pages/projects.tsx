@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 interface projectsProps {}
 
 const projects = ({}: projectsProps) => {
+  // FIXME: fix this page later
   return <div>This is projects Component/Page</div>;
 };
 
