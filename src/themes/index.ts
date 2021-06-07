@@ -14,6 +14,7 @@ export const lightTheme: DefaultTheme = {
   labelColor: "var(--labelColor)",
   inputBackground: "var(--inputLightBackground)",
   buttonBackground: "var(--buttonBackgroundLight)",
+  emailBackground: "var(--emailLightBackground)",
 };
 
 export const darkTheme: DefaultTheme = {
@@ -30,4 +31,5 @@ export const darkTheme: DefaultTheme = {
   inputBackground: "var(--inputDarkBackground)",
   labelColor: "var(--labelColor)",
   buttonBackground: "var(--buttonBackgroundDark)",
+  emailBackground: "var(--emailDarkBackground)",
 };
