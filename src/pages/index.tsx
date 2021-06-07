@@ -156,7 +156,7 @@ const index = () => {
       <Seo title="A B O U T" />
       <ShortAboutWrapper>
         <ImageWrapper>
-          <StaticImage src="../assets/images/elboudali.jpg" alt="EL BOUDALI" className="my_image" />
+          <StaticImage src="../assets/images/image/elboudali.jpg" alt="EL BOUDALI" className="my_image" />
         </ImageWrapper>
         <ShortAbout>
           <PageTitle>{about.fullName}</PageTitle>
