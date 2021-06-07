@@ -1,5 +1,5 @@
 import React from "react";
-import config from "../../data/config";
+import about from "../../data/about";
 import styled from "styled-components";
 
 const SchoolDegreesWrapper = styled.div`
@@ -75,13 +75,13 @@ interface SchoolDegreeItemProps {
 const SchoolDegree = () => {
   return (
     <SchoolDegreesWrapper>
-      {config.SchoolDegrees.map((SchoolDegree, index) => (
+      {about.schoolDegrees.map((schoolDegree, index) => (
         <SchoolDegreeItem
           key={index}
-          title={SchoolDegree.title}
-          schoolName={SchoolDegree.schoolName}
-          certificationLink={SchoolDegree.certificationLink}
-          abbrExpantion={SchoolDegree.abbrExpantion}
+          title={schoolDegree.title}
+          schoolName={schoolDegree.schoolName}
+          certificationLink={schoolDegree.certificationLink}
+          abbrExpantion={schoolDegree.abbrExpantion}
         />
       ))}
     </SchoolDegreesWrapper>
