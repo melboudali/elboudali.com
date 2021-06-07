@@ -1,13 +1,13 @@
-import config from "./src/data/config";
+import about from "./src/data/about";
 
 export default {
   siteMetadata: {
-    title: config.title,
-    titleTemplate: `%s · ${config.title}`,
-    description: config.desciption,
+    title: "< el boudali />",
+    titleTemplate: `%s · < el boudali />`,
+    description: about.summary.long[0],
     image: "/thumbnail.jpg",
-    siteUrl: config.siteUrl,
-    twitter: config.socialLinks.twitterId,
+    siteUrl: about.siteUrl,
+    twitter: about.socialLinks.twitterId,
   },
   plugins: [
     "gatsby-plugin-styled-components",
