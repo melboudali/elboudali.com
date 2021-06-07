@@ -15,6 +15,7 @@ export const lightTheme: DefaultTheme = {
   inputBackground: "var(--inputLightBackground)",
   buttonBackground: "var(--buttonBackgroundLight)",
   emailBackground: "var(--emailLightBackground)",
+  emailBorder: "var(--emailLightBorder)",
 };
 
 export const darkTheme: DefaultTheme = {
@@ -28,8 +29,9 @@ export const darkTheme: DefaultTheme = {
   balackAndWhite: "var(--white)",
   modalBackground: "var(--modalDarkBackground)",
   modalShadow: "var(--modalDarkShadow)",
-  inputBackground: "var(--inputDarkBackground)",
   labelColor: "var(--labelColor)",
+  inputBackground: "var(--inputDarkBackground)",
   buttonBackground: "var(--buttonBackgroundDark)",
   emailBackground: "var(--emailDarkBackground)",
+  emailBorder: "var(--emailDarkBorder)",
 };

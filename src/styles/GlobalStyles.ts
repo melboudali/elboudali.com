@@ -21,12 +21,15 @@ const GlobalStyles = createGlobalStyle`
       --modalDarkBackground: rgba(28, 26, 37, 0.95);
       --modalDarkShadow:#7455ff4c;
       --modalLightShadow:#0000006c;
-      --labelColor: #BDBDBD;
+      --labelColor: #ADADAD;
       --inputDarkBackground: rgba(98, 84, 170, 0.3);
-      --inputLightBackground: #e4e4e4;
+      --inputLightBackground: #D8D8D8;
       --buttonBackgroundLight: #000;
-      --buttonBackgroundDark: #4C2A8D
-
+      --buttonBackgroundDark: #4C2A8D;
+      --emailLightBackground: #f6f6f6;
+      --emailDarkBackground: rgba(98, 84, 170, 0.3);
+      --emailLightBorder: #D8D8D8;
+      --emailDarkBorder: #4C2A8D;
   }
 
   * {
