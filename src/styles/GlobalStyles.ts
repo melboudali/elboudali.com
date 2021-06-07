@@ -21,6 +21,7 @@ const GlobalStyles = createGlobalStyle`
       --modalDarkBackground: rgba(28, 26, 37, 0.95);
       --modalDarkShadow:#7455ff4c;
       --modalLightShadow:#0000006c;
+      --labelColor: #BDBDBD;
       --inputDarkBackground: rgba(98, 84, 170, 0.3);
       --inputLightBackground: #e4e4e4;
       --buttonBackgroundLight: #000;
