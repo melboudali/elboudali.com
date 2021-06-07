@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import config from "../../data/config";
+import about from "../../data/about";
 import PropTypes from "prop-types";
 
 const IconWithTitleWrapper = styled.div`
@@ -38,7 +38,7 @@ const IconWithTitle = ({ type }: IconWithTitleProps) => {
           />
         )}
       </svg>
-      <h2>{type === "role" ? config.role : config.location}</h2>
+      <h2>{type === "role" ? about.role : about.location}</h2>
     </IconWithTitleWrapper>
   );
 };
