@@ -1,8 +1,14 @@
-const config = {
-  title: "< el boudali />",
+const about = {
   fullName: "mohamed el boudali",
-  desciption:
-    "I'm a self-taught Full Stack Developer, proficient in Front End, with 2+ years of hands-on experience designing, developing, and implementing applications and solutions using a range of technologies.",
+  summary: {
+    short: ["I", "❤", "coding w/ JavaScript, TypeScript, React, Gatsby, Next, graphQL and Express."],
+    long: [
+      " I'm a self-taught Full Stack Developer, proficient in Front End, with 2+ years of hands-on experience designing, developing, and implementing applications and solutions using a range of technologies.",
+      " Seeking to leverage broad development experience and hands-on technical expertise in a challenging role as a Full Stack or a Front End Developer.",
+      "I love open source and building side projects using JavaScript tools.",
+      "This website is my digital garden — a compendium of the things I've learned and created over the years.",
+    ],
+  },
   role: "front end developer",
   location: "morocco",
   socialLinks: {
@@ -15,7 +21,7 @@ const config = {
     reddit: "https://www.reddit.com/user/mflyback/",
     twitterId: "@moelboudali",
   },
-  SchoolDegrees: [
+  schoolDegrees: [
     { title: "front end development libraries certification.", schoolName: "freecodecamp", certificationLink: "/" },
     { title: "javaScript algorithms and data structures certification.", schoolName: "freecodecamp", certificationLink: "/" },
     { title: "responsive web design certification.", schoolName: "freecodecamp", certificationLink: "/" },
@@ -29,4 +35,4 @@ const config = {
   siteUrl: "https://elboudali.com",
 };
 
-export default config;
+export default about;
