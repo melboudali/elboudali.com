@@ -1,13 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import styled, { css, keyframes } from "styled-components";
 import PageTitle from "../components/common/PageTitle";
 import useForm from "../hook/useForm";
 import useContact from "../hook/useContact";
-import config from "../data/config";
+import about from "../data/about";
 import PropTypes from "prop-types";
 
 const ContactWrapper = styled.section`
   --paddingLeftRigth: 0;
+  position: relative;
   padding: 0 var(--paddingLeftRigth);
   @media (min-width: 1100px) {
     --paddingLeftRigth: 193px;
@@ -19,11 +20,11 @@ const CopyEmailWrapper = styled.div`
   margin: var(--margin);
   display: flex;
   align-items: center;
-  width: 241px;
+  width: 243px;
   height: 30px;
-  background-color: #f6f6f6;
+  background-color: ${({ theme }) => theme.emailBackground};
   margin-top: 24px;
-  border: 1px solid #e4e4e4;
+  border: 2px solid ${({ theme }) => theme.emailBorder};
   border-radius: 5px;
   @media (min-width: 700px) {
     --margin: 0;
@@ -37,10 +38,13 @@ const EmailWrapper = styled.div`
   gap: 5px;
   height: 100%;
   font-weight: bold;
-  color: #bdbdbd;
+  color: ${({ theme }) => theme.labelColor};
   font-size: 0.9375rem;
   padding: 0 5px;
-  border-right: 1px solid #e4e4e4;
+  border-right: 2px solid ${({ theme }) => theme.emailBorder};
+  svg > path {
+    fill: #adadad;
+  }
 `;
 
 const CopyButtonWrapper = styled.button`
@@ -50,7 +54,10 @@ const CopyButtonWrapper = styled.button`
   width: 100%;
   height: 100%;
   &:hover {
-    background-color: #e4e4e4;
+    background-color: ${({ theme }) => theme.emailBorder};
+  }
+  svg > path {
+    fill: #adadad;
   }
 `;
 
@@ -97,13 +104,14 @@ const InputLabel = styled.label<{ name: string }>`
 `;
 
 const InputAndTextArea = css`
-  font-size: 1.1875rem;
+  font-size: 1.2rem;
   font-family: "Roboto", sans-serif;
   padding: 10px;
   border: 2px solid transparent;
   border-radius: 5px;
   background-color: ${({ theme }) => theme.inputBackground};
-  color: ${({ theme }) => theme.labelColor};
+  color: ${({ theme }) => theme.titleColor};
+
   box-shadow: none;
   outline: none;
   &:focus {
@@ -164,8 +172,9 @@ const SubmitButton = styled.button`
   justify-content: center;
   align-self: flex-end;
   background-color: ${({ theme }) => theme.buttonBackground};
-  box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.08);
-  border-radius: 5px;
+  box-shadow: 5px 5px 0px var(--secondaryColor);
+  border-top-left-radius: 10px;
+  border-bottom-right-radius: 10px;
   color: var(--secondaryColor);
   font-weight: 300;
   font-size: 1.1rem;
@@ -183,6 +192,40 @@ const SubmitButton = styled.button`
   }
 `;
 
+const CopiedMessageAnimation = keyframes`
+	0% {
+		transform: translate(-50%, 50px);
+	}
+  10%{
+		transform: translate(-50%, -100px);
+
+  }
+  90%{
+		transform: translate(-50%, -100px);
+
+  }
+	100% {
+		transform: translate(-50%, 50px);
+
+	}
+`;
+
+const CopiedMessage = styled.p<{ showMessage: boolean }>`
+  position: fixed;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--green);
+  color: var(--white);
+  width: 150px;
+  height: 50px;
+  text-transform: capitalize;
+  left: 50%;
+  bottom: -50px;
+  border-radius: 5px;
+  display: ${({ showMessage }) => (showMessage ? "flex" : "none")};
+  animation: ${CopiedMessageAnimation} 2s;
+`;
+
 interface contactProps {}
 
 interface InputGroupProps {
@@ -196,6 +239,10 @@ interface ResponseMessageProps {
   responseMessage: string;
 }
 
+interface CopyEmailProps {
+  setShowMessage: (arg: boolean) => void;
+}
+
 const contact = ({}: contactProps) => {
   const { values, updateValue, clearValues } = useForm({
     name: "",
@@ -205,10 +252,11 @@ const contact = ({}: contactProps) => {
 
   const { loading, error, responseMessage, onSubmit } = useContact({ name: values.name, email: values.email, message: values.message, clearValues });
 
+  const [showMessage, setShowMessage] = useState(false);
   return (
     <ContactWrapper>
       <PageTitle>Send an email to Mohamed EL BOUDALI</PageTitle>
-      <CopyEmail></CopyEmail>
+      <CopyEmail setShowMessage={setShowMessage} />
       <FormWrapper onSubmit={onSubmit}>
         <InputGroup values={values} updateValue={updateValue} name="name" />
         <InputGroup values={values} updateValue={updateValue} name="email" />
@@ -224,6 +272,7 @@ const contact = ({}: contactProps) => {
           )}
         </SubmitButton>
       </FormWrapper>
+      {showMessage && <CopiedMessage showMessage={showMessage}>copied!</CopiedMessage>}
     </ContactWrapper>
   );
 };
@@ -260,24 +309,26 @@ const ResponseMessage = ({ error, responseMessage }: ResponseMessageProps) => {
   );
 };
 
-const CopyEmail = () => {
+const CopyEmail = ({ setShowMessage }: CopyEmailProps) => {
   return (
     <CopyEmailWrapper>
       <EmailWrapper>
         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path
-            d="M18.125 2.5H1.875C0.839453 2.5 0 3.33945 0 4.375V15.625C0 16.6605 0.839453 17.5 1.875 17.5H18.125C19.1605 17.5 20 16.6605 20 15.625V4.375C20 3.33945 19.1605 2.5 18.125 2.5ZM18.125 4.375V5.96895C17.2491 6.68219 15.8528 7.79125 12.8677 10.1287C12.2098 10.6462 10.9067 11.8893 10 11.8748C9.09344 11.8895 7.78988 10.646 7.1323 10.1287C4.14766 7.7916 2.75098 6.6823 1.875 5.96895V4.375H18.125ZM1.875 15.625V8.37492C2.77008 9.08785 4.03941 10.0883 5.97414 11.6033C6.82793 12.2754 8.32312 13.759 10 13.75C11.6686 13.759 13.1449 12.2969 14.0255 11.6036C15.9602 10.0886 17.2299 9.08793 18.125 8.37496V15.625H1.875Z"
-            fill="#BDBDBD"
-          />
+          <path d="M18.125 2.5H1.875C0.839453 2.5 0 3.33945 0 4.375V15.625C0 16.6605 0.839453 17.5 1.875 17.5H18.125C19.1605 17.5 20 16.6605 20 15.625V4.375C20 3.33945 19.1605 2.5 18.125 2.5ZM18.125 4.375V5.96895C17.2491 6.68219 15.8528 7.79125 12.8677 10.1287C12.2098 10.6462 10.9067 11.8893 10 11.8748C9.09344 11.8895 7.78988 10.646 7.1323 10.1287C4.14766 7.7916 2.75098 6.6823 1.875 5.96895V4.375H18.125ZM1.875 15.625V8.37492C2.77008 9.08785 4.03941 10.0883 5.97414 11.6033C6.82793 12.2754 8.32312 13.759 10 13.75C11.6686 13.759 13.1449 12.2969 14.0255 11.6036C15.9602 10.0886 17.2299 9.08793 18.125 8.37496V15.625H1.875Z" />
         </svg>
-        {config.socialLinks.email}
+        {about.socialLinks.email}
       </EmailWrapper>
-      <CopyButtonWrapper onClick={() => navigator.clipboard.writeText(config.socialLinks.email)}>
+      <CopyButtonWrapper
+        onClick={() => {
+          navigator.clipboard.writeText(about.socialLinks.email);
+          setShowMessage(true);
+          setTimeout(() => {
+            setShowMessage(false);
+          }, 3000);
+        }}
+      >
         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path
-            d="M13.75 17.5V19.0625C13.75 19.5803 13.3303 20 12.8125 20H2.1875C1.66973 20 1.25 19.5803 1.25 19.0625V4.6875C1.25 4.16973 1.66973 3.75 2.1875 3.75H5V15.3125C5 16.5187 5.98129 17.5 7.1875 17.5H13.75ZM13.75 4.0625V0H7.1875C6.66973 0 6.25 0.419727 6.25 0.9375V15.3125C6.25 15.8303 6.66973 16.25 7.1875 16.25H17.8125C18.3303 16.25 18.75 15.8303 18.75 15.3125V5H14.6875C14.1719 5 13.75 4.57812 13.75 4.0625ZM18.4754 2.85043L15.8996 0.27457C15.7238 0.0987666 15.4853 1.29998e-06 15.2367 0L15 0V3.75H18.75V3.51332C18.75 3.26469 18.6512 3.02624 18.4754 2.85043V2.85043Z"
-            fill="#747474"
-          />
+          <path d="M13.75 17.5V19.0625C13.75 19.5803 13.3303 20 12.8125 20H2.1875C1.66973 20 1.25 19.5803 1.25 19.0625V4.6875C1.25 4.16973 1.66973 3.75 2.1875 3.75H5V15.3125C5 16.5187 5.98129 17.5 7.1875 17.5H13.75ZM13.75 4.0625V0H7.1875C6.66973 0 6.25 0.419727 6.25 0.9375V15.3125C6.25 15.8303 6.66973 16.25 7.1875 16.25H17.8125C18.3303 16.25 18.75 15.8303 18.75 15.3125V5H14.6875C14.1719 5 13.75 4.57812 13.75 4.0625ZM18.4754 2.85043L15.8996 0.27457C15.7238 0.0987666 15.4853 1.29998e-06 15.2367 0L15 0V3.75H18.75V3.51332C18.75 3.26469 18.6512 3.02624 18.4754 2.85043V2.85043Z" />
         </svg>
       </CopyButtonWrapper>
     </CopyEmailWrapper>
