@@ -17,5 +17,6 @@ declare module "styled-components" {
     labelColor: string;
     inputBackground: string;
     buttonBackground: string;
+    emailBackground: string;
   }
 }
