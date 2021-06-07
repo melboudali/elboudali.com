@@ -85,26 +85,25 @@ const InputGroupWrapper = styled.div<{ type: string }>`
   ${({ type }) => (type === "textarea" ? TextAreaWrapper : InputWrapper)};
 `;
 
-const InoutLabel = styled.label<{ name: string }>`
+const InputLabel = styled.label<{ name: string }>`
   font-size: 1.25rem;
   font-weight: bold;
   letter-spacing: -0.04em;
   text-transform: uppercase;
-  color: var(--secondaryColor);
+  color: var(--labelColor);
   @media (min-width: 700px) {
-    ${({ name }) => name !== "message" && "flex: 1 1 30%;"}
+    ${({ name }) => name !== "message" && "flex-grow: 1;"}
   }
 `;
 
 const InputAndTextArea = css`
   font-size: 1.1875rem;
   font-family: "Roboto", sans-serif;
-  width: 100%;
   padding: 10px;
   border: 2px solid transparent;
   border-radius: 5px;
   background-color: ${({ theme }) => theme.inputBackground};
-  color: ${({ theme }) => theme.titleColor};
+  color: ${({ theme }) => theme.labelColor};
   box-shadow: none;
   outline: none;
   &:focus {
@@ -114,9 +113,12 @@ const InputAndTextArea = css`
 `;
 
 const Input = styled.input`
+  --width: 100%;
   ${InputAndTextArea}
+  width: var(--width);
   @media (min-width: 700px) {
-    flex: 2 1 70%;
+    --width: auto;
+    flex-grow: 3;
   }
 `;
 
@@ -229,7 +231,7 @@ const contact = ({}: contactProps) => {
 const InputGroup = ({ values, updateValue, name }: InputGroupProps) => {
   return (
     <InputGroupWrapper type={name === "message" ? "textarea" : "text"}>
-      <InoutLabel name={name}>your {name}</InoutLabel>
+      <InputLabel name={name}>your {name}</InputLabel>
       {name === "message" ? (
         <TextArea rows={10} name={name} value={values[name]} onChange={updateValue} />
       ) : (
