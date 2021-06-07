@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import styled, { css } from "styled-components";
 import Modal from "./Modal";
 import CustomLink from "./CustomLink";
-import config from "../../../data/config";
 import PropTypes from "prop-types";
 
 const NavStyle = css`
@@ -87,7 +86,7 @@ const Navbar = ({ themeToggler, theme }: NavbarProps) => {
   return (
     <NavbarWrapper>
       {menuIsOpen && <Modal setMenuIsOpen={setMenuIsOpen} Scrollbar={Scrollbar} menuIsOpen={menuIsOpen} />}
-      <Logo>{config.title}</Logo>
+      <Logo>{"< el boudali />"}</Logo>
       <Nav>
         <LinkWrapper>
           <CustomLink to="/" title="about" />
