@@ -10,18 +10,24 @@ export default {
     twitter: about.socialLinks.twitterId,
   },
   plugins: [
-    "gatsby-plugin-styled-components",
-    "gatsby-plugin-react-helmet",
-    "gatsby-plugin-image",
-
+    `gatsby-plugin-styled-components`,
+    `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-image`,
     {
-      resolve: "gatsby-plugin-sharp",
+      resolve: `gatsby-plugin-graphql-codegen`,
+      options: {
+        fileName: `./gatsby-graphql.ts`,
+        documentPaths: ["./src/**/*.{ts,tsx}", "./node_modules/gatsby-*/**/*.js", "./gatsby-node.ts"],
+      },
+    },
+    {
+      resolve: `gatsby-plugin-sharp`,
       options: {
         defaults: { placeholder: "blurred" },
       },
     },
     {
-      resolve: "gatsby-source-filesystem",
+      resolve: `gatsby-source-filesystem`,
       options: {
         name: "others",
         path: `${__dirname}/src/assets/others/`,
