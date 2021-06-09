@@ -3,16 +3,20 @@ import { graphql } from "gatsby";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import PageTitle from "../components/common/PageTitle";
+import { AllRepoQuery } from "../../gatsby-graphql";
 
 const ProjectsWrapper = styled.div``;
 
-interface projectsProps {}
+interface projectsProps {
+  data: AllRepoQuery;
+}
 
 const projects = ({
   data: {
-    allBeer: { nodes: beers },
+    allRepo: { nodes: repos },
   },
 }: projectsProps) => {
+  console.log(repos);
   return (
     <ProjectsWrapper>
       <PageTitle>projects</PageTitle>
@@ -25,17 +29,17 @@ projects.propTypes = {};
 export default projects;
 
 export const query = graphql`
-  query {
-    allBeer {
+  query allRepo {
+    allRepo {
       nodes {
-        id
         name
-        image
-        price
-        rating {
-          reviews
-          average
-        }
+        created_at(fromNow: true)
+        description
+        forks_count
+        html_url
+        stargazers_count
+        language
+        homepage
       }
     }
   }
