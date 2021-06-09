@@ -2735,7 +2735,7 @@ export type Unnamed_2_QueryVariables = Exact<{ [key: string]: never; }>;
 
 export type Unnamed_2_Query = { allFile: { edges: Array<{ node: Pick<File, 'publicURL'> }> } };
 
-export type AllRepoQueryQueryVariables = Exact<{ [key: string]: never; }>;
+export type AllRepoQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type AllRepoQueryQuery = { allRepo: { nodes: Array<Pick<Repo, 'name' | 'created_at' | 'description' | 'forks_count' | 'html_url' | 'stargazers_count' | 'language' | 'homepage'>> } };
+export type AllRepoQuery = { allRepo: { nodes: Array<Pick<Repo, 'name' | 'created_at' | 'description' | 'forks_count' | 'html_url' | 'stargazers_count' | 'language' | 'homepage'>> } };
