@@ -1,11 +1,17 @@
 import React from "react";
 import { graphql } from "gatsby";
-import PropTypes from "prop-types";
 import styled from "styled-components";
 import PageTitle from "../components/common/PageTitle";
 import { AllRepoQuery } from "../../gatsby-graphql";
+import projectsList from "../data/projects";
+import PropTypes from "prop-types";
+import { getAllReposStars } from "../utils/projects";
 
 const ProjectsWrapper = styled.div``;
+
+const PageTitleWrapper = styled.section`
+  display: flex;
+`;
 
 interface projectsProps {
   data: AllRepoQuery;
@@ -16,10 +22,20 @@ const projects = ({
     allRepo: { nodes: repos },
   },
 }: projectsProps) => {
-  console.log(repos);
+  console.log(getAllReposStars(repos));
   return (
     <ProjectsWrapper>
-      <PageTitle>projects</PageTitle>
+      <PageTitleWrapper>
+        <PageTitle ItemsCountNumber={repos.length}>projects</PageTitle>
+      </PageTitleWrapper>
+
+      {repos
+        // .filter(repo => repo.name === "Instagram-Clone" projectsList.map(project => project.name == repo.name))
+        .map((repo, index) => (
+          <p key={index}>
+            {repo.name} {repo.stargazers_count}
+          </p>
+        ))}
     </ProjectsWrapper>
   );
 };
