@@ -13,6 +13,8 @@ const PageTitleWrapper = styled.section`
   display: flex;
 `;
 
+const TotalStarsWrapper = styled.div``;
+
 interface projectsProps {
   data: AllRepoQuery;
 }
@@ -25,9 +27,8 @@ const projects = ({
   console.log(getAllReposStars(repos));
   return (
     <ProjectsWrapper>
-      <PageTitleWrapper>
-        <PageTitle ItemsCountNumber={repos.length}>projects</PageTitle>
-      </PageTitleWrapper>
+      <PageTitle ItemsCountNumber={repos.length}>projects</PageTitle>
+      <PageTitleWrapper></PageTitleWrapper>
 
       {repos
         // .filter(repo => repo.name === "Instagram-Clone" projectsList.map(project => project.name == repo.name))
