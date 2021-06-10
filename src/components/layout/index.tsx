@@ -13,7 +13,7 @@ const Header = styled.header`
 `;
 
 const Main = styled.main`
-  --mainPadding: 0 12px;
+  --mainPadding: 0 11px;
   max-width: 1280px;
   padding: var(--mainPadding);
   margin: 50px auto;
