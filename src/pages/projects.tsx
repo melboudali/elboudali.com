@@ -13,6 +13,20 @@ const PageTitleWrapper = styled.section`
   display: flex;
 `;
 
+const SortWrapper = styled.div`
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  p {
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+    font-size: 0.8125rem;
+    font-weight: bold;
+    color: #a5a5a5;
+  }
+`;
+
 const TotalStarsWrapper = styled.div``;
 
 interface projectsProps {
@@ -28,7 +42,15 @@ const projects = ({
   return (
     <ProjectsWrapper>
       <PageTitle ItemsCountNumber={repos.length}>projects</PageTitle>
-      <PageTitleWrapper></PageTitleWrapper>
+      <PageTitleWrapper>
+        <SortWrapper>
+          <p>sort by:</p>
+          <select>
+            <option value="startDateDesc">start date</option>
+            <option value="starsDesc">stars</option>
+          </select>
+        </SortWrapper>
+      </PageTitleWrapper>
 
       {repos
         // .filter(repo => repo.name === "Instagram-Clone" projectsList.map(project => project.name == repo.name))
