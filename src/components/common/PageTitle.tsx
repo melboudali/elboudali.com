@@ -31,16 +31,20 @@ const ItemsCount = styled.span`
 
 interface PageTitleProps {
   children: string;
-  ItemsCountNumber?: number;
+  ItemsCountNumber: number;
 }
 
-const PageTitle = ({ children, ItemsCountNumber = 0 }: PageTitleProps) => (
+const PageTitle = ({ children, ItemsCountNumber }: PageTitleProps) => (
   <PageTitleWrapper>
     {children}
     {!!ItemsCountNumber && <ItemsCount>{ItemsCountNumber}</ItemsCount>}
   </PageTitleWrapper>
 );
 
-PageTitle.propTypes = { children: PropTypes.string.isRequired, ItemsCountNumber: PropTypes.number };
+PageTitle.defaultProps = {
+  ItemsCountNumber: 0,
+};
+
+PageTitle.propTypes = { children: PropTypes.string.isRequired, ItemsCountNumber: PropTypes.number.isRequired };
 
 export default PageTitle;
