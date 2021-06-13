@@ -40,15 +40,15 @@ const SortWrapper = styled.div`
 
 const TotalStarsWrapper = styled.div``;
 
-interface projectsProps {
+interface ProjectsProps {
   data: AllRepoQuery;
 }
 
-const projects = ({
+const Projects = ({
   data: {
     allRepo: { nodes: repos },
   },
-}: projectsProps) => {
+}: ProjectsProps) => {
   console.log(getAllReposStars(repos));
   return (
     <ProjectsWrapper>
@@ -82,9 +82,9 @@ const projects = ({
   );
 };
 
-projects.propTypes = {};
+Projects.propTypes = {};
 
-export default projects;
+export default Projects;
 
 export const query = graphql`
   query allRepo {
