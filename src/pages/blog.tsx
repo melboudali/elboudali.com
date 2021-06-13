@@ -1,13 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-interface blogProps {}
+interface BlogProps {}
 
-const blog = ({}: blogProps) => {
+const Blog = ({}: BlogProps) => {
   // FIXME: fix this page later
   return <div>This is blog Component/Page</div>;
 };
 
-blog.propTypes = {};
+Blog.propTypes = {};
 
-export default blog;
+export default Blog;
