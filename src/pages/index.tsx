@@ -136,7 +136,7 @@ const CDADTitle = styled.h1`
   }
 `;
 
-const index = () => {
+const Index = () => {
   // const LongAboutWrapperRef = useRef<HTMLDivElement>(null);
   // const { appear } = useAppearOnScroll(LongAboutWrapperRef);
   const { allFile } = useStaticQuery(graphql`
@@ -199,4 +199,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Index;
