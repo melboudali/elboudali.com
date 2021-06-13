@@ -226,7 +226,7 @@ const CopiedMessage = styled.p<{ showMessage: boolean }>`
   animation: ${CopiedMessageAnimation} 2s;
 `;
 
-interface contactProps {}
+interface ContactProps {}
 
 interface InputGroupProps {
   values: { name: string; email: string; message: string };
@@ -243,7 +243,7 @@ interface CopyEmailProps {
   setShowMessage: (arg: boolean) => void;
 }
 
-const contact = ({}: contactProps) => {
+const Contact = ({}: ContactProps) => {
   const { values, updateValue, clearValues } = useForm({
     name: "",
     email: "",
@@ -335,6 +335,6 @@ const CopyEmail = ({ setShowMessage }: CopyEmailProps) => {
   );
 };
 
-contact.propTypes = {};
+Contact.propTypes = {};
 
-export default contact;
+export default Contact;
