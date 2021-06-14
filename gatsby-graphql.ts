@@ -2738,7 +2738,10 @@ export type Unnamed_2_Query = { allFile: { edges: Array<{ node: Pick<File, 'publ
 export type AllRepoQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type AllRepoQuery = { allRepo: { nodes: Array<(
+export type AllRepoQuery = { allRepo: (
+    Pick<RepoConnection, 'totalCount'>
+    & { nodes: Array<(
       Pick<Repo, 'id' | 'name' | 'description' | 'forks_count' | 'stargazers_count' | 'html_url' | 'language' | 'homepage' | 'created_at'>
       & { fromNow: Repo['created_at'] }
-    )> } };
+    )> }
+  ) };
