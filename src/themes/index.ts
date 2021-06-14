@@ -16,6 +16,8 @@ export const lightTheme: DefaultTheme = {
   buttonBackground: "var(--buttonBackgroundLight)",
   emailBackground: "var(--emailLightBackground)",
   emailBorder: "var(--emailLightBorder)",
+  selectBackground: "var(--selectLightBackground)",
+  starsColor: "var(--starsLightColor);",
 };
 
 export const darkTheme: DefaultTheme = {
@@ -34,4 +36,6 @@ export const darkTheme: DefaultTheme = {
   buttonBackground: "var(--buttonBackgroundDark)",
   emailBackground: "var(--emailDarkBackground)",
   emailBorder: "var(--emailDarkBorder)",
+  selectBackground: "var(--selectDarkBackground)",
+  starsColor: "var(--starsDarkColor);",
 };
