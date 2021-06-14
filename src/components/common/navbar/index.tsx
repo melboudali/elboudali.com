@@ -23,7 +23,7 @@ const Logo = styled.h1`
 `;
 
 const NavbarWrapper = styled.div`
-  --navbarPadding: 10px 12px;
+  --navbarPadding: 10px 11px;
   display: flex;
   align-items: center;
   justify-content: space-between;
