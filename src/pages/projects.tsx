@@ -92,8 +92,8 @@ const Projects = ({
         <SortWrapper>
           <p>sort by:</p>
           <select defaultValue="startDateDesc">
-            <option value="startDateDesc">➘ start date</option>
-            <option value="starsDesc">➘ stars</option>
+            <option value="startDateDesc">📅 start date</option>
+            <option value="starsDesc">⭐ stars</option>
           </select>
         </SortWrapper>
         <TotalStarsWrapper>
