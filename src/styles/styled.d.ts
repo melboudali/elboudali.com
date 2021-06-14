@@ -19,5 +19,7 @@ declare module "styled-components" {
     buttonBackground: string;
     emailBackground: string;
     emailBorder: string;
+    selectBackground: string;
+    starsColor: string;
   }
 }
