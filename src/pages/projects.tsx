@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { graphql } from "gatsby";
-import styled, { css } from "styled-components";
-import PageTitle from "../components/common/PageTitle";
 import { AllRepoQuery } from "../../gatsby-graphql";
-import projectsList from "../data/projects";
+import PageTitle from "../components/common/PageTitle";
+import ProjectsList from "../components/projects/ProjectsList";
+import { getAllReposStars, sortProjects } from "../utils/projects";
+import styled, { css } from "styled-components";
 import PropTypes from "prop-types";
-import { getAllReposStars } from "../utils/projects";
 
 const ProjectsWrapper = styled.div``;
 
@@ -84,16 +84,21 @@ const Projects = ({
     allRepo: { nodes: repos },
   },
 }: ProjectsProps) => {
-  console.log(getAllReposStars(repos));
+  const [selectValue, setSelectValue] = useState("startDateDesc");
+
+  const onChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setSelectValue(e.target.value);
+  };
+
   return (
     <ProjectsWrapper>
       <PageTitle ItemsCountNumber={repos.length}>projects</PageTitle>
       <SortAndStarsWrapper>
         <SortWrapper>
           <p>sort by:</p>
-          <select defaultValue="startDateDesc">
-            <option value="startDateDesc">📅 start date</option>
-            <option value="starsDesc">⭐ stars</option>
+          <select defaultValue={selectValue} onChange={onChange}>
+            <option value="created_at">📅 start date</option>
+            <option value="stargazers_count">⭐ stars</option>
           </select>
         </SortWrapper>
         <TotalStarsWrapper>
@@ -106,14 +111,7 @@ const Projects = ({
           </StarsWrapper>
         </TotalStarsWrapper>
       </SortAndStarsWrapper>
-
-      {/* {repos
-        // .filter(repo => repo.name === "Instagram-Clone" projectsList.map(project => project.name == repo.name))
-        .map((repo, index) => (
-          <p key={index}>
-            {repo.name} {repo.stargazers_count}
-          </p>
-        ))} */}
+      <ProjectsList repos={repos} selectValue={selectValue} />
     </ProjectsWrapper>
   );
 };
@@ -126,14 +124,16 @@ export const query = graphql`
   query allRepo {
     allRepo {
       nodes {
+        id
         name
-        created_at(fromNow: true)
         description
         forks_count
-        html_url
         stargazers_count
+        html_url
         language
         homepage
+        fromNow: created_at(fromNow: true)
+        created_at
       }
     }
   }
