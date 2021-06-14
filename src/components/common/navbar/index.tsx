@@ -16,7 +16,7 @@ const Logo = styled.h1`
   font-weight: 700;
   letter-spacing: 1.6px;
   text-transform: uppercase;
-  background: ${({ theme }) => `linear-gradient(92.01deg, ${theme.linearLeftColor} -14.07%, ${theme.linearRightColor} 102.13%)`};
+  background-color: ${({ theme }) => `linear-gradient(92.01deg, ${theme.linearLeftColor} -14.07%, ${theme.linearRightColor} 102.13%)`};
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;

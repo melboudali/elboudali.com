@@ -129,7 +129,7 @@ const CDADTitle = styled.h1`
     margin-left: -10px;
     font-size: 0.6875rem;
     border-radius: 4px;
-    background: var(--secondaryColor);
+    background-color: var(--secondaryColor);
   }
   @media (min-width: 375px) {
     --fontSize: 1.25rem;
