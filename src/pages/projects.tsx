@@ -44,7 +44,7 @@ const SortWrapper = styled.div`
     border-bottom-right-radius: 5px;
     padding: 2px 3px;
     color: var(--selectColot);
-    background: ${({ theme }) => theme.selectBackground};
+    background-color: ${({ theme }) => theme.selectBackground};
     border: none;
     option {
       ${SortWrapperTextStyle}
@@ -81,7 +81,7 @@ interface ProjectsProps {
 
 const Projects = ({
   data: {
-    allRepo: { nodes: repos },
+    allRepo: { nodes: repos, totalCount },
   },
 }: ProjectsProps) => {
   const [selectValue, setSelectValue] = useState("startDateDesc");
@@ -92,7 +92,7 @@ const Projects = ({
 
   return (
     <ProjectsWrapper>
-      <PageTitle ItemsCountNumber={repos.length}>projects</PageTitle>
+      <PageTitle ItemsCountNumber={totalCount}>projects</PageTitle>
       <SortAndStarsWrapper>
         <SortWrapper>
           <p>sort by:</p>
@@ -135,6 +135,7 @@ export const query = graphql`
         fromNow: created_at(fromNow: true)
         created_at
       }
+      totalCount
     }
   }
 `;
