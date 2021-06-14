@@ -12,7 +12,7 @@ const CustomLinkWrapper = styled(Link)`
   text-transform: uppercase;
   color: ${({ theme }) => theme.navColor};
   &[aria-current="page"] {
-    font-weight: 700;
+    font-weight: bold;
   }
   &:before {
     content: "";
@@ -32,7 +32,6 @@ const CustomLinkWrapper = styled(Link)`
   @media (min-width: 700px) {
     --customLinkFont: 0.75rem;
     --customLinkLetterSpacing: 1.6px;
-    margin-top: 1px;
   }
 `;
 
