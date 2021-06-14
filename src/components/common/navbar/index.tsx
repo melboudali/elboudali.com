@@ -52,6 +52,7 @@ const LinkWrapper = styled.div`
   display: none;
   @media (min-width: 700px) {
     ${NavStyle}
+    margin-top: 1px;
   }
 `;
 
