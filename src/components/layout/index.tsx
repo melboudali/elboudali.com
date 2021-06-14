@@ -10,6 +10,7 @@ import PropTypes from "prop-types";
 const Header = styled.header`
   background-color: ${({ theme }) => theme.navbarBackground};
   box-shadow: 0px 3px 8px -2px rgba(0, 0, 0, 0.1);
+  transition: background-color 5ms linear;
 `;
 
 const Main = styled.main`
