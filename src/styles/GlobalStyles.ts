@@ -30,6 +30,12 @@ const GlobalStyles = createGlobalStyle`
       --emailDarkBackground: rgba(98, 84, 170, 0.3);
       --emailLightBorder: #D8D8D8;
       --emailDarkBorder: #4C2A8D;
+      --selectColot:#fff;
+      --selectLightBackground: #000;
+      --selectDarkBackground:#4C2A8D;
+      --starsLightColor:#000;
+      --starsDarkColor: #7031C0;
+
   }
 
   * {
@@ -48,13 +54,12 @@ const GlobalStyles = createGlobalStyle`
 
   body {
     color: var(--black);
-    background: ${({ theme }) => theme.bodyBackground};
+    background-color: ${({ theme }) => theme.bodyBackground};
     font-size: 1rem;
     line-height: normal;
     font-weight: 400;
     font-family: 'Roboto', sans-serif;
     font-style: normal;
-    transition: background 0.2s linear;
   }
 
  
