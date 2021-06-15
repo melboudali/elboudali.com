@@ -1,26 +1,26 @@
 import React from "react";
 import { Repo } from "../../../gatsby-graphql";
 import Card from "./Card";
-import { sortProjects } from "../../utils/projects";
+import { filterProjects, getSelectedProject, sortProjects } from "../../utils/projects";
 import styled from "styled-components";
 import PropTypes from "prop-types";
+import { repoType } from "../../types/projects";
+import selectedProjects from "../../data/projects";
 
 const ProjectsWrapper = styled.section`
   margin-top: 60px;
 `;
 
 interface ProjectsListProps {
-  repos: (Pick<Repo, "id" | "name" | "description" | "forks_count" | "stargazers_count" | "html_url" | "language" | "homepage" | "created_at"> & {
-    fromNow: Repo["created_at"];
-  })[];
+  repos: repoType[];
   selectValue: string;
 }
 
 const ProjectsList = ({ repos, selectValue }: ProjectsListProps) => {
   return (
     <ProjectsWrapper>
-      {sortProjects(repos, selectValue).map(({ id, ...repo }) => (
-        <Card key={id} repo={repo} />
+      {sortProjects(filterProjects(repos, selectedProjects), selectValue).map(({ id, ...repo }) => (
+        <Card key={id} repo={getSelectedProject(repo, selectedProjects)} />
       ))}
     </ProjectsWrapper>
   );
