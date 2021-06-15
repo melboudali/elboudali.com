@@ -1,10 +1,5 @@
 import React, { useState } from "react";
-
-interface defaultsType {
-  name: string;
-  email: string;
-  message: string;
-}
+import { defaultsType } from "../types/hooks";
 
 const useForm = (defaults: defaultsType) => {
   const [values, setValues] = useState(defaults);
