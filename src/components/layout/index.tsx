@@ -3,7 +3,8 @@ import { Helmet } from "react-helmet";
 import { useDarkMode } from "../../hook/useDarkMode";
 import Navbar from "../common/navbar";
 import GlobalStyles from "../../styles/GlobalStyles";
-import { lightTheme, darkTheme } from "../../themes";
+import { lightTheme } from "../../themes/light";
+import { darkTheme } from "../../themes/dark";
 import styled, { ThemeProvider } from "styled-components";
 import PropTypes from "prop-types";
 
