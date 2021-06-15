@@ -9,7 +9,7 @@ const ButtonWrapper = styled.a`
   gap: 5px;
   width: 86px;
   height: 24px;
-  background-color: ${({ theme }) => `linear-gradient(92.01deg, ${theme.linearLeftColor} -14.07%, ${theme.linearRightColor} 102.13%)`};
+  background: ${({ theme }) => `linear-gradient(92.01deg, ${theme.linearLeftColor} -14.07%, ${theme.linearRightColor} 102.13%)`};
   filter: drop-shadow(2px 2px 0px ${({ theme }) => theme.balackAndWhite});
   span {
     margin-top: 1px;
