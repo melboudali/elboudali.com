@@ -1,13 +1,7 @@
 import { useState } from "react";
+import { useContactType } from "../types/hooks";
 
-interface useContactProps {
-  name: string;
-  email: string;
-  message: string;
-  clearValues: Function;
-}
-
-const useContact = ({ name, email, message, clearValues }: useContactProps) => {
+const useContact = ({ name, email, message, clearValues }: useContactType) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const [responseMessage, setResponseMessage] = useState("");
