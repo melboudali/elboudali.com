@@ -1,4 +1,5 @@
 import about from "./src/data/about";
+import path from "path";
 
 export default {
   siteMetadata: {
@@ -13,6 +14,13 @@ export default {
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
+    `gatsby-transformer-sharp`,
+    {
+      resolve: `gatsby-plugin-sharp`,
+      options: {
+        defaults: { placeholder: "blurred" },
+      },
+    },
     {
       resolve: `gatsby-plugin-graphql-codegen`,
       options: {
@@ -21,16 +29,16 @@ export default {
       },
     },
     {
-      resolve: `gatsby-plugin-sharp`,
+      resolve: `gatsby-source-filesystem`,
       options: {
-        defaults: { placeholder: "blurred" },
+        name: "others",
+        path: `${__dirname}/src/assets/others/`,
       },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: "others",
-        path: `${__dirname}/src/assets/others/`,
+        path: path.join(__dirname, `src`, `assets`, `images`, `projects`),
       },
     },
   ],
