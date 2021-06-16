@@ -10,6 +10,7 @@ import Button from "../components/about/Button";
 import SchoolDegree from "../components/about/SchoolDegree";
 import styled from "styled-components";
 import PageTitle from "../components/common/PageTitle";
+import { AllFileQuery } from "../../gatsby-graphql";
 
 const IndexWrapper = styled.div`
   display: flex;
@@ -139,8 +140,8 @@ const CDADTitle = styled.h1`
 const Index = () => {
   // const LongAboutWrapperRef = useRef<HTMLDivElement>(null);
   // const { appear } = useAppearOnScroll(LongAboutWrapperRef);
-  const { allFile } = useStaticQuery(graphql`
-    query {
+  const { allFile }: AllFileQuery = useStaticQuery(graphql`
+    query allFile {
       allFile(filter: { extension: { eq: "pdf" } }) {
         edges {
           node {
@@ -175,7 +176,7 @@ const Index = () => {
             <Icons name="Freecodecamp" />
             <Icons name="Hackerrank" />
             <Icons name="Reddit" />
-            <Button url={allFile.edges[0].node.publicURL} />
+            <Button url={allFile.edges[0].node.publicURL!} />
           </IconsWrapper>
         </ShortAbout>
       </ShortAboutWrapper>
