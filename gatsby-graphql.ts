@@ -3401,15 +3401,15 @@ export type Unnamed_1_Query = { site?: Maybe<{ siteMetadata?: Maybe<(
       & { defaultTitle: SiteSiteMetadata['title'], defaultDescription: SiteSiteMetadata['description'], defaultImage: SiteSiteMetadata['image'] }
     )> }> };
 
-export type Unnamed_2_QueryVariables = Exact<{ [key: string]: never; }>;
+export type CoverQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_2_Query = { file?: Maybe<{ childrenImageSharp?: Maybe<Array<Maybe<Pick<ImageSharp, 'gatsbyImageData'>>>> }> };
+export type CoverQuery = { cover?: Maybe<{ childrenImageSharp?: Maybe<Array<Maybe<Pick<ImageSharp, 'gatsbyImageData'>>>> }> };
 
-export type Unnamed_3_QueryVariables = Exact<{ [key: string]: never; }>;
+export type AllFileQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_3_Query = { allFile: { edges: Array<{ node: Pick<File, 'publicURL'> }> } };
+export type AllFileQuery = { allFile: { edges: Array<{ node: Pick<File, 'publicURL'> }> } };
 
 export type AllRepoQueryVariables = Exact<{ [key: string]: never; }>;
 
