@@ -1,4 +1,4 @@
-import { selectedProjectType, repoType, cardRepoType, fullCardRepoType } from "../types/projects";
+import { selectedProjectType, repoType, cardRepoType, fullCardRepoType, coverType } from "../types/projects";
 
 const getProjectsNames = (selectedProjects: selectedProjectType[]) => selectedProjects.map(project => project.project_name);
 
@@ -20,20 +20,21 @@ export const filterProjects = (repos: repoType[], selectedProjects: selectedProj
 };
 
 export const getSelectedProject = (repo: cardRepoType, selectedProjects: selectedProjectType[]): fullCardRepoType => {
-  let projectPlaceHolder: selectedProjectType = {
-    project_name: "",
-    project_title: "",
-    project_cover: "",
-    project_startDate: "",
-    project_endDate: "",
-    project_topis: [""],
-    project_figmaLink: "",
-  };
-  let data = { ...repo, ...projectPlaceHolder };
+  let data: fullCardRepoType;
   selectedProjects.map(project => {
     if (project.project_name === repo.name) {
       data = { ...repo, ...project };
     }
   });
-  return data;
+  return data!;
+};
+
+export const getProjectCover = (project_cover: string, covers: coverType[]) => {
+  let selectedCover: coverType;
+  covers.map(cover => {
+    if (cover.relativePath === project_cover) {
+      selectedCover = cover;
+    }
+  });
+  return selectedCover!;
 };
