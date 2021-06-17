@@ -3401,23 +3401,21 @@ export type Unnamed_1_Query = { site?: Maybe<{ siteMetadata?: Maybe<(
       & { defaultTitle: SiteSiteMetadata['title'], defaultDescription: SiteSiteMetadata['description'], defaultImage: SiteSiteMetadata['image'] }
     )> }> };
 
-export type CoverQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type CoverQuery = { cover?: Maybe<{ childrenImageSharp?: Maybe<Array<Maybe<Pick<ImageSharp, 'gatsbyImageData'>>>> }> };
-
 export type AllFileQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type AllFileQuery = { allFile: { edges: Array<{ node: Pick<File, 'publicURL'> }> } };
 
-export type AllRepoQueryVariables = Exact<{ [key: string]: never; }>;
+export type AllRepoAndAllFileQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type AllRepoQuery = { allRepo: (
+export type AllRepoAndAllFileQuery = { allRepo: (
     Pick<RepoConnection, 'totalCount'>
     & { nodes: Array<(
       Pick<Repo, 'id' | 'name' | 'description' | 'forks_count' | 'stargazers_count' | 'html_url' | 'language' | 'homepage' | 'created_at'>
       & { fromNow: Repo['created_at'] }
     )> }
-  ) };
+  ), allFile: { nodes: Array<(
+      Pick<File, 'relativePath'>
+      & { childImageSharp?: Maybe<Pick<ImageSharp, 'gatsbyImageData'>> }
+    )> } };
