@@ -1,10 +1,10 @@
 import React from "react";
 import { Repo } from "../../../gatsby-graphql";
 import Card from "./Card";
-import { filterProjects, getSelectedProject, sortProjects } from "../../utils/projects";
+import { filterProjects, getProjectCover, getSelectedProject, sortProjects } from "../../utils/projects";
 import styled from "styled-components";
 import PropTypes from "prop-types";
-import { repoType } from "../../types/projects";
+import { coverType, repoType } from "../../types/projects";
 import selectedProjects from "../../data/projects";
 
 const ProjectsWrapper = styled.section`
@@ -13,14 +13,15 @@ const ProjectsWrapper = styled.section`
 
 interface ProjectsListProps {
   repos: repoType[];
+  covers: coverType[];
   selectValue: string;
 }
 
-const ProjectsList = ({ repos, selectValue }: ProjectsListProps) => {
+const ProjectsList = ({ repos, covers, selectValue }: ProjectsListProps) => {
   return (
     <ProjectsWrapper>
       {sortProjects(filterProjects(repos, selectedProjects), selectValue).map(({ id, ...repo }) => (
-        <Card key={id} repo={getSelectedProject(repo, selectedProjects)} />
+        <Card key={id} repo={getSelectedProject(repo, selectedProjects)} covers={covers} />
       ))}
     </ProjectsWrapper>
   );
