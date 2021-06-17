@@ -30,3 +30,7 @@ export type fullCardRepoType = Pick<
 > & {
   fromNow: Repo["created_at"];
 } & selectedProjectType;
+
+export type coverType = Pick<File, "relativePath"> & {
+  childImageSharp?: Maybe<Pick<ImageSharp, "gatsbyImageData">> | undefined;
+};
