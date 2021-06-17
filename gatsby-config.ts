@@ -1,5 +1,4 @@
 import about from "./src/data/about";
-import path from "path";
 
 export default {
   siteMetadata: {
@@ -31,14 +30,15 @@ export default {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: "others",
         path: `${__dirname}/src/assets/others/`,
+        name: "others",
       },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: path.join(__dirname, `src`, `assets`, `images`, `projects`),
+        path: `${__dirname}/src/assets/images/projects`,
+        name: "projects",
       },
     },
   ],
