@@ -1,37 +1,26 @@
 import React from "react";
-import { cardRepoType, fullCardRepoType } from "../../types/projects";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { getProjectCover } from "../../utils/projects";
+import { coverType, fullCardRepoType } from "../../types/projects";
 import PropTypes from "prop-types";
-import { getSelectedProject } from "../../utils/projects";
-import selectedProjects from "../../data/projects";
-import { StaticImage, GatsbyImage, getImage, IGatsbyImageData } from "gatsby-plugin-image";
-import { graphql, useStaticQuery } from "gatsby";
-import { CoverQuery } from "../../../gatsby-graphql";
 
 interface CardProps {
   repo: fullCardRepoType;
+  covers: coverType[];
 }
 
-const Card = ({ repo }: CardProps) => {
-  const { cover }: CoverQuery = useStaticQuery(graphql`
-    query cover {
-      cover: file(relativePath: { eq: "elboudali.com/cover.png" }) {
-        childrenImageSharp {
-          gatsbyImageData
-        }
-      }
-    }
-  `);
-
+const Card = ({ repo, covers }: CardProps) => {
   return (
     <div>
       {repo.name} - {repo.fromNow} - {repo.stargazers_count}
-      {cover && cover.childrenImageSharp && cover.childrenImageSharp[0] && (
-        <GatsbyImage image={getImage(cover.childrenImageSharp[0].gatsbyImageData)!} alt="EL BOUDALI" className="my_image" />
-      )}
+      <GatsbyImage image={getImage(getProjectCover(repo.project_cover, covers).childImageSharp.gatsbyImageData)!} alt={`${repo.name} cover`} />
     </div>
   );
 };
 
-Card.propTypes = {};
+Card.propTypes = {
+  repo: PropTypes.object.isRequired,
+  covers: PropTypes.array.isRequired,
+};
 
 export default Card;
