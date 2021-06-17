@@ -23,8 +23,16 @@ const about = {
   },
   schoolDegrees: [
     { title: "front end development libraries certification.", schoolName: "freecodecamp", certificationLink: "/" },
-    { title: "javaScript algorithms and data structures certification.", schoolName: "freecodecamp", certificationLink: "/" },
-    { title: "responsive web design certification.", schoolName: "freecodecamp", certificationLink: "/" },
+    {
+      title: "javaScript algorithms and data structures certification.",
+      schoolName: "freecodecamp",
+      certificationLink: "https://www.freecodecamp.org/certification/elboudali/javascript-algorithms-and-data-structures",
+    },
+    {
+      title: "responsive web design certification.",
+      schoolName: "freecodecamp",
+      certificationLink: "https://www.freecodecamp.org/certification/elboudali/responsive-web-design",
+    },
     {
       title: "diploma of specialized technician in computer network techniques.",
       schoolName: "ofppt - ista ntic",
