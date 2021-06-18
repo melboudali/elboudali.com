@@ -8,7 +8,15 @@ import { coverType, repoType } from "../../types/projects";
 import selectedProjects from "../../data/projects";
 
 const ProjectsWrapper = styled.section`
+  --columnWidth: 1fr;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, var(--columnWidth));
+  grid-gap: 37px;
+  justify-content: center;
   margin-top: 60px;
+  @media (min-width: 370px) {
+    --columnWidth: 370px;
+  }
 `;
 
 interface ProjectsListProps {
@@ -27,6 +35,6 @@ const ProjectsList = ({ repos, covers, selectValue }: ProjectsListProps) => {
   );
 };
 
-ProjectsList.propTypes = { repos: PropTypes.array.isRequired, selectValue: PropTypes.string.isRequired };
+ProjectsList.propTypes = { repos: PropTypes.array.isRequired, covers: PropTypes.array.isRequired, selectValue: PropTypes.string.isRequired };
 
 export default ProjectsList;
