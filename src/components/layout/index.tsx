@@ -18,7 +18,7 @@ const Main = styled.main`
   max-width: 1280px;
   padding: var(--mainPadding);
   margin: 50px auto;
-  @media (min-width: 700px) {
+  @media (min-width: 750px) {
     --mainPadding: 0 48px;
   }
 `;

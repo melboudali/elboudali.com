@@ -25,7 +25,7 @@ const ShortAboutWrapper = styled.section`
   align-items: center;
   flex-direction: var(--flexDirection);
   gap: 24px;
-  @media (min-width: 833px) {
+  @media (min-width: 850px) {
     --flexDirection: row;
   }
 `;
@@ -38,7 +38,7 @@ const ShortAbout = styled.div`
   gap: 10px;
   flex: 2;
   height: 100%;
-  @media (min-width: 833px) {
+  @media (min-width: 850px) {
     --alignItemsValue: flex-start;
   }
 `;
@@ -66,7 +66,7 @@ const ShortAboutText = styled.p`
     margin: 0 5px;
     color: var(--red);
   }
-  @media (min-width: 833px) {
+  @media (min-width: 850px) {
     --textAlignValue: left;
   }
 `;
@@ -99,7 +99,7 @@ const CertificatesDiplomasAndDegreesWrapper = styled.section`
   flex-direction: column;
   align-self: var(--alignSelf);
   gap: 25px;
-  @media (min-width: 700px) {
+  @media (min-width: 750px) {
     --alignSelf: flex-start;
   }
 `;

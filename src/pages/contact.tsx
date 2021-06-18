@@ -26,7 +26,7 @@ const CopyEmailWrapper = styled.div`
   margin-top: 24px;
   border: 2px solid ${({ theme }) => theme.emailBorder};
   border-radius: 5px;
-  @media (min-width: 700px) {
+  @media (min-width: 750px) {
     --margin: 0;
   }
 `;
@@ -80,7 +80,7 @@ const InputWrapper = css`
   align-items: var(--alignItem);
   flex-direction: var(--flex-direction);
   gap: var(--gap);
-  @media (min-width: 700px) {
+  @media (min-width: 750px) {
     --alignItem: center;
     --flex-direction: row;
     --gap: unset;
@@ -98,7 +98,7 @@ const InputLabel = styled.label<{ name: string }>`
   letter-spacing: -0.04em;
   text-transform: uppercase;
   color: var(--labelColor);
-  @media (min-width: 700px) {
+  @media (min-width: 750px) {
     ${({ name }) => name !== "message" && "flex-grow: 1;"}
   }
 `;
@@ -124,7 +124,7 @@ const Input = styled.input`
   --width: 100%;
   ${InputAndTextArea}
   width: var(--width);
-  @media (min-width: 700px) {
+  @media (min-width: 750px) {
     --width: auto;
     flex-grow: 3;
   }

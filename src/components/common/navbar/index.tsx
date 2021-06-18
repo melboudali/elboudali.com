@@ -30,7 +30,7 @@ const NavbarWrapper = styled.div`
   max-width: 1280px;
   margin: 0 auto;
   padding: var(--navbarPadding);
-  @media (min-width: 700px) {
+  @media (min-width: 750px) {
     --navbarPadding: 10px 48px;
   }
 `;
@@ -50,7 +50,7 @@ const Nav = styled.nav`
 
 const LinkWrapper = styled.div`
   display: none;
-  @media (min-width: 700px) {
+  @media (min-width: 750px) {
     ${NavStyle}
     margin-top: 1px;
   }
@@ -62,7 +62,7 @@ const MenuButton = styled.button`
   svg > path {
     stroke: ${({ theme }) => theme.balackAndWhite};
   }
-  @media (min-width: 700px) {
+  @media (min-width: 750px) {
     --displayValue: none;
   }
 `;
@@ -91,9 +91,9 @@ const Navbar = ({ themeToggler, theme }: NavbarProps) => {
       <Nav>
         <LinkWrapper>
           <CustomLink to="/" title="about" />
-          <CustomLink to="/projects" title="projects" />
-          <CustomLink to="/blog" title="blog" />
-          <CustomLink to="/contact" title="contact" />
+          <CustomLink to="/projects/" title="projects" />
+          <CustomLink to="/blog/" title="blog" />
+          <CustomLink to="/contact/" title="contact" />
         </LinkWrapper>
         <button type="button" aria-label="theme toggler" onClick={themeToggler}>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -15,7 +15,7 @@ const SchoolDegreeWrapper = styled.div`
   flex-direction: column;
   gap: 5px;
   margin-left: var(--marginLeft);
-  @media (min-width: 700px) {
+  @media (min-width: 750px) {
     --marginLeft: 45px;
   }
 `;
@@ -37,7 +37,7 @@ const ScoolDegreeTitle = styled.h2`
       fill: var(--secondaryColor);
     }
   }
-  @media (min-width: 700px) {
+  @media (min-width: 750px) {
     --alignItems: center;
   }
 `;

@@ -17,7 +17,7 @@ const ModalWrapper = styled.div`
   z-index: 2;
   background-color: ${({ theme }) => theme.modalBackground};
   backdrop-filter: blur(1.5px);
-  @media (min-width: 700px) {
+  @media (min-width: 750px) {
     display: none;
   }
 `;
