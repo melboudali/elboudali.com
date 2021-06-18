@@ -11,7 +11,7 @@ const CustomLinkWrapper = styled(Link)`
   letter-spacing: var(--customLinkLetterSpacing);
   text-transform: uppercase;
   color: ${({ theme }) => theme.navColor};
-  &[aria-current="page"] {
+  &.active {
     font-weight: bold;
   }
   &:before {
@@ -29,7 +29,7 @@ const CustomLinkWrapper = styled(Link)`
     opacity: 1;
     width: 100%;
   }
-  @media (min-width: 700px) {
+  @media (min-width: 750px) {
     --customLinkFont: 0.75rem;
     --customLinkLetterSpacing: 1.6px;
   }
@@ -50,7 +50,7 @@ const CustomLink = ({ to, title, closeModal, menuIsOpen }: CustomLinkProps) => {
   };
 
   return (
-    <CustomLinkWrapper to={to} aria-label={title} title={title} onClick={onClickFunction}>
+    <CustomLinkWrapper to={to} aria-label={title} title={title} activeClassName="active" onClick={onClickFunction}>
       {title}
     </CustomLinkWrapper>
   );
