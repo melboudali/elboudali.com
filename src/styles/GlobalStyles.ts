@@ -96,9 +96,9 @@ const GlobalStyles = createGlobalStyle`
     border: 3px solid ${({ theme }) => theme.bodyBackground};
   }
  
-  img {
+  /* img {
     max-width: 100%;
-  }
+  } */
 `;
 
 export default GlobalStyles;
