@@ -38,3 +38,8 @@ export const getProjectCover = (project_cover: string, covers: coverType[]) => {
   });
   return selectedCover!;
 };
+
+export const getDate = (date: string) => {
+  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  return `${months[new Date(date).getMonth()]} ${new Date(date).getFullYear()}`;
+};
