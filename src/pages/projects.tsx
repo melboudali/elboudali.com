@@ -133,8 +133,8 @@ export const query = graphql`
         html_url
         language
         homepage
-        fromNow: created_at(fromNow: true)
         created_at
+        pushed_at
       }
       totalCount
     }
