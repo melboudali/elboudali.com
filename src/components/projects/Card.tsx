@@ -2,8 +2,9 @@ import React from "react";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { getDate, getProjectCover } from "../../utils/projects";
 import { coverType, fullCardRepoType } from "../../types/projects";
-import PropTypes from "prop-types";
+import Technologies from "../common/card/Technologies";
 import styled, { css } from "styled-components";
+import PropTypes from "prop-types";
 
 const CardWrapper = styled.div`
   box-shadow: 0px 2px 5px -1px rgba(50, 50, 93, 0.25), 0px 1px 3px -1px rgba(0, 0, 0, 0.3);
@@ -150,11 +151,13 @@ const Card = ({
           )}
         </DateAndStars>
         <Description>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus eaque facilis, quae nemo quaerat nihil. Perferendis quas exercitationem
+          {/* Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus eaque facilis, quae nemo quaerat nihil. Perferendis quas exercitationem
           laboriosam nobis iure, dolorem temporibus debitis, ullam nulla, veritatis molestiae veniam? A quis ea fugit nam corrupti modi quia
           perferendis voluptas velit cupiditate quas, sit qui quae explicabo natus ipsum in autem nostrum maiores voluptatem totam dolores tempora
-          iure.
+          iure. */}
+          {description}
         </Description>
+        <Technologies project_topis={project_topis} />
       </Details>
     </CardWrapper>
   );
