@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { graphql } from "gatsby";
-import { AllRepoAndAllFileQuery } from "../../gatsby-graphql";
+import { AllRepoQuery } from "../../gatsby-graphql";
 import PageTitle from "../components/common/PageTitle";
 import ProjectsList from "../components/projects/ProjectsList";
 import { getAllReposStars, sortProjects } from "../utils/projects";
@@ -76,13 +76,12 @@ const StarsWrapper = styled.div`
 `;
 
 interface ProjectsProps {
-  data: AllRepoAndAllFileQuery;
+  data: AllRepoQuery;
 }
 
 const Projects = ({
   data: {
     allRepo: { nodes: repos, totalCount },
-    allFile: { nodes: covers },
   },
 }: ProjectsProps) => {
   const [selectValue, setSelectValue] = useState("startDateDesc");
@@ -112,7 +111,7 @@ const Projects = ({
           </StarsWrapper>
         </TotalStarsWrapper>
       </SortAndStarsWrapper>
-      <ProjectsList repos={repos} selectValue={selectValue} covers={covers} />
+      <ProjectsList repos={repos} selectValue={selectValue} />
     </ProjectsWrapper>
   );
 };
@@ -122,7 +121,7 @@ Projects.propTypes = {};
 export default Projects;
 
 export const query = graphql`
-  query allRepoAndAllFile {
+  query AllRepo {
     allRepo {
       nodes {
         id
@@ -137,14 +136,6 @@ export const query = graphql`
         pushed_at
       }
       totalCount
-    }
-    allFile(filter: { extension: { regex: "/(jpg)|(jpeg)|(png)/" } }) {
-      nodes {
-        relativePath
-        childImageSharp {
-          gatsbyImageData
-        }
-      }
     }
   }
 `;
