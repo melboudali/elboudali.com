@@ -6,6 +6,7 @@ import styled from "styled-components";
 import PropTypes from "prop-types";
 import { coverType, repoType } from "../../types/projects";
 import selectedProjects from "../../data/projects";
+import { graphql, useStaticQuery } from "gatsby";
 
 const ProjectsWrapper = styled.section`
   --columnWidth: 1fr;
@@ -21,11 +22,27 @@ const ProjectsWrapper = styled.section`
 
 interface ProjectsListProps {
   repos: repoType[];
-  covers: coverType[];
   selectValue: string;
 }
 
-const ProjectsList = ({ repos, covers, selectValue }: ProjectsListProps) => {
+const ProjectsList = ({ repos, selectValue }: ProjectsListProps) => {
+  const {
+    allFile: { nodes: covers },
+  } = useStaticQuery(graphql`
+    query allImages {
+      allFile(filter: { extension: { regex: "/(jpg)|(jpeg)|(png)/" } }) {
+        nodes {
+          relativePath
+          childImageSharp {
+            gatsbyImageData
+          }
+        }
+      }
+    }
+  `);
+
+  console.log(covers);
+
   return (
     <ProjectsWrapper>
       {sortProjects(filterProjects(repos, selectedProjects), selectValue).map(({ id, ...repo }) => (
@@ -35,6 +52,6 @@ const ProjectsList = ({ repos, covers, selectValue }: ProjectsListProps) => {
   );
 };
 
-ProjectsList.propTypes = { repos: PropTypes.array.isRequired, covers: PropTypes.array.isRequired, selectValue: PropTypes.string.isRequired };
+ProjectsList.propTypes = { repos: PropTypes.array.isRequired, selectValue: PropTypes.string.isRequired };
 
 export default ProjectsList;
