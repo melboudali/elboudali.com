@@ -4,9 +4,42 @@ export interface selectedProjectType {
   project_name: string;
   project_title: string;
   project_cover: string;
-  project_topis: string[];
+  project_topis: project_topics_type[];
   project_figmaLink: string;
 }
+
+export type project_topics_type = Partial<
+  | "html"
+  | "css"
+  | "javascript"
+  | "typescript"
+  | "react"
+  | "gatsby"
+  | "next"
+  | "styled-components"
+  | "material-ui"
+  | "bootstrap"
+  | "chartjs"
+  | "sass"
+  | "mapbox"
+  | "redux"
+  | "redux-saga"
+  | "graphql"
+  | "apollo"
+  | "jest"
+  | "firebase"
+  | "express"
+  | "redis"
+  | "mongodb"
+  | "postgresql"
+  | "markdown"
+  | "nodejs"
+  | "heroku"
+  | "vercel"
+  | "netlify"
+  | "figma"
+  | "stripe"
+>;
 
 export type cardRepoType = Pick<
   Repo,
