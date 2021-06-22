@@ -41,8 +41,6 @@ const ProjectsList = ({ repos, selectValue }: ProjectsListProps) => {
     }
   `);
 
-  console.log(covers);
-
   return (
     <ProjectsWrapper>
       {sortProjects(filterProjects(repos, selectedProjects), selectValue).map(({ id, ...repo }) => (
