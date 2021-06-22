@@ -3,12 +3,18 @@ import { GatsbyImage } from "gatsby-plugin-image";
 import { getDate, getProjectCover } from "../../utils/projects";
 import { coverType, fullCardRepoType } from "../../types/projects";
 import Technologies from "../common/card/Technologies";
+import Links from "../common/card/Links";
 import styled, { css } from "styled-components";
 import PropTypes from "prop-types";
 
 const CardWrapper = styled.div`
   box-shadow: 0px 2px 5px -1px rgba(50, 50, 93, 0.25), 0px 1px 3px -1px rgba(0, 0, 0, 0.3);
   border-radius: 5px;
+  transition: box-shadow 0.1s linear, transform 0.1s linear;
+  &:hover {
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    transform: translateY(-2px);
+  }
   .gatsby_image {
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
@@ -25,6 +31,7 @@ const CardTitle = styled.h2`
   font-size: 1.25rem;
   letter-spacing: -0.04em;
   text-transform: uppercase;
+  color: ${({ theme }) => theme.titleColor};
 `;
 
 const FlexStyle = css`
@@ -37,7 +44,7 @@ export const DateAndStars = styled.div`
   justify-content: space-between;
   margin: 7px 0;
   span {
-    margin-top: 1px;
+    margin-top: 2px;
     font-size: 0.6875rem;
     text-transform: uppercase;
     color: var(--secondaryColor);
@@ -69,6 +76,9 @@ const DateContent = styled.div`
 const StarsWrapper = styled.div`
   ${FlexStyle}
   gap: 2px;
+  span {
+    margin-top: 2px;
+  }
   svg {
     path {
       stroke: var(--secondaryColor);
@@ -80,6 +90,11 @@ const Description = styled.p`
   font-size: 0.8125rem;
   text-transform: capitalize;
   text-align: justify;
+  height: 60px;
+  /* overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical; */
 `;
 
 interface CardProps {
@@ -105,6 +120,7 @@ const Card = ({
   },
   covers,
 }: CardProps) => {
+  console.log(html_url, homepage);
   return (
     <CardWrapper>
       <GatsbyImage image={getProjectCover(project_cover, covers).childImageSharp.gatsbyImageData} alt={`${name} cover`} className="gatsby_image" />
@@ -158,6 +174,7 @@ const Card = ({
           {description}
         </Description>
         <Technologies project_topis={project_topis} />
+        <Links link={homepage as string} githubLink={html_url as string} figmaLink={project_figmaLink} />
       </Details>
     </CardWrapper>
   );
