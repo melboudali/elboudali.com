@@ -17,5 +17,10 @@ export const darkTheme: DefaultTheme = {
   emailBackground: "var(--emailDarkBackground)",
   emailBorder: "var(--emailDarkBorder)",
   selectBackground: "var(--selectDarkBackground)",
-  starsColor: "var(--starsDarkColor);",
+  starsColor: "var(--starsDarkColor)",
+  cardBackground: "var(--cardDarkBackground)",
+  iconsColorAndButtonBorder: "var(--iconsDarkColorAndButtonBorder)",
+  figmaBg: "var(--figmaDarkBg)",
+  firstBoxShadow: "var(--firstBoxShadowDark)",
+  secondBoxShadow: "var(--secondBoxShadowDark)",
 };
