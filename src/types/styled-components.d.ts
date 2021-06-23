@@ -21,5 +21,10 @@ declare module "styled-components" {
     emailBorder: string;
     selectBackground: string;
     starsColor: string;
+    cardBackground: string;
+    iconsColorAndButtonBorder: string;
+    figmaBg: string;
+    firstBoxShadow: string;
+    secondBoxShadow: string;
   }
 }
