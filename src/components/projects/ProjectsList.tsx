@@ -14,7 +14,7 @@ const ProjectsWrapper = styled.section`
   grid-template-columns: repeat(auto-fit, var(--columnWidth));
   grid-gap: 37px;
   justify-content: center;
-  margin-top: 60px;
+  margin-top: 50px;
   @media (min-width: 370px) {
     --columnWidth: 370px;
   }
