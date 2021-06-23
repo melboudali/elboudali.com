@@ -22,28 +22,30 @@ const DemoLink = styled.a`
   ${LinkStyle}
   flex: 2 2;
   position: relative;
-  background: #fff;
+  background: ${({ theme }) => theme.bodyBackground};
   border-bottom-left-radius: 5px;
-  border: 2px solid #000;
+  border: 2px solid ${({ theme }) => theme.iconsColorAndButtonBorder};
   svg {
     position: absolute;
     left: 0;
     top: 50%;
     transform: translateY(-50%);
+    fill: ${({ theme }) => theme.balackAndWhite};
   }
   span {
     font-weight: bold;
     font-size: 0.9375rem;
     letter-spacing: -0.04em;
     text-transform: uppercase;
+    color: ${({ theme }) => theme.balackAndWhite};
   }
   &:hover {
     background-color: #000;
     span {
-      color: #fff;
+      color: ${({ theme }) => (theme.balackAndWhite === "white" ? "#000" : "#fff")};
     }
     svg > path {
-      fill: #fff;
+      fill: ${({ theme }) => (theme.balackAndWhite === "white" ? "#000" : "#fff")};
     }
   }
 `;
@@ -51,14 +53,14 @@ const DemoLink = styled.a`
 const GithubLink = styled.a<{ figmaLink?: string }>`
   ${LinkStyle}
   flex: 1 1;
-  background: #000;
+  background-color: ${({ theme }) => theme.iconsColorAndButtonBorder};
   ${({ figmaLink }) => !figmaLink && "border-bottom-right-radius: 5px;"}
 `;
 
 const FigmaLink = styled.a`
   flex: 1 1;
   ${LinkStyle}
-  background: #4b4b4b;
+  background-color: ${({ theme }) => theme.figmaBg};
   border-bottom-right-radius: 5px;
 `;
 
@@ -73,10 +75,7 @@ const Links = ({ link, figmaLink, githubLink }: LinksProps) => {
     <ButtonsWrapper>
       <DemoLink href={link} target="_blank">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path
-            d="M18.21 13.1295L9.987 20.3235C9.018 21.1725 7.5 20.4825 7.5 19.194V4.80597C7.49975 4.51761 7.58263 4.23528 7.73871 3.99281C7.89479 3.75033 8.11746 3.55798 8.38004 3.4388C8.64262 3.31962 8.934 3.27865 9.21927 3.3208C9.50454 3.36295 9.77161 3.48644 9.9885 3.67647L18.2085 10.8705C18.3696 11.0113 18.4987 11.1849 18.5872 11.3797C18.6757 11.5745 18.7215 11.786 18.7215 12C18.7215 12.2139 18.6757 12.4254 18.5872 12.6202C18.4987 12.8151 18.3696 12.9887 18.2085 13.1295H18.21Z"
-            fill="black"
-          />
+          <path d="M18.21 13.1295L9.987 20.3235C9.018 21.1725 7.5 20.4825 7.5 19.194V4.80597C7.49975 4.51761 7.58263 4.23528 7.73871 3.99281C7.89479 3.75033 8.11746 3.55798 8.38004 3.4388C8.64262 3.31962 8.934 3.27865 9.21927 3.3208C9.50454 3.36295 9.77161 3.48644 9.9885 3.67647L18.2085 10.8705C18.3696 11.0113 18.4987 11.1849 18.5872 11.3797C18.6757 11.5745 18.7215 11.786 18.7215 12C18.7215 12.2139 18.6757 12.4254 18.5872 12.6202C18.4987 12.8151 18.3696 12.9887 18.2085 13.1295H18.21Z" />
         </svg>
         <span>live demo</span>
       </DemoLink>
