@@ -8,11 +8,12 @@ import styled, { css } from "styled-components";
 import PropTypes from "prop-types";
 
 const CardWrapper = styled.div`
-  box-shadow: 0px 2px 5px -1px rgba(50, 50, 93, 0.25), 0px 1px 3px -1px rgba(0, 0, 0, 0.3);
+  box-shadow: ${({ theme }) => `0px 2px 5px -1px ${theme.firstBoxShadow}, 0px 1px 3px -1px ${theme.secondBoxShadow}`};
   border-radius: 5px;
   transition: box-shadow 0.1s linear, transform 0.1s linear;
+  background-color: ${({ theme }) => theme.cardBackground};
   &:hover {
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    box-shadow: ${({ theme }) => `${theme.secondBoxShadow} 0px 7px 29px 0px`};
     transform: translateY(-2px);
   }
   .gatsby_image {
@@ -23,7 +24,11 @@ const CardWrapper = styled.div`
 `;
 
 const Details = styled.div`
-  padding: 20px;
+  --padding: 10px;
+  padding: var(--padding);
+  @media (min-width: 750) {
+    --padding: 20px;
+  }
 `;
 
 const CardTitle = styled.h2`
@@ -91,6 +96,7 @@ const Description = styled.p`
   text-transform: capitalize;
   text-align: justify;
   height: 60px;
+  color: ${({ theme }) => theme.balackAndWhite};
   /* overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 4;
