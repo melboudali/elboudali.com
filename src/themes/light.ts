@@ -17,5 +17,10 @@ export const lightTheme: DefaultTheme = {
   emailBackground: "var(--emailLightBackground)",
   emailBorder: "var(--emailLightBorder)",
   selectBackground: "var(--selectLightBackground)",
-  starsColor: "var(--starsLightColor);",
+  starsColor: "var(--starsLightColor)",
+  cardBackground: "var(--cardLightBackground)",
+  iconsColorAndButtonBorder: "var(--iconsLightColorAndButtonBorder)",
+  figmaBg: "var(--figmaLightBg)",
+  firstBoxShadow: "var(--firstBoxShadowLight)",
+  secondBoxShadow: "var(--secondBoxShadowLight)",
 };
