@@ -11,7 +11,7 @@ const GlobalStyles = createGlobalStyle`
       --secondaryColor: #A5A5A5;
       --primaryBackgroundColorDark: #16141F;
       --primaryBackgroundColorLight: #FBFBFB;
-      --secondaryBackgroundColorDark: #1C1A25;
+      --secondaryBackgroundColorDark: #191820;
       --secondaryBackgroundColorLight: #fff;
       --linearRightColorLight: #DB469F;
       --linearRightColorDark: #E8714B;
@@ -35,7 +35,16 @@ const GlobalStyles = createGlobalStyle`
       --selectDarkBackground:#4C2A8D;
       --starsLightColor:#000;
       --starsDarkColor: #7031C0;
-
+      --cardLightBackground: #fff;
+      --cardDarkBackground: #1E1A32;
+      --iconsLightColorAndButtonBorder: #000;
+      --iconsDarkColorAndButtonBorder: #7031C0;
+      --figmaLightBg: #333333;
+      --figmaDarkBg: #191820;
+      --firstBoxShadowLight: rgba(50, 50, 93, 0.25);
+      --secondBoxShadowLight: rgba(0, 0, 0, 0.3);
+      --firstBoxShadowDark: rgba(112, 49, 192, 0.25);
+      --secondBoxShadowDark: rgba(112, 49, 192, 0.3);
   }
 
   * {
