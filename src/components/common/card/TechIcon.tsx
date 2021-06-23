@@ -14,7 +14,7 @@ const SvgWrapper = styled.div<{ fill: string }>`
     }
   }
   svg > path {
-    fill: black;
+    fill: ${({ theme }) => theme.iconsColorAndButtonBorder};
   }
 `;
 
