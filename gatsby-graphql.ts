@@ -3412,7 +3412,7 @@ export type AllImagesQuery = { allFile: { nodes: Array<(
 export type AllFileQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type AllFileQuery = { allFile: { edges: Array<{ node: Pick<File, 'publicURL'> }> } };
+export type AllFileQuery = { allFile: { nodes: Array<Pick<File, 'publicURL'>> } };
 
 export type AllRepoQueryVariables = Exact<{ [key: string]: never; }>;
 
