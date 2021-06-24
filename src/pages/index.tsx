@@ -127,7 +127,7 @@ const CDADTitle = styled.h1`
     align-self: flex-start;
     width: 15px;
     height: 15px;
-    margin-left: -10px;
+    transform: translateX(-10px);
     font-size: 0.6875rem;
     border-radius: 4px;
     background-color: var(--secondaryColor);
@@ -143,10 +143,8 @@ const Index = () => {
   const { allFile }: AllFileQuery = useStaticQuery(graphql`
     query allFile {
       allFile(filter: { extension: { eq: "pdf" } }) {
-        edges {
-          node {
-            publicURL
-          }
+        nodes {
+          publicURL
         }
       }
     }
@@ -176,7 +174,7 @@ const Index = () => {
             <Icons name="Freecodecamp" />
             <Icons name="Hackerrank" />
             <Icons name="Reddit" />
-            <Button url={allFile.edges[0].node.publicURL!} />
+            <Button url={allFile.nodes[0].publicURL!} />
           </IconsWrapper>
         </ShortAbout>
       </ShortAboutWrapper>
