@@ -3,6 +3,7 @@ import { graphql } from "gatsby";
 import { AllRepoQuery } from "../../gatsby-graphql";
 import PageTitle from "../components/common/PageTitle";
 import ProjectsList from "../components/projects/ProjectsList";
+import MoreProjectsLink from "../components/projects/MoreProjectsLink";
 import { getAllReposStars, sortProjects } from "../utils/projects";
 import styled, { css } from "styled-components";
 import PropTypes from "prop-types";
@@ -71,7 +72,7 @@ const StarsWrapper = styled.div`
     stroke: ${({ theme }) => theme.starsColor};
     stroke-width: 1.5;
     stroke-linejoin: round;
-    margin-top: -2px;
+    transform: translateY(-1px);
   }
 `;
 
@@ -112,6 +113,7 @@ const Projects = ({
         </TotalStarsWrapper>
       </SortAndStarsWrapper>
       <ProjectsList repos={repos} selectValue={selectValue} />
+      <MoreProjectsLink />
     </ProjectsWrapper>
   );
 };
