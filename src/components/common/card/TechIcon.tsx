@@ -24,7 +24,7 @@ const Tooltip = styled.div<{ fill: string; color: string }>`
   background: ${({ fill }) => fill};
   z-index: 1;
   color: ${({ color }) => color};
-  margin-top: -32px;
+  top: -32px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
   padding: 5px;
   left: 50%;
