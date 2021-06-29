@@ -30,7 +30,7 @@ const ProjectsList = ({ repos, selectValue }: ProjectsListProps) => {
     allFile: { nodes: covers },
   } = useStaticQuery(graphql`
     query allImages {
-      allFile(filter: { extension: { regex: "/(jpg)|(jpeg)|(png)/" } }) {
+      allFile(filter: { sourceInstanceName: { eq: "projects" } }) {
         nodes {
           relativePath
           childImageSharp {
