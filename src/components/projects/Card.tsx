@@ -126,7 +126,6 @@ const Card = ({
   },
   covers,
 }: CardProps) => {
-  console.log(html_url, homepage);
   return (
     <CardWrapper>
       <GatsbyImage image={getProjectCover(project_cover, covers).childImageSharp.gatsbyImageData} alt={`${name} cover`} className="gatsby_image" />
