@@ -90,7 +90,7 @@ const Links = ({ link, figmaLink, githubLink }: LinksProps) => {
       {figmaLink && (
         <FigmaLink href={figmaLink} target="_blank">
           <svg width="18" height="26" viewBox="0 0 18 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <g clip-path="url(#clip0)">
+            <g clipPath="url(#clip0)">
               <path
                 d="M4.5009 25.9999C6.9844 25.9999 9 24.0586 9 21.6666V17.3333H4.5009C2.0174 17.3333 0.00180054 19.2746 0.00180054 21.6666C0.00180054 24.0586 2.0174 25.9999 4.5009 25.9999Z"
                 fill="#0ACF83"
