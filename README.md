@@ -33,3 +33,10 @@ src
     │   projects.ts
 
 ```
+
+## Pages
+
+- [x] Index
+- [x] Projects
+- [ ] Blog
+- [x] contact
