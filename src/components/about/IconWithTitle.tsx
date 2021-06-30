@@ -13,7 +13,7 @@ const IconWithTitleWrapper = styled.div`
     font-size: 1rem;
     font-weight: 300;
     letter-spacing: 0.1em;
-    margin-top: 1px;
+    margin: 1px 0 0 0;
   }
 `;
 
