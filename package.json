@@ -41,6 +41,7 @@
   },
   "devDependencies": {
     "@types/isomorphic-fetch": "^0.0.35",
+    "@types/mdx-js__react": "^1.5.3",
     "@types/react-helmet": "^6.1.1",
     "@types/styled-components": "^5.1.9",
     "prettier": "2.2.1"
