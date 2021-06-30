@@ -1,10 +1,10 @@
 import React from "react";
-import { Repo } from "../../../gatsby-graphql";
+import { AllImagesQuery } from "../../../gatsby-graphql";
 import Card from "./Card";
-import { filterProjects, getProjectCover, getSelectedProject, sortProjects } from "../../utils/projects";
+import { filterProjects, getSelectedProject, sortProjects } from "../../utils/projects";
 import styled from "styled-components";
 import PropTypes from "prop-types";
-import { coverType, repoType } from "../../types/projects";
+import { repoType } from "../../types/projects";
 import selectedProjects from "../../data/projects";
 import { graphql, useStaticQuery } from "gatsby";
 
@@ -28,7 +28,7 @@ interface ProjectsListProps {
 const ProjectsList = ({ repos, selectValue }: ProjectsListProps) => {
   const {
     allFile: { nodes: covers },
-  } = useStaticQuery(graphql`
+  }: AllImagesQuery = useStaticQuery(graphql`
     query allImages {
       allFile(filter: { sourceInstanceName: { eq: "projects" } }) {
         nodes {
