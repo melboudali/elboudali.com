@@ -62,6 +62,7 @@ const ShortAboutText = styled.p`
   line-height: 24px;
   text-align: var(--textAlignValue);
   color: ${({ theme }) => theme.titleColor};
+  margin: 0;
   span {
     margin: 0 5px;
     color: var(--red);
@@ -87,6 +88,7 @@ const LongAboutWrapper = styled.section`
     letter-spacing: 0.1em;
     text-align: justify;
     color: ${({ theme }) => theme.titleColor};
+    margin: 0;
     &:not(:last-child) {
       margin-bottom: 10px;
     }
@@ -112,6 +114,7 @@ const CDADTitle = styled.h1`
   font-weight: 700;
   font-size: var(--fontSize);
   text-align: justify;
+  margin: 0;
   svg > path {
     fill: ${({ theme }) => theme.titleColor};
   }

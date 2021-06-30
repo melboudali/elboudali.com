@@ -31,6 +31,7 @@ const SortWrapperTextStyle = css`
 const DescriptiveText = css`
   ${SortWrapperTextStyle}
   color: var(--secondaryColor);
+  margin: 0;
 `;
 
 const SortWrapper = styled.div`

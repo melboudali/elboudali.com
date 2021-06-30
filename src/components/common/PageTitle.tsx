@@ -12,6 +12,7 @@ const PageTitleWrapper = styled.h1`
   letter-spacing: -0.04em;
   text-transform: uppercase;
   color: ${({ theme }) => theme.titleColor};
+  margin: 0;
   @media (min-width: 375px) {
     --fontSize: 1.875rem;
   }

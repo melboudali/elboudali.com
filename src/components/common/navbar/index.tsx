@@ -20,6 +20,7 @@ const Logo = styled.h1`
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
+  margin: 0;
 `;
 
 const NavbarWrapper = styled.div`

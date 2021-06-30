@@ -37,6 +37,7 @@ const CardTitle = styled.h2`
   letter-spacing: -0.04em;
   text-transform: uppercase;
   color: ${({ theme }) => theme.titleColor};
+  margin: 0;
 `;
 
 const FlexStyle = css`
@@ -97,6 +98,7 @@ const Description = styled.p`
   text-align: justify;
   height: 60px;
   color: ${({ theme }) => theme.balackAndWhite};
+  margin: 0;
   /* overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 4;
