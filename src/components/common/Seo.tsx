@@ -2,6 +2,7 @@ import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
 import { Helmet } from "react-helmet";
 import PropTypes from "prop-types";
+import { MetaDataQuery } from "../../../gatsby-graphql";
 
 interface SeoProps {
   title?: string;
@@ -12,12 +13,8 @@ interface SeoProps {
 }
 
 const Seo = ({ title, image, description, children, location }: SeoProps) => {
-  const {
-    site: {
-      siteMetadata: { defaultTitle, titleTemplate, defaultDescription, defaultImage, siteUrl, twitter },
-    },
-  } = useStaticQuery(graphql`
-    query {
+  const { site }: MetaDataQuery = useStaticQuery(graphql`
+    query metaData {
       site {
         siteMetadata {
           defaultTitle: title
@@ -32,14 +29,14 @@ const Seo = ({ title, image, description, children, location }: SeoProps) => {
   `);
 
   const seo = {
-    title: title ?? defaultTitle,
-    description: description ?? defaultDescription,
-    image: image ?? defaultImage,
-    siteUrl: location ?? siteUrl,
+    title: title ?? site?.siteMetadata?.defaultTitle,
+    description: description ?? site?.siteMetadata?.defaultDescription,
+    image: image ?? site?.siteMetadata?.defaultImage,
+    siteUrl: location ?? site?.siteMetadata?.siteUrl,
   };
 
   return (
-    <Helmet title={title} titleTemplate={titleTemplate}>
+    <Helmet title={title} titleTemplate={site!.siteMetadata!.titleTemplate!}>
       <html lang="en" />
       <meta charSet="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -55,7 +52,7 @@ const Seo = ({ title, image, description, children, location }: SeoProps) => {
       {seo.image && <meta name="twitter:image" content={seo.image} />}
       {seo.siteUrl && <meta property="og:url" content={seo.siteUrl} />}
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:creator" content={twitter} />
+      <meta name="twitter:creator" content={site!.siteMetadata!.twitter!} />
       {children}
     </Helmet>
   );
