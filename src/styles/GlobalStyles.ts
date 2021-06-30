@@ -49,16 +49,14 @@ const GlobalStyles = createGlobalStyle`
 
   * {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
   };
 
 
   html {
     position: relative;
     overflow-y: auto;
-    scrollbar-width: thin;
-    scrollbar-color: var(--black) var(--white);
+    /* scrollbar-width: thin;
+    scrollbar-color: var(--black) var(--white); */
   }
 
   body {
@@ -69,6 +67,7 @@ const GlobalStyles = createGlobalStyle`
     font-weight: 400;
     font-family: 'Roboto', sans-serif;
     font-style: normal;
+    margin: 0;
   }
 
  
@@ -104,7 +103,16 @@ const GlobalStyles = createGlobalStyle`
     border-radius: 6px;
     border: 3px solid ${({ theme }) => theme.bodyBackground};
   }
- 
+
+  li{
+    list-style: none;
+  }
+
+  /* img[alt~="markdown"]{
+    width: 300px;
+    margin: 0 auto;
+  } */
+
   /* img {
     max-width: 100%;
   } */
