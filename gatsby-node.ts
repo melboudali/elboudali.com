@@ -1,6 +1,8 @@
 import path from "path";
 import fetch from "isomorphic-fetch";
-import { SourceNodesArgs } from "gatsby";
+import { CreateNodeArgs, CreatePagesArgs, SourceNodesArgs } from "gatsby";
+import { CreatePostPagesQuery } from "./gatsby-graphql";
+import { createFilePath } from "gatsby-source-filesystem";
 
 const fetchGithubReposAndTurnToNodes = async (args: SourceNodesArgs) => {
   const { actions, createNodeId, createContentDigest } = args;
@@ -24,11 +26,53 @@ const fetchGithubReposAndTurnToNodes = async (args: SourceNodesArgs) => {
   }
 };
 
+exports.onCreateNode = (args: CreateNodeArgs): void => {
+  // Create a slug field for markdown post nodes.
+  const { actions, node, getNode } = args;
+  const { createNodeField } = actions;
+  if (node.internal.type === "Mdx") {
+    const slug = createFilePath({ node, getNode });
+    createNodeField({
+      node,
+      name: "slug",
+      value: "/blog" + slug,
+    });
+  }
+};
+
+interface resType {
+  data?: CreatePostPagesQuery;
+}
+
+const turnPostsIntoPages = async (args: CreatePagesArgs) => {
+  const { actions, graphql } = args;
+  const postTemplate = path.resolve("./src/templates/Post.tsx");
+  const res: resType = await graphql(`
+    query createPostPages {
+      posts: allMdx {
+        nodes {
+          frontmatter {
+            slug
+          }
+        }
+      }
+    }
+  `);
+
+  res.data?.posts.nodes.forEach(post => {
+    actions.createPage({
+      path: "/blog" + post.frontmatter?.slug!,
+      component: postTemplate,
+      context: { slug: post.frontmatter?.slug! },
+    });
+  });
+};
+
 exports.sourceNodes = async (params: SourceNodesArgs): Promise<void> => {
   // Fetching external API
   await Promise.all([fetchGithubReposAndTurnToNodes(params)]);
 };
 
-// exports.createPages = async params => {
-//   await Promise.all([turnPizzasIntoPages(params), turnToppingsIntoPages(params), turnSliceKingsIntoPages(params)]);
-// };
+exports.createPages = async (params: CreatePagesArgs) => {
+  await Promise.all([turnPostsIntoPages(params)]);
+};
