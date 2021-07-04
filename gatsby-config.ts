@@ -10,10 +10,12 @@ export default {
     twitter: about.socialLinks.twitterId,
   },
   plugins: [
+    `gatsby-plugin-typescript`,
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
     `gatsby-transformer-sharp`,
+    `gatsby-remark-autolink-headers`,
     {
       resolve: `gatsby-plugin-sharp`,
       options: {
@@ -51,10 +53,47 @@ export default {
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
-        extensions: [`.mdx`, `.md`],
-        defaultLayouts: {
-          default: require.resolve("./src/components/layout/MDXProvider.tsx"),
-        },
+        plugins: [
+          {
+            resolve: "gatsby-remark-images",
+            options: {
+              maxWidth: 1000,
+              linkImagesToOriginal: false,
+              showCaptions: true,
+            },
+          },
+          {
+            resolve: "gatsby-remark-images-medium-zoom",
+          },
+        ],
+        gatsbyRemarkPlugins: [
+          {
+            resolve: "gatsby-remark-autolink-headers",
+          },
+          {
+            resolve: "gatsby-remark-images",
+            options: {
+              maxWidth: 1000,
+              linkImagesToOriginal: false,
+            },
+          },
+          {
+            resolve: `gatsby-remark-images-medium-zoom`, // Important!
+          },
+          {
+            resolve: "gatsby-remark-prismjs",
+            options: {
+              aliases: {
+                sh: "shell",
+                es6: "javascript",
+                js: "javascript",
+                env: "bash",
+                mdx: "md",
+                ".json": "json",
+              },
+            },
+          },
+        ],
       },
     },
   ],
