@@ -21,7 +21,7 @@ const Blog = ({
       {MDX.map(mdx => (
         <>
           <p key={mdx.id}>{mdx.frontmatter?.title}</p>
-          <Link to={`${mdx.frontmatter?.slug!}`}>Click Me</Link>
+          <Link to={`${mdx.fields?.slug}`}>Click Me</Link>
         </>
       ))}
     </div>
@@ -37,6 +37,10 @@ export const query = graphql`
     allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
       nodes {
         id
+        slug
+        fields {
+          slug
+        }
         excerpt(pruneLength: 250)
         frontmatter {
           title
