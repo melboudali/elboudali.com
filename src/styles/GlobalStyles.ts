@@ -84,11 +84,14 @@ const GlobalStyles = createGlobalStyle`
     outline: none;
     background: none;
     cursor: pointer;
+    padding: 0;
   }
 
-  .gatsby-image-wrapper img[src*=base64] {
+  .gatsby-image-wrapper img[src*=base64], .gatsby-resp-image-background-image {
     image-rendering: pixelated;
   }
+
+  
 
   ::-webkit-scrollbar {
     width: 12px;
