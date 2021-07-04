@@ -1,7 +1,7 @@
 import path from "path";
 import fetch from "isomorphic-fetch";
 import { CreateNodeArgs, CreatePagesArgs, SourceNodesArgs } from "gatsby";
-import { CreatePostPagesQuery } from "./gatsby-graphql";
+import { CreatePostPagesQuery, Maybe, MdxFields } from "./gatsby-graphql";
 import { createFilePath } from "gatsby-source-filesystem";
 
 const fetchGithubReposAndTurnToNodes = async (args: SourceNodesArgs) => {
@@ -35,13 +35,17 @@ exports.onCreateNode = (args: CreateNodeArgs): void => {
     createNodeField({
       node,
       name: "slug",
-      value: "/blog" + slug,
+      value: `/blog${slug}`,
     });
   }
 };
 
 interface resType {
   data?: CreatePostPagesQuery;
+}
+
+interface postType {
+  fields?: Maybe<Pick<MdxFields, "slug">>;
 }
 
 const turnPostsIntoPages = async (args: CreatePagesArgs) => {
@@ -51,7 +55,7 @@ const turnPostsIntoPages = async (args: CreatePagesArgs) => {
     query createPostPages {
       posts: allMdx {
         nodes {
-          frontmatter {
+          fields {
             slug
           }
         }
@@ -59,11 +63,11 @@ const turnPostsIntoPages = async (args: CreatePagesArgs) => {
     }
   `);
 
-  res.data?.posts.nodes.forEach(post => {
+  res.data?.posts.nodes.forEach((post: postType) => {
     actions.createPage({
-      path: "/blog" + post.frontmatter?.slug!,
+      path: post.fields?.slug!,
       component: postTemplate,
-      context: { slug: post.frontmatter?.slug! },
+      context: { slug: post.fields?.slug! },
     });
   });
 };
