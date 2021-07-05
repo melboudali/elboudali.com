@@ -222,6 +222,7 @@ const CopiedMessage = styled.p<{ showMessage: boolean }>`
   left: 50%;
   bottom: -50px;
   border-radius: 5px;
+  margin: 0;
   display: ${({ showMessage }) => (showMessage ? "flex" : "none")};
   animation: ${CopiedMessageAnimation} 2s;
 `;
