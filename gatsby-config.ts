@@ -10,7 +10,6 @@ export default {
     twitter: about.socialLinks.twitterId,
   },
   plugins: [
-    `gatsby-plugin-typescript`,
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
@@ -55,6 +54,9 @@ export default {
       options: {
         plugins: [
           {
+            resolve: "gatsby-remark-images-medium-zoom",
+          },
+          {
             resolve: "gatsby-remark-images",
             options: {
               maxWidth: 1000,
@@ -62,35 +64,22 @@ export default {
               showCaptions: true,
             },
           },
-          {
-            resolve: "gatsby-remark-images-medium-zoom",
-          },
         ],
         gatsbyRemarkPlugins: [
           {
+            resolve: "gatsby-remark-prismjs",
+          },
+          {
             resolve: "gatsby-remark-autolink-headers",
+          },
+          {
+            resolve: `gatsby-remark-images-medium-zoom`,
           },
           {
             resolve: "gatsby-remark-images",
             options: {
               maxWidth: 1000,
               linkImagesToOriginal: false,
-            },
-          },
-          {
-            resolve: `gatsby-remark-images-medium-zoom`, // Important!
-          },
-          {
-            resolve: "gatsby-remark-prismjs",
-            options: {
-              aliases: {
-                sh: "shell",
-                es6: "javascript",
-                js: "javascript",
-                env: "bash",
-                mdx: "md",
-                ".json": "json",
-              },
             },
           },
         ],
