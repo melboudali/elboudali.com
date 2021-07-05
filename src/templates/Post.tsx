@@ -6,7 +6,7 @@ import { SinglePostQuery } from "../../gatsby-graphql";
 import PageTitle from "../components/common/PageTitle";
 import styled from "styled-components";
 
-const MDXWrapper = styled.div`
+const MDXWrapper = styled.section`
   color: ${({ theme }) => theme.balackAndWhite};
   h1,
   h2,
@@ -22,6 +22,11 @@ const MDXWrapper = styled.div`
   }
 `;
 
+const Article = styled.article`
+  max-width: 860px;
+  margin: 0 auto;
+`;
+
 const shortcodes = { PageTitle };
 
 interface PostProps {
@@ -31,7 +36,11 @@ interface PostProps {
 const Post = ({ data: { mdx: post } }: PostProps) => (
   <MDXWrapper>
     <MDXProvider components={shortcodes}>
-      <MDXRenderer frontmatter={post?.frontmatter}>{post?.body!}</MDXRenderer>
+      <Article>
+        <PageTitle>{post?.frontmatter?.title!}</PageTitle>
+        <p>{post?.frontmatter?.date}</p>
+        <MDXRenderer frontmatter={post?.frontmatter}>{post?.body!}</MDXRenderer>
+      </Article>
     </MDXProvider>
   </MDXWrapper>
 );
@@ -50,11 +59,13 @@ export const query = graphql`
       frontmatter {
         title
         summary
-        cover
-        author
+        cover {
+          childrenImageSharp {
+            gatsbyImageData
+          }
+        }
         tags
-        slug
-        date(formatString: "YYYY MMMM Do")
+        date(formatString: "dddd, DD MMMM, YYYY")
       }
     }
   }
