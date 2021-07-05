@@ -45,10 +45,12 @@ export const query = graphql`
         frontmatter {
           title
           summary
-          cover
-          author
+          cover {
+            childrenImageSharp {
+              gatsbyImageData
+            }
+          }
           tags
-          slug
           date(formatString: "YYYY MMMM Do")
         }
       }
