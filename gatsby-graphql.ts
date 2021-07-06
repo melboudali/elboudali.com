@@ -815,14 +815,14 @@ export type SitePluginPluginOptions = {
   pure?: Maybe<Scalars['Boolean']>;
   offsetY?: Maybe<Scalars['Int']>;
   className?: Maybe<Scalars['String']>;
+  documentPaths?: Maybe<Array<Maybe<Scalars['String']>>>;
+  path?: Maybe<Scalars['String']>;
+  name?: Maybe<Scalars['String']>;
   defaults?: Maybe<SitePluginPluginOptionsDefaults>;
   base64Width?: Maybe<Scalars['Int']>;
   stripMetadata?: Maybe<Scalars['Boolean']>;
   defaultQuality?: Maybe<Scalars['Int']>;
   failOnError?: Maybe<Scalars['Boolean']>;
-  documentPaths?: Maybe<Array<Maybe<Scalars['String']>>>;
-  path?: Maybe<Scalars['String']>;
-  name?: Maybe<Scalars['String']>;
   gatsbyRemarkPlugins?: Maybe<Array<Maybe<SitePluginPluginOptionsGatsbyRemarkPlugins>>>;
   extensions?: Maybe<Array<Maybe<Scalars['String']>>>;
   lessBabel?: Maybe<Scalars['Boolean']>;
@@ -2647,14 +2647,14 @@ export type SitePluginPluginOptionsFilterInput = {
   pure?: Maybe<BooleanQueryOperatorInput>;
   offsetY?: Maybe<IntQueryOperatorInput>;
   className?: Maybe<StringQueryOperatorInput>;
+  documentPaths?: Maybe<StringQueryOperatorInput>;
+  path?: Maybe<StringQueryOperatorInput>;
+  name?: Maybe<StringQueryOperatorInput>;
   defaults?: Maybe<SitePluginPluginOptionsDefaultsFilterInput>;
   base64Width?: Maybe<IntQueryOperatorInput>;
   stripMetadata?: Maybe<BooleanQueryOperatorInput>;
   defaultQuality?: Maybe<IntQueryOperatorInput>;
   failOnError?: Maybe<BooleanQueryOperatorInput>;
-  documentPaths?: Maybe<StringQueryOperatorInput>;
-  path?: Maybe<StringQueryOperatorInput>;
-  name?: Maybe<StringQueryOperatorInput>;
   gatsbyRemarkPlugins?: Maybe<SitePluginPluginOptionsGatsbyRemarkPluginsFilterListInput>;
   extensions?: Maybe<StringQueryOperatorInput>;
   lessBabel?: Maybe<BooleanQueryOperatorInput>;
@@ -2963,14 +2963,14 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___pure'
   | 'pluginCreator___pluginOptions___offsetY'
   | 'pluginCreator___pluginOptions___className'
+  | 'pluginCreator___pluginOptions___documentPaths'
+  | 'pluginCreator___pluginOptions___path'
+  | 'pluginCreator___pluginOptions___name'
   | 'pluginCreator___pluginOptions___defaults___placeholder'
   | 'pluginCreator___pluginOptions___base64Width'
   | 'pluginCreator___pluginOptions___stripMetadata'
   | 'pluginCreator___pluginOptions___defaultQuality'
   | 'pluginCreator___pluginOptions___failOnError'
-  | 'pluginCreator___pluginOptions___documentPaths'
-  | 'pluginCreator___pluginOptions___path'
-  | 'pluginCreator___pluginOptions___name'
   | 'pluginCreator___pluginOptions___gatsbyRemarkPlugins'
   | 'pluginCreator___pluginOptions___gatsbyRemarkPlugins___resolve'
   | 'pluginCreator___pluginOptions___extensions'
@@ -4139,14 +4139,14 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___pure'
   | 'pluginOptions___offsetY'
   | 'pluginOptions___className'
+  | 'pluginOptions___documentPaths'
+  | 'pluginOptions___path'
+  | 'pluginOptions___name'
   | 'pluginOptions___defaults___placeholder'
   | 'pluginOptions___base64Width'
   | 'pluginOptions___stripMetadata'
   | 'pluginOptions___defaultQuality'
   | 'pluginOptions___failOnError'
-  | 'pluginOptions___documentPaths'
-  | 'pluginOptions___path'
-  | 'pluginOptions___name'
   | 'pluginOptions___gatsbyRemarkPlugins'
   | 'pluginOptions___gatsbyRemarkPlugins___resolve'
   | 'pluginOptions___gatsbyRemarkPlugins___options___maxWidth'
