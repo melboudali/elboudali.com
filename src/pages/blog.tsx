@@ -37,11 +37,11 @@ export const query = graphql`
     allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
       nodes {
         id
-        slug
+        timeToRead
+        excerpt(pruneLength: 250)
         fields {
           slug
         }
-        excerpt(pruneLength: 250)
         frontmatter {
           title
           summary
@@ -51,7 +51,7 @@ export const query = graphql`
             }
           }
           tags
-          date(formatString: "YYYY MMMM Do")
+          date(formatString: "dddd, DD MMMM YYYY")
         }
       }
       totalCount
