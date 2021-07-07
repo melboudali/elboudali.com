@@ -65,7 +65,7 @@ export const query = graphql`
           }
         }
         tags
-        date(formatString: "dddd, DD MMMM, YYYY")
+        date(formatString: "dddd, DD MMMM YYYY")
       }
     }
   }
