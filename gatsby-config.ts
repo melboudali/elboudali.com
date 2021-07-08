@@ -15,12 +15,7 @@ export default {
     `gatsby-plugin-image`,
     `gatsby-transformer-sharp`,
     `gatsby-remark-autolink-headers`,
-    {
-      resolve: `gatsby-plugin-sharp`,
-      options: {
-        defaults: { placeholder: "blurred" },
-      },
-    },
+
     {
       resolve: `gatsby-plugin-graphql-codegen`,
       options: {
@@ -47,6 +42,12 @@ export default {
       options: {
         path: `${__dirname}/src/posts`,
         name: "posts",
+      },
+    },
+    {
+      resolve: `gatsby-plugin-sharp`,
+      options: {
+        defaults: { placeholder: "blurred" },
       },
     },
     {
