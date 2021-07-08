@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import { graphql, Link } from "gatsby";
 import { AllPostsQuery } from "../../gatsby-graphql";
 import PageTitle from "../components/common/PageTitle";
-import PropTypes from "prop-types";
 import styled from "styled-components";
+import Topic from "../components/blog/Topic";
+import PropTypes from "prop-types";
 
 const PageTitleWrapper = styled.div`
   display: flex;
@@ -25,6 +26,32 @@ const ListStyleWrapper = styled.div<{ listType: "grid" | "list" }>`
   button:nth-child(2) > svg > path {
     fill: ${({ listType }) => (listType === "list" ? "#d8d8d8" : "#000")};
   }
+`;
+
+const PostsWrapper = styled.div`
+  display: flex;
+  gap: 50px;
+  margin-top: 20px;
+`;
+
+const TopicsWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  button:nth-child(1) {
+    flex: 1 1 11px;
+  }
+  button:nth-child(2) {
+    flex: 1 1 11px;
+  }
+`;
+
+const Topics = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  overflow-x: hidden;
+  flex: 2 2 500px;
 `;
 
 interface BlogProps {
@@ -59,6 +86,34 @@ const Blog = ({
           </button>
         </ListStyleWrapper>
       </PageTitleWrapper>
+      <PostsWrapper>
+        <TopicsWrapper>
+          <button type="button" aria-label="previous">
+            <svg width="11" height="18" viewBox="0 0 11 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M9 2L2 9L9 16" stroke="#A5A5A5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+          <Topics>
+            <Topic topic="HTML" />
+            <Topic topic="CSS" />
+            <Topic topic="SASS" />
+            <Topic topic="JavaScript" />
+            <Topic topic="TypeScript" />
+            <Topic topic="Gatsby" />
+            <Topic topic="Next" />
+            <Topic topic="StyledComponents" />
+            <Topic topic="GraphQL" />
+            <Topic topic="Figma" />
+            <Topic topic="Express" />
+            <Topic topic="PostgreSQL" />
+          </Topics>
+          <button type="button" aria-label="next">
+            <svg width="11" height="18" viewBox="0 0 11 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M2.00676 2L9.00085 9L2.00676 16" stroke="#A5A5A5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+        </TopicsWrapper>
+      </PostsWrapper>
       {MDX.map(mdx => (
         <>
           <p key={mdx.id}>{mdx.frontmatter?.title}</p>
