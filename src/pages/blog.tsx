@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { graphql, Link } from "gatsby";
 import { AllPostsQuery } from "../../gatsby-graphql";
 import PageTitle from "../components/common/PageTitle";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import Topic from "../components/blog/Topic";
 import PropTypes from "prop-types";
 
@@ -21,37 +21,57 @@ const ListStyleWrapper = styled.div<{ listType: "grid" | "list" }>`
     align-items: center;
   }
   button:nth-child(1) > svg > path {
-    fill: ${({ listType }) => (listType === "list" ? "#000" : "#d8d8d8")};
+    fill: ${({ listType, theme }) => (listType === "list" ? theme.buttonBackground : "#d8d8d8")};
   }
   button:nth-child(2) > svg > path {
-    fill: ${({ listType }) => (listType === "list" ? "#d8d8d8" : "#000")};
+    fill: ${({ listType, theme }) => (listType === "list" ? "#d8d8d8" : theme.buttonBackground)};
   }
 `;
 
 const PostsWrapper = styled.div`
   display: flex;
+  flex-direction: column;
   gap: 50px;
   margin-top: 20px;
 `;
 
 const TopicsWrapper = styled.div`
+  position: relative;
   display: flex;
   align-items: center;
-  gap: 20px;
-  button:nth-child(1) {
-    flex: 1 1 11px;
-  }
-  button:nth-child(2) {
-    flex: 1 1 11px;
-  }
+`;
+
+const PrevAndNext = css`
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  width: 50px;
+  height: 100%;
+`;
+
+const Prev = styled.button`
+  ${PrevAndNext}
+  left: 0;
+  justify-content: flex-start;
+  ${({ theme }) => `background: linear-gradient(to right,${theme.bodyBackground}  20%, rgba(0, 0, 0, 0) 80%)`};
+`;
+
+const Next = styled.button`
+  ${PrevAndNext}
+  right: 0;
+  justify-content: flex-end;
+  ${({ theme }) => `background: linear-gradient(to left,${theme.bodyBackground}  20%, rgba(0, 0, 0, 0) 80%)`};
 `;
 
 const Topics = styled.div`
   display: flex;
   align-items: center;
   gap: 20px;
-  overflow-x: hidden;
-  flex: 2 2 500px;
+  overflow: hidden;
+  width: 100%;
 `;
 
 interface BlogProps {
@@ -88,11 +108,11 @@ const Blog = ({
       </PageTitleWrapper>
       <PostsWrapper>
         <TopicsWrapper>
-          <button type="button" aria-label="previous">
+          <Prev type="button" aria-label="previous">
             <svg width="11" height="18" viewBox="0 0 11 18" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M9 2L2 9L9 16" stroke="#A5A5A5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
-          </button>
+          </Prev>
           <Topics>
             <Topic topic="HTML" />
             <Topic topic="CSS" />
@@ -107,11 +127,11 @@ const Blog = ({
             <Topic topic="Express" />
             <Topic topic="PostgreSQL" />
           </Topics>
-          <button type="button" aria-label="next">
+          <Next type="button" aria-label="next">
             <svg width="11" height="18" viewBox="0 0 11 18" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M2.00676 2L9.00085 9L2.00676 16" stroke="#A5A5A5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
-          </button>
+          </Next>
         </TopicsWrapper>
       </PostsWrapper>
       {MDX.map(mdx => (
