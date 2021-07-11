@@ -43,13 +43,12 @@ const TopicsWrapper = styled.div`
 
 const PrevAndNext = css`
   position: absolute;
-  top: 50%;
-  transform: translate(0, -50%);
-  z-index: 1;
   display: flex;
   align-items: center;
   width: 50px;
   height: 100%;
+  top: 50%;
+  transform: translate(0, -50%);
 `;
 
 const Prev = styled.button`
@@ -71,7 +70,7 @@ const Topics = styled.div`
   align-items: center;
   gap: 20px;
   overflow: hidden;
-  width: 100%;
+  /* width: 100%; */
 `;
 
 interface BlogProps {
