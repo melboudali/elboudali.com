@@ -42,8 +42,8 @@ const GlobalStyles = createGlobalStyle`
       --figmaLightBg: #333333;
       --figmaDarkBg: #191820;
       --firstBoxShadowLight: rgba(50, 50, 93, 0.25);
-      --secondBoxShadowLight: rgba(0, 0, 0, 0.3);
       --firstBoxShadowDark: rgba(112, 49, 192, 0.25);
+      --secondBoxShadowLight: rgba(0, 0, 0, 0.3);
       --secondBoxShadowDark: rgba(112, 49, 192, 0.3);
   }
 
