@@ -5,6 +5,8 @@ import PageTitle from "../components/common/PageTitle";
 import styled, { css } from "styled-components";
 import Topic from "../components/blog/Topic";
 import PropTypes from "prop-types";
+import { GatsbyImage, getImage, getImageData, IGatsbyImageData } from "gatsby-plugin-image";
+import Topics from "../components/blog/Topics";
 
 const PageTitleWrapper = styled.div`
   display: flex;
@@ -33,44 +35,6 @@ const PostsWrapper = styled.div`
   flex-direction: column;
   gap: 50px;
   margin-top: 20px;
-`;
-
-const TopicsWrapper = styled.div`
-  position: relative;
-  display: flex;
-  align-items: center;
-`;
-
-const PrevAndNext = css`
-  position: absolute;
-  display: flex;
-  align-items: center;
-  width: 50px;
-  height: 100%;
-  top: 50%;
-  transform: translate(0, -50%);
-`;
-
-const Prev = styled.button`
-  ${PrevAndNext}
-  left: 0;
-  justify-content: flex-start;
-  ${({ theme }) => `background: linear-gradient(to right,${theme.bodyBackground}  20%, rgba(0, 0, 0, 0) 80%)`};
-`;
-
-const Next = styled.button`
-  ${PrevAndNext}
-  right: 0;
-  justify-content: flex-end;
-  ${({ theme }) => `background: linear-gradient(to left,${theme.bodyBackground}  20%, rgba(0, 0, 0, 0) 80%)`};
-`;
-
-const Topics = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  overflow: hidden;
-  /* width: 100%; */
 `;
 
 interface BlogProps {
@@ -106,38 +70,15 @@ const Blog = ({
         </ListStyleWrapper>
       </PageTitleWrapper>
       <PostsWrapper>
-        <TopicsWrapper>
-          <Prev type="button" aria-label="previous">
-            <svg width="11" height="18" viewBox="0 0 11 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M9 2L2 9L9 16" stroke="#A5A5A5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-          </Prev>
-          <Topics>
-            <Topic topic="HTML" />
-            <Topic topic="CSS" />
-            <Topic topic="SASS" />
-            <Topic topic="JavaScript" />
-            <Topic topic="TypeScript" />
-            <Topic topic="Gatsby" />
-            <Topic topic="Next" />
-            <Topic topic="StyledComponents" />
-            <Topic topic="GraphQL" />
-            <Topic topic="Figma" />
-            <Topic topic="Express" />
-            <Topic topic="PostgreSQL" />
-          </Topics>
-          <Next type="button" aria-label="next">
-            <svg width="11" height="18" viewBox="0 0 11 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M2.00676 2L9.00085 9L2.00676 16" stroke="#A5A5A5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-          </Next>
-        </TopicsWrapper>
+        <Topics />
       </PostsWrapper>
       {MDX.map(mdx => (
-        <>
-          <p key={mdx.id}>{mdx.frontmatter?.title}</p>
+        <div key={mdx.id}>
+          <p>{mdx.frontmatter?.title}</p>
+          <GatsbyImage image={mdx.frontmatter?.cover?.childImageSharp?.gatsbyImageData} alt={` cover`} className="gatsby_image" />
+
           <Link to={`${mdx.fields?.slug}`}>Click Me</Link>
-        </>
+        </div>
       ))}
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur consequuntur repellendus doloremque nihil deleniti perspiciatis, consequatur
       illo veritatis ex! Molestias numquam excepturi fugit facere laudantium itaque voluptates suscipit ducimus. Consequuntur, illum ullam commodi
@@ -175,7 +116,7 @@ export const query = graphql`
           title
           summary
           cover {
-            childrenImageSharp {
+            childImageSharp {
               gatsbyImageData
             }
           }
