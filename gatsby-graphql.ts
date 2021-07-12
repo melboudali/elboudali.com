@@ -4232,7 +4232,7 @@ export type AllPostsQuery = { allMdx: (
       Pick<Mdx, 'id' | 'timeToRead' | 'excerpt'>
       & { fields?: Maybe<Pick<MdxFields, 'slug'>>, frontmatter?: Maybe<(
         Pick<MdxFrontmatter, 'title' | 'summary' | 'tags' | 'date'>
-        & { cover?: Maybe<{ childrenImageSharp?: Maybe<Array<Maybe<Pick<ImageSharp, 'gatsbyImageData'>>>> }> }
+        & { cover?: Maybe<{ childImageSharp?: Maybe<Pick<ImageSharp, 'gatsbyImageData'>> }> }
       )> }
     )> }
   ) };
