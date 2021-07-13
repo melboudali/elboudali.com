@@ -5,17 +5,30 @@ import { MDXType } from "../../types/blog";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
+const ImageWrapper = styled.div`
+  flex: 1;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  overflow: hidden;
+  .gatsby_image {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center center;
+    transition: all 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+`;
+
 const ListItemWrapper = styled(Link)`
   display: flex;
   background-color: ${({ theme }) => theme.cardBackground};
   box-shadow: ${({ theme }) => `0px 2px 5px -1px ${theme.firstBoxShadow}, 0px 1px 3px -1px ${theme.secondBoxShadow}`};
   border-radius: 5px;
   min-height: 169px;
-  .gatsby_image {
-    flex: 1;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
-    object-fit: cover;
+  &:hover {
+    ${ImageWrapper} .gatsby_image {
+      transform: scale(1.1) rotate(2deg);
+    }
   }
 `;
 
@@ -31,7 +44,9 @@ interface ListItemProps {
 const ListItem = ({ mdx }: ListItemProps) => {
   return (
     <ListItemWrapper to={mdx.fields.slug}>
-      <GatsbyImage image={mdx.frontmatter?.cover?.childImageSharp?.gatsbyImageData} alt={` cover`} className="gatsby_image" />
+      <ImageWrapper>
+        <GatsbyImage image={mdx.frontmatter?.cover?.childImageSharp?.gatsbyImageData} alt={` cover`} className="gatsby_image" />
+      </ImageWrapper>
       <Details>
         <p>{mdx.frontmatter?.title}</p>
 
