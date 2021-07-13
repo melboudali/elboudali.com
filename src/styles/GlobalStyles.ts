@@ -77,6 +77,7 @@ const GlobalStyles = createGlobalStyle`
 
   a, a:visited {
     text-decoration: none;
+    color: black;
   }
 
   button{
