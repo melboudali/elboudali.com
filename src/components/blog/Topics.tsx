@@ -52,46 +52,9 @@ interface TopicsProps {}
 const Topics = ({}: TopicsProps) => {
   const childRef = useRef<HTMLDivElement>(null);
   const parentRef = useRef<HTMLDivElement>(null);
-  const slideBy = useRef(0);
-  const [translateValue, setTranslateValue] = useState(0);
-  const widthDiff = useRef(0);
 
-  const [slideButtons, setSlideButtons] = useState({
-    prevButton: false,
-    nextButton: true,
-  });
-
-  useEffect(() => {
-    if (childRef && parentRef) {
-      widthDiff.current = childRef.current?.scrollWidth! / parentRef.current?.clientWidth!;
-      slideBy.current = parentRef.current?.clientWidth! / 2;
-    }
-  }, []);
-
-  const slideRight = () => {
-    if (widthDiff.current >= 1) {
-      setTranslateValue(slideBy.current);
-      widthDiff.current -= 1;
-      slideBy.current += parentRef.current?.clientWidth! / 2;
-      setSlideButtons({ ...slideButtons, prevButton: true });
-    } else {
-      setTranslateValue(childRef.current?.scrollWidth! - parentRef.current?.clientWidth!);
-      setSlideButtons({ ...slideButtons, nextButton: false });
-    }
-    console.log("child:", childRef.current?.scrollWidth!);
-    console.log("parent", parentRef.current?.clientWidth!);
-    console.log(widthDiff);
-  };
-
-  const slideLeft = () => {
-    // if (currentIndex.current > slideBy.current) {
-    //   setTranslateValue(100);
-    //   setSlideButtons({ ...slideButtons, rightButton: true });
-    // } else {
-    //   setTranslateValue(0);
-    //   setSlideButtons({ ...slideButtons, leftButton: false });
-    // }
-  };
+  // FIXME: fix this hook later
+  const { translateValue, slideButtons, slideRight, slideLeft } = useSlider(childRef, parentRef, 23);
 
   return (
     <TopicsWrapper>
