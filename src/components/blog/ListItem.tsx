@@ -10,12 +10,13 @@ const ImageWrapper = styled.div`
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
   overflow: hidden;
+  position: relative;
   .gatsby_image {
-    height: 100%;
     width: 100%;
-    object-fit: cover;
-    object-position: center center;
-    transition: all 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
   }
 `;
 
@@ -24,7 +25,8 @@ const ListItemWrapper = styled(Link)`
   background-color: ${({ theme }) => theme.cardBackground};
   box-shadow: ${({ theme }) => `0px 2px 5px -1px ${theme.firstBoxShadow}, 0px 1px 3px -1px ${theme.secondBoxShadow}`};
   border-radius: 5px;
-  min-height: 169px;
+  min-height: auto;
+
   &:hover {
     ${ImageWrapper} .gatsby_image {
       transform: scale(1.1) rotate(2deg);
@@ -35,6 +37,15 @@ const ListItemWrapper = styled(Link)`
 const Details = styled.div`
   flex: 2;
   padding: 20px;
+`;
+
+const Title = styled.h2`
+  font-size: 1.25rem;
+  line-height: 23px;
+  text-transform: capitalize;
+  margin: 0 0 5px 0;
+  font-weight: 400;
+  color: ${({ theme }) => theme.titleColor};
 `;
 
 interface ListItemProps {
@@ -48,7 +59,7 @@ const ListItem = ({ mdx }: ListItemProps) => {
         <GatsbyImage image={mdx.frontmatter?.cover?.childImageSharp?.gatsbyImageData} alt={` cover`} className="gatsby_image" />
       </ImageWrapper>
       <Details>
-        <p>{mdx.frontmatter?.title}</p>
+        <Title>{mdx.frontmatter?.title}</Title>
 
         <Link to={`${mdx.fields?.slug}`}>Click Me</Link>
         <p>{mdx.excerpt}</p>
