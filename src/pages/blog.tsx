@@ -4,9 +4,9 @@ import { AllPostsQuery } from "../../gatsby-graphql";
 import PageTitle from "../components/common/PageTitle";
 import styled, { css } from "styled-components";
 import Topic from "../components/blog/Topic";
-import PropTypes from "prop-types";
-import { GatsbyImage, getImage, getImageData, IGatsbyImageData } from "gatsby-plugin-image";
 import Topics from "../components/blog/Topics";
+import ListItem from "../components/blog/ListItem";
+import PropTypes from "prop-types";
 
 const PageTitleWrapper = styled.div`
   display: flex;
@@ -71,29 +71,10 @@ const Blog = ({
       </PageTitleWrapper>
       <PostsWrapper>
         <Topics />
+        {MDX.map(mdx => (
+          <ListItem key={mdx.id} mdx={mdx} />
+        ))}
       </PostsWrapper>
-      {MDX.map(mdx => (
-        <div key={mdx.id}>
-          <p>{mdx.frontmatter?.title}</p>
-          <GatsbyImage image={mdx.frontmatter?.cover?.childImageSharp?.gatsbyImageData} alt={` cover`} className="gatsby_image" />
-
-          <Link to={`${mdx.fields?.slug}`}>Click Me</Link>
-        </div>
-      ))}
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur consequuntur repellendus doloremque nihil deleniti perspiciatis, consequatur
-      illo veritatis ex! Molestias numquam excepturi fugit facere laudantium itaque voluptates suscipit ducimus. Consequuntur, illum ullam commodi
-      sunt rerum autem, quia eaque, eveniet eum rem mollitia voluptate adipisci possimus obcaecati optio ex delectus officiis impedit debitis
-      reiciendis consectetur repellat atque nulla? In consectetur quia reiciendis accusamus eaque delectus, nesciunt voluptatibus cumque quasi ad quo
-      eveniet voluptatum? Quibusdam quisquam enim asperiores recusandae cum odio eaque distinctio facere maxime quae, sapiente maiores nostrum eum
-      quaerat quam sit illo debitis beatae eos ut consequatur in ratione placeat. Quod velit numquam vero suscipit. Magnam praesentium sunt aut modi
-      ab, itaque soluta error ipsa tempore repudiandae consequatur. Reiciendis facilis ex porro eaque, nostrum ipsum expedita repellat consectetur
-      tempora, quas perferendis ab, recusandae accusantium. Repudiandae, amet hic, omnis inventore iusto recusandae quae ducimus explicabo fugiat ad
-      rerum distinctio corrupti modi expedita dolor illo eum blanditiis dolorem? Cupiditate exercitationem quas assumenda placeat illum eaque officia,
-      est perferendis distinctio porro quos ratione excepturi nisi asperiores expedita eius ipsam pariatur, commodi ipsum autem consectetur minus
-      quaerat enim. Amet natus unde maiores ratione culpa! Sed excepturi, quod ad, vero explicabo repellendus enim fugit, corrupti placeat possimus
-      praesentium quia tempora doloremque earum tempore dolor sequi expedita quisquam rerum odit. Iure neque maxime est facilis nam magnam velit in
-      repellendus voluptates cupiditate animi, inventore rerum consectetur quis libero officia repellat ullam vel quibusdam magni. Recusandae iusto
-      sunt non laborum corrupti nisi iure nesciunt commodi temporibus quas.
     </>
   );
 };
