@@ -1,35 +1,49 @@
 import React, { useRef, useState, useEffect } from "react";
 import PropTypes from "prop-types";
 
-const useSlider = (childRef: React.RefObject<HTMLDivElement>, prentRef: React.RefObject<HTMLDivElement>, topicsLength: number) => {
+const useSlider = (childRef: React.RefObject<HTMLDivElement>, parentRef: React.RefObject<HTMLDivElement>, topicsLength: number) => {
+  let slideBy = parentRef.current?.clientWidth! / 2;
+  let widthDiff = useRef(childRef.current?.scrollWidth! / parentRef.current?.clientWidth!);
+  let DefaultWidthDiff = childRef.current?.scrollWidth! / parentRef.current?.clientWidth!;
   const [translateValue, setTranslateValue] = useState(0);
-
-  const [widthDiff, setWidthDiff] = useState(childRef.current?.scrollWidth! / prentRef.current?.clientWidth!);
 
   const [slideButtons, setSlideButtons] = useState({
     prevButton: false,
     nextButton: true,
   });
 
+  useEffect(() => {
+    widthDiff.current = childRef.current?.scrollWidth! / parentRef.current?.clientWidth!;
+    DefaultWidthDiff = childRef.current?.scrollWidth! / parentRef.current?.clientWidth!;
+    slideBy = parentRef.current?.clientWidth! / 2;
+  }, []);
+
   const slideRight = () => {
-    if (widthDiff && widthDiff > 1) {
-      setTranslateValue(prentRef.current?.clientWidth! / 2);
-      setWidthDiff(widthDiff - prentRef.current?.clientWidth! / 2);
+    console.log("rightFirst:", { widthDiff: widthDiff.current, DefaultWidthDiff });
+    if (widthDiff.current >= 1) {
+      setTranslateValue(slideBy);
       setSlideButtons({ ...slideButtons, prevButton: true });
+      slideBy += parentRef.current?.clientWidth! / 2;
+      widthDiff.current--;
     } else {
-      setTranslateValue(prentRef.current?.clientWidth! - childRef.current?.scrollWidth!);
-      setSlideButtons({ ...slideButtons, nextButton: true });
+      setTranslateValue(childRef.current?.scrollWidth! - parentRef.current?.clientWidth!);
+      setSlideButtons({ ...slideButtons, nextButton: false });
     }
+    console.log("rightEnd:", { widthDiff: widthDiff.current, DefaultWidthDiff });
   };
 
   const slideLeft = () => {
-    // if (currentIndex.current > slideBy.current) {
-    //   setTranslateValue(100);
-    //   setSlideButtons({ ...slideButtons, rightButton: true });
-    // } else {
-    //   setTranslateValue(0);
-    //   setSlideButtons({ ...slideButtons, leftButton: false });
-    // }
+    console.log("leftFirst:", { widthDiff: widthDiff.current, DefaultWidthDiff });
+    if (widthDiff.current === DefaultWidthDiff) {
+      setTranslateValue(0);
+      setSlideButtons({ ...slideButtons, prevButton: false });
+    } else {
+      widthDiff.current++;
+      slideBy -= parentRef.current?.clientWidth! / 2;
+      setTranslateValue(slideBy);
+      setSlideButtons({ ...slideButtons, nextButton: true });
+    }
+    console.log("leftEnd:", { widthDiff: widthDiff.current, DefaultWidthDiff });
   };
   return { translateValue, slideButtons, slideRight, slideLeft };
 };
