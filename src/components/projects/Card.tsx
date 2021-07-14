@@ -61,8 +61,11 @@ export const DateWrapper = styled.div`
   ${FlexStyle}
   gap: 5px;
   svg {
-    &:nth-child(1) {
-      path {
+    &:nth-child(1) > path {
+      fill: var(--secondaryColor);
+      &:nth-child(1),
+      &:last-child {
+        fill: none;
         stroke: var(--secondaryColor);
       }
     }
