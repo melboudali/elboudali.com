@@ -1,4 +1,4 @@
-import { Mdx } from "../../gatsby-graphql";
+import { Maybe, Mdx, MdxFrontmatter } from "../../gatsby-graphql";
 
 export type MDXType = Pick<Mdx, "id" | "timeToRead" | "excerpt"> & {
   fields?: Maybe<Pick<MdxFields, "slug">>;
