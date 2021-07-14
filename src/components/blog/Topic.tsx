@@ -5,9 +5,11 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 
 const TopicWrapper = styled.button<{ mainColor: string; secondColor: string }>`
-  background-color: ${({ secondColor }) => secondColor};
+  --MainColor: ${({ theme, mainColor, secondColor }) => (theme.balackAndWhite === "var(--black)" ? mainColor : secondColor)};
+  --SecondColor: ${({ theme, mainColor, secondColor }) => (theme.balackAndWhite === "var(--black)" ? secondColor : mainColor)};
+  background-color: var(--SecondColor);
   border: 1px solid ${({ mainColor }) => mainColor};
-  color: ${({ mainColor }) => mainColor};
+  color: var(--MainColor);
   width: fit-content;
   display: flex;
   align-items: center;
@@ -16,13 +18,13 @@ const TopicWrapper = styled.button<{ mainColor: string; secondColor: string }>`
   font-weight: 300;
   font-size: 0.75rem;
   svg > path {
-    fill: ${({ mainColor }) => mainColor};
+    fill: var(--MainColor);
   }
   &:hover {
-    background-color: ${({ mainColor }) => mainColor};
-    color: ${({ secondColor }) => secondColor};
+    background-color: var(--MainColor);
+    color: var(--SecondColor);
     svg > path {
-      fill: ${({ secondColor }) => secondColor};
+      fill: var(--SecondColor);
     }
   }
 `;
