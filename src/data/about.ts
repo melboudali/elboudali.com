@@ -22,7 +22,11 @@ const about = {
     twitterId: "@moelboudali",
   },
   schoolDegrees: [
-    { title: "front end development libraries certification.", schoolName: "freecodecamp", certificationLink: "/" },
+    {
+      title: "front end development libraries certification.",
+      schoolName: "freecodecamp",
+      certificationLink: "https://www.freecodecamp.org/certification/elboudali/front-end-libraries",
+    },
     {
       title: "javaScript algorithms and data structures certification.",
       schoolName: "freecodecamp",
