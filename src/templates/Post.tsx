@@ -5,6 +5,7 @@ import { MDXRenderer } from "gatsby-plugin-mdx";
 import { SinglePostQuery } from "../../gatsby-graphql";
 import PageTitle from "../components/common/PageTitle";
 import styled from "styled-components";
+import { GatsbyImage } from "gatsby-plugin-image";
 
 const MDXWrapper = styled.section`
   color: ${({ theme }) => theme.balackAndWhite};
@@ -38,6 +39,7 @@ const Post = ({ data: { mdx: post } }: PostProps) => (
     <MDXProvider components={shortcodes}>
       <Article>
         <PageTitle>{post?.frontmatter?.title!}</PageTitle>
+        <GatsbyImage image={post?.frontmatter?.cover?.childImageSharp?.gatsbyImageData} alt={post?.frontmatter?.title!} className="gatsby_image" />
         <p>{post?.frontmatter?.date}</p>
         <MDXRenderer frontmatter={post?.frontmatter}>{post?.body!}</MDXRenderer>
       </Article>
@@ -60,7 +62,7 @@ export const query = graphql`
         title
         summary
         cover {
-          childrenImageSharp {
+          childImageSharp {
             gatsbyImageData
           }
         }
