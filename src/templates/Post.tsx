@@ -26,6 +26,13 @@ const MDXWrapper = styled.section`
 const Article = styled.article`
   max-width: 860px;
   margin: 0 auto;
+  .gatsby_image {
+    width: 100%;
+    height: 350px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    margin-bottom: 20px;
+  }
 `;
 
 const shortcodes = { PageTitle };
@@ -38,8 +45,8 @@ const Post = ({ data: { mdx: post } }: PostProps) => (
   <MDXWrapper>
     <MDXProvider components={shortcodes}>
       <Article>
-        <PageTitle>{post?.frontmatter?.title!}</PageTitle>
         <GatsbyImage image={post?.frontmatter?.cover?.childImageSharp?.gatsbyImageData} alt={post?.frontmatter?.title!} className="gatsby_image" />
+        <PageTitle>{post?.frontmatter?.title!}</PageTitle>
         <p>{post?.frontmatter?.date}</p>
         <MDXRenderer frontmatter={post?.frontmatter}>{post?.body!}</MDXRenderer>
       </Article>
