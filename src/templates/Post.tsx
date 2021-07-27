@@ -35,6 +35,12 @@ const Article = styled.article`
   }
 `;
 
+const DateAndTimetoread = styled.div``;
+
+const DateWrapper = styled.div``;
+
+const TimeToReadWrapper = styled.div``;
+
 const shortcodes = { PageTitle };
 
 interface PostProps {
@@ -47,6 +53,10 @@ const Post = ({ data: { mdx: post } }: PostProps) => (
       <Article>
         <GatsbyImage image={post?.frontmatter?.cover?.childImageSharp?.gatsbyImageData} alt={post?.frontmatter?.title!} className="gatsby_image" />
         <PageTitle>{post?.frontmatter?.title!}</PageTitle>
+        <DateAndTimetoread>
+          <DateWrapper></DateWrapper>
+          <TimeToReadWrapper></TimeToReadWrapper>
+        </DateAndTimetoread>
         <p>{post?.frontmatter?.date}</p>
         <MDXRenderer frontmatter={post?.frontmatter}>{post?.body!}</MDXRenderer>
       </Article>
