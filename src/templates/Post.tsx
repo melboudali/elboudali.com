@@ -38,7 +38,12 @@ const Article = styled.article`
 const DateAndTimetoread = styled.div``;
 
 const DateWrapper = styled.div`
+  display: flex;
+  align-items: center;
   svg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     path {
       fill: var(--secondaryColor);
       &:nth-child(1),
