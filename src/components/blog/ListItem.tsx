@@ -6,6 +6,7 @@ import styled, { css } from "styled-components";
 import PropTypes from "prop-types";
 import Topic from "./Topic";
 import { project_topics_type } from "../../types/projects";
+import TechIcon from "../common/card/TechIcon";
 
 const ImageWrapper = styled.div`
   flex: 1;
@@ -61,7 +62,7 @@ const ComonStyle = css`
   align-items: center;
   gap: 5px;
   span {
-    font-size: 0.6875rem;
+    font-size: 0.75rem;
     color: var(--secondaryColor);
     margin-top: 2px;
   }
@@ -146,10 +147,13 @@ const ListItem = ({ mdx }: ListItemProps) => {
         <TopicsWrapper>
           {mdx.frontmatter?.tags?.map((tag, id) => (
             // FIXME: i need topics links here
-            <Topic topic={tag as project_topics_type} />
+            // <Topic topic={tag as project_topics_type} />
+            <Link to={`/topics/${tag?.toLowerCase()}`}>
+              <TechIcon tech={tag as project_topics_type} />
+            </Link>
           ))}
         </TopicsWrapper>
-        <Excerpt>{mdx.excerpt}</Excerpt>
+        <Excerpt>{mdx.frontmatter?.summary}</Excerpt>
       </Details>
     </ListItemWrapper>
   );
