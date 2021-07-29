@@ -34,7 +34,7 @@ const PostsWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 50px;
-  margin-top: 20px;
+  margin-top: 50px;
 `;
 
 interface BlogProps {
@@ -70,7 +70,7 @@ const Blog = ({
         </ListStyleWrapper>
       </PageTitleWrapper>
       <PostsWrapper>
-        <Topics />
+        {/* <Topics /> */}
         {MDX.map(mdx => (
           <ListItem key={mdx.id} mdx={mdx} />
         ))}
