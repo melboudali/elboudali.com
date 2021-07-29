@@ -15,18 +15,21 @@ const PageTitleWrapper = styled.div`
 `;
 
 const ListStyleWrapper = styled.div<{ listType: "grid" | "list" }>`
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  button {
+  display: none;
+  @media (min-width: 750px) {
     display: flex;
     align-items: center;
-  }
-  button:nth-child(1) > svg > path {
-    fill: ${({ listType, theme }) => (listType === "list" ? theme.buttonBackground : "#d8d8d8")};
-  }
-  button:nth-child(2) > svg > path {
-    fill: ${({ listType, theme }) => (listType === "list" ? "#d8d8d8" : theme.buttonBackground)};
+    gap: 10px;
+    button {
+      display: flex;
+      align-items: center;
+    }
+    button:nth-child(1) > svg > path {
+      fill: ${({ listType, theme }) => (listType === "list" ? theme.buttonBackground : "#d8d8d8")};
+    }
+    button:nth-child(2) > svg > path {
+      fill: ${({ listType, theme }) => (listType === "list" ? "#d8d8d8" : theme.buttonBackground)};
+    }
   }
 `;
 
