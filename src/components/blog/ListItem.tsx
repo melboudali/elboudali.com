@@ -8,7 +8,7 @@ import Topic from "./Topic";
 import { project_topics_type } from "../../types/projects";
 import TechIcon from "../common/card/TechIcon";
 
-const ImageWrapper = styled.div`
+const ImageWrapper = styled.div<{ listType: "list" | "grid" }>`
   --height: 240px;
   --borderRadius: 5px 5px 0 0;
   flex: 1;
@@ -25,12 +25,12 @@ const ImageWrapper = styled.div`
     transition: all 0.1s cubic-bezier(0.4, 0, 0.2, 1);
   }
   @media (min-width: 750px) {
-    --height: auto;
-    --borderRadius: 5px 0 0 5px;
+    --height: ${({ listType }) => (listType === "list" ? "auto" : "240px")};
+    --borderRadius: ${({ listType }) => (listType === "list" ? "5px 0 0 5px" : "5px 5px 0 0")};
   }
 `;
 
-const ListItemWrapper = styled(Link)`
+const ListItemWrapper = styled(Link)<{ listType: "list" | "grid" }>`
   --flexDirection: column;
   --maxWidth: 550px;
   display: flex;
@@ -47,17 +47,17 @@ const ListItemWrapper = styled(Link)`
     }
   }
   @media (min-width: 750px) {
-    --flexDirection: row;
-    --maxWidth: 100%;
+    --flexDirection: ${({ listType }) => (listType === "list" ? "row" : "column")};
+    --maxWidth: ${({ listType }) => (listType === "list" ? "100%" : "calc(50% - 20px)")};
   }
 `;
 
 const Details = styled.div`
-  --flex: 2;
+  --flex: 1;
   flex: var(--flex);
   padding: 20px;
   @media (min-width: 750px) {
-    --flex: 1;
+    --flex: 2;
   }
 `;
 
@@ -128,8 +128,8 @@ interface ListItemProps {
 
 const ListItem = ({ mdx, listType }: ListItemProps) => {
   return (
-    <ListItemWrapper to={mdx.fields?.slug}>
-      <ImageWrapper>
+    <ListItemWrapper to={mdx.fields?.slug} listType={listType}>
+      <ImageWrapper listType={listType}>
         <GatsbyImage image={mdx.frontmatter?.cover?.childImageSharp?.gatsbyImageData} alt={` cover`} className="gatsby_image" />
       </ImageWrapper>
       <Details>
