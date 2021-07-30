@@ -33,7 +33,7 @@ const ListStyleWrapper = styled.div<{ listType: "grid" | "list" }>`
   }
 `;
 
-const PostsWrapper = styled.div`
+const PostsWrapper = styled.div<{ listType: "list" | "grid" }>`
   --flexDirection: row;
   --gap: 40px;
   --flexWrap: wrap;
@@ -45,9 +45,9 @@ const PostsWrapper = styled.div`
   justify-content: center;
 
   @media (min-width: 750px) {
-    --flexDirection: column;
-    --gap: 50px;
-    --flexWrap: nowrap;
+    --flexDirection: ${({ listType }) => (listType === "list" ? "column" : "row")};
+    --gap: ${({ listType }) => (listType === "list" ? "50px" : "40px")};
+    --flexWrap: ${({ listType }) => (listType === "list" ? "nowrap" : "wrap")};
   }
 `;
 
@@ -83,7 +83,7 @@ const Blog = ({
           </button>
         </ListStyleWrapper>
       </PageTitleWrapper>
-      <PostsWrapper>
+      <PostsWrapper listType={listType}>
         {/* <Topics /> */}
         {MDX.map(mdx => (
           <ListItem key={mdx.id} mdx={mdx} listType={listType} />
