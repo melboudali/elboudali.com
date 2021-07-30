@@ -34,10 +34,21 @@ const ListStyleWrapper = styled.div<{ listType: "grid" | "list" }>`
 `;
 
 const PostsWrapper = styled.div`
+  --flexDirection: row;
+  --gap: 40px;
+  --flexWrap: wrap;
   display: flex;
-  flex-direction: column;
-  gap: 50px;
+  flex-direction: var(--flexDirection);
+  gap: var(--gap);
   margin-top: 50px;
+  flex-wrap: var(--flexWrap);
+  justify-content: center;
+
+  @media (min-width: 750px) {
+    --flexDirection: column;
+    --gap: 50px;
+    --flexWrap: nowrap;
+  }
 `;
 
 interface BlogProps {
@@ -75,7 +86,7 @@ const Blog = ({
       <PostsWrapper>
         {/* <Topics /> */}
         {MDX.map(mdx => (
-          <ListItem key={mdx.id} mdx={mdx} />
+          <ListItem key={mdx.id} mdx={mdx} listType={listType} />
         ))}
       </PostsWrapper>
     </>
