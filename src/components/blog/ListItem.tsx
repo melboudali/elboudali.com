@@ -9,11 +9,13 @@ import { project_topics_type } from "../../types/projects";
 import TechIcon from "../common/card/TechIcon";
 
 const ImageWrapper = styled.div`
+  --height: 240px;
+  --borderRadius: 5px 5px 0 0;
   flex: 1;
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
+  border-radius: var(--borderRadius);
   overflow: hidden;
   position: relative;
+  min-height: var(--height);
   .gatsby_image {
     width: 100%;
     height: 100%;
@@ -22,25 +24,41 @@ const ImageWrapper = styled.div`
     left: 0;
     transition: all 0.1s cubic-bezier(0.4, 0, 0.2, 1);
   }
+  @media (min-width: 750px) {
+    --height: auto;
+    --borderRadius: 5px 0 0 5px;
+  }
 `;
 
 const ListItemWrapper = styled(Link)`
+  --flexDirection: column;
+  --maxWidth: 550px;
   display: flex;
   background-color: ${({ theme }) => theme.cardBackground};
   box-shadow: ${({ theme }) => `0px 2px 5px -1px ${theme.firstBoxShadow}, 0px 1px 3px -1px ${theme.secondBoxShadow}`};
   border-radius: 5px;
   min-height: auto;
-
+  flex-direction: var(--flexDirection);
+  max-width: var(--maxWidth);
+  width: 100%;
   &:hover {
     ${ImageWrapper} .gatsby_image {
       transform: scale(1.1) rotate(2deg);
     }
   }
+  @media (min-width: 750px) {
+    --flexDirection: row;
+    --maxWidth: 100%;
+  }
 `;
 
 const Details = styled.div`
-  flex: 2;
+  --flex: 2;
+  flex: var(--flex);
   padding: 20px;
+  @media (min-width: 750px) {
+    --flex: 1;
+  }
 `;
 
 const Title = styled.h2`
@@ -57,7 +75,7 @@ const DateAndTimeToReadWrapper = styled.div`
   margin-bottom: 10px;
 `;
 
-const ComonStyle = css`
+const CommonStyle = css`
   display: flex;
   align-items: center;
   gap: 5px;
@@ -69,7 +87,7 @@ const ComonStyle = css`
 `;
 
 const DateWrapper = styled.div`
-  ${ComonStyle}
+  ${CommonStyle}
   svg > path {
     fill: var(--secondaryColor);
     &:nth-child(1),
@@ -84,7 +102,7 @@ const DateWrapper = styled.div`
 `;
 
 const TimeToRead = styled.div`
-  ${ComonStyle}
+  ${CommonStyle}
   svg > path {
     fill: var(--secondaryColor);
   }
@@ -105,9 +123,10 @@ const Excerpt = styled.p`
 
 interface ListItemProps {
   mdx: MDXType;
+  listType: "list" | "grid";
 }
 
-const ListItem = ({ mdx }: ListItemProps) => {
+const ListItem = ({ mdx, listType }: ListItemProps) => {
   return (
     <ListItemWrapper to={mdx.fields?.slug}>
       <ImageWrapper>
