@@ -7,12 +7,12 @@ const PageTitleWrapper = styled.h1`
   display: flex;
   align-items: flex-start;
   gap: 10px;
+  margin: 0;
   font-size: var(--fontSize);
   font-weight: 700;
   letter-spacing: -0.04em;
   text-transform: uppercase;
   color: ${({ theme }) => theme.titleColor};
-  margin: 0;
   @media (min-width: 375px) {
     --fontSize: 1.875rem;
   }
@@ -22,12 +22,12 @@ const ItemsCount = styled.span`
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.6875rem;
-  border-radius: 5px;
   padding: 2px 4px;
+  font-size: 0.6875rem;
   letter-spacing: normal;
-  background: ${({ theme }) => theme.emailBorder};
   color: ${({ theme }) => theme.balackAndWhite};
+  border-radius: 5px;
+  background: ${({ theme }) => theme.emailBorder};
 `;
 
 interface PageTitleProps {
