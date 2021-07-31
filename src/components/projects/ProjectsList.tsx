@@ -11,9 +11,9 @@ import { graphql, useStaticQuery } from "gatsby";
 const ProjectsWrapper = styled.section`
   --columnWidth: 1fr;
   display: grid;
+  justify-content: center;
   grid-template-columns: repeat(auto-fit, var(--columnWidth));
   grid-gap: 37px;
-  justify-content: center;
   margin-top: 50px;
   @media (min-width: 370px) {
     --columnWidth: 370px;
@@ -27,10 +27,10 @@ interface ProjectsListProps {
 
 const ProjectsList = ({ repos, selectValue }: ProjectsListProps) => {
   const {
-    allFile: { nodes: covers },
+    allImages: { nodes: covers },
   }: AllImagesQuery = useStaticQuery(graphql`
     query allImages {
-      allFile(filter: { sourceInstanceName: { eq: "projects" } }) {
+      allImages: allFile(filter: { sourceInstanceName: { eq: "projects" } }) {
         nodes {
           relativePath
           childImageSharp {
