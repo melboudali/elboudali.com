@@ -4,7 +4,7 @@ export interface selectedProjectType {
   project_name: string;
   project_title: string;
   project_cover: string;
-  project_topis: project_topics_type[];
+  project_topics: project_topics_type[];
   project_figmaLink: string;
 }
 
@@ -43,10 +43,7 @@ export type project_topics_type = Partial<
   | "Stripe"
 >;
 
-export type cardRepoType = Pick<
-  Repo,
-  "name" | "description" | "forks_count" | "stargazers_count" | "html_url" | "language" | "homepage" | "created_at" | "pushed_at"
->;
+export type cardRepoType = Pick<Repo, "name" | "description" | "stargazers_count" | "html_url" | "homepage" | "created_at" | "pushed_at">;
 
 export type repoType = Pick<"id" & cardRepoType>;
 
