@@ -3,7 +3,7 @@ import { graphql } from "gatsby";
 import { AllRepoQuery } from "../../gatsby-graphql";
 import PageTitle from "../components/common/PageTitle";
 import ProjectsList from "../components/projects/ProjectsList";
-import MoreProjectsLink from "../components/projects/MoreProjectsLink";
+import MoreProjects from "../components/projects/MoreProjects";
 import { getAllReposStars, sortProjects } from "../utils/projects";
 import styled, { css } from "styled-components";
 import PropTypes from "prop-types";
@@ -114,7 +114,7 @@ const Projects = ({
         </TotalStarsWrapper>
       </SortAndStarsWrapper>
       <ProjectsList repos={repos} selectValue={selectValue} />
-      <MoreProjectsLink />
+      <MoreProjects />
     </ProjectsWrapper>
   );
 };
@@ -130,10 +130,8 @@ export const query = graphql`
         id
         name
         description
-        forks_count
         stargazers_count
         html_url
-        language
         homepage
         created_at
         pushed_at
