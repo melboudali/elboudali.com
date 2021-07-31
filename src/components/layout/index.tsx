@@ -1,23 +1,23 @@
 import React from "react";
 import { Helmet } from "react-helmet";
+import styled, { ThemeProvider } from "styled-components";
+import GlobalStyles from "../../styles/GlobalStyles";
 import { useDarkMode } from "../../hook/useDarkMode";
 import Navbar from "../common/navbar";
-import GlobalStyles from "../../styles/GlobalStyles";
 import { lightTheme } from "../../themes/light";
 import { darkTheme } from "../../themes/dark";
-import styled, { ThemeProvider } from "styled-components";
 import PropTypes from "prop-types";
 
 const Header = styled.header`
   background-color: ${({ theme }) => theme.navbarBackground};
-  box-shadow: 0px 3px 8px -2px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 3px 8px -2px var(--navbarBoxShadow);
 `;
 
 const Main = styled.main`
   --mainPadding: 0 11px;
   max-width: 1280px;
-  padding: var(--mainPadding);
   margin: 50px auto;
+  padding: var(--mainPadding);
   @media (min-width: 750px) {
     --mainPadding: 0 48px;
   }
