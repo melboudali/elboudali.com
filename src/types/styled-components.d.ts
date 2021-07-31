@@ -26,5 +26,8 @@ declare module "styled-components" {
     figmaBg: string;
     firstBoxShadow: string;
     secondBoxShadow: string;
+    tooltipFirstShdow: string;
+    tooltipSecondShdow: string;
+    modalCloseStroke: string;
   }
 }

@@ -11,6 +11,7 @@ export const darkTheme: DefaultTheme = {
   balackAndWhite: "var(--white)",
   modalBackground: "var(--modalDarkBackground)",
   modalShadow: "var(--modalDarkShadow)",
+  modalCloseStroke: "var(--modalCloseStrokeDark)",
   labelColor: "var(--labelColor)",
   inputBackground: "var(--inputDarkBackground)",
   buttonBackground: "var(--buttonBackgroundDark)",
@@ -23,4 +24,6 @@ export const darkTheme: DefaultTheme = {
   figmaBg: "var(--figmaDarkBg)",
   firstBoxShadow: "var(--firstBoxShadowDark)",
   secondBoxShadow: "var(--secondBoxShadowDark)",
+  tooltipFirstShdow: "var(--tooltipFirstShdowDark)",
+  tooltipSecondShdow: "var(--tooltipSecondShdowDark)",
 };
