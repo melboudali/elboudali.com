@@ -3,9 +3,7 @@ import { graphql, Link } from "gatsby";
 import { AllPostsQuery } from "../../gatsby-graphql";
 import PageTitle from "../components/common/PageTitle";
 import styled, { css } from "styled-components";
-import Topic from "../components/blog/Topic";
-import Topics from "../components/blog/Topics";
-import ListItem from "../components/blog/ListItem";
+import Card from "../components/blog/Card";
 import PropTypes from "prop-types";
 
 const PageTitleWrapper = styled.div`
@@ -25,10 +23,10 @@ const ListStyleWrapper = styled.div<{ listType: "grid" | "list" }>`
       align-items: center;
     }
     button:nth-child(1) > svg > path {
-      fill: ${({ listType, theme }) => (listType === "list" ? theme.buttonBackground : "#d8d8d8")};
+      fill: ${({ listType, theme }) => (listType === "list" ? theme.buttonBackground : "var(--inputLightBackground)")};
     }
     button:nth-child(2) > svg > path {
-      fill: ${({ listType, theme }) => (listType === "list" ? "#d8d8d8" : theme.buttonBackground)};
+      fill: ${({ listType, theme }) => (listType === "list" ? "var(--inputLightBackground)" : theme.buttonBackground)};
     }
   }
 `;
@@ -86,7 +84,7 @@ const Blog = ({
       <PostsWrapper listType={listType}>
         {/* <Topics /> */}
         {MDX.map(mdx => (
-          <ListItem key={mdx.id} mdx={mdx} listType={listType} />
+          <Card key={mdx.id} mdx={mdx} listType={listType} />
         ))}
       </PostsWrapper>
     </>
