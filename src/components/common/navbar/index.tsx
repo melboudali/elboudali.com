@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled, { css } from "styled-components";
 import Modal from "./Modal";
 import CustomLink from "./CustomLink";
+import about from "../../../data/about";
 import PropTypes from "prop-types";
 
 const NavStyle = css`
@@ -12,6 +13,7 @@ const NavStyle = css`
 `;
 
 const Logo = styled.h1`
+  margin: 0;
   font-size: 0.875rem;
   font-weight: 700;
   letter-spacing: 1.6px;
@@ -20,7 +22,6 @@ const Logo = styled.h1`
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
-  margin: 0;
 `;
 
 const NavbarWrapper = styled.div`
@@ -41,10 +42,8 @@ const Nav = styled.nav`
   button {
     width: 24px;
     height: 24px;
-    &:nth-child(2) {
-      svg > path {
-        fill: ${({ theme }) => theme.balackAndWhite};
-      }
+    &:nth-child(2) > svg > path {
+      fill: ${({ theme }) => theme.balackAndWhite};
     }
   }
 `;
@@ -76,19 +75,19 @@ interface NavbarProps {
 const Navbar = ({ themeToggler, theme }: NavbarProps) => {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
 
-  const Scrollbar = (arg: "show" | "hide") => {
+  const ScrollbarToggler = (arg: "show" | "hide") => {
     document.documentElement.style.overflowY = arg === "show" ? "visible" : "hidden";
   };
 
   const menuToggler = () => {
     setMenuIsOpen(!menuIsOpen);
-    Scrollbar("hide");
+    ScrollbarToggler("hide");
   };
 
   return (
     <NavbarWrapper>
-      {menuIsOpen && <Modal setMenuIsOpen={setMenuIsOpen} Scrollbar={Scrollbar} menuIsOpen={menuIsOpen} />}
-      <Logo>{"< el boudali />"}</Logo>
+      {menuIsOpen && <Modal setMenuIsOpen={setMenuIsOpen} ScrollbarToggler={ScrollbarToggler} menuIsOpen={menuIsOpen} />}
+      <Logo>{about.siteLogo}</Logo>
       <Nav>
         <LinkWrapper>
           <CustomLink to="/" title="about" />
