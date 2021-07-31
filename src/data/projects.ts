@@ -199,14 +199,14 @@ const selectedProjects: selectedProjectType[] = [
     project_name: "COVID19-Tracker",
     project_title: "🦠 covid19 tracker",
     project_cover: "COVID19-Tracker.png",
-    project_topis: ["JavaScript", "React", "Bootstrap", "ChartJS", "Mapbox", "Redux", "GithubPages"],
+    project_topics: ["JavaScript", "React", "Bootstrap", "ChartJS", "Mapbox", "Redux", "GithubPages"],
     project_figmaLink: "",
   },
   {
     project_name: "SaveMyContacts",
     project_title: "📱 save my contacts",
     project_cover: "SaveMyContacts.png",
-    project_topis: ["JavaScript", "React", "MaterialUI", "MongoDB", "Express", "NodeJS", "Heroku"],
+    project_topics: ["JavaScript", "React", "MaterialUI", "MongoDB", "Express", "NodeJS", "Heroku"],
     project_figmaLink: "",
   },
 
@@ -214,7 +214,7 @@ const selectedProjects: selectedProjectType[] = [
     project_name: "React-Shop",
     project_title: "🛍️ react shop",
     project_cover: "React-Shop.png",
-    project_topis: [
+    project_topics: [
       "JavaScript",
       "React",
       "StyledComponents",
@@ -235,7 +235,7 @@ const selectedProjects: selectedProjectType[] = [
     project_name: "Instagram-Clone",
     project_title: "📸 instagram clone",
     project_cover: "Instagram-Clone.png",
-    project_topis: [
+    project_topics: [
       "TypeScript",
       "React",
       "StyledComponents",
@@ -254,14 +254,14 @@ const selectedProjects: selectedProjectType[] = [
     project_name: "King-Slices",
     project_title: "🍕 king slices",
     project_cover: "King-Slices.png",
-    project_topis: ["JavaScript", "React", "Gatsby", "StyledComponents", "Netlify"],
+    project_topics: ["JavaScript", "React", "Gatsby", "StyledComponents", "Netlify"],
     project_figmaLink: "",
   },
   {
     project_name: "elboudali.com",
     project_title: "👨‍💻 elboudali.com",
     project_cover: "elboudali.com.png",
-    project_topis: ["TypeScript", "React", "Gatsby", "StyledComponents", "Netlify"],
+    project_topics: ["TypeScript", "React", "Gatsby", "StyledComponents", "Netlify"],
     project_figmaLink: "https://www.figma.com/file/lZ8Tl4Lxp5dqnrvBfdi0Rc/My-Website",
   },
 ];
