@@ -45,6 +45,7 @@ const about = {
     { title: "baccalauréat in experimental science, life and earth.", schoolName: "hassan ii high school" },
   ],
   siteUrl: "https://elboudali.com",
+  siteLogo: "< el boudali />",
 };
 
 export default about;
