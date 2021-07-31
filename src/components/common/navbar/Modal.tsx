@@ -1,20 +1,24 @@
 import React, { useRef, useEffect } from "react";
 import useClickOutside from "../../../hook/useClickOutside";
 import CustomLink from "./CustomLink";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import PropTypes from "prop-types";
 
-const ModalWrapper = styled.div`
+const FlexStyle = css`
   display: flex;
   align-items: center;
   justify-content: center;
+`;
+
+const ModalWrapper = styled.div`
+  ${FlexStyle}
   position: fixed;
-  height: 100vh;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
   z-index: 2;
+  height: 100vh;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   background-color: ${({ theme }) => theme.modalBackground};
   backdrop-filter: blur(1.5px);
   @media (min-width: 750px) {
@@ -23,9 +27,7 @@ const ModalWrapper = styled.div`
 `;
 
 const ModalMain = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  ${FlexStyle}
   flex-direction: column;
   gap: 60px;
 `;
@@ -37,22 +39,20 @@ const ModalClose = styled.button`
   padding: 5px;
   top: 7px;
   right: 7px;
-  /* z-index: 2; */
   background-color: ${({ theme }) => theme.balackAndWhite};
   border-radius: 100%;
   svg {
-    /* z-index: 2; */
-    stroke: ${({ theme }) => (theme.balackAndWhite === "var(--black)" ? "white" : "black")};
+    stroke: ${({ theme }) => theme.modalCloseStroke};
   }
 `;
 
 interface ModalProps {
   setMenuIsOpen: (arg: boolean) => void;
-  Scrollbar: (arg: "show" | "hide") => void;
+  ScrollbarToggler: (arg: "show" | "hide") => void;
   menuIsOpen: boolean;
 }
 
-const Modal = ({ setMenuIsOpen, Scrollbar, menuIsOpen }: ModalProps) => {
+const Modal = ({ setMenuIsOpen, ScrollbarToggler, menuIsOpen }: ModalProps) => {
   const ref = useRef<HTMLDivElement>(null);
   const { clickOutside } = useClickOutside(ref);
 
@@ -64,7 +64,7 @@ const Modal = ({ setMenuIsOpen, Scrollbar, menuIsOpen }: ModalProps) => {
 
   const closeModal = () => {
     setMenuIsOpen(false);
-    Scrollbar("show");
+    ScrollbarToggler("show");
   };
 
   return (
@@ -95,6 +95,6 @@ const Modal = ({ setMenuIsOpen, Scrollbar, menuIsOpen }: ModalProps) => {
   );
 };
 
-Modal.propTypes = { setMenuIsOpen: PropTypes.func.isRequired, Scrollbar: PropTypes.func.isRequired, menuIsOpen: PropTypes.bool.isRequired };
+Modal.propTypes = { setMenuIsOpen: PropTypes.func.isRequired, ScrollbarToggler: PropTypes.func.isRequired, menuIsOpen: PropTypes.bool.isRequired };
 
 export default Modal;
