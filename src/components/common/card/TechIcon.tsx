@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { Paths } from "../../../data/projects";
-import { project_topics_type } from "../../../types/projects";
 import styled from "styled-components";
+import { project_topics_type } from "../../../types/projects";
+import { Paths } from "../../../data/projects";
 import PropTypes from "prop-types";
 
 const SvgWrapper = styled.div<{ fill: string }>`
@@ -19,30 +19,29 @@ const SvgWrapper = styled.div<{ fill: string }>`
 `;
 
 const Tooltip = styled.div<{ fill: string; color: string }>`
-  position: absolute;
-  /* background: ${({ theme }) => `linear-gradient(92.01deg, ${theme.linearLeftColor} -14.07%, ${theme.linearRightColor} 102.13%)`}; */
-  background: ${({ fill }) => fill};
   z-index: 1;
-  color: ${({ color }) => color};
-  top: -32px;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
   padding: 5px;
+  position: absolute;
+  top: -32px;
   left: 50%;
-  transform: translateX(-50%);
   font-size: 0.8125rem;
+  font-weight: 500;
+  color: ${({ color }) => color};
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
-  font-weight: 500;
+  transform: translateX(-50%);
+  background: ${({ fill }) => fill};
+  box-shadow: ${({ theme }) => `${theme.tooltipFirstShdow} 0px 3px 6px, ${theme.tooltipSecondShdow} 0px 3px 6px`};
   &:before {
     content: "";
     position: absolute;
-    border-bottom: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-left: 5px solid transparent;
-    ${({ fill }) => `border-top: 5px solid ${fill}`};
     left: 50%;
-    transform: translateX(-50%);
     bottom: -10px;
+    border-top: 5px solid ${({ fill }) => fill};
+    border-right: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 5px solid transparent;
+    transform: translateX(-50%);
   }
 `;
 
@@ -50,16 +49,14 @@ interface TechIconProps {
   tech: project_topics_type;
 }
 
-interface IconWrapperProps {
-  path: string;
-}
-
 const TechIcon = ({ tech }: TechIconProps) => {
   const selectedPath = Paths[tech];
   const [showTooltip, setShowTooltip] = useState(false);
+
   const onMouseEnterLeave = () => {
     setShowTooltip(!showTooltip);
   };
+
   return (
     <SvgWrapper onMouseEnter={onMouseEnterLeave} onMouseLeave={onMouseEnterLeave} fill={selectedPath.fill}>
       {showTooltip && (
