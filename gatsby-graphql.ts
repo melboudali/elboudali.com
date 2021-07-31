@@ -4218,7 +4218,7 @@ export type MetaDataQuery = { site?: Maybe<{ siteMetadata?: Maybe<(
 export type AllImagesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type AllImagesQuery = { allFile: { nodes: Array<(
+export type AllImagesQuery = { allImages: { nodes: Array<(
       Pick<File, 'relativePath'>
       & { childImageSharp?: Maybe<Pick<ImageSharp, 'gatsbyImageData'>> }
     )> } };
@@ -4247,7 +4247,7 @@ export type AllRepoQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type AllRepoQuery = { allRepo: (
     Pick<RepoConnection, 'totalCount'>
-    & { nodes: Array<Pick<Repo, 'id' | 'name' | 'description' | 'forks_count' | 'stargazers_count' | 'html_url' | 'language' | 'homepage' | 'created_at' | 'pushed_at'>> }
+    & { nodes: Array<Pick<Repo, 'id' | 'name' | 'description' | 'stargazers_count' | 'html_url' | 'homepage' | 'created_at' | 'pushed_at'>> }
   ) };
 
 export type SinglePostQueryVariables = Exact<{
