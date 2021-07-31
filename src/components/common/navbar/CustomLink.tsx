@@ -1,6 +1,6 @@
 import React from "react";
-import styled from "styled-components";
 import { Link } from "gatsby";
+import styled from "styled-components";
 import PropTypes from "prop-types";
 
 const CustomLinkWrapper = styled(Link)`
@@ -17,12 +17,12 @@ const CustomLinkWrapper = styled(Link)`
   &:before {
     content: "";
     position: absolute;
-    height: 2px;
     width: 0;
+    height: 2px;
     left: -1px;
     bottom: -3px;
-    opacity: 0;
     background-color: ${({ theme }) => theme.navColor};
+    opacity: 0;
     transition: width 1s, opacity 1s;
   }
   &:hover::before {
@@ -42,19 +42,21 @@ interface CustomLinkProps {
   menuIsOpen?: boolean;
 }
 
-const CustomLink = ({ to, title, closeModal, menuIsOpen }: CustomLinkProps) => {
-  const onClickFunction = () => {
-    if (menuIsOpen && closeModal) {
-      closeModal();
-    }
-  };
-
-  return (
-    <CustomLinkWrapper to={to} aria-label={title} title={title} activeClassName="active" onClick={onClickFunction}>
-      {title}
-    </CustomLinkWrapper>
-  );
-};
+const CustomLink = ({ to, title, closeModal, menuIsOpen }: CustomLinkProps) => (
+  <CustomLinkWrapper
+    to={to}
+    aria-label={title}
+    title={title}
+    activeClassName="active"
+    onClick={() => {
+      if (menuIsOpen && closeModal) {
+        closeModal();
+      }
+    }}
+  >
+    {title}
+  </CustomLinkWrapper>
+);
 
 CustomLink.propTypes = {
   to: PropTypes.string.isRequired,
