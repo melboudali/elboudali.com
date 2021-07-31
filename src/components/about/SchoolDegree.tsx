@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import about from "../../data/about";
+import PropTypes from "prop-types";
 
 const SchoolDegreesWrapper = styled.div`
   display: flex;
@@ -110,5 +111,12 @@ const SchoolDegreeItem = ({ title, schoolName, certificationLink, abbrExpantion 
     </SchollWrapper>
   </SchoolDegreeWrapper>
 );
+
+SchoolDegreeItem.propTypes = {
+  title: PropTypes.string.isRequired,
+  schoolName: PropTypes.string.isRequired,
+  certificationLink: PropTypes.string,
+  abbrExpantion: PropTypes.string,
+};
 
 export default SchoolDegree;
