@@ -176,7 +176,6 @@ const Index = () => {
             <Icons name="Twitter" />
             <Icons name="Freecodecamp" />
             <Icons name="Hackerrank" />
-            <Icons name="Reddit" />
             <Button url={allFile.nodes[0].publicURL!} />
           </IconsWrapper>
         </ShortAbout>
