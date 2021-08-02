@@ -29,5 +29,7 @@ declare module "styled-components" {
     tooltipFirstShdow: string;
     tooltipSecondShdow: string;
     modalCloseStroke: string;
+    errorColor: string;
+    errorNumberColor: string;
   }
 }

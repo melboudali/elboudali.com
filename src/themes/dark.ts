@@ -26,4 +26,6 @@ export const darkTheme: DefaultTheme = {
   secondBoxShadow: "var(--secondBoxShadowDark)",
   tooltipFirstShdow: "var(--tooltipFirstShdowDark)",
   tooltipSecondShdow: "var(--tooltipSecondShdowDark)",
+  errorColor: "var(--errorColorDark)",
+  errorNumberColor: "var(--errorNumberColorDark)",
 };

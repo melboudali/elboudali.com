@@ -26,4 +26,6 @@ export const lightTheme: DefaultTheme = {
   secondBoxShadow: "var(--secondBoxShadowLight)",
   tooltipFirstShdow: "var(--tooltipFirstShdowLight)",
   tooltipSecondShdow: "var(--tooltipSecondShdowLight)",
+  errorColor: "var(--errorColorLight)",
+  errorNumberColor: "var(--errorNumberColorLight)",
 };
