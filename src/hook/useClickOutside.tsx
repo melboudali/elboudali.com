@@ -4,17 +4,18 @@ import PropTypes from "prop-types";
 const useClickOutside = (ref: React.RefObject<HTMLDivElement>) => {
   const [clickOutside, setClickOutside] = useState(false);
 
+  const handleClickOutside = (event: MouseEvent) => {
+    if (ref.current && !ref.current.contains(event.target as Node) && !clickOutside) {
+      setClickOutside(true);
+    }
+  };
+
   useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (ref.current && !ref.current.contains(event.target as Node) && !clickOutside) {
-        setClickOutside(true);
-      }
-    };
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [clickOutside, ref]);
+  }, []);
 
   return { clickOutside, setClickOutside };
 };
