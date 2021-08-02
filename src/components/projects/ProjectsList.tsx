@@ -1,12 +1,12 @@
 import React from "react";
-import { AllImagesQuery } from "../../../gatsby-graphql";
-import Card from "./Card";
-import { filterProjects, getSelectedProject, sortProjects } from "../../utils/projects";
+import { graphql, useStaticQuery } from "gatsby";
 import styled from "styled-components";
-import PropTypes from "prop-types";
+import { AllImagesQuery } from "../../../gatsby-graphql";
 import { repoType } from "../../types/projects";
 import selectedProjects from "../../data/projects";
-import { graphql, useStaticQuery } from "gatsby";
+import { filterProjects, getSelectedProject, sortProjects } from "../../utils/projects";
+import Card from "./Card";
+import PropTypes from "prop-types";
 
 const ProjectsWrapper = styled.section`
   --columnWidth: 1fr;
