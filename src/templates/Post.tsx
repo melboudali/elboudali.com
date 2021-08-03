@@ -2,10 +2,10 @@ import React from "react";
 import { graphql } from "gatsby";
 import { MDXProvider } from "@mdx-js/react";
 import { MDXRenderer } from "gatsby-plugin-mdx";
-import { SinglePostQuery } from "../../gatsby-graphql";
-import PageTitle from "../components/common/PageTitle";
-import styled from "styled-components";
 import { GatsbyImage } from "gatsby-plugin-image";
+import { SinglePostQuery } from "../../gatsby-graphql";
+import styled from "styled-components";
+import PageTitle from "../components/common/PageTitle";
 
 const MDXWrapper = styled.section`
   color: ${({ theme }) => theme.balackAndWhite};
