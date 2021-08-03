@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { graphql, Link } from "gatsby";
 import { AllPostsQuery } from "../../gatsby-graphql";
-import PageTitle from "../components/common/PageTitle";
 import styled, { css } from "styled-components";
+import PageTitle from "../components/common/PageTitle";
 import Card from "../components/blog/Card";
 import PropTypes from "prop-types";
 
@@ -33,15 +33,14 @@ const ListStyleWrapper = styled.div<{ listType: "grid" | "list" }>`
 
 const PostsWrapper = styled.div<{ listType: "list" | "grid" }>`
   --flexDirection: row;
-  --gap: 40px;
   --flexWrap: wrap;
+  --gap: 40px;
   display: flex;
   flex-direction: var(--flexDirection);
+  flex-wrap: var(--flexWrap);
   gap: var(--gap);
   margin-top: 50px;
-  flex-wrap: var(--flexWrap);
   justify-content: center;
-
   @media (min-width: 750px) {
     --flexDirection: ${({ listType }) => (listType === "list" ? "column" : "row")};
     --gap: ${({ listType }) => (listType === "list" ? "50px" : "40px")};
@@ -59,9 +58,8 @@ const Blog = ({
   },
 }: BlogProps) => {
   const [listType, setListType] = useState<"list" | "grid">("list");
-  const onClick = () => {
-    return listType === "list" ? setListType("grid") : setListType("list");
-  };
+  const onClick = () => (listType === "list" ? setListType("grid") : setListType("list"));
+
   return (
     <>
       <PageTitleWrapper>
@@ -82,7 +80,6 @@ const Blog = ({
         </ListStyleWrapper>
       </PageTitleWrapper>
       <PostsWrapper listType={listType}>
-        {/* <Topics /> */}
         {MDX.map(mdx => (
           <Card key={mdx.id} mdx={mdx} listType={listType} />
         ))}
@@ -91,7 +88,7 @@ const Blog = ({
   );
 };
 
-Blog.propTypes = {};
+Blog.propTypes = { data: PropTypes.object.isRequired };
 
 export default Blog;
 
