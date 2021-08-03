@@ -41,7 +41,8 @@ const ErrorMessage = styled.p`
   }
 `;
 
-export default () => (
+// TODO: edit this later
+const ErrorPage = () => (
   <PageWrapper>
     <ErrorWrapper>error</ErrorWrapper>
     <ErrorNumber>404</ErrorNumber>
@@ -49,3 +50,5 @@ export default () => (
     <ErrorMessage>the page you are looking for might have been removed, had its name changed, or is temporarily unavailable.</ErrorMessage>
   </PageWrapper>
 );
+
+export default ErrorPage;
