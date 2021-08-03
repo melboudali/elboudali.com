@@ -67,8 +67,6 @@ const GlobalStyles = createGlobalStyle`
   html {
     position: relative;
     overflow-y: auto;
-    /* scrollbar-width: thin;
-    scrollbar-color: var(--black) var(--white); */
   }
 
   body {
@@ -81,11 +79,6 @@ const GlobalStyles = createGlobalStyle`
     font-style: normal;
     margin: 0;
   }
-
- 
-  /* *:focus {
-    outline: none;
-  }; */
 
   a, a:visited {
     text-decoration: none;
@@ -122,15 +115,6 @@ const GlobalStyles = createGlobalStyle`
   li{
     list-style: none;
   }
-
-  /* img[alt~="markdown"]{
-    width: 300px;
-    margin: 0 auto;
-  } */
-
-  /* img {
-    max-width: 100%;
-  } */
 `;
 
 export default GlobalStyles;
