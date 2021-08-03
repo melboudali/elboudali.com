@@ -1,14 +1,12 @@
 import React, { useState } from "react";
 import { graphql } from "gatsby";
+import styled, { css } from "styled-components";
+import { getAllReposStars } from "../utils/projects";
 import { AllRepoQuery } from "../../gatsby-graphql";
 import PageTitle from "../components/common/PageTitle";
 import ProjectsList from "../components/projects/ProjectsList";
 import MoreProjects from "../components/projects/MoreProjects";
-import { getAllReposStars, sortProjects } from "../utils/projects";
-import styled, { css } from "styled-components";
 import PropTypes from "prop-types";
-
-const ProjectsWrapper = styled.div``;
 
 const FlexStyle = css`
   display: flex;
@@ -23,9 +21,9 @@ const SortAndStarsWrapper = styled.section`
 
 const SortWrapperTextStyle = css`
   font-size: 0.8125rem;
-  letter-spacing: -0.04em;
-  text-transform: uppercase;
   font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: -0.04em;
 `;
 
 const DescriptiveText = css`
@@ -42,12 +40,12 @@ const SortWrapper = styled.div`
   }
   select {
     ${SortWrapperTextStyle}
-    border-top-left-radius: 5px;
-    border-bottom-right-radius: 5px;
     padding: 2px 3px;
     color: var(--selectColot);
     background-color: ${({ theme }) => theme.selectBackground};
     border: none;
+    border-top-left-radius: 5px;
+    border-bottom-right-radius: 5px;
     option {
       ${SortWrapperTextStyle}
     }
@@ -86,14 +84,14 @@ const Projects = ({
     allRepo: { nodes: repos, totalCount },
   },
 }: ProjectsProps) => {
-  const [selectValue, setSelectValue] = useState("startDateDesc");
+  const [selectValue, setSelectValue] = useState("created_at");
 
   const onChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectValue(e.target.value);
   };
 
   return (
-    <ProjectsWrapper>
+    <>
       <PageTitle ItemsCountNumber={totalCount}>projects</PageTitle>
       <SortAndStarsWrapper>
         <SortWrapper>
@@ -115,11 +113,11 @@ const Projects = ({
       </SortAndStarsWrapper>
       <ProjectsList repos={repos} selectValue={selectValue} />
       <MoreProjects />
-    </ProjectsWrapper>
+    </>
   );
 };
 
-Projects.propTypes = {};
+Projects.propTypes = { data: PropTypes.object.isRequired };
 
 export default Projects;
 
