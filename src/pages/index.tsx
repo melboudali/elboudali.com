@@ -1,15 +1,15 @@
 import React, { useRef } from "react";
-import { StaticImage } from "gatsby-plugin-image";
 import { graphql, useStaticQuery } from "gatsby";
-import about from "../data/about";
+import { StaticImage } from "gatsby-plugin-image";
 import Seo from "../components/common/Seo";
+import about from "../data/about";
+import styled, { css } from "styled-components";
 import useAppearOnScroll from "../hook/useAppearOnScroll";
+import PageTitle from "../components/common/PageTitle";
 import IconWithTitle from "../components/about/IconWithTitle";
 import Icons from "../components/about/Icons";
 import Button from "../components/about/Button";
 import SchoolDegree from "../components/about/SchoolDegree";
-import styled from "styled-components";
-import PageTitle from "../components/common/PageTitle";
 import { AllFileQuery } from "../../gatsby-graphql";
 
 const IndexWrapper = styled.div`
@@ -46,23 +46,22 @@ const ShortAbout = styled.div`
 const ImageWrapper = styled.div`
   max-width: 256px;
   max-height: 256px;
-  overflow: hidden;
   border-radius: 50%;
+  overflow: hidden;
   .my_image {
-    transform: scale(1.9);
-    transform-origin: 35% 15%;
+    transform: scale(1.1);
+    transform-origin: 80% 100%;
   }
 `;
 
 const ShortAboutText = styled.p`
   --textAlignValue: center;
-  font-size: 1rem;
+  margin: 0;
   font-weight: 300;
   letter-spacing: 0.1em;
   line-height: 24px;
   text-align: var(--textAlignValue);
   color: ${({ theme }) => theme.titleColor};
-  margin: 0;
   span {
     margin: 0 5px;
     color: var(--red);
@@ -82,13 +81,13 @@ const IconsWrapper = styled.div`
 
 const LongAboutWrapper = styled.section`
   p {
+    margin: 0;
     font-size: 1rem;
     font-weight: 300;
     line-height: 24px;
     letter-spacing: 0.1em;
     text-align: justify;
     color: ${({ theme }) => theme.titleColor};
-    margin: 0;
     &:not(:last-child) {
       margin-bottom: 10px;
     }
@@ -155,7 +154,7 @@ const Index = () => {
 
   return (
     <IndexWrapper>
-      <Seo title="A B O U T" />
+      <Seo title="Mohamed EL BOUDALI" />
       <ShortAboutWrapper>
         <ImageWrapper>
           <StaticImage src="../assets/images/image/elboudali.jpg" alt="EL BOUDALI" className="my_image" />
