@@ -30,6 +30,7 @@ const NavbarWrapper = styled.div`
   align-items: center;
   justify-content: space-between;
   max-width: 1280px;
+  line-height: 17px;
   margin: 0 auto;
   padding: var(--navbarPadding);
   @media (min-width: 750px) {
@@ -50,6 +51,7 @@ const Nav = styled.nav`
 
 const LinkWrapper = styled.div`
   display: none;
+
   @media (min-width: 750px) {
     ${NavStyle}
     margin-top: 1px;

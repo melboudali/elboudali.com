@@ -10,6 +10,7 @@ const CustomLinkWrapper = styled(Link)`
   font-size: var(--customLinkFont);
   letter-spacing: var(--customLinkLetterSpacing);
   text-transform: uppercase;
+  line-height: 12px;
   color: ${({ theme }) => theme.navColor};
   &.active {
     font-weight: bold;

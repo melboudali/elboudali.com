@@ -12,6 +12,7 @@ const PageTitleWrapper = styled.h1`
   font-weight: 700;
   letter-spacing: -0.04em;
   text-transform: uppercase;
+  line-height: 35px;
   color: ${({ theme }) => theme.titleColor};
   @media (min-width: 375px) {
     --fontSize: 1.875rem;
@@ -25,6 +26,7 @@ const ItemsCount = styled.span`
   padding: 2px 4px;
   font-size: 0.6875rem;
   letter-spacing: normal;
+  line-height: 13px;
   color: ${({ theme }) => theme.balackAndWhite};
   border-radius: 5px;
   background: ${({ theme }) => theme.emailBorder};
