@@ -15,21 +15,22 @@ const FlexStyle = css`
 
 const SortAndStarsWrapper = styled.section`
   ${FlexStyle}
-  justify-content: space-between;
   margin-top: 15px;
+  justify-content: space-between;
 `;
 
 const SortWrapperTextStyle = css`
   font-size: 0.8125rem;
   font-weight: bold;
-  text-transform: uppercase;
+  line-height: 15px;
   letter-spacing: -0.04em;
+  text-transform: uppercase;
 `;
 
 const DescriptiveText = css`
   ${SortWrapperTextStyle}
-  color: var(--secondaryColor);
   margin: 0;
+  color: var(--secondaryColor);
 `;
 
 const SortWrapper = styled.div`
