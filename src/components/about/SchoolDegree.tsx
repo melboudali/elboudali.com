@@ -31,6 +31,8 @@ const ScoolDegreeTitle = styled.h2`
   font-weight: 300;
   text-transform: capitalize;
   text-align: justify;
+  letter-spacing: 0.1em;
+  line-height: 19px;
   color: ${({ theme }) => theme.titleColor};
   a {
     display: flex;
@@ -54,6 +56,8 @@ const SchollWrapper = styled.div`
     font-size: inherit;
     font-weight: 300;
     text-transform: uppercase;
+    letter-spacing: 0.1em;
+    line-height: 19px;
     color: var(--secondaryColor);
     span {
       font-size: 0.8125rem;

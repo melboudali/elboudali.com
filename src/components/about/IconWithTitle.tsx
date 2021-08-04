@@ -8,12 +8,13 @@ const IconWithTitleWrapper = styled.div<{ type: "role" | "location" }>`
   align-items: center;
   gap: 5px;
   h2 {
-    color: var(--secondaryColor);
-    text-transform: capitalize;
-    font-weight: 300;
-    font-size: inherit;
-    letter-spacing: 0.1em;
     margin: 1px 0 0 0;
+    font-size: inherit;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    text-transform: capitalize;
+    line-height: 19px;
+    color: var(--secondaryColor);
   }
   svg > path {
     ${({ type }) => (type === "role" ? "fill: var(--secondaryColor);" : "stroke: var(--secondaryColor);")}

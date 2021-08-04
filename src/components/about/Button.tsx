@@ -18,6 +18,7 @@ const ButtonWrapper = styled.a`
     font-size: 0.875rem;
     letter-spacing: -0.05em;
     text-transform: uppercase;
+    line-height: 16px;
   }
   svg > path {
     fill: var(--white);
