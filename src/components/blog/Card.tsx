@@ -53,18 +53,23 @@ const ListItemWrapper = styled(Link)<{ list_type: "list" | "grid" }>`
 
 const Details = styled.div`
   --flex: 1;
+  --padding: 10px;
   flex: var(--flex);
-  padding: 20px;
+  padding: var(--padding);
   @media (min-width: 750px) {
     --flex: 2;
+  }
+  @media (min-width: 900px) {
+    --padding: 20px;
   }
 `;
 
 const Title = styled.h2`
   margin: 0 0 5px 0;
   font-size: 1.25rem;
-  font-weight: 400;
+  font-weight: inherit;
   text-transform: capitalize;
+  line-height: 24px;
   color: ${({ theme }) => theme.titleColor};
 `;
 
@@ -78,9 +83,10 @@ const CommonStyle = css`
   display: flex;
   align-items: center;
   gap: 5px;
-  margin-top: 2px;
   span {
+    margin-top: 2px;
     font-size: 0.75rem;
+    line-height: 15px;
     color: var(--secondaryColor);
   }
 `;
@@ -114,10 +120,14 @@ const TopicsWrapper = styled.div`
 `;
 
 const Excerpt = styled.p`
-  font-size: 0.875rem;
   font-weight: 300;
+  line-height: 24px;
   margin: 10px 0 0 0;
+  text-align: justify;
   color: ${({ theme }) => theme.titleColor};
+  &::first-letter {
+    text-transform: uppercase;
+  }
 `;
 
 interface CardProps {
