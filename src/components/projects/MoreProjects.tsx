@@ -19,6 +19,7 @@ const MoreProjectsWrapper = styled.div`
     font-weight: bold;
     font-size: 1.25rem;
     letter-spacing: -0.04em;
+    line-height: 23px;
     text-transform: uppercase;
   }
   @media (min-width: 500px) {

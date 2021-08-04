@@ -61,6 +61,7 @@ const ShortAboutText = styled.p`
   letter-spacing: 0.1em;
   line-height: 24px;
   text-align: var(--textAlignValue);
+  line-height: 19px;
   color: ${({ theme }) => theme.titleColor};
   span {
     margin: 0 5px;
@@ -121,6 +122,8 @@ const CDADTitle = styled.h1`
     color: ${({ theme }) => theme.titleColor};
     letter-spacing: -0.04em;
     text-transform: capitalize;
+    line-height: 23px;
+    letter-spacing: -0.04em;
   }
   div {
     display: flex;

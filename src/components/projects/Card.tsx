@@ -25,7 +25,7 @@ const CardWrapper = styled.div`
 const Details = styled.div`
   --padding: 10px;
   padding: var(--padding);
-  @media (min-width: 750) {
+  @media (min-width: 750px) {
     --padding: 20px;
   }
 `;
@@ -36,6 +36,7 @@ const CardTitle = styled.h2`
   font-weight: bold;
   letter-spacing: -0.04em;
   text-transform: uppercase;
+  line-height: 23px;
   color: ${({ theme }) => theme.titleColor};
 `;
 
@@ -53,6 +54,7 @@ export const DateAndStars = styled.div`
     font-size: 0.6875rem;
     text-transform: uppercase;
     color: var(--secondaryColor);
+    line-height: 13px;
   }
 `;
 
@@ -98,6 +100,7 @@ const Description = styled.p`
   font-size: 0.8125rem;
   text-transform: capitalize;
   text-align: justify;
+  line-height: 15px;
   color: ${({ theme }) => theme.balackAndWhite};
 `;
 
@@ -146,6 +149,7 @@ const DemoLink = styled.a`
     font-weight: bold;
     letter-spacing: -0.04em;
     text-transform: uppercase;
+    line-height: 18px;
     color: ${({ theme }) => theme.balackAndWhite};
   }
   &:hover {
