@@ -42,6 +42,7 @@ const EmailWrapper = styled.div`
   padding: 0 5px;
   font-size: 0.9375rem;
   font-weight: bold;
+  line-height: 18px;
   color: ${({ theme }) => theme.labelColor};
   border-right: 2px solid ${({ theme }) => theme.emailBorder};
   svg > path {
@@ -96,6 +97,7 @@ const InputGroupWrapper = styled.div<{ name: "name" | "email" | "message" }>`
 const InputLabel = styled.label<{ name: "name" | "email" | "message" }>`
   font-size: 1.25rem;
   font-weight: bold;
+  line-height: 23px;
   letter-spacing: -0.04em;
   text-transform: uppercase;
   color: var(--labelColor);
@@ -107,7 +109,8 @@ const InputLabel = styled.label<{ name: "name" | "email" | "message" }>`
 const InputAndTextArea = css`
   padding: 10px;
   font-size: 1.2rem;
-  font-family: "Roboto", sans-serif;
+  font-family: inherit;
+  line-height: 27px;
   color: ${({ theme }) => theme.titleColor};
   border: 2px solid transparent;
   border-radius: 5px;
@@ -164,14 +167,15 @@ const SvgAnimation = keyframes`
 `;
 
 const SubmitButton = styled.button`
+  ${FlexStyle}
   width: 210px;
   height: 52px;
-  ${FlexStyle}
   justify-content: center;
   align-self: flex-end;
   font-size: 1.1rem;
   font-weight: 300;
   letter-spacing: 0.3em;
+  line-height: 21px;
   text-transform: uppercase;
   color: var(--secondaryColor);
   background-color: ${({ theme }) => theme.buttonBackground};
