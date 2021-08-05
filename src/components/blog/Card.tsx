@@ -69,14 +69,13 @@ const Title = styled.h2`
   font-size: 1.25rem;
   font-weight: inherit;
   text-transform: capitalize;
-  line-height: 24px;
+  line-height: 23px;
   color: ${({ theme }) => theme.titleColor};
 `;
 
 const DateAndTimeToReadWrapper = styled.div`
   display: flex;
   gap: 20px;
-  margin-bottom: 10px;
 `;
 
 const CommonStyle = css`
@@ -113,16 +112,25 @@ const TimeToRead = styled.div`
   }
 `;
 
-const TopicsWrapper = styled.div`
+const TopicsWrapper = styled.div<{ listType: "list" | "grid" }>`
+  --justifyContent: center;
+  min-height: 24px;
+  margin: 10px 0;
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  justify-content: var(--justifyContent);
+  gap: 5px;
+  flex-wrap: wrap;
+  @media (min-width: 750px) {
+    --justifyContent: flex-start;
+    ${({ listType }) => (listType === "list" ? "--justifyContent: flex-start" : "--justifyContent: center")};
+  }
 `;
 
 const Excerpt = styled.p`
   font-weight: 300;
   line-height: 24px;
-  margin: 10px 0 0 0;
+  margin: 0;
   text-align: justify;
   color: ${({ theme }) => theme.titleColor};
   &::first-letter {
@@ -175,7 +183,7 @@ const Card = ({ mdx, listType }: CardProps) => (
           <span>{mdx.timeToRead} min to read</span>
         </TimeToRead>
       </DateAndTimeToReadWrapper>
-      <TopicsWrapper>
+      <TopicsWrapper listType={listType}>
         {mdx.frontmatter?.tags?.map((tag, id) => (
           <TechIcon key={id} tech={tag as project_topics_type} />
         ))}
