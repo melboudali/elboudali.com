@@ -6,11 +6,12 @@ import PropTypes from "prop-types";
 const CustomLinkWrapper = styled(Link)`
   --customLinkFont: 2rem;
   --customLinkLetterSpacing: 6px;
+  --lineHeight: 37px;
   position: relative;
   font-size: var(--customLinkFont);
   letter-spacing: var(--customLinkLetterSpacing);
   text-transform: uppercase;
-  line-height: 12px;
+  line-height: var(--lineHeight);
   color: ${({ theme }) => theme.navColor};
   &.active {
     font-weight: bold;
@@ -33,6 +34,7 @@ const CustomLinkWrapper = styled(Link)`
   @media (min-width: 750px) {
     --customLinkFont: 0.75rem;
     --customLinkLetterSpacing: 1.6px;
+    --lineHeight: 14px;
   }
 `;
 
