@@ -4,7 +4,7 @@ import { MDXProvider } from "@mdx-js/react";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { SinglePostQuery } from "../../gatsby-graphql";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import PageTitle from "../components/common/PageTitle";
 
 const MDXWrapper = styled.section`
@@ -35,28 +35,41 @@ const Article = styled.article`
   }
 `;
 
-const DateAndTimetoread = styled.div``;
+const DateAndTimetoread = styled.div`
+  display: flex;
+  gap: 20px;
+  margin-top: 10px;
+`;
 
-const DateWrapper = styled.div`
+const DataAndTimeStyle = css`
   display: flex;
   align-items: center;
-  svg {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    path {
-      fill: var(--secondaryColor);
-      &:nth-child(1),
-      &:before(:last-child),
-      &:last-child {
-        fill: none;
-        stroke: var(--secondaryColor);
-      }
+  gap: 5px;
+  span {
+    margin-top: 1px;
+    font-size: 0.875rem;
+    line-height: 16px;
+    letter-spacing: -0.04em;
+    text-transform: capitalize;
+    color: var(--secondaryColor);
+  }
+`;
+
+const DateWrapper = styled.div`
+  ${DataAndTimeStyle}
+  svg > path {
+    fill: var(--secondaryColor);
+    &:nth-child(1),
+    &:nth-last-child(2),
+    &:last-child {
+      fill: none;
+      stroke: var(--secondaryColor);
     }
   }
 `;
 
 const TimeToReadWrapper = styled.div`
+  ${DataAndTimeStyle}
   svg > path {
     fill: var(--secondaryColor);
   }
@@ -72,7 +85,7 @@ const Post = ({ data: { mdx: post } }: PostProps) => (
   <MDXWrapper>
     <MDXProvider components={shortcodes}>
       <Article>
-        <GatsbyImage image={post?.frontmatter?.cover?.childImageSharp?.gatsbyImageData} alt={post?.frontmatter?.title!} className="gatsby_image" />
+        {/* <GatsbyImage image={post?.frontmatter?.cover?.childImageSharp?.gatsbyImageData} alt={post?.frontmatter?.title!} className="gatsby_image" /> */}
         <PageTitle>{post?.frontmatter?.title!}</PageTitle>
         <DateAndTimetoread>
           <DateWrapper>
