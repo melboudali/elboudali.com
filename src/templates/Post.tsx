@@ -13,7 +13,8 @@ const MDXWrapper = styled.section`
   h2,
   h3,
   h4,
-  h5 {
+  h5,
+  h6 {
     a.anchor {
       height: 100%;
       display: flex;
@@ -38,7 +39,7 @@ const Article = styled.article`
 const DateAndTimetoread = styled.div`
   display: flex;
   gap: 20px;
-  margin-top: 10px;
+  margin: 10px 0 20px 0;
 `;
 
 const DataAndTimeStyle = css`
