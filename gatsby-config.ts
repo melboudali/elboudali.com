@@ -62,7 +62,6 @@ export default {
             options: {
               maxWidth: 1000,
               linkImagesToOriginal: false,
-              showCaptions: true,
             },
           },
         ],
