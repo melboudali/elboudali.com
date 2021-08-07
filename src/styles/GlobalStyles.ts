@@ -111,9 +111,6 @@ const GlobalStyles = createGlobalStyle`
     border: 3px solid ${({ theme }) => theme.bodyBackground};
   }
 
-  li{
-    list-style: none;
-  }
 `;
 
 export default GlobalStyles;
