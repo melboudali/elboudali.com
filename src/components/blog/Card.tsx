@@ -148,7 +148,7 @@ const Card = ({ mdx, listType }: CardProps) => (
     <ImageWrapper listType={listType}>
       <GatsbyImage
         image={mdx.frontmatter?.cover?.childImageSharp?.gatsbyImageData}
-        alt={`${mdx.frontmatter?.title} thumbnail`}
+        alt={`${mdx.frontmatter?.title} featured image`}
         className="gatsby_image"
       />
     </ImageWrapper>
