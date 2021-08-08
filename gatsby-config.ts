@@ -82,6 +82,12 @@ export default {
               linkImagesToOriginal: false,
             },
           },
+          {
+            resolve: "gatsby-remark-external-links",
+            options: {
+              rel: "nofollow",
+            },
+          },
         ],
       },
     },
