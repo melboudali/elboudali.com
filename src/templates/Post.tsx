@@ -4,6 +4,7 @@ import { MDXRenderer } from "gatsby-plugin-mdx";
 import { SinglePostQuery } from "../../gatsby-graphql";
 import styled, { css } from "styled-components";
 import PageTitle from "../components/common/PageTitle";
+import PropTypes from "prop-types";
 
 const MDXWrapper = styled.section`
   color: ${({ theme }) => theme.balackAndWhite};
@@ -68,6 +69,10 @@ const MDXRendererWrapper = styled.div`
   line-height: 24px;
   color: ${({ theme }) => theme.postColor};
 
+  img {
+    max-width: 100%;
+  }
+
   figure {
     margin: 0;
     figcaption {
@@ -88,10 +93,6 @@ const MDXRendererWrapper = styled.div`
         }
       }
     }
-  }
-
-  img {
-    max-width: 100%;
   }
 
   blockquote,
@@ -160,9 +161,8 @@ const MDXRendererWrapper = styled.div`
 
   .task-list-item {
     list-style-type: none;
-    .checkbox {
-      margin: 0 0.2em 0.25em -1.6em;
-      vertical-align: middle;
+    [type="checkbox"] {
+      margin: 0 2.6px 3.3px -21.3px;
     }
   }
 
@@ -195,10 +195,9 @@ const MDXRendererWrapper = styled.div`
 
   code[class*="language-"],
   pre,
-  pre,
   tt {
     border-radius: 5px;
-    background-color: #2d243b;
+    background-color: #201a2b;
   }
 
   table {
@@ -207,9 +206,6 @@ const MDXRendererWrapper = styled.div`
     overflow: auto;
     width: 100%;
     width: max-content;
-  }
-
-  table {
     border-collapse: collapse;
     border-spacing: 0;
   }
@@ -281,6 +277,8 @@ const Post = ({ data: { mdx: post } }: PostProps) => (
     </Article>
   </MDXWrapper>
 );
+
+Post.propTypes = { data: PropTypes.object.isRequired };
 
 export default Post;
 
