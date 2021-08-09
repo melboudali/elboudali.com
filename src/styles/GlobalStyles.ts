@@ -56,7 +56,22 @@ const GlobalStyles = createGlobalStyle`
       --errorColorDark: #16141F;
       --errorNumberColorLight: #16141F;
       --errorNumberColorDark: #4C2A8D;
-
+      --postColorLight: #24292e;
+      --postColorDark: #c9d1d9;
+      --postAnchorLight: #00b963;
+      --postAnchorDark: #d9548c;
+      --postHrLight: #e1e4e8;
+      --postHrDark: #412665;
+      --postQuoteColorLight: #6a737d;
+      --postQuoteColorDark: #b59cd6;
+      --postQuoteBorderColorLight: #e0e3e6;
+      --postQuoteBorderColorDark: #bbacc4;
+      --postTrBgColorLight: #fff;
+      --postTrBgColorDark: #241c30;
+      --postThBorderColorLight: #e0e3e6;
+      --postThBorderColorDark: #432851;
+      --postSecTrBgColorLight: #f6f8fa;
+      --postSecTrBgColorDark: #120b18;
   }
 
   * {
