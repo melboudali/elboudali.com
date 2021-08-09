@@ -63,10 +63,10 @@ const TimeToReadWrapper = styled.div`
 `;
 
 const MDXRendererWrapper = styled.div`
-  font-family: "Roboto", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
   font-size: 1rem;
   line-height: 24px;
-  color: #24292e;
+  color: ${({ theme }) => theme.postColor};
 
   figure {
     margin: 0;
@@ -90,6 +90,10 @@ const MDXRendererWrapper = styled.div`
     }
   }
 
+  img {
+    max-width: 100%;
+  }
+
   blockquote,
   details,
   dl,
@@ -98,8 +102,7 @@ const MDXRendererWrapper = styled.div`
   pre,
   table,
   ul {
-    margin-bottom: 1rem;
-    margin-top: 0;
+    margin: 0 0 16px;
   }
 
   h1,
@@ -108,27 +111,15 @@ const MDXRendererWrapper = styled.div`
   h4,
   h5,
   h6 {
-    font-weight: 600;
     margin: 24px 0 16px;
+    font-weight: 600;
+    color: ${({ theme }) => theme.titleColor};
     a.anchor {
       height: 100%;
       display: flex;
       align-items: center;
-      fill: ${({ theme }) => theme.balackAndWhite};
+      fill: ${({ theme }) => theme.titleColor};
     }
-  }
-
-  h1,
-  h2 {
-    a.anchor {
-      padding-bottom: 10px;
-    }
-  }
-
-  h1,
-  h2 {
-    border-bottom: 1px solid #ebedef;
-    padding-bottom: 10px;
   }
 
   h1 {
@@ -154,281 +145,97 @@ const MDXRendererWrapper = styled.div`
   h6 {
     font-size: 0.875rem;
     line-height: 17px;
-    color: #6a737d;
   }
 
   a,
   a:visited {
-    color: #00b963;
+    color: ${({ theme }) => theme.postAnchor};
     font-weight: 600;
-  }
-
-  a.absent {
-    color: #cc0000;
-  }
-
-  p,
-  blockquote,
-  ul,
-  ol,
-  dl,
-  li,
-  table,
-  pre {
-    margin: 0 0 15px;
-  }
-
-  hr {
-    border: 0 none;
-    color: #cccccc;
-    height: 4px;
-    padding: 0;
-  }
-
-  li p.first {
-    display: inline-block;
   }
 
   ul,
   ol {
-    padding-left: 30px;
+    padding-left: 32px;
   }
 
-  ul :first-child,
-  ol :first-child {
-    margin-top: 0;
+  .task-list-item {
+    list-style-type: none;
+    .checkbox {
+      margin: 0 0.2em 0.25em -1.6em;
+      vertical-align: middle;
+    }
   }
 
-  ul :last-child,
-  ol :last-child {
-    margin-bottom: 0;
+  li + li {
+    margin-top: 4px;
   }
 
-  dl {
+  b,
+  strong {
+    font-weight: 600;
+  }
+
+  hr {
+    background-color: ${({ theme }) => theme.postHr};
+    border: 0;
+    height: 4px;
+    margin: 24px 0;
     padding: 0;
-  }
-
-  dl dt {
-    font-size: 14px;
-    font-weight: bold;
-    font-style: italic;
-    padding: 0;
-    margin: 15px 0 5px;
-  }
-
-  dl dt:first-child {
-    padding: 0;
-  }
-
-  dl dt > :first-child {
-    margin-top: 0;
-  }
-
-  dl dt > :last-child {
-    margin-bottom: 0;
-  }
-
-  dl dd {
-    margin: 0 0 15px;
-    padding: 0 15px;
-  }
-
-  dl dd > :first-child {
-    margin-top: 0;
-  }
-
-  dl dd > :last-child {
-    margin-bottom: 0;
   }
 
   blockquote {
-    border-left: 4px solid #dddddd;
-    padding: 0 15px;
-    color: #777777;
-  }
-
-  blockquote > :first-child {
-    margin-top: 0;
+    border-left: 4px solid ${({ theme }) => theme.postQuoteBorderColor};
+    color: ${({ theme }) => theme.postQuoteColor};
+    padding: 0 16px;
   }
 
   blockquote > :last-child {
     margin-bottom: 0;
   }
 
-  table {
-    padding: 0;
+  code[class*="language-"],
+  pre,
+  pre,
+  tt {
+    border-radius: 5px;
+    background-color: #2d243b;
   }
+
+  table {
+    display: block;
+    max-width: 100%;
+    overflow: auto;
+    width: 100%;
+    width: max-content;
+  }
+
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+
   table tr {
-    border-top: 1px solid #cccccc;
-    background-color: white;
-    margin: 0;
+    background-color: ${({ theme }) => theme.postTrBgColor};
+  }
+
+  table td,
+  table th {
+    border: 1px solid ${({ theme }) => theme.postThBorderColor};
+    padding: 6px 13px;
+  }
+
+  table th {
+    font-weight: 600;
+  }
+
+  td,
+  th {
     padding: 0;
   }
 
   table tr:nth-child(2n) {
-    background-color: #f8f8f8;
+    background-color: ${({ theme }) => theme.postSecTrBgColor};
   }
-
-  table tr th {
-    font-weight: bold;
-    border: 1px solid #cccccc;
-    text-align: left;
-    margin: 0;
-    padding: 6px 13px;
-  }
-
-  table tr td {
-    border: 1px solid #cccccc;
-    text-align: left;
-    margin: 0;
-    padding: 6px 13px;
-  }
-
-  table tr th :first-child,
-  table tr td :first-child {
-    margin-top: 0;
-  }
-
-  table tr th :last-child,
-  table tr td :last-child {
-    margin-bottom: 0;
-  }
-
-  img {
-    max-width: 100%;
-  }
-
-  span.frame {
-    display: block;
-    overflow: hidden;
-  }
-
-  span.frame > span {
-    border: 1px solid #dddddd;
-    display: block;
-    float: left;
-    overflow: hidden;
-    margin: 13px 0 0;
-    padding: 7px;
-    width: auto;
-  }
-
-  span.frame span img {
-    display: block;
-    float: left;
-  }
-
-  span.frame span span {
-    clear: both;
-    color: #333333;
-    display: block;
-    padding: 5px 0 0;
-  }
-
-  span.align-center {
-    display: block;
-    overflow: hidden;
-    clear: both;
-  }
-
-  span.align-center > span {
-    display: block;
-    overflow: hidden;
-    margin: 13px auto 0;
-    text-align: center;
-  }
-
-  span.align-center span img {
-    margin: 0 auto;
-    text-align: center;
-  }
-
-  span.align-right {
-    display: block;
-    overflow: hidden;
-    clear: both;
-  }
-
-  span.align-right > span {
-    display: block;
-    overflow: hidden;
-    margin: 13px 0 0;
-    text-align: right;
-  }
-
-  span.align-right span img {
-    margin: 0;
-    text-align: right;
-  }
-
-  span.float-left {
-    display: block;
-    margin-right: 13px;
-    overflow: hidden;
-    float: left;
-  }
-
-  span.float-left span {
-    margin: 13px 0 0;
-  }
-
-  span.float-right {
-    display: block;
-    margin-left: 13px;
-    overflow: hidden;
-    float: right;
-  }
-
-  span.float-right > span {
-    display: block;
-    overflow: hidden;
-    margin: 13px auto 0;
-    text-align: right;
-  }
-
-  /* code,
-  tt {
-    margin: 0 2px;
-    padding: 0 5px;
-    white-space: nowrap;
-    border: 1px solid #eaeaea;
-    background-color: #f8f8f8;
-    border-radius: 3px;
-  }
-
-  pre code {
-    margin: 0;
-    padding: 0;
-    white-space: pre;
-    border: none;
-    background: transparent;
-  }
-
-  .highlight pre {
-    background-color: #f8f8f8;
-    border: 1px solid #cccccc;
-    font-size: 13px;
-    line-height: 19px;
-    overflow: auto;
-    padding: 6px 10px;
-    border-radius: 3px;
-  }
-
-  pre {
-    background-color: #f8f8f8;
-    border: 1px solid #cccccc;
-    font-size: 13px;
-    line-height: 19px;
-    overflow: auto;
-    padding: 6px 10px;
-    border-radius: 3px;
-  }
-
-  pre code,
-  pre tt {
-    background-color: transparent;
-    border: none;
-  } */
 `;
 
 interface PostProps {
