@@ -884,6 +884,8 @@ export type SitePluginPluginOptionsGatsbyRemarkPlugins = {
 };
 
 export type SitePluginPluginOptionsGatsbyRemarkPluginsOptions = {
+  icon?: Maybe<Scalars['String']>;
+  elements?: Maybe<Array<Maybe<Scalars['String']>>>;
   maxWidth?: Maybe<Scalars['Int']>;
   linkImagesToOriginal?: Maybe<Scalars['Boolean']>;
   rel?: Maybe<Scalars['String']>;
@@ -2725,6 +2727,8 @@ export type SitePluginPluginOptionsGatsbyRemarkPluginsFilterInput = {
 };
 
 export type SitePluginPluginOptionsGatsbyRemarkPluginsOptionsFilterInput = {
+  icon?: Maybe<StringQueryOperatorInput>;
+  elements?: Maybe<StringQueryOperatorInput>;
   maxWidth?: Maybe<IntQueryOperatorInput>;
   linkImagesToOriginal?: Maybe<BooleanQueryOperatorInput>;
   rel?: Maybe<StringQueryOperatorInput>;
@@ -4151,6 +4155,8 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___failOnError'
   | 'pluginOptions___gatsbyRemarkPlugins'
   | 'pluginOptions___gatsbyRemarkPlugins___resolve'
+  | 'pluginOptions___gatsbyRemarkPlugins___options___icon'
+  | 'pluginOptions___gatsbyRemarkPlugins___options___elements'
   | 'pluginOptions___gatsbyRemarkPlugins___options___maxWidth'
   | 'pluginOptions___gatsbyRemarkPlugins___options___linkImagesToOriginal'
   | 'pluginOptions___gatsbyRemarkPlugins___options___rel'
