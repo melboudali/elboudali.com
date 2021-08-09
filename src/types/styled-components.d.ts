@@ -29,5 +29,13 @@ declare module "styled-components" {
     modalCloseStroke: string;
     errorColor: string;
     errorNumberColor: string;
+    postColor: string;
+    postAnchor: string;
+    postHr: string;
+    postQuoteColor: string;
+    postQuoteBorderColor: string;
+    postTrBgColor: string;
+    postThBorderColor: string;
+    postSecTrBgColor: string;
   }
 }

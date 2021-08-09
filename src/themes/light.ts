@@ -28,4 +28,12 @@ export const lightTheme: DefaultTheme = {
   tooltipSecondShdow: "var(--tooltipSecondShdowLight)",
   errorColor: "var(--errorColorLight)",
   errorNumberColor: "var(--errorNumberColorLight)",
+  postColor: "var(--postColorLight)",
+  postAnchor: "var(--postAnchorLight)",
+  postHr: "var(--postHrLight)",
+  postQuoteColor: "var(--postQuoteColorLight)",
+  postQuoteBorderColor: "var(--postQuoteBorderColorLight)",
+  postTrBgColor: "var(--postTrBgColorLight)",
+  postThBorderColor: "var(--postThBorderColorLight)",
+  postSecTrBgColor: "var(--postSecTrBgColorLight)",
 };

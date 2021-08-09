@@ -28,4 +28,12 @@ export const darkTheme: DefaultTheme = {
   tooltipSecondShdow: "var(--tooltipSecondShdowDark)",
   errorColor: "var(--errorColorDark)",
   errorNumberColor: "var(--errorNumberColorDark)",
+  postColor: "var(--postColorDark)",
+  postAnchor: "var(--postAnchorDark)",
+  postHr: "var(--postHrDark)",
+  postQuoteColor: "var(--postQuoteColorDark)",
+  postQuoteBorderColor: "var(--postQuoteBorderColorDark)",
+  postTrBgColor: "var(--postTrBgColorDark)",
+  postThBorderColor: "var(--postThBorderColorDark)",
+  postSecTrBgColor: "var(--postSecTrBgColorDark)",
 };
