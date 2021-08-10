@@ -246,7 +246,6 @@ const Post = ({ data: { mdx: post } }: PostProps) => (
       image={post?.frontmatter?.cover?.childImageSharp?.fixed?.src}
       description={post?.frontmatter?.summary!}
       location={post?.fields?.slug!}
-      type="article"
     />
     <Article>
       <PageTitle>{post?.frontmatter?.title!}</PageTitle>
