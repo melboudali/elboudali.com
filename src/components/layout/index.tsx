@@ -7,7 +7,6 @@ import Navbar from "../common/navbar";
 import { lightTheme } from "../../themes/light";
 import { darkTheme } from "../../themes/dark";
 import PropTypes from "prop-types";
-import Seo from "../common/Seo";
 
 const Header = styled.header`
   background-color: ${({ theme }) => theme.navbarBackground};
@@ -38,9 +37,9 @@ const Layout = ({ children }: LayoutProps) => {
 
   return (
     <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
-      <Seo>
+      <Helmet>
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet" />
-      </Seo>
+      </Helmet>
       <GlobalStyles />
       <Header>
         <Navbar themeToggler={themeToggler} theme={theme} />

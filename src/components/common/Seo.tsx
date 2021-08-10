@@ -8,11 +8,10 @@ interface SeoProps {
   title?: string;
   image?: string;
   description?: string;
-  children?: React.ReactNode;
   location?: string;
 }
 
-const Seo = ({ title, image, description, children, location }: SeoProps) => {
+const Seo = ({ title, image, description, location }: SeoProps) => {
   const { site }: MetaDataQuery = useStaticQuery(graphql`
     query metaData {
       site {
@@ -36,7 +35,6 @@ const Seo = ({ title, image, description, children, location }: SeoProps) => {
 
   return (
     <Helmet title={seo.title!}>
-      <link rel="canonical" href={seo.siteUrl!} />
       <meta name="description" content={seo.description!} />
       {seo.image && <meta name="image" content={seo.image} />}
 
@@ -51,7 +49,6 @@ const Seo = ({ title, image, description, children, location }: SeoProps) => {
       <meta name="twitter:title" content={seo.title!} />
       <meta name="twitter:description" content={seo.description!} />
       {image && <meta name="twitter:image" content={seo.image} />}
-      {children}
     </Helmet>
   );
 };
@@ -60,7 +57,6 @@ Seo.propTypes = {
   title: PropTypes.string,
   image: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   description: PropTypes.string,
-  children: PropTypes.node,
   location: PropTypes.string,
 };
 
