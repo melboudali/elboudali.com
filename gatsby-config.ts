@@ -9,8 +9,8 @@ export default {
     twitter: about.socialLinks.twitterId,
   },
   plugins: [
-    `gatsby-plugin-styled-components`,
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-styled-components`,
     `gatsby-plugin-image`,
     `gatsby-transformer-sharp`,
     `gatsby-remark-autolink-headers`,
