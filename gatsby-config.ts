@@ -2,8 +2,7 @@ import about from "./src/data/about";
 
 export default {
   siteMetadata: {
-    title: "< el boudali />",
-    titleTemplate: `%s · < el boudali />`,
+    title: about.fullName.toUpperCase(),
     description: about.summary.long[0],
     image: "/images/thumbnail.png",
     siteUrl: about.siteUrl,
