@@ -29,30 +29,29 @@ const Seo = ({ title, image, description, children, location }: SeoProps) => {
   `);
 
   const seo = {
-    title: title ?? site?.siteMetadata?.defaultTitle,
-    description: description ?? site?.siteMetadata?.defaultDescription,
-    image: image ?? site?.siteMetadata?.defaultImage,
-    siteUrl: location ?? site?.siteMetadata?.siteUrl,
+    title: title || site?.siteMetadata?.defaultTitle,
+    description: description || site?.siteMetadata?.defaultDescription,
+    image: `${site?.siteMetadata?.siteUrl}${image || site?.siteMetadata?.defaultImage}`,
+    siteUrl: `${site?.siteMetadata?.siteUrl}${location}` || site?.siteMetadata?.siteUrl,
   };
 
   return (
-    <Helmet title={title} titleTemplate={site!.siteMetadata!.titleTemplate!}>
-      <html lang="en" />
-      <meta charSet="utf-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <link rel="shortcut icon" href="/favicon.svg" type="image/svg+xml" />
-      {seo.title && <meta property="og:title" content={seo.title} />}
-      {seo.title && <meta property="og:site_name" content={seo.title} />}
-      {seo.title && <meta name="twitter:title" content={seo.title} />}
-      {seo.description && <meta name="description" content={seo.description} />}
-      {seo.description && <meta property="og:description" content={seo.description} />}
-      {seo.description && <meta name="twitter:description" content={seo.description} />}
+    <Helmet title={seo.title!} titleTemplate={site!.siteMetadata!.titleTemplate!}>
+      <link rel="canonical" href={seo.siteUrl!} />
+      <meta name="description" content={seo.description!} />
       {seo.image && <meta name="image" content={seo.image} />}
-      {seo.image && <meta property="og:image" content={seo.image} />}
-      {seo.image && <meta name="twitter:image" content={seo.image} />}
-      {seo.siteUrl && <meta property="og:url" content={seo.siteUrl} />}
+
+      <meta property="og:url" content={seo.siteUrl!} />
+      <meta property="og:type" content="article" />
+      <meta property="og:title" content={seo.title!} />
+      <meta property="og:description" content={seo.description!} />
+      {image && <meta property="og:image" content={seo.image} />}
+
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:creator" content={site!.siteMetadata!.twitter!} />
+      <meta name="twitter:creator" content={site?.siteMetadata?.twitter!} />
+      <meta name="twitter:title" content={seo.title!} />
+      <meta name="twitter:description" content={seo.description!} />
+      {image && <meta name="twitter:image" content={seo.image} />}
       {children}
     </Helmet>
   );
