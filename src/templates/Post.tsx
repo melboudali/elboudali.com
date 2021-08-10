@@ -242,7 +242,7 @@ interface PostProps {
 const Post = ({ data: { mdx: post } }: PostProps) => (
   <MDXWrapper>
     <Seo
-      title={post?.frontmatter?.title.toUpperCase()}
+      title={post?.frontmatter?.title}
       image={post?.frontmatter?.cover?.childImageSharp?.fixed?.src}
       description={post?.frontmatter?.summary!}
       location={post?.fields?.slug!}
