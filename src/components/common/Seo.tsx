@@ -10,10 +10,9 @@ interface SeoProps {
   description?: string;
   children?: React.ReactNode;
   location?: string;
-  type: "website" | "article";
 }
 
-const Seo = ({ title, image, description, children, location, type }: SeoProps) => {
+const Seo = ({ title, image, description, children, location }: SeoProps) => {
   const { site }: MetaDataQuery = useStaticQuery(graphql`
     query metaData {
       site {
@@ -64,11 +63,6 @@ Seo.propTypes = {
   description: PropTypes.string,
   children: PropTypes.node,
   location: PropTypes.string,
-  type: PropTypes.string.isRequired,
-};
-
-Seo.defaultProps = {
-  type: "website",
 };
 
 export default Seo;
