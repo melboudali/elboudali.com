@@ -5,6 +5,8 @@ import { SinglePostQuery } from "../../gatsby-graphql";
 import styled, { css } from "styled-components";
 import PageTitle from "../components/common/PageTitle";
 import PropTypes from "prop-types";
+import Seo from "../components/common/Seo";
+import about from "../data/about";
 
 const MDXWrapper = styled.section`
   color: ${({ theme }) => theme.balackAndWhite};
@@ -240,6 +242,12 @@ interface PostProps {
 
 const Post = ({ data: { mdx: post } }: PostProps) => (
   <MDXWrapper>
+    <Seo
+      title={post?.frontmatter?.title.toUpperCase()}
+      image={about.siteUrl + post?.frontmatter?.cover?.childImageSharp?.fixed?.src}
+      description={post?.frontmatter?.summary!}
+      location={about.siteUrl + post?.fields?.slug!}
+    />
     <Article>
       <PageTitle>{post?.frontmatter?.title!}</PageTitle>
       <DateAndTimetoread>
@@ -297,6 +305,9 @@ export const query = graphql`
         cover {
           childImageSharp {
             gatsbyImageData
+            fixed(width: 1200, height: 630) {
+              src
+            }
           }
         }
         tags
