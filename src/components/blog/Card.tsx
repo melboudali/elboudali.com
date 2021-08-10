@@ -76,6 +76,7 @@ const Title = styled.h2`
 const DateAndTimeToReadWrapper = styled.div`
   display: flex;
   gap: 20px;
+  margin: 0 0 10px;
 `;
 
 const CommonStyle = css`
@@ -115,7 +116,7 @@ const TimeToRead = styled.div`
 const TopicsWrapper = styled.div<{ listType: "list" | "grid" }>`
   --justifyContent: center;
   min-height: 24px;
-  margin: 10px 0;
+  margin: 0 0 10px;
   display: flex;
   flex-wrap: wrap;
   justify-content: var(--justifyContent);
@@ -183,11 +184,13 @@ const Card = ({ mdx, listType }: CardProps) => (
           <span>{mdx.timeToRead} min to read</span>
         </TimeToRead>
       </DateAndTimeToReadWrapper>
-      <TopicsWrapper listType={listType}>
-        {mdx.frontmatter?.tags?.map((tag, id) => (
-          <TechIcon key={id} tech={tag as project_topics_type} />
-        ))}
-      </TopicsWrapper>
+      {!!mdx.frontmatter?.tags?.length && (
+        <TopicsWrapper listType={listType}>
+          {mdx.frontmatter?.tags?.map((tag, id) => (
+            <TechIcon key={id} tech={tag as project_topics_type} />
+          ))}
+        </TopicsWrapper>
+      )}
       <Excerpt>{mdx.frontmatter?.summary}</Excerpt>
     </Details>
   </ListItemWrapper>
