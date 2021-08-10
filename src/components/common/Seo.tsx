@@ -18,7 +18,6 @@ const Seo = ({ title, image, description, children, location }: SeoProps) => {
       site {
         siteMetadata {
           defaultTitle: title
-          titleTemplate
           defaultDescription: description
           defaultImage: image
           siteUrl
@@ -36,7 +35,7 @@ const Seo = ({ title, image, description, children, location }: SeoProps) => {
   };
 
   return (
-    <Helmet title={seo.title!} titleTemplate={site!.siteMetadata!.titleTemplate!}>
+    <Helmet title={seo.title!}>
       <link rel="canonical" href={seo.siteUrl!} />
       <meta name="description" content={seo.description!} />
       {seo.image && <meta name="image" content={seo.image} />}
