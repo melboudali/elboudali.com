@@ -45,7 +45,6 @@ const Seo = ({ title, image, description, children, location }: SeoProps) => {
       <meta property="og:title" content={seo.title!} />
       <meta property="og:description" content={seo.description!} />
       {image && <meta property="og:image" content={seo.image} />}
-      <meta property="fb:app_id" content="3820447614661427" />
 
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:creator" content={site?.siteMetadata?.twitter!} />
