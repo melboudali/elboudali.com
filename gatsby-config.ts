@@ -5,7 +5,7 @@ export default {
     title: "< el boudali />",
     titleTemplate: `%s · < el boudali />`,
     description: about.summary.long[0],
-    image: "/thumbnail.jpg",
+    image: "/images/thumbnail.png",
     siteUrl: about.siteUrl,
     twitter: about.socialLinks.twitterId,
   },
