@@ -6,7 +6,6 @@ import styled, { css } from "styled-components";
 import PageTitle from "../components/common/PageTitle";
 import PropTypes from "prop-types";
 import Seo from "../components/common/Seo";
-import about from "../data/about";
 
 const MDXWrapper = styled.section`
   color: ${({ theme }) => theme.balackAndWhite};
@@ -244,9 +243,9 @@ const Post = ({ data: { mdx: post } }: PostProps) => (
   <MDXWrapper>
     <Seo
       title={post?.frontmatter?.title.toUpperCase()}
-      image={about.siteUrl + post?.frontmatter?.cover?.childImageSharp?.fixed?.src}
+      image={post?.frontmatter?.cover?.childImageSharp?.fixed?.src}
       description={post?.frontmatter?.summary!}
-      location={about.siteUrl + post?.fields?.slug!}
+      location={post?.fields?.slug!}
     />
     <Article>
       <PageTitle>{post?.frontmatter?.title!}</PageTitle>
