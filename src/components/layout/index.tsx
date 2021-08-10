@@ -32,9 +32,9 @@ const Layout = ({ children }: LayoutProps) => {
   const { theme, themeToggler, componentMounted } = useDarkMode();
 
   //TODO: add loading component
-  if (!componentMounted) {
-    return <div />;
-  }
+  // if (!componentMounted) {
+  //   return <div />;
+  // }
 
   return (
     <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
