@@ -37,8 +37,6 @@ const Seo = ({ title, image, description, children, location, type }: SeoProps) 
 
   return (
     <Helmet title={seo.title!}>
-      <html lang="en" />
-
       <meta name="description" content={seo.description!} />
       {seo.image && <meta name="image" content={seo.image} />}
 
@@ -58,7 +56,7 @@ const Seo = ({ title, image, description, children, location, type }: SeoProps) 
       <meta name="twitter:title" content={seo.title!} />
       <meta name="twitter:description" content={seo.description!} />
       {image && <meta name="twitter:image" content={seo.image} />}
-      {children}
+      <html lang="en" dir="ltr" />
       <link rel="canonical" href={seo.siteUrl!} />
     </Helmet>
   );
