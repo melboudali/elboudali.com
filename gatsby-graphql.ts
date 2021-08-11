@@ -282,6 +282,7 @@ export type SiteSiteMetadata = {
   image?: Maybe<Scalars['String']>;
   siteUrl?: Maybe<Scalars['String']>;
   twitter?: Maybe<Scalars['String']>;
+  fbid?: Maybe<Scalars['String']>;
 };
 
 export type SiteFunction = Node & {
@@ -2282,6 +2283,7 @@ export type SiteSiteMetadataFilterInput = {
   image?: Maybe<StringQueryOperatorInput>;
   siteUrl?: Maybe<StringQueryOperatorInput>;
   twitter?: Maybe<StringQueryOperatorInput>;
+  fbid?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SiteConnection = {
@@ -2336,6 +2338,7 @@ export type SiteFieldsEnum =
   | 'siteMetadata___image'
   | 'siteMetadata___siteUrl'
   | 'siteMetadata___twitter'
+  | 'siteMetadata___fbid'
   | 'port'
   | 'host'
   | 'polyfill'
@@ -4217,7 +4220,7 @@ export type MetaDataQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type MetaDataQuery = { site?: Maybe<{ siteMetadata?: Maybe<(
-      Pick<SiteSiteMetadata, 'siteUrl' | 'twitter'>
+      Pick<SiteSiteMetadata, 'siteUrl' | 'twitter' | 'fbid'>
       & { defaultTitle: SiteSiteMetadata['title'], defaultDescription: SiteSiteMetadata['description'], defaultImage: SiteSiteMetadata['image'] }
     )> }> };
 
