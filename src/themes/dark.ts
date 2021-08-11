@@ -1,6 +1,7 @@
 import { DefaultTheme } from "styled-components";
 
 export const darkTheme: DefaultTheme = {
+  iconWithTitle: "var(--iconWithTitleDark)",
   navbarBackground: "var(--primaryBackgroundColorDark)",
   bodyBackground: "var(--secondaryBackgroundColorDark)",
   navColor: "var(--white)",

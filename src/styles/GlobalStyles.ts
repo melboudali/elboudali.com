@@ -9,7 +9,7 @@ const GlobalStyles = createGlobalStyle`
       --green: #2A9244;
       --primaryColorDark: #dedee3;
       --primaryColorLight: var(--black);
-      --secondaryColor: #A5A5A5;
+      --secondaryColor: #4a4a4a;
       --primaryBackgroundColorDark: #16141F;
       --primaryBackgroundColorLight: #FBFBFB;
       --secondaryBackgroundColorDark: #191820;
@@ -18,6 +18,8 @@ const GlobalStyles = createGlobalStyle`
       --linearRightColorDark: #E8714B;
       --linearLeftColorLight: #2188FF;
       --linearLeftColorDark: #7031C0;
+      --iconWithTitleLight: #6a6a6a;
+      --iconWithTitleDark: #8c8c8c;
       --modalLightBackground: rgba(255, 255, 255, 0.95);
       --modalDarkBackground: rgba(28, 26, 37, 0.95);
       --modalDarkShadow: #7455ff4c;
@@ -89,7 +91,7 @@ const GlobalStyles = createGlobalStyle`
     color: var(--black);
     background-color: ${({ theme }) => theme.bodyBackground};
     font-size: 1rem;
-    font-weight: 400;
+    font-weight: normal;
     font-family: 'Roboto', sans-serif;
     font-style: normal;
     margin: 0;

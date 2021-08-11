@@ -37,5 +37,6 @@ declare module "styled-components" {
     postTrBgColor: string;
     postThBorderColor: string;
     postSecTrBgColor: string;
+    iconWithTitle: string;
   }
 }
