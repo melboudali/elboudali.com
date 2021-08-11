@@ -2,11 +2,12 @@ import about from "./src/data/about";
 
 export default {
   siteMetadata: {
-    title: about.fullName.toUpperCase(),
+    title: `${about.fullName} | ${about.role}`,
     description: about.summary.long[0],
     image: "/images/thumbnail.png",
     siteUrl: about.siteUrl,
     twitter: about.socialLinks.twitterId,
+    fbid: about.socialLinks.fbid,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
