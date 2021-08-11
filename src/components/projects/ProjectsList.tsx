@@ -34,7 +34,7 @@ const ProjectsList = ({ repos, selectValue }: ProjectsListProps) => {
         nodes {
           relativePath
           childImageSharp {
-            gatsbyImageData
+            gatsbyImageData(width: 400)
           }
         }
       }
