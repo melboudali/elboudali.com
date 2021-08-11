@@ -92,7 +92,7 @@ const GlobalStyles = createGlobalStyle`
     background-color: ${({ theme }) => theme.bodyBackground};
     font-size: 1rem;
     font-weight: normal;
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", Arial, Helvetica, sans-serif;
     font-style: normal;
     margin: 0;
   }
