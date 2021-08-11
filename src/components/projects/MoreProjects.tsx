@@ -29,7 +29,7 @@ const MoreProjectsWrapper = styled.div`
 
 const MoreProjects = () => (
   <MoreProjectsWrapper>
-    <a href={`${about.socialLinks.github}?tab=repositories`} target="_blank">
+    <a href={`${about.socialLinks.github}?tab=repositories`} target="_blank" rel="noreferrer">
       more projects
     </a>
   </MoreProjectsWrapper>
