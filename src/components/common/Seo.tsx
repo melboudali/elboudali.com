@@ -32,11 +32,14 @@ const Seo = ({ title, image, description, children, location, type }: SeoProps) 
     title: title || site?.siteMetadata?.defaultTitle,
     description: description || site?.siteMetadata?.defaultDescription,
     image: `${site?.siteMetadata?.siteUrl}${image || site?.siteMetadata?.defaultImage}`,
-    siteUrl: `${site?.siteMetadata?.siteUrl}${location}` || site?.siteMetadata?.siteUrl,
+    siteUrl: `${site?.siteMetadata?.siteUrl}${location || ""}`,
   };
 
   return (
     <Helmet title={seo.title!}>
+      <html lang="en" dir="ltr" />
+      <link rel="canonical" href={seo.siteUrl!} />
+      <link rel="preload" as="font" />
       <meta name="description" content={seo.description!} />
       {seo.image && <meta name="image" content={seo.image} />}
 
@@ -52,8 +55,6 @@ const Seo = ({ title, image, description, children, location, type }: SeoProps) 
       <meta name="twitter:title" content={seo.title!} />
       <meta name="twitter:description" content={seo.description!} />
       {seo.image && <meta name="twitter:image" content={seo.image} />}
-      <html lang="en" dir="ltr" />
-      <link rel="canonical" href={seo.siteUrl!} />
     </Helmet>
   );
 };
