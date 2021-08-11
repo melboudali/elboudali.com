@@ -53,7 +53,7 @@ export const DateAndStars = styled.div`
     margin-top: 2px;
     font-size: 0.6875rem;
     text-transform: uppercase;
-    color: var(--secondaryColor);
+    color: ${({ theme }) => theme.iconWithTitle};
     line-height: 13px;
   }
 `;
@@ -63,16 +63,16 @@ export const DateWrapper = styled.div`
   gap: 5px;
   svg {
     &:nth-child(1) > path {
-      fill: var(--secondaryColor);
+      fill: ${({ theme }) => theme.iconWithTitle};
       &:nth-child(1),
       &:last-child {
         fill: none;
-        stroke: var(--secondaryColor);
+        stroke: ${({ theme }) => theme.iconWithTitle};
       }
     }
     &:nth-child(2) {
       path {
-        fill: var(--secondaryColor);
+        fill: ${({ theme }) => theme.iconWithTitle};
       }
     }
   }
@@ -90,7 +90,7 @@ const StarsWrapper = styled.div`
     margin-top: 2px;
   }
   svg > path {
-    stroke: var(--secondaryColor);
+    stroke: ${({ theme }) => theme.iconWithTitle};
   }
 `;
 

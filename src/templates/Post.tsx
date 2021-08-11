@@ -36,19 +36,19 @@ const DataAndTimeStyle = css`
     line-height: 16px;
     letter-spacing: -0.04em;
 
-    color: var(--secondaryColor);
+    color: ${({ theme }) => theme.iconWithTitle};
   }
 `;
 
 const DateWrapper = styled.div`
   ${DataAndTimeStyle}
   svg > path {
-    fill: var(--secondaryColor);
+    fill: ${({ theme }) => theme.iconWithTitle};
     &:nth-child(1),
     &:nth-last-child(2),
     &:last-child {
       fill: none;
-      stroke: var(--secondaryColor);
+      stroke: ${({ theme }) => theme.iconWithTitle};
     }
   }
 `;
@@ -56,7 +56,7 @@ const DateWrapper = styled.div`
 const TimeToReadWrapper = styled.div`
   ${DataAndTimeStyle}
   svg > path {
-    fill: var(--secondaryColor);
+    fill: ${({ theme }) => theme.iconWithTitle};
   }
 `;
 
@@ -79,12 +79,12 @@ const MDXRendererWrapper = styled.div`
       letter-spacing: -0.04em;
       text-transform: capitalize;
       text-align: center;
-      color: var(--secondaryColor);
+      color: ${({ theme }) => theme.iconWithTitle};
       a,
       a:visited {
         text-decoration: underline;
         text-transform: none;
-        color: var(--secondaryColor);
+        color: ${({ theme }) => theme.iconWithTitle};
         &:hover {
           color: ${({ theme }) => theme.buttonBackground};
         }

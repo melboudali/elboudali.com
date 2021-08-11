@@ -177,15 +177,15 @@ const SubmitButton = styled.button`
   letter-spacing: 0.3em;
   line-height: 21px;
   text-transform: uppercase;
-  color: var(--secondaryColor);
+  color: ${({ theme }) => theme.iconWithTitle};
   background-color: ${({ theme }) => theme.buttonBackground};
-  box-shadow: 5px 5px 0px var(--secondaryColor);
+  box-shadow: 5px 5px 0px ${({ theme }) => theme.iconWithTitle};
   border-top-left-radius: 10px;
   border-bottom-right-radius: 10px;
   svg {
     path {
       stroke-width: 2;
-      stroke: var(--secondaryColor);
+      stroke: ${({ theme }) => theme.iconWithTitle};
     }
     animation: ${SvgAnimation} 1s steps(20) infinite;
   }

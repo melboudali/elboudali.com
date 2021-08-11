@@ -30,7 +30,7 @@ const SortWrapperTextStyle = css`
 const DescriptiveText = css`
   ${SortWrapperTextStyle}
   margin: 0;
-  color: var(--secondaryColor);
+  color: ${({ theme }) => theme.iconWithTitle};
 `;
 
 const SortWrapper = styled.div`

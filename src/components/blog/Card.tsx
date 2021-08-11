@@ -87,18 +87,18 @@ const CommonStyle = css`
     margin-top: 2px;
     font-size: 0.75rem;
     line-height: 15px;
-    color: var(--secondaryColor);
+    color: ${({ theme }) => theme.iconWithTitle};
   }
 `;
 
 const DateWrapper = styled.div`
   ${CommonStyle}
   svg > path {
-    fill: var(--secondaryColor);
+    fill: ${({ theme }) => theme.iconWithTitle};
     &:nth-child(1),
     &:last-child {
       fill: none;
-      stroke: var(--secondaryColor);
+      stroke: ${({ theme }) => theme.iconWithTitle};
     }
   }
   span {
@@ -109,7 +109,7 @@ const DateWrapper = styled.div`
 const TimeToRead = styled.div`
   ${CommonStyle}
   svg > path {
-    fill: var(--secondaryColor);
+    fill: ${({ theme }) => theme.iconWithTitle};
   }
 `;
 

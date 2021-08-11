@@ -38,7 +38,7 @@ const ScoolDegreeTitle = styled.h2`
     display: flex;
     align-items: center;
     svg > path {
-      fill: var(--secondaryColor);
+      fill: ${({ theme }) => theme.iconWithTitle};
     }
   }
   @media (min-width: 750px) {
@@ -58,14 +58,14 @@ const SchollWrapper = styled.div`
     text-transform: uppercase;
     letter-spacing: 0.1em;
     line-height: 19px;
-    color: var(--secondaryColor);
+    color: ${({ theme }) => theme.iconWithTitle};
     span {
       font-size: 0.8125rem;
       text-transform: capitalize;
     }
   }
   svg > path {
-    fill: var(--secondaryColor);
+    fill: ${({ theme }) => theme.iconWithTitle};
   }
   @media (max-width: 475px) {
     --alignItems: flex-start;

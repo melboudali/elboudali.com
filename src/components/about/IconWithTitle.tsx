@@ -14,10 +14,10 @@ const IconWithTitleWrapper = styled.div<{ type: "role" | "location" }>`
     letter-spacing: 0.1em;
     text-transform: capitalize;
     line-height: 19px;
-    color: var(--secondaryColor);
+    color: ${({ theme }) => theme.iconWithTitle};
   }
   svg > path {
-    ${({ type }) => (type === "role" ? "fill: var(--secondaryColor);" : "stroke: var(--secondaryColor);")}
+    ${({ type, theme }) => (type === "role" ? `fill: ${theme.iconWithTitle};` : `stroke: ${theme.iconWithTitle};`)}
   }
 `;
 
