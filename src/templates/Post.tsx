@@ -4,12 +4,8 @@ import { MDXRenderer } from "gatsby-plugin-mdx";
 import { SinglePostQuery } from "../../gatsby-graphql";
 import styled, { css } from "styled-components";
 import PageTitle from "../components/common/PageTitle";
-import PropTypes from "prop-types";
 import Seo from "../components/common/Seo";
-
-const MDXWrapper = styled.section`
-  color: ${({ theme }) => theme.balackAndWhite};
-`;
+import PropTypes from "prop-types";
 
 const Article = styled.article`
   --padding: 0 10px;
@@ -240,7 +236,7 @@ interface PostProps {
 }
 
 const Post = ({ data: { mdx: post } }: PostProps) => (
-  <MDXWrapper>
+  <section>
     <Seo
       title={post?.frontmatter?.title}
       image={post?.frontmatter?.cover?.childImageSharp?.fixed?.src}
@@ -282,7 +278,7 @@ const Post = ({ data: { mdx: post } }: PostProps) => (
         <MDXRenderer frontmatter={post?.frontmatter}>{post?.body!}</MDXRenderer>
       </MDXRendererWrapper>
     </Article>
-  </MDXWrapper>
+  </section>
 );
 
 Post.propTypes = { data: PropTypes.object.isRequired };
