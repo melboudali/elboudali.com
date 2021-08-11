@@ -3,6 +3,7 @@ import { graphql, useStaticQuery } from "gatsby";
 import { Helmet } from "react-helmet";
 import PropTypes from "prop-types";
 import { MetaDataQuery } from "../../../gatsby-graphql";
+import about from "../../data/about";
 
 interface SeoProps {
   title?: string;
@@ -13,7 +14,7 @@ interface SeoProps {
   type: "website" | "article";
 }
 
-const Seo = ({ title, image, description, children, location, type }: SeoProps) => {
+const Seo = ({ title, image, description, location, type }: SeoProps) => {
   const { site }: MetaDataQuery = useStaticQuery(graphql`
     query metaData {
       site {
@@ -23,13 +24,14 @@ const Seo = ({ title, image, description, children, location, type }: SeoProps) 
           defaultImage: image
           siteUrl
           twitter
+          fbid
         }
       }
     }
   `);
 
   const seo = {
-    title: title || site?.siteMetadata?.defaultTitle,
+    title: title ? (type === "article" ? title : `${about.fullName} | ${title}`) : site?.siteMetadata?.defaultTitle,
     description: description || site?.siteMetadata?.defaultDescription,
     image: `${site?.siteMetadata?.siteUrl}${image || site?.siteMetadata?.defaultImage}`,
     siteUrl: `${site?.siteMetadata?.siteUrl}${location || ""}`,
@@ -48,7 +50,7 @@ const Seo = ({ title, image, description, children, location, type }: SeoProps) 
       <meta property="og:title" content={seo.title!} />
       <meta property="og:description" content={seo.description!} />
       {seo.image && <meta property="og:image" content={seo.image} />}
-      <meta property="fb:app_id" content="3820447614661427" />
+      <meta property="fb:app_id" content={site?.siteMetadata?.fbid!} />
 
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:creator" content={site?.siteMetadata?.twitter!} />
@@ -63,7 +65,6 @@ Seo.propTypes = {
   title: PropTypes.string,
   image: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   description: PropTypes.string,
-  children: PropTypes.node,
   location: PropTypes.string,
   type: PropTypes.string.isRequired,
 };

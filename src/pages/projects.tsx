@@ -7,6 +7,7 @@ import PageTitle from "../components/common/PageTitle";
 import ProjectsList from "../components/projects/ProjectsList";
 import MoreProjects from "../components/projects/MoreProjects";
 import PropTypes from "prop-types";
+import Seo from "../components/common/Seo";
 
 const FlexStyle = css`
   display: flex;
@@ -93,6 +94,7 @@ const Projects = ({
 
   return (
     <>
+      <Seo title="Projects" description="Projects and experiments i've learned and created over the years." location="/projects/" />
       <PageTitle ItemsCountNumber={totalCount}>projects</PageTitle>
       <SortAndStarsWrapper>
         <SortWrapper>
