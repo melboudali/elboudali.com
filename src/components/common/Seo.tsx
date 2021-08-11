@@ -44,18 +44,14 @@ const Seo = ({ title, image, description, children, location, type }: SeoProps) 
       <meta property="og:type" content={type} />
       <meta property="og:title" content={seo.title!} />
       <meta property="og:description" content={seo.description!} />
-      {image && <meta property="og:image" content={seo.image} />}
-      <meta
-        property="fb:app_id"
-        content="3820447614661427
-"
-      />
+      {seo.image && <meta property="og:image" content={seo.image} />}
+      <meta property="fb:app_id" content="3820447614661427" />
 
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:creator" content={site?.siteMetadata?.twitter!} />
       <meta name="twitter:title" content={seo.title!} />
       <meta name="twitter:description" content={seo.description!} />
-      {image && <meta name="twitter:image" content={seo.image} />}
+      {seo.image && <meta name="twitter:image" content={seo.image} />}
       <html lang="en" dir="ltr" />
       <link rel="canonical" href={seo.siteUrl!} />
     </Helmet>

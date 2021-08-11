@@ -28,12 +28,7 @@ interface LayoutProps {
 }
 
 const Layout = ({ children }: LayoutProps) => {
-  const { theme, themeToggler, componentMounted } = useDarkMode();
-
-  //TODO: add loading component
-  // if (!componentMounted) {
-  //   return <div />;
-  // }
+  const { theme, themeToggler } = useDarkMode();
 
   return (
     <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
