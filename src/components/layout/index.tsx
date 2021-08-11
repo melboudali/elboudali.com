@@ -36,16 +36,18 @@ const Layout = ({ children }: LayoutProps) => {
   }
 
   return (
-    <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
+    <>
       <Helmet>
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet" />
       </Helmet>
-      <GlobalStyles />
-      <Header>
-        <Navbar themeToggler={themeToggler} theme={theme} />
-      </Header>
-      <Main>{children}</Main>
-    </ThemeProvider>
+      <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
+        <GlobalStyles />
+        <Header>
+          <Navbar themeToggler={themeToggler} theme={theme} />
+        </Header>
+        <Main>{children}</Main>
+      </ThemeProvider>
+    </>
   );
 };
 
