@@ -1,5 +1,5 @@
 const about = {
-  fullName: "mohamed el boudali",
+  fullName: "Mohamed EL BOUDALI",
   summary: {
     short: ["I", "❤", "coding w/ JavaScript, TypeScript, React, Gatsby, Next, graphQL, and Express."],
     long: [
@@ -9,7 +9,7 @@ const about = {
       "This website is my digital garden — a compendium of the things I've learned and created over the years.",
     ],
   },
-  role: "front end developer",
+  role: "Full Stack Developer",
   location: "morocco",
   socialLinks: {
     email: "contact@elboudali.com",
@@ -19,6 +19,7 @@ const about = {
     freecodecamp: "https://www.freecodecamp.org/elboudali",
     hackerrank: "https://www.hackerrank.com/med_sneaky",
     twitterId: "@moelboudali",
+    fbid: "3820447614661427",
   },
   schoolDegrees: [
     {
