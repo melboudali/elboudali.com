@@ -42,7 +42,7 @@ const EmailWrapper = styled.div`
   height: 100%;
   padding: 0 5px;
   font-size: 0.9375rem;
-  font-weight: bold;
+  font-weight: 700;
   line-height: 18px;
   color: ${({ theme }) => theme.labelColor};
   border-right: 2px solid ${({ theme }) => theme.emailBorder};
