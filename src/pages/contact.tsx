@@ -178,7 +178,7 @@ const SubmitButton = styled.button`
   letter-spacing: 0.3em;
   line-height: 21px;
   text-transform: uppercase;
-  color: ${({ theme }) => theme.labelColor};
+  color: var(--white);
   background-color: ${({ theme }) => theme.buttonBackground};
   box-shadow: 5px 5px 0px ${({ theme }) => theme.iconWithTitle};
   border-top-left-radius: 10px;
