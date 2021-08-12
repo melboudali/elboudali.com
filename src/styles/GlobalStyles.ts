@@ -29,7 +29,7 @@ const GlobalStyles = createGlobalStyle`
       --labelColorLight: #6a6a6a;
       --labelColorDark: #dedee3;
       --inputDarkBackground: rgba(98, 84, 170, 0.3);
-      --inputLightBackground: #f1f1f1;
+      --inputLightBackground: #dedee3;
       --buttonBackgroundLight: var(--black);
       --buttonBackgroundDark: #4C2A8D;
       --emailLightBackground: #f6f6f6;
