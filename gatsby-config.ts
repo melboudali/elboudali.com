@@ -15,7 +15,6 @@ export default {
     `gatsby-plugin-image`,
     `gatsby-transformer-sharp`,
     `gatsby-remark-autolink-headers`,
-
     {
       resolve: `gatsby-plugin-graphql-codegen`,
       options: {
