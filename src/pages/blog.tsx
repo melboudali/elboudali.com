@@ -5,6 +5,7 @@ import styled, { css } from "styled-components";
 import PageTitle from "../components/common/PageTitle";
 import Card from "../components/blog/Card";
 import PropTypes from "prop-types";
+import Seo from "../components/common/Seo";
 
 const PageTitleWrapper = styled.div`
   display: flex;
@@ -62,6 +63,7 @@ const Blog = ({
 
   return (
     <>
+      <Seo title="Blog" description="Articles about UI design, front-end, and full-stack development." location="/blog/" />
       <PageTitleWrapper>
         <PageTitle ItemsCountNumber={totalCount}>blog</PageTitle>
         <ListStyleWrapper listType={listType}>
