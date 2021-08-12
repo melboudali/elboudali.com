@@ -7,7 +7,7 @@ import Card from "../components/blog/Card";
 import PropTypes from "prop-types";
 import Seo from "../components/common/Seo";
 
-const PageTitleWrapper = styled.div`
+const PageTitleWrapper = styled.section`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -32,7 +32,7 @@ const ListStyleWrapper = styled.div<{ listType: "grid" | "list" }>`
   }
 `;
 
-const PostsWrapper = styled.div<{ listType: "list" | "grid" }>`
+const PostsWrapper = styled.section<{ listType: "list" | "grid" }>`
   --flexDirection: row;
   --flexWrap: wrap;
   --gap: 40px;
