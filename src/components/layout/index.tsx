@@ -1,11 +1,10 @@
 import React from "react";
-import { Helmet } from "react-helmet";
 import styled, { ThemeProvider } from "styled-components";
 import GlobalStyles from "../../styles/GlobalStyles";
 import { useDarkMode } from "../../hook/useDarkMode";
-import Navbar from "../common/navbar";
 import { lightTheme } from "../../themes/light";
 import { darkTheme } from "../../themes/dark";
+import Navbar from "../common/navbar";
 import PropTypes from "prop-types";
 
 const Header = styled.header`
@@ -24,7 +23,7 @@ const Main = styled.main`
 `;
 
 interface LayoutProps {
-  children: object | React.ReactNode;
+  children: React.ReactNode;
 }
 
 const Layout = ({ children }: LayoutProps) => {
@@ -41,6 +40,6 @@ const Layout = ({ children }: LayoutProps) => {
   );
 };
 
-Layout.propTypes = { children: PropTypes.node.isRequired };
+Layout.propTypes = { children: PropTypes.node };
 
 export default Layout;
