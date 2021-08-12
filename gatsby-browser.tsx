@@ -4,7 +4,7 @@ import Layout from "./src/components/layout";
 
 interface wrapPageElementInterface {
   element: React.ReactNode;
-  props: Object;
+  props: object;
 }
 
 export const wrapPageElement = ({ element, props }: wrapPageElementInterface) => <Layout {...props}>{element}</Layout>;
