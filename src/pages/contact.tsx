@@ -47,7 +47,7 @@ const EmailWrapper = styled.div`
   color: ${({ theme }) => theme.labelColor};
   border-right: 2px solid ${({ theme }) => theme.emailBorder};
   svg > path {
-    fill: var(--labelColor);
+    fill: ${({ theme }) => theme.labelColor};
   }
 `;
 
@@ -60,7 +60,7 @@ const CopyButtonWrapper = styled.button`
     background-color: ${({ theme }) => theme.emailBorder};
   }
   svg > path {
-    fill: var(--labelColor);
+    fill: ${({ theme }) => theme.labelColor};
   }
 `;
 
@@ -101,7 +101,7 @@ const InputLabel = styled.label<{ name: "name" | "email" | "message" }>`
   line-height: 23px;
   letter-spacing: -0.04em;
   text-transform: uppercase;
-  color: var(--labelColor);
+  color: ${({ theme }) => theme.labelColor};
   @media (min-width: 750px) {
     ${({ name }) => name !== "message" && "flex-grow: 1;"}
   }
@@ -112,7 +112,7 @@ const InputAndTextArea = css`
   font-size: 1.2rem;
   font-family: inherit;
   line-height: 27px;
-  color: ${({ theme }) => theme.titleColor};
+  color: ${({ theme }) => theme.labelColor};
   border: 2px solid transparent;
   border-radius: 5px;
   background-color: ${({ theme }) => theme.inputBackground};
@@ -178,7 +178,7 @@ const SubmitButton = styled.button`
   letter-spacing: 0.3em;
   line-height: 21px;
   text-transform: uppercase;
-  color: ${({ theme }) => theme.iconWithTitle};
+  color: ${({ theme }) => theme.labelColor};
   background-color: ${({ theme }) => theme.buttonBackground};
   box-shadow: 5px 5px 0px ${({ theme }) => theme.iconWithTitle};
   border-top-left-radius: 10px;
@@ -282,11 +282,13 @@ const Contact = () => {
 
 const InputGroup = ({ values, updateValue, name }: InputGroupProps) => (
   <InputGroupWrapper name={name}>
-    <InputLabel name={name}>your {name}</InputLabel>
+    <InputLabel htmlFor={name} name={name}>
+      your {name}
+    </InputLabel>
     {name === "message" ? (
-      <TextArea rows={10} name={name} value={values[name]} onChange={updateValue} />
+      <TextArea id={name} rows={10} name={name} value={values[name]} onChange={updateValue} />
     ) : (
-      <Input name={name} type={name === "email" ? "email" : "text"} value={values[name]} onChange={updateValue} />
+      <Input id={name} name={name} type={name === "email" ? "email" : "text"} value={values[name]} onChange={updateValue} />
     )}
   </InputGroupWrapper>
 );
@@ -316,6 +318,7 @@ const CopyEmail = ({ setShowMessage }: CopyEmailProps) => (
       {about.socialLinks.email}
     </EmailWrapper>
     <CopyButtonWrapper
+      aria-label="copy-email"
       onClick={() => {
         navigator.clipboard.writeText(about.socialLinks.email);
         setShowMessage(true);
