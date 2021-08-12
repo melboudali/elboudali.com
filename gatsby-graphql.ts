@@ -4224,14 +4224,6 @@ export type MetaDataQuery = { site?: Maybe<{ siteMetadata?: Maybe<(
       & { defaultTitle: SiteSiteMetadata['title'], defaultDescription: SiteSiteMetadata['description'], defaultImage: SiteSiteMetadata['image'] }
     )> }> };
 
-export type AllImagesQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type AllImagesQuery = { allImages: { nodes: Array<(
-      Pick<File, 'relativePath'>
-      & { childImageSharp?: Maybe<Pick<ImageSharp, 'gatsbyImageData'>> }
-    )> } };
-
 export type AllPostsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -4251,13 +4243,16 @@ export type AllFileQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type AllFileQuery = { allFile: { nodes: Array<Pick<File, 'publicURL'>> } };
 
-export type AllRepoQueryVariables = Exact<{ [key: string]: never; }>;
+export type AllReposAndAllImagesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type AllRepoQuery = { allRepo: (
+export type AllReposAndAllImagesQuery = { allRepos: (
     Pick<RepoConnection, 'totalCount'>
     & { nodes: Array<Pick<Repo, 'id' | 'name' | 'description' | 'stargazers_count' | 'html_url' | 'homepage' | 'created_at' | 'pushed_at'>> }
-  ) };
+  ), allImages: { nodes: Array<(
+      Pick<File, 'relativePath'>
+      & { childImageSharp?: Maybe<Pick<ImageSharp, 'gatsbyImageData'>> }
+    )> } };
 
 export type SinglePostQueryVariables = Exact<{
   slug?: Maybe<Scalars['String']>;
