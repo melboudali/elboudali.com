@@ -13,7 +13,7 @@ export const darkTheme: DefaultTheme = {
   modalBackground: "var(--modalDarkBackground)",
   modalShadow: "var(--modalDarkShadow)",
   modalCloseStroke: "var(--modalCloseStrokeDark)",
-  labelColor: "var(--labelColor)",
+  labelColor: "var(--labelColorDark)",
   inputBackground: "var(--inputDarkBackground)",
   buttonBackground: "var(--buttonBackgroundDark)",
   emailBackground: "var(--emailDarkBackground)",

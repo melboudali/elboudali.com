@@ -13,7 +13,7 @@ export const lightTheme: DefaultTheme = {
   modalBackground: "var(--modalLightBackground)",
   modalShadow: "var(--modalLightShadow)",
   modalCloseStroke: "var(--modalCloseStrokeLight)",
-  labelColor: "var(--labelColor)",
+  labelColor: "var(--labelColorLight)",
   inputBackground: "var(--inputLightBackground)",
   buttonBackground: "var(--buttonBackgroundLight)",
   emailBackground: "var(--emailLightBackground)",
