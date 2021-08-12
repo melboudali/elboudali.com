@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import { graphql } from "gatsby";
 import styled, { css } from "styled-components";
-import { getAllReposStars } from "../utils/projects";
-import { AllRepoQuery } from "../../gatsby-graphql";
+import { filterProjects, getAllReposStars, getSelectedProject, sortProjects } from "../utils/projects";
+import { AllReposAndAllImagesQuery } from "../../gatsby-graphql";
 import PageTitle from "../components/common/PageTitle";
-import ProjectsList from "../components/projects/ProjectsList";
 import MoreProjects from "../components/projects/MoreProjects";
 import PropTypes from "prop-types";
 import Seo from "../components/common/Seo";
+import Card from "../components/projects/Card";
+import selectedProjects from "../data/projects";
 
 const FlexStyle = css`
   display: flex;
@@ -77,13 +78,26 @@ const StarsWrapper = styled.div`
   }
 `;
 
+const ProjectsWrapper = styled.section`
+  --columnWidth: 1fr;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fit, var(--columnWidth));
+  grid-gap: 37px;
+  margin-top: 50px;
+  @media (min-width: 370px) {
+    --columnWidth: 370px;
+  }
+`;
+
 interface ProjectsProps {
-  data: AllRepoQuery;
+  data: AllReposAndAllImagesQuery;
 }
 
 const Projects = ({
   data: {
-    allRepo: { nodes: repos, totalCount },
+    allRepos: { nodes: repos, totalCount },
+    allImages: { nodes: covers },
   },
 }: ProjectsProps) => {
   const [selectValue, setSelectValue] = useState("created_at");
@@ -114,7 +128,11 @@ const Projects = ({
           </StarsWrapper>
         </TotalStarsWrapper>
       </SortAndStarsWrapper>
-      <ProjectsList repos={repos} selectValue={selectValue} />
+      <ProjectsWrapper>
+        {sortProjects(filterProjects(repos, selectedProjects), selectValue).map(({ id, ...repo }) => (
+          <Card key={id} repo={getSelectedProject(repo, selectedProjects)} covers={covers} />
+        ))}
+      </ProjectsWrapper>
       <MoreProjects />
     </>
   );
@@ -125,8 +143,8 @@ Projects.propTypes = { data: PropTypes.object.isRequired };
 export default Projects;
 
 export const query = graphql`
-  query AllRepo {
-    allRepo {
+  query AllReposAndAllImages {
+    allRepos: allRepo {
       nodes {
         id
         name
@@ -138,6 +156,14 @@ export const query = graphql`
         pushed_at
       }
       totalCount
+    }
+    allImages: allFile(filter: { sourceInstanceName: { eq: "projects" } }) {
+      nodes {
+        relativePath
+        childImageSharp {
+          gatsbyImageData(width: 400)
+        }
+      }
     }
   }
 `;
