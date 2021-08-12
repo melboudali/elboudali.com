@@ -26,7 +26,7 @@ const GlobalStyles = createGlobalStyle`
       --modalLightShadow: #0000006c;
       --modalCloseStrokeLight: var(--white);
       --modalCloseStrokeDark: var(--black);
-      --labelColorLight: #6a6a6a;
+      --labelColorLight: #4a4a4a;
       --labelColorDark: #dedee3;
       --inputDarkBackground: rgba(98, 84, 170, 0.3);
       --inputLightBackground: #dedee3;
