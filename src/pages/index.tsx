@@ -158,7 +158,7 @@ const Index = () => {
 
   return (
     <IndexWrapper>
-      <Seo title="Mohamed EL BOUDALI" />
+      <Seo />
       <ShortAboutWrapper>
         <ImageWrapper>
           <StaticImage src="../assets/images/image/elboudali.jpg" alt="EL BOUDALI" className="my_image" />
