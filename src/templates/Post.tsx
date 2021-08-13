@@ -110,7 +110,7 @@ const MDXRendererWrapper = styled.div`
   h5,
   h6 {
     margin: 24px 0 16px;
-    font-weight: bold;
+    font-weight: 700;
     color: ${({ theme }) => theme.titleColor};
     a.anchor {
       height: 100%;
@@ -148,7 +148,7 @@ const MDXRendererWrapper = styled.div`
   a,
   a:visited {
     color: ${({ theme }) => theme.postAnchor};
-    font-weight: bold;
+    font-weight: 700;
   }
 
   ul,
@@ -169,7 +169,7 @@ const MDXRendererWrapper = styled.div`
 
   b,
   strong {
-    font-weight: bold;
+    font-weight: 700;
   }
 
   hr {
@@ -218,7 +218,7 @@ const MDXRendererWrapper = styled.div`
   }
 
   table th {
-    font-weight: bold;
+    font-weight: 700;
   }
 
   td,

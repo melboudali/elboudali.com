@@ -14,7 +14,7 @@ const CustomLinkWrapper = styled(Link)`
   line-height: var(--lineHeight);
   color: ${({ theme }) => theme.navColor};
   &.active {
-    font-weight: bold;
+    font-weight: 700;
   }
   &:before {
     content: "";

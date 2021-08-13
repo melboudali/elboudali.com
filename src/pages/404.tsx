@@ -34,7 +34,7 @@ const ErrorTitle = styled.h2`
 
 const ErrorMessage = styled.p`
   color: ${({ theme }) => theme.errorNumberColor};
-  font-weight: bold;
+  font-weight: 700;
   margin: 0;
   &:first-letter {
     text-transform: uppercase;

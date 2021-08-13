@@ -23,7 +23,7 @@ const SortAndStarsWrapper = styled.section`
 
 const SortWrapperTextStyle = css`
   font-size: 0.8125rem;
-  font-weight: bold;
+  font-weight: 700;
   line-height: 15px;
   letter-spacing: -0.04em;
   text-transform: uppercase;

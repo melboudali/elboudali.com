@@ -16,7 +16,7 @@ const MoreProjectsWrapper = styled.div`
     justify-content: center;
     height: 100%;
     color: var(--white);
-    font-weight: bold;
+    font-weight: 700;
     font-size: 1.25rem;
     letter-spacing: -0.04em;
     line-height: 23px;

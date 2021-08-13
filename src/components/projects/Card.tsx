@@ -33,7 +33,7 @@ const Details = styled.div`
 const CardTitle = styled.h2`
   margin: 0;
   font-size: 1.25rem;
-  font-weight: bold;
+  font-weight: 700;
   letter-spacing: -0.04em;
   text-transform: uppercase;
   line-height: 23px;
@@ -146,7 +146,7 @@ const DemoLink = styled.a`
   }
   span {
     font-size: 0.9375rem;
-    font-weight: bold;
+    font-weight: 700;
     letter-spacing: -0.04em;
     text-transform: uppercase;
     line-height: 18px;

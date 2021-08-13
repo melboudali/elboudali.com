@@ -97,7 +97,7 @@ const InputGroupWrapper = styled.div<{ name: "name" | "email" | "message" }>`
 
 const InputLabel = styled.label<{ name: "name" | "email" | "message" }>`
   font-size: 1.25rem;
-  font-weight: bold;
+  font-weight: 700;
   line-height: 23px;
   letter-spacing: -0.04em;
   text-transform: uppercase;
