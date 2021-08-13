@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import throttle from "lodash/throttle";
 
 const useNavbar = (navHeight: number) => {
   const [showNav, setShowNav] = useState(true);
