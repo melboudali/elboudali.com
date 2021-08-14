@@ -7,4 +7,6 @@ interface wrapPageElementInterface {
   props: object;
 }
 
+export const registerServiceWorker = () => true;
+
 export const wrapPageElement = ({ element, props }: wrapPageElementInterface) => <Layout {...props}>{element}</Layout>;
