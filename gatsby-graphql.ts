@@ -847,12 +847,12 @@ export type SitePluginPluginOptions = {
   theme_color?: Maybe<Scalars['String']>;
   display?: Maybe<Scalars['String']>;
   icon?: Maybe<Scalars['String']>;
+  cache_busting_mode?: Maybe<Scalars['String']>;
   legacy?: Maybe<Scalars['Boolean']>;
   theme_color_in_head?: Maybe<Scalars['Boolean']>;
-  cache_busting_mode?: Maybe<Scalars['String']>;
   crossOrigin?: Maybe<Scalars['String']>;
   include_favicon?: Maybe<Scalars['Boolean']>;
-  cacheDigest?: Maybe<Scalars['String']>;
+  workboxConfig?: Maybe<SitePluginPluginOptionsWorkboxConfig>;
   pathCheck?: Maybe<Scalars['Boolean']>;
   allExtensions?: Maybe<Scalars['Boolean']>;
   isTSX?: Maybe<Scalars['Boolean']>;
@@ -901,6 +901,10 @@ export type SitePluginPluginOptionsGatsbyRemarkPluginsOptions = {
   maxWidth?: Maybe<Scalars['Int']>;
   linkImagesToOriginal?: Maybe<Scalars['Boolean']>;
   rel?: Maybe<Scalars['String']>;
+};
+
+export type SitePluginPluginOptionsWorkboxConfig = {
+  globPatterns?: Maybe<Array<Maybe<Scalars['String']>>>;
 };
 
 export type SitePluginPackageJson = {
@@ -2694,12 +2698,12 @@ export type SitePluginPluginOptionsFilterInput = {
   theme_color?: Maybe<StringQueryOperatorInput>;
   display?: Maybe<StringQueryOperatorInput>;
   icon?: Maybe<StringQueryOperatorInput>;
+  cache_busting_mode?: Maybe<StringQueryOperatorInput>;
   legacy?: Maybe<BooleanQueryOperatorInput>;
   theme_color_in_head?: Maybe<BooleanQueryOperatorInput>;
-  cache_busting_mode?: Maybe<StringQueryOperatorInput>;
   crossOrigin?: Maybe<StringQueryOperatorInput>;
   include_favicon?: Maybe<BooleanQueryOperatorInput>;
-  cacheDigest?: Maybe<StringQueryOperatorInput>;
+  workboxConfig?: Maybe<SitePluginPluginOptionsWorkboxConfigFilterInput>;
   pathCheck?: Maybe<BooleanQueryOperatorInput>;
   allExtensions?: Maybe<BooleanQueryOperatorInput>;
   isTSX?: Maybe<BooleanQueryOperatorInput>;
@@ -2756,6 +2760,10 @@ export type SitePluginPluginOptionsGatsbyRemarkPluginsOptionsFilterInput = {
   maxWidth?: Maybe<IntQueryOperatorInput>;
   linkImagesToOriginal?: Maybe<BooleanQueryOperatorInput>;
   rel?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePluginPluginOptionsWorkboxConfigFilterInput = {
+  globPatterns?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SitePluginPackageJsonFilterInput = {
@@ -3026,12 +3034,12 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___theme_color'
   | 'pluginCreator___pluginOptions___display'
   | 'pluginCreator___pluginOptions___icon'
+  | 'pluginCreator___pluginOptions___cache_busting_mode'
   | 'pluginCreator___pluginOptions___legacy'
   | 'pluginCreator___pluginOptions___theme_color_in_head'
-  | 'pluginCreator___pluginOptions___cache_busting_mode'
   | 'pluginCreator___pluginOptions___crossOrigin'
   | 'pluginCreator___pluginOptions___include_favicon'
-  | 'pluginCreator___pluginOptions___cacheDigest'
+  | 'pluginCreator___pluginOptions___workboxConfig___globPatterns'
   | 'pluginCreator___pluginOptions___pathCheck'
   | 'pluginCreator___pluginOptions___allExtensions'
   | 'pluginCreator___pluginOptions___isTSX'
@@ -4219,12 +4227,12 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___theme_color'
   | 'pluginOptions___display'
   | 'pluginOptions___icon'
+  | 'pluginOptions___cache_busting_mode'
   | 'pluginOptions___legacy'
   | 'pluginOptions___theme_color_in_head'
-  | 'pluginOptions___cache_busting_mode'
   | 'pluginOptions___crossOrigin'
   | 'pluginOptions___include_favicon'
-  | 'pluginOptions___cacheDigest'
+  | 'pluginOptions___workboxConfig___globPatterns'
   | 'pluginOptions___pathCheck'
   | 'pluginOptions___allExtensions'
   | 'pluginOptions___isTSX'
