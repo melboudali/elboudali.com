@@ -1,10 +1,9 @@
-import React, { useRef } from "react";
+import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
 import Seo from "../components/common/Seo";
 import about from "../data/about";
-import styled, { css } from "styled-components";
-import useAppearOnScroll from "../hook/useAppearOnScroll";
+import styled from "styled-components";
 import PageTitle from "../components/common/PageTitle";
 import IconWithTitle from "../components/about/IconWithTitle";
 import Icons from "../components/about/Icons";
