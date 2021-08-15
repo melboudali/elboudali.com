@@ -852,7 +852,6 @@ export type SitePluginPluginOptions = {
   theme_color_in_head?: Maybe<Scalars['Boolean']>;
   crossOrigin?: Maybe<Scalars['String']>;
   include_favicon?: Maybe<Scalars['Boolean']>;
-  workboxConfig?: Maybe<SitePluginPluginOptionsWorkboxConfig>;
   pathCheck?: Maybe<Scalars['Boolean']>;
   allExtensions?: Maybe<Scalars['Boolean']>;
   isTSX?: Maybe<Scalars['Boolean']>;
@@ -901,10 +900,6 @@ export type SitePluginPluginOptionsGatsbyRemarkPluginsOptions = {
   maxWidth?: Maybe<Scalars['Int']>;
   linkImagesToOriginal?: Maybe<Scalars['Boolean']>;
   rel?: Maybe<Scalars['String']>;
-};
-
-export type SitePluginPluginOptionsWorkboxConfig = {
-  globPatterns?: Maybe<Array<Maybe<Scalars['String']>>>;
 };
 
 export type SitePluginPackageJson = {
@@ -2703,7 +2698,6 @@ export type SitePluginPluginOptionsFilterInput = {
   theme_color_in_head?: Maybe<BooleanQueryOperatorInput>;
   crossOrigin?: Maybe<StringQueryOperatorInput>;
   include_favicon?: Maybe<BooleanQueryOperatorInput>;
-  workboxConfig?: Maybe<SitePluginPluginOptionsWorkboxConfigFilterInput>;
   pathCheck?: Maybe<BooleanQueryOperatorInput>;
   allExtensions?: Maybe<BooleanQueryOperatorInput>;
   isTSX?: Maybe<BooleanQueryOperatorInput>;
@@ -2760,10 +2754,6 @@ export type SitePluginPluginOptionsGatsbyRemarkPluginsOptionsFilterInput = {
   maxWidth?: Maybe<IntQueryOperatorInput>;
   linkImagesToOriginal?: Maybe<BooleanQueryOperatorInput>;
   rel?: Maybe<StringQueryOperatorInput>;
-};
-
-export type SitePluginPluginOptionsWorkboxConfigFilterInput = {
-  globPatterns?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SitePluginPackageJsonFilterInput = {
@@ -3039,7 +3029,6 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___theme_color_in_head'
   | 'pluginCreator___pluginOptions___crossOrigin'
   | 'pluginCreator___pluginOptions___include_favicon'
-  | 'pluginCreator___pluginOptions___workboxConfig___globPatterns'
   | 'pluginCreator___pluginOptions___pathCheck'
   | 'pluginCreator___pluginOptions___allExtensions'
   | 'pluginCreator___pluginOptions___isTSX'
@@ -4232,7 +4221,6 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___theme_color_in_head'
   | 'pluginOptions___crossOrigin'
   | 'pluginOptions___include_favicon'
-  | 'pluginOptions___workboxConfig___globPatterns'
   | 'pluginOptions___pathCheck'
   | 'pluginOptions___allExtensions'
   | 'pluginOptions___isTSX'
