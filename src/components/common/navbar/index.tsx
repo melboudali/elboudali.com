@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import styled, { css } from "styled-components";
 import Modal from "./Modal";
 import CustomLink from "./CustomLink";
-import about from "../../../data/about";
 import PropTypes from "prop-types";
+import config from "../../../data/config";
 
 const NavStyle = css`
   display: flex;
@@ -89,7 +89,7 @@ const Navbar = ({ themeToggler, theme }: NavbarProps) => {
   return (
     <NavbarWrapper>
       {menuIsOpen && <Modal setMenuIsOpen={setMenuIsOpen} ScrollbarToggler={ScrollbarToggler} menuIsOpen={menuIsOpen} />}
-      <Logo>{about.siteLogo}</Logo>
+      <Logo>{config.siteLogo}</Logo>
       <Nav>
         <LinkWrapper>
           <CustomLink to="/" title="about" />
