@@ -2,7 +2,7 @@
 
 ![elboudali website](https://res.cloudinary.com/elboudali/image/upload/v1624985308/my%20images/elboudali_f9aoie.png "elboudali.com")
 
-My personal [website](http://elboudali.com) is a digital garden and a compendium of my projects and articles that help people learn Javascript and front-end development.
+My personal [website](http://elboudali.com) is a digital garden and a compendium of my projects and articles that help people learn front-end and back-end development.
 
 ## Installation
 
@@ -30,6 +30,7 @@ src
 │
 └───data
     │   about.ts
+    │   config.ts
     │   projects.ts
 
 ```
@@ -38,5 +39,5 @@ src
 
 - [x] Index
 - [x] Projects
-- [ ] Blog
+- [x] Blog
 - [x] contact
