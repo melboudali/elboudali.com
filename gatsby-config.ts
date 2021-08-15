@@ -1,11 +1,12 @@
 import about from "./src/data/about";
+import config from "./src/data/config";
 
 export default {
   siteMetadata: {
-    title: `${about.fullName} | ${about.role}`,
+    title: config.title,
     description: about.summary.long[0],
-    image: "/images/thumbnail.png",
-    siteUrl: about.siteUrl,
+    image: config.featuredImage,
+    siteUrl: config.siteUrl,
     twitter: about.socialLinks.twitterId,
     fbid: about.socialLinks.fbid,
   },
@@ -97,16 +98,22 @@ export default {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: about.fullName,
-        short_name: about.fullName,
+        name: config.title,
+        short_name: config.title,
         start_url: `/`,
-        background_color: `#191820`,
-        theme_color: `#16141F`,
+        background_color: config.backgroundColor,
+        theme_color: config.themeColor,
         display: `standalone`,
-        icon: `src/assets/images/icon.png`,
+        icon: config.icon,
         cache_busting_mode: "none",
       },
     },
     `gatsby-plugin-offline`,
+    {
+      resolve: `gatsby-plugin-google-gtag`,
+      options: {
+        trackingIds: ["GA-TRACKING_ID"],
+      },
+    },
   ],
 };
