@@ -8,7 +8,7 @@ export default {
     image: config.featuredImage,
     siteUrl: config.siteUrl,
     twitter: about.socialLinks.twitterId,
-    fbid: about.socialLinks.fbid,
+    fbid: config.fbid,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
