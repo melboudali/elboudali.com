@@ -76,8 +76,10 @@ const Blog = ({
     <>
       <Seo title="Blog" description="Articles about UI design, front-end, and full-stack development." location="/blog/" />
       <PageTitleWrapper>
-        <PageTitle ItemsCountNumber={totalCount}>blog</PageTitle>
-        {!!MDX.length && (
+        {/* <PageTitle ItemsCountNumber={totalCount}>blog</PageTitle> */}
+        <PageTitle ItemsCountNumber={0}>blog</PageTitle>
+        {!!!MDX.length && (
+          // FIXME: remove !
           <ListStyleWrapper listType={listType}>
             <button type="button" onClick={onClick} aria-label="Choose-list-type">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -95,7 +97,8 @@ const Blog = ({
         )}
       </PageTitleWrapper>
       <PostsWrapper listType={listType}>
-        {!!MDX.length ? (
+        {!!!MDX.length ? (
+          // FIXME: remove !
           MDX.map(mdx => <Card key={mdx.id} mdx={mdx} listType={listType} />)
         ) : (
           <NoPosts>
