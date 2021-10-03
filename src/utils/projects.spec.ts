@@ -1,4 +1,4 @@
-import { getAllReposStars, sortProjects, filterProjects, getSelectedProject } from "./projects";
+import { getAllReposStars, sortProjects, filterProjects, getSelectedProject, getDate } from "./projects";
 import { selectedProjectType, repoType, cardRepoType, fullCardRepoType, coverType } from "../types/projects";
 
 const repos: repoType[] = [
@@ -54,7 +54,7 @@ const repos: repoType[] = [
   },
 ];
 
-describe("testing getAllReposStars, filterProjects, and getSelectedProject functions", () => {
+describe("testing getAllReposStars, filterProjects, getSelectedProject, and getDate functions", () => {
   const selectedProjects: selectedProjectType[] = [
     {
       project_name: "repo2",
@@ -82,6 +82,10 @@ describe("testing getAllReposStars, filterProjects, and getSelectedProject funct
     expect(getSelectedProject(repos[1], selectedProjects).name).toBe("repo2");
     expect(getSelectedProject(repos[1], selectedProjects).stargazers_count).toBe(10);
     expect(getSelectedProject(repos[1], selectedProjects).created_at).toBe("2021-08-18T13:21:01Z");
+  });
+  it("return month and year", () => {
+    expect(getDate("2021-04-18T13:21:01Z")).toBe("Apr 2021");
+    expect(getDate("2021-06-18T13:21:01Z")).toBe("Jun 2021");
   });
 });
 
