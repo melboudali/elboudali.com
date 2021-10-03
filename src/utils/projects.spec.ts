@@ -1,4 +1,4 @@
-import { getAllReposStars, sortProjects, filterProjects } from "./projects";
+import { getAllReposStars, sortProjects, filterProjects, getSelectedProject } from "./projects";
 import { selectedProjectType, repoType, cardRepoType, fullCardRepoType, coverType } from "../types/projects";
 
 const repos: repoType[] = [
@@ -54,7 +54,7 @@ const repos: repoType[] = [
   },
 ];
 
-describe("testing ", () => {
+describe("testing getAllReposStars, filterProjects, and getSelectedProject functions", () => {
   const selectedProjects: selectedProjectType[] = [
     {
       project_name: "repo2",
@@ -74,8 +74,14 @@ describe("testing ", () => {
   });
   it("return selected projects", () => {
     expect(filterProjects(repos, selectedProjects)).toEqual([repos[1], repos[3]]);
-    expect(filterProjects(repos, selectedProjects)[0].name).toEqual("repo2");
-    expect(filterProjects(repos, selectedProjects)[1].name).toEqual("repo4");
+    expect(filterProjects(repos, selectedProjects)[0].name).toBe("repo2");
+    expect(filterProjects(repos, selectedProjects)[1].name).toBe("repo4");
+  });
+  it("return selected project", () => {
+    expect(getSelectedProject(repos[1], selectedProjects)).toEqual({ ...repos[1], ...selectedProjects[0] });
+    expect(getSelectedProject(repos[1], selectedProjects).name).toBe("repo2");
+    expect(getSelectedProject(repos[1], selectedProjects).stargazers_count).toBe(10);
+    expect(getSelectedProject(repos[1], selectedProjects).created_at).toBe("2021-08-18T13:21:01Z");
   });
 });
 
