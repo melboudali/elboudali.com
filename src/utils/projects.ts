@@ -1,6 +1,6 @@
 import { selectedProjectType, repoType, cardRepoType, fullCardRepoType, coverType } from "../types/projects";
 
-const getProjectsNames = (selectedProjects: selectedProjectType[]): string[] => selectedProjects.map(project => project.project_name);
+export const getProjectsNames = (selectedProjects: selectedProjectType[]): string[] => selectedProjects.map(project => project.project_name);
 
 export const getAllReposStars = (repos: repoType[]): number => {
   let sum = 0;
