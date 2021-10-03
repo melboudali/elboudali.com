@@ -1,4 +1,4 @@
-import { getAllReposStars, sortProjects, filterProjects, getSelectedProject, getDate } from "./projects";
+import { getProjectsNames, getAllReposStars, sortProjects, filterProjects, getSelectedProject, getDate, getProjectCover } from "./projects";
 import { selectedProjectType, repoType, cardRepoType, fullCardRepoType, coverType } from "../types/projects";
 
 const repos: repoType[] = [
@@ -54,7 +54,17 @@ const repos: repoType[] = [
   },
 ];
 
-describe("testing getAllReposStars, filterProjects, getSelectedProject, and getDate functions", () => {
+describe("testing getAllReposStars and getDate", () => {
+  it("count repo stars", () => {
+    expect(getAllReposStars(repos)).toBe(235);
+  });
+  it("return month and year", () => {
+    expect(getDate("2021-04-18T13:21:01Z")).toBe("Apr 2021");
+    expect(getDate("2021-06-18T13:21:01Z")).toBe("Jun 2021");
+  });
+});
+
+describe("testing getProjectsNames, filterProjects, and getSelectedProject functions", () => {
   const selectedProjects: selectedProjectType[] = [
     {
       project_name: "repo2",
@@ -69,8 +79,8 @@ describe("testing getAllReposStars, filterProjects, getSelectedProject, and getD
       project_topics: ["HTML", "React"],
     },
   ];
-  it("count repo stars", () => {
-    expect(getAllReposStars(repos)).toBe(235);
+  it("return all slectedProjects names", () => {
+    expect(getProjectsNames(selectedProjects)).toEqual(["repo2", "repo4"]);
   });
   it("return selected projects", () => {
     expect(filterProjects(repos, selectedProjects)).toEqual([repos[1], repos[3]]);
@@ -83,10 +93,6 @@ describe("testing getAllReposStars, filterProjects, getSelectedProject, and getD
     expect(getSelectedProject(repos[1], selectedProjects).stargazers_count).toBe(10);
     expect(getSelectedProject(repos[1], selectedProjects).created_at).toBe("2021-08-18T13:21:01Z");
   });
-  it("return month and year", () => {
-    expect(getDate("2021-04-18T13:21:01Z")).toBe("Apr 2021");
-    expect(getDate("2021-06-18T13:21:01Z")).toBe("Jun 2021");
-  });
 });
 
 describe("testing sortProjects function", () => {
@@ -95,5 +101,32 @@ describe("testing sortProjects function", () => {
   });
   it("sort projects by created date", () => {
     expect(sortProjects(repos, "created_at")[0].created_at).toBe("2021-08-18T13:21:01Z");
+  });
+});
+
+describe("testing getProjectCover", () => {
+  const covers: coverType[] = [
+    {
+      relativePath: "SaveMyContacts.png",
+    },
+    {
+      relativePath: "COVID19-Tracker.png",
+    },
+    {
+      relativePath: "React-Shop.png",
+    },
+    {
+      relativePath: "Instagram-Clone.png",
+    },
+    {
+      relativePath: "King-Slices.png",
+    },
+    {
+      relativePath: "elboudali.com.png",
+    },
+  ];
+  it("return repo cover", () => {
+    expect(getProjectCover("Instagram-Clone.png", covers).relativePath).toBe("Instagram-Clone.png");
+    expect(getProjectCover("King-Slices.png", covers).relativePath).toBe("King-Slices.png");
   });
 });
