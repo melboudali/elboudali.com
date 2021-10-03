@@ -715,6 +715,8 @@ export type Repo = Node & {
   disabled?: Maybe<Scalars['Boolean']>;
   open_issues_count?: Maybe<Scalars['Int']>;
   license?: Maybe<RepoLicense>;
+  allow_forking?: Maybe<Scalars['Boolean']>;
+  visibility?: Maybe<Scalars['String']>;
   forks?: Maybe<Scalars['Int']>;
   open_issues?: Maybe<Scalars['Int']>;
   watchers?: Maybe<Scalars['Int']>;
@@ -912,7 +914,6 @@ export type SitePluginPackageJson = {
   description?: Maybe<Scalars['String']>;
   version?: Maybe<Scalars['String']>;
   main?: Maybe<Scalars['String']>;
-  author?: Maybe<Scalars['String']>;
   license?: Maybe<Scalars['String']>;
   dependencies?: Maybe<Array<Maybe<SitePluginPackageJsonDependencies>>>;
   devDependencies?: Maybe<Array<Maybe<SitePluginPackageJsonDevDependencies>>>;
@@ -1253,6 +1254,8 @@ export type QueryRepoArgs = {
   disabled?: Maybe<BooleanQueryOperatorInput>;
   open_issues_count?: Maybe<IntQueryOperatorInput>;
   license?: Maybe<RepoLicenseFilterInput>;
+  allow_forking?: Maybe<BooleanQueryOperatorInput>;
+  visibility?: Maybe<StringQueryOperatorInput>;
   forks?: Maybe<IntQueryOperatorInput>;
   open_issues?: Maybe<IntQueryOperatorInput>;
   watchers?: Maybe<IntQueryOperatorInput>;
@@ -2771,7 +2774,6 @@ export type SitePluginPackageJsonFilterInput = {
   description?: Maybe<StringQueryOperatorInput>;
   version?: Maybe<StringQueryOperatorInput>;
   main?: Maybe<StringQueryOperatorInput>;
-  author?: Maybe<StringQueryOperatorInput>;
   license?: Maybe<StringQueryOperatorInput>;
   dependencies?: Maybe<SitePluginPackageJsonDependenciesFilterListInput>;
   devDependencies?: Maybe<SitePluginPackageJsonDevDependenciesFilterListInput>;
@@ -3056,7 +3058,6 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___packageJson___description'
   | 'pluginCreator___packageJson___version'
   | 'pluginCreator___packageJson___main'
-  | 'pluginCreator___packageJson___author'
   | 'pluginCreator___packageJson___license'
   | 'pluginCreator___packageJson___dependencies'
   | 'pluginCreator___packageJson___dependencies___name'
@@ -3777,6 +3778,8 @@ export type RepoFieldsEnum =
   | 'license___spdx_id'
   | 'license___url'
   | 'license___node_id'
+  | 'allow_forking'
+  | 'visibility'
   | 'forks'
   | 'open_issues'
   | 'watchers'
@@ -3863,6 +3866,8 @@ export type RepoFilterInput = {
   disabled?: Maybe<BooleanQueryOperatorInput>;
   open_issues_count?: Maybe<IntQueryOperatorInput>;
   license?: Maybe<RepoLicenseFilterInput>;
+  allow_forking?: Maybe<BooleanQueryOperatorInput>;
+  visibility?: Maybe<StringQueryOperatorInput>;
   forks?: Maybe<IntQueryOperatorInput>;
   open_issues?: Maybe<IntQueryOperatorInput>;
   watchers?: Maybe<IntQueryOperatorInput>;
@@ -4253,7 +4258,6 @@ export type SitePluginFieldsEnum =
   | 'packageJson___description'
   | 'packageJson___version'
   | 'packageJson___main'
-  | 'packageJson___author'
   | 'packageJson___license'
   | 'packageJson___dependencies'
   | 'packageJson___dependencies___name'
