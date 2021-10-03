@@ -3,7 +3,7 @@ const about = {
   summary: {
     short: ["I", "❤", "coding w/ JavaScript, TypeScript, React, Gatsby, Next, graphQL, and Express."],
     long: [
-      "I'm a Self-Taught Full Stack Developer, proficient in Front End, with 3+ years of hands-on experience designing, developing, and implementing applications and solutions using a range of technologies.",
+      "I'm a Full Stack Developer, proficient in Front End, with 3+ years of hands-on experience designing, developing, and implementing applications and solutions using a range of technologies.",
       "Seeking to leverage broad development experience and hands-on technical expertise in a challenging role as a Front End or a Full Stack Developer.",
       "I love open source and building side projects using JavaScript tools.",
       "This website is my digital garden — a compendium of the things I've learned and created over the years.",
