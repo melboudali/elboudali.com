@@ -221,11 +221,11 @@ const Card = ({
     html_url,
     homepage,
     created_at,
-    pushed_at,
     project_title,
     project_cover,
     project_topics,
     project_figmaLink,
+    project_last_commit,
   },
   covers,
 }: CardProps) => {
@@ -259,7 +259,7 @@ const Card = ({
               <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M10.135 6.32831H1.28906C1.09491 6.32831 0.9375 6.48575 0.9375 6.67987V8.3205C0.9375 8.51462 1.09491 8.67206 1.28906 8.67206H10.135V10.0214C10.135 10.6479 10.8923 10.9616 11.3353 10.5186L13.8566 7.99737C14.1312 7.72281 14.1312 7.27756 13.8566 7.003L11.3353 4.48176C10.8924 4.03882 10.135 4.35253 10.135 4.97896V6.32831Z" />
               </svg>
-              <span>{getDate(pushed_at)}</span>
+              <span>{getDate(project_last_commit)}</span>
             </DateContent>
           </DateWrapper>
           {!!stargazers_count && (
