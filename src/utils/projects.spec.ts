@@ -71,12 +71,14 @@ describe("testing getProjectsNames, filterProjects, and getSelectedProject funct
       project_title: "repo2 title",
       project_cover: "repo2 cover",
       project_topics: ["HTML", "React"],
+      project_last_commit: "",
     },
     {
       project_name: "repo4",
       project_title: "repo4 title",
       project_cover: "repo4 cover",
       project_topics: ["HTML", "React"],
+      project_last_commit: "",
     },
   ];
   it("return all slectedProjects names", () => {
