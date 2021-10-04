@@ -249,7 +249,7 @@ const selectedProjects: selectedProjectType[] = [
       "Heroku",
     ],
     project_figmaLink: "https://www.figma.com/file/eVm5akWnL1oFvEsPYpZWnz/instagram",
-    project_last_commit: "2020-05-01T00:00:00Z",
+    project_last_commit: "2021-04-05T00:00:00Z",
   },
   {
     project_name: "King-Slices",
