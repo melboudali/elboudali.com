@@ -256,7 +256,7 @@ const selectedProjects: selectedProjectType[] = [
     project_title: "🍕 king slices",
     project_cover: "King-Slices.png",
     project_topics: ["JavaScript", "React", "Gatsby", "StyledComponents", "Netlify"],
-    project_last_commit: "2020-05-01T00:00:00Z",
+    project_last_commit: "2021-05-05T00:00:00Z",
   },
   {
     project_name: "elboudali.com",
@@ -264,7 +264,7 @@ const selectedProjects: selectedProjectType[] = [
     project_cover: "elboudali.com.png",
     project_topics: ["TypeScript", "React", "Gatsby", "StyledComponents", "Netlify"],
     project_figmaLink: "https://www.figma.com/file/lZ8Tl4Lxp5dqnrvBfdi0Rc/My-Website",
-    project_last_commit: "2020-05-01T00:00:00Z",
+    project_last_commit: "2021-08-15T00:00:00Z",
   },
 ];
 
