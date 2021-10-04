@@ -153,7 +153,6 @@ export const query = graphql`
         html_url
         homepage
         created_at
-        pushed_at
       }
       totalCount
     }
