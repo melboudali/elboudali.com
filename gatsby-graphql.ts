@@ -4316,7 +4316,7 @@ export type AllReposAndAllImagesQueryVariables = Exact<{ [key: string]: never; }
 
 export type AllReposAndAllImagesQuery = { allRepos: (
     Pick<RepoConnection, 'totalCount'>
-    & { nodes: Array<Pick<Repo, 'id' | 'name' | 'description' | 'stargazers_count' | 'html_url' | 'homepage' | 'created_at' | 'pushed_at'>> }
+    & { nodes: Array<Pick<Repo, 'id' | 'name' | 'description' | 'stargazers_count' | 'html_url' | 'homepage' | 'created_at'>> }
   ), allImages: { nodes: Array<(
       Pick<File, 'relativePath'>
       & { childImageSharp?: Maybe<Pick<ImageSharp, 'gatsbyImageData'>> }
