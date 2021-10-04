@@ -5,6 +5,7 @@ export interface selectedProjectType {
   project_title: string;
   project_cover: string;
   project_topics: project_topics_type[];
+  project_last_commit: string;
   project_figmaLink?: string;
 }
 
