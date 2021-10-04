@@ -229,7 +229,7 @@ const selectedProjects: selectedProjectType[] = [
       "NodeJS",
       "Heroku",
     ],
-    project_last_commit: "2020-05-01T00:00:00Z",
+    project_last_commit: "2020-12-08T00:00:00Z",
   },
   {
     project_name: "Instagram-Clone",
