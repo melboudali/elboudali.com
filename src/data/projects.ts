@@ -207,7 +207,7 @@ const selectedProjects: selectedProjectType[] = [
     project_title: "📱 save my contacts",
     project_cover: "SaveMyContacts.png",
     project_topics: ["JavaScript", "React", "MaterialUI", "MongoDB", "Express", "NodeJS", "Heroku"],
-    project_last_commit: "2020-05-01T00:00:00Z",
+    project_last_commit: "2020-03-31T00:00:00Z",
   },
 
   {
