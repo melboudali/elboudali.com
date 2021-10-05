@@ -16,4 +16,6 @@ module.exports = {
 
   // Module file extensions for importing
   moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json", "node"],
+  testPathIgnorePatterns: [`node_modules`, `\\.cache`, `<rootDir>.*/public`],
+  transformIgnorePatterns: [`node_modules/(?!(gatsby)/)`],
 };
