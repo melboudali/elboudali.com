@@ -51,6 +51,7 @@
     "typescript": "^4.2.4"
   },
   "devDependencies": {
+    "@testing-library/react": "^12.1.2",
     "@types/isomorphic-fetch": "^0.0.35",
     "@types/jest": "^27.0.2",
     "@types/mdx-js__react": "^1.5.3",
