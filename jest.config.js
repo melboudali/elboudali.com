@@ -1,21 +1,19 @@
 module.exports = {
-  // The root of your source code, typically /src
-  // `<rootDir>` is a token Jest substitutes
-  roots: ["<rootDir>/src"],
-
-  // Jest transformations -- this adds support for TypeScript
-  // using ts-jest
+  setupFilesAfterEnv: ["<rootDir>/setupTestEnv.ts"],
   transform: {
-    "^.+\\.tsx?$": "ts-jest",
+    // "^.+\\.(tsx?|jsx?)$": "ts-jest",
+    "^.+\\.[jt]sx?$": "<rootDir>/jest-preprocess.ts",
   },
-
-  // Test spec file resolution pattern
-  // Matches parent folder `__tests__` and filename
-  // should contain `test` or `spec`.
-  testRegex: "(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$",
-
-  // Module file extensions for importing
-  moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json", "node"],
-  testPathIgnorePatterns: [`node_modules`, `\\.cache`, `<rootDir>.*/public`],
+  moduleNameMapper: {
+    ".+\\.(css|styl|less|sass|scss)$": `identity-obj-proxy`,
+    ".+\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": `<rootDir>/__mocks__/file-mock.ts`,
+  },
+  testPathIgnorePatterns: [`node_modules`, `.cache`, `public`],
   transformIgnorePatterns: [`node_modules/(?!(gatsby)/)`],
+  globals: {
+    __PATH_PREFIX__: ``,
+  },
+  testRegex: "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx)$",
+  moduleFileExtensions: ["ts", "tsx", "js", "jsx"],
+  testEnvironment: "jsdom",
 };
