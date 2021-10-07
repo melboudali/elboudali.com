@@ -1,5 +1,5 @@
 {
-  "arrowParens": "avoid",
+  "arrowParens": "always",
   "semi": true,
   "bracketSpacing": true,
   "enable": true,
@@ -10,7 +10,7 @@
   "insertPragma": false,
   "jsxBracketSameLine": false,
   "jsxSingleQuote": false,
-  "printWidth": 150,
+  "printWidth": 111,
   "proseWrap": "preserve",
   "quoteProps": "as-needed",
   "requireConfig": false,
@@ -18,5 +18,6 @@
   "singleQuote": false,
   "tabWidth": 2,
   "trailingComma": "es5",
-  "useTabs": false
+  "useTabs": false,
+  "useEditorConfig": true
 }
