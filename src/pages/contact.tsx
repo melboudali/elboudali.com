@@ -190,6 +190,10 @@ const SubmitButton = styled.button`
     }
     animation: ${SvgAnimation} 1s steps(20) infinite;
   }
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.8;
+  }
 `;
 
 const CopiedMessageAnimation = keyframes`
@@ -264,7 +268,7 @@ const Contact = () => {
           <InputGroup values={values} updateValue={updateValue} name="email" />
           <InputGroup values={values} updateValue={updateValue} name="message" />
           {responseMessage && <ResponseMessage error={error} responseMessage={responseMessage} />}
-          <SubmitButton type="submit" aria-label="submit">
+          <SubmitButton type="submit" aria-label="submit" disabled={!(!!values.name.length && !!values.email.length && !!values.message.length)}>
             {loading ? (
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M1 12C1 14.1756 1.64514 16.3023 2.85383 18.1113C4.06253 19.9202 5.7805 21.3301 7.79048 22.1627C9.80047 22.9952 12.0122 23.2131 14.146 22.7886C16.2798 22.3642 18.2398 21.3166 19.7782 19.7782C21.3166 18.2398 22.3642 16.2798 22.7886 14.146C23.2131 12.0122 22.9952 9.80047 22.1627 7.79048C21.3301 5.78049 19.9202 4.06253 18.1113 2.85383C16.3023 1.64514 14.1756 1 12 1" />
