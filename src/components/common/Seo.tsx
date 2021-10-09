@@ -31,17 +31,22 @@ const Seo = ({ title, image, description, location, type }: SeoProps) => {
   `);
 
   const seo = {
-    title: title ? (type === "article" ? title : `${about.fullName} | ${title}`) : site?.siteMetadata?.defaultTitle,
+    title: title
+      ? type === "article"
+        ? title
+        : `${about.fullName} | ${title}`
+      : site?.siteMetadata?.defaultTitle,
     description: description || site?.siteMetadata?.defaultDescription,
     image: `${site?.siteMetadata?.siteUrl}${image || site?.siteMetadata?.defaultImage}`,
     siteUrl: `${site?.siteMetadata?.siteUrl}${location || ""}`,
   };
 
   return (
-    <Helmet title={seo.title!}>
+    <Helmet>
       <html lang="en" dir="ltr" />
       <link rel="canonical" href={seo.siteUrl!} />
       <link rel="preload" as="font" />
+      <title>{seo.title!}</title>
       <meta name="description" content={seo.description!} />
       {seo.image && <meta name="image" content={seo.image} />}
 
