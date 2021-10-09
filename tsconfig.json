@@ -13,5 +13,5 @@
     "resolveJsonModule": true,
     "noEmit": true
   },
-  "include": ["setupTestEnv.ts", "src/**/*"]
+  "include": ["setupTestEnv.ts", "src/**/*", "__mocks__"]
 }
