@@ -42,4 +42,23 @@ describe("Testing Index Page", () => {
       "https://www.freecodecamp.org/certification/elboudali/responsive-web-design"
     );
   });
+
+  //   it("should render rwd", () => {
+  //     Object.defineProperty(window, "matchMedia", {
+  //       writable: true,
+  //       value: jest.fn().mockImplementation((query) => ({
+  //         matches: false,
+  //         media: query,
+  //         onchange: null,
+  //         addListener: jest.fn(), // Deprecated
+  //         removeListener: jest.fn(), // Deprecated
+  //         addEventListener: jest.fn(),
+  //         removeEventListener: jest.fn(),
+  //         dispatchEvent: jest.fn(),
+  //       })),
+  //     });
+  //     window.matchMedia("(min-width: 850px)").matches;
+  //     render(<Index />);
+  //     expect(screen.getByTestId("ShortAboutWrappertid")).toHaveStyle({ "flex-direction": "row" });
+  //   });
 });
