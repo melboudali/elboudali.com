@@ -23,9 +23,11 @@ const ShortAboutWrapper = styled.section`
   justify-content: center;
   align-items: center;
   flex-direction: var(--flexDirection);
+  /* flex-direction: column; */
   gap: 24px;
   @media (min-width: 850px) {
     --flexDirection: row;
+    /* flex-direction: row; */
   }
 `;
 
@@ -158,7 +160,7 @@ const Index = () => {
   return (
     <IndexWrapper>
       <Seo />
-      <ShortAboutWrapper>
+      <ShortAboutWrapper data-testid="ShortAboutWrappertid">
         <ImageWrapper>
           <StaticImage src="../assets/images/image/elboudali.jpg" alt="EL BOUDALI" className="my_image" />
         </ImageWrapper>
