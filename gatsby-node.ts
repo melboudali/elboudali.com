@@ -1,6 +1,6 @@
 import path from "path";
 import fetch from "isomorphic-fetch";
-import { CreateNodeArgs, CreatePagesArgs, SourceNodesArgs } from "gatsby";
+import { CreateNodeArgs, CreatePagesArgs, SourceNodesArgs, CreateSchemaCustomizationArgs } from "gatsby";
 import { CreatePostPagesQuery, Maybe, MdxFields } from "./gatsby-graphql";
 import { createFilePath } from "gatsby-source-filesystem";
 
@@ -72,8 +72,20 @@ const turnPostsIntoPages = async (args: CreatePagesArgs) => {
   });
 };
 
+exports.createSchemaCustomization = (args: CreateSchemaCustomizationArgs) => {
+  const { actions } = args;
+
+  actions.createTypes(`
+    type Mdx implements Node {
+      frontmatter: MdxFrontmatter!
+    }
+    type MdxFrontmatter {
+      tags: [String]
+    }
+  `);
+};
+
 exports.sourceNodes = async (params: SourceNodesArgs): Promise<void> => {
-  // Fetching external API
   await Promise.all([fetchGithubReposAndTurnToNodes(params)]);
 };
 
