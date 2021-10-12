@@ -716,6 +716,8 @@ export type Repo = Node & {
   open_issues_count?: Maybe<Scalars['Int']>;
   license?: Maybe<RepoLicense>;
   allow_forking?: Maybe<Scalars['Boolean']>;
+  is_template?: Maybe<Scalars['Boolean']>;
+  topics?: Maybe<Array<Maybe<Scalars['String']>>>;
   visibility?: Maybe<Scalars['String']>;
   forks?: Maybe<Scalars['Int']>;
   open_issues?: Maybe<Scalars['Int']>;
@@ -1255,6 +1257,8 @@ export type QueryRepoArgs = {
   open_issues_count?: Maybe<IntQueryOperatorInput>;
   license?: Maybe<RepoLicenseFilterInput>;
   allow_forking?: Maybe<BooleanQueryOperatorInput>;
+  is_template?: Maybe<BooleanQueryOperatorInput>;
+  topics?: Maybe<StringQueryOperatorInput>;
   visibility?: Maybe<StringQueryOperatorInput>;
   forks?: Maybe<IntQueryOperatorInput>;
   open_issues?: Maybe<IntQueryOperatorInput>;
@@ -3779,6 +3783,8 @@ export type RepoFieldsEnum =
   | 'license___url'
   | 'license___node_id'
   | 'allow_forking'
+  | 'is_template'
+  | 'topics'
   | 'visibility'
   | 'forks'
   | 'open_issues'
@@ -3867,6 +3873,8 @@ export type RepoFilterInput = {
   open_issues_count?: Maybe<IntQueryOperatorInput>;
   license?: Maybe<RepoLicenseFilterInput>;
   allow_forking?: Maybe<BooleanQueryOperatorInput>;
+  is_template?: Maybe<BooleanQueryOperatorInput>;
+  topics?: Maybe<StringQueryOperatorInput>;
   visibility?: Maybe<StringQueryOperatorInput>;
   forks?: Maybe<IntQueryOperatorInput>;
   open_issues?: Maybe<IntQueryOperatorInput>;
