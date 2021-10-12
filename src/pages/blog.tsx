@@ -24,10 +24,12 @@ const ListStyleWrapper = styled.div<{ listType: "grid" | "list" }>`
       align-items: center;
     }
     button:nth-child(1) > svg > path {
-      fill: ${({ listType, theme }) => (listType === "list" ? theme.buttonBackground : "var(--inputLightBackground)")};
+      fill: ${({ listType, theme }) =>
+        listType === "list" ? theme.buttonBackground : "var(--inputLightBackground)"};
     }
     button:nth-child(2) > svg > path {
-      fill: ${({ listType, theme }) => (listType === "list" ? "var(--inputLightBackground)" : theme.buttonBackground)};
+      fill: ${({ listType, theme }) =>
+        listType === "list" ? "var(--inputLightBackground)" : theme.buttonBackground};
     }
   }
 `;
@@ -74,12 +76,14 @@ const Blog = ({
 
   return (
     <>
-      <Seo title="Blog" description="Articles about UI design, front-end, and full-stack development." location="/blog/" />
+      <Seo
+        title="Blog"
+        description="Articles about UI design, front-end, and full-stack development."
+        location="/blog/"
+      />
       <PageTitleWrapper>
-        {/* <PageTitle ItemsCountNumber={totalCount}>blog</PageTitle> */}
-        <PageTitle ItemsCountNumber={0}>blog</PageTitle>
-        {!!!MDX.length && (
-          // FIXME: remove !
+        <PageTitle ItemsCountNumber={totalCount}>blog</PageTitle>
+        {!!MDX.length && (
           <ListStyleWrapper listType={listType}>
             <button type="button" onClick={onClick} aria-label="Choose-list-type">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -97,9 +101,8 @@ const Blog = ({
         )}
       </PageTitleWrapper>
       <PostsWrapper listType={listType}>
-        {!!!MDX.length ? (
-          // FIXME: remove !
-          MDX.map(mdx => <Card key={mdx.id} mdx={mdx} listType={listType} />)
+        {!!MDX.length ? (
+          MDX.map((mdx) => <Card key={mdx.id} mdx={mdx} listType={listType} />)
         ) : (
           <NoPosts>
             <p>sorry, no articles available for the moment.</p>
