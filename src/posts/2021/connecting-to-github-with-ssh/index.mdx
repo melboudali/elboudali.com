@@ -1,0 +1,90 @@
+---
+title: "Connecting to GitHub with SSH w/ wsl"
+summary: "I remember the first time I created my resume I used Microsoft word and at that time I didn't have a printer so I tried my friend printer but when I opened the file I found it messy and unreadable after one or two hours I fixed it and I printed it..."
+cover: assets/cover.jpg
+tags: ["Figma"]
+date: 2021-10-12
+---
+
+<!-- Don't remove figure -->
+
+<figure>
+  <img src="./assets/cover.jpg" alt="featured image" title="create a resume and export it to pdf with figma" />
+  <figcaption>
+    Background from
+    <a href="https://unsplash.com/@jamessutton_photography" target="_blank">
+      @jamessutton_photography
+    </a>
+  </figcaption>
+</figure>
+
+Using the SSH protocol, you can connect and authenticate to remote servers and services. With SSH keys, you can connect to GitHub without supplying your email and password everytime you push.
+
+When you set up SSH, you will need to generate a new SSH key and add it to the ssh-agent. You must add the SSH key to your account on GitHub before you use the key to authenticate.
+
+# Checking for existing SSH keys
+
+Before you generate an SSH key, you can check to see if you have any existing SSH keys.
+
+- Go to the terminal and type:
+
+  `ls -al ~/.ssh`
+
+it will list down all the ssh keys on your system:
+
+![ssh keys](./assets/1.jpg)
+
+by defaut, the filenames of the public keys are one of the following:
+
+- id_dsa.pub
+- id_ecdsa.pub
+- id_ed25519.pub
+- id_rsa.pub
+
+if the key does not exist, you will have to create a new one.
+
+# Generate the key if it doesn't exist
+
+to generate a new key, you should go to the terminal and type:
+
+`ssh-keygen -trsa -C your-github-email`
+
+if you need root privileges you can type:
+
+`sudo ssh-keygen -trsa -C your-github-email`
+
+![ssh keys](./assets/2.jpg)
+
+enter fil in which to save the key or click enter to accept the default file.
+
+![ssh keys](./assets/3.jpg)
+
+enter the passphrase or click enter to leave it empty.
+
+![ssh keys](./assets/4.jpg)
+
+repeat the same passphrase you entred in the previous step.
+
+![ssh keys](./assets/5.jpg)
+
+you have succefully created an ssh key.
+
+# Copy the public ssh key content
+
+to display the ssh key content go to the terminal and type:
+
+`cat /home/moe/.ssh/test_key.pub`
+
+![ssh keys](./assets/6.jpg)
+
+select and copy the content:
+
+![ssh keys](./assets/7.jpg)
+
+# Add new ssh key to github
+
+Go to [Github](https://github.com/) > settings > SSH and GPG keys or click [here](https://github.com/settings/keys).
+
+![ssh keys](./assets/8.jpg)
+
+> **NB**: If you haven't used your SSH key for a year, then GitHub will automatically delete your inactive SSH key as a security precaution.
