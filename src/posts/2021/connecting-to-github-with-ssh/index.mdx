@@ -1,15 +1,15 @@
 ---
-title: "Connecting to GitHub with SSH w/ wsl"
+title: "Connecting to GitHub with SSH"
 summary: "I remember the first time I created my resume I used Microsoft word and at that time I didn't have a printer so I tried my friend printer but when I opened the file I found it messy and unreadable after one or two hours I fixed it and I printed it..."
 cover: assets/cover.jpg
-tags: [""]
+tags: []
 date: 2021-10-12
 ---
 
 <!-- Don't remove figure -->
 
 <figure>
-  <img src="./assets/cover.jpg" alt="featured image" title="create a resume and export it to pdf with figma" />
+  <img src="./assets/cover.jpg" alt="featured image" title="Connecting to GitHub with SSH" />
   <figcaption>
     Background from
     <a href="https://unsplash.com/@jamessutton_photography" target="_blank">
@@ -59,19 +59,19 @@ If you need root privileges you can type:
 sudo ssh-keygen -trsa -C your-github-email
 ```
 
-![ssh keys](./assets/2.jpg)
+![generate a new key](./assets/2.jpg)
 
 Enter fil in which to save the key or click enter to accept the default file.
 
-![ssh keys](./assets/3.jpg)
+![generate a new key](./assets/3.jpg)
 
 Enter the passphrase or click enter to leave it empty.
 
-![ssh keys](./assets/4.jpg)
+![Enter the passphrase](./assets/4.jpg)
 
 Repeat the same passphrase you entered in the previous step.
 
-![ssh keys](./assets/5.jpg)
+![Repeat the same passphrase](./assets/5.jpg)
 
 You have successfully created an ssh key.
 
@@ -83,25 +83,25 @@ To display the ssh key content go to the terminal and type:
 cat /home/moe/.ssh/test_key.pub
 ```
 
-![ssh keys](./assets/6.jpg)
+![ssh key content](./assets/6.jpg)
 
 Select and copy the content:
 
-![ssh keys](./assets/7.jpg)
+![ssh key content](./assets/7.jpg)
 
 # Add new ssh key to github
 
 Go to [Github][1] > settings > SSH and GPG keys or click [here](https://github.com/settings/keys).
 
-![ssh keys](./assets/8.png)
+![New SSH key](./assets/8.png)
 
 Click **New SSH key** button.
 
-![ssh keys](./assets/9.png)
+![New SSH key](./assets/9.png)
 
 Add Title, paste the key content, click **Add SSH key**, and **Confirm access** with your [GitHub][1] password.
 
-![ssh keys](./assets/10.png)
+![Add SSH key](./assets/10.png)
 
 **That's it!**
 
