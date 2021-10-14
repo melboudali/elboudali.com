@@ -61,8 +61,7 @@ const TimeToReadWrapper = styled.div`
 `;
 
 const MDXRendererWrapper = styled.div`
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji,
-    Segoe UI Emoji;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
   font-size: 1rem;
   line-height: 24px;
   color: ${({ theme }) => theme.postColor};
@@ -263,12 +262,7 @@ const Post = ({ data: { mdx: post } }: PostProps) => (
             <path d="M4.59612 16.0382C5.13778 16.0382 5.57688 15.5991 5.57688 15.0574C5.57688 14.5158 5.13778 14.0767 4.59612 14.0767C4.05446 14.0767 3.61536 14.5158 3.61536 15.0574C3.61536 15.5991 4.05446 16.0382 4.59612 16.0382Z" />
             <path d="M7.86535 16.0382C8.40701 16.0382 8.84611 15.5991 8.84611 15.0574C8.84611 14.5158 8.40701 14.0767 7.86535 14.0767C7.32369 14.0767 6.88458 14.5158 6.88458 15.0574C6.88458 15.5991 7.32369 16.0382 7.86535 16.0382Z" />
             <path d="M11.1345 16.0382C11.6762 16.0382 12.1153 15.5991 12.1153 15.0574C12.1153 14.5158 11.6762 14.0767 11.1345 14.0767C10.5929 14.0767 10.1538 14.5158 10.1538 15.0574C10.1538 15.5991 10.5929 16.0382 11.1345 16.0382Z" />
-            <path
-              d="M14.7307 1V2.30769M4.26923 1V2.30769V1Z"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
+            <path d="M14.7307 1V2.30769M4.26923 1V2.30769V1Z" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
             <path d="M17.9999 5.57715H1" strokeWidth="1.5" strokeLinejoin="round" />
           </svg>
 
