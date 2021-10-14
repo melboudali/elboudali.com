@@ -31,14 +31,10 @@ const Seo = ({ title, image, description, location, type }: SeoProps) => {
   `);
 
   const seo = {
-    title: title
-      ? type === "article"
-        ? title
-        : `${about.fullName} | ${title}`
-      : site?.siteMetadata?.defaultTitle,
-    description: description || site?.siteMetadata?.defaultDescription,
-    image: `${site?.siteMetadata?.siteUrl}${image || site?.siteMetadata?.defaultImage}`,
-    siteUrl: `${site?.siteMetadata?.siteUrl}${location || ""}`,
+    title: title ? (type === "article" ? title : `${about.fullName} | ${title}`) : site?.siteMetadata?.defaultTitle,
+    description: description ?? site?.siteMetadata?.defaultDescription,
+    image: `${site?.siteMetadata?.siteUrl}${image ?? site?.siteMetadata?.defaultImage}`,
+    siteUrl: `${site?.siteMetadata?.siteUrl}${location ?? ""}`,
   };
 
   return (
