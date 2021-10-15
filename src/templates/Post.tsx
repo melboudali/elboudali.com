@@ -194,8 +194,26 @@ const MDXRendererWrapper = styled.div`
   pre,
   tt {
     border-radius: 5px;
-    background-color: #201a2b;
+    background-color: #443166;
   }
+
+  p > code[class*="language-"] {
+    padding: 3px 5px 4px;
+    white-space: normal;
+  }
+
+  /* if you want to add line number uncomment below */
+  /* 
+  pre[class*="language-"] {
+    padding: 0 0 0 1rem;
+    background-color: #321c5a;
+  }
+
+  pre[class*="language-"].line-numbers {
+    position: relative;
+    padding-left: 3.8em;
+    counter-reset: linenumber;
+  } */
 
   table {
     display: block;
