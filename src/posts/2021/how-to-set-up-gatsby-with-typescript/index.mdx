@@ -54,7 +54,7 @@ gatsby develop
 
 After a few seconds, you will receive the following message in the console:
 
-```log
+```shell
 You can now view gatsby-starter-default in the browser.
 ⠀
   http://localhost:8000/
@@ -76,3 +76,13 @@ gatsby develop -p another_number instead
 you can open up a new tab in your browser and navigate to http://localhost:8000 to see the Gatsby app in action.
 
 ![Gatsby Default Starter](./assets/gatsby-starter-default-image.png)
+
+you can rename any file inside of /src from `.js` to `.tsx` and it will work out of the box.
+
+Next, you’ll remove all unnecessary files. This includes gatsby-node.js, gatsby-browser.js, and gatsby-ssr.js:
+
+```shell
+rm gatsby-node.js
+rm gatsby-browser.js
+rm gatsby-ssr.js
+```
