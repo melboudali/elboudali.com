@@ -1,9 +1,9 @@
 ---
-title: "How To Set Up Gatsby with TypeScript"
+title: "How to set up Gatsby with TypeScript"
 summary: "Last year I started integrating TypeScript into all of my projects and workflows. It helped me write better and more predictable code, it is a JavaScript superset which extends the language to include type definitions allowing codebases to be statically checked for soundness."
 seo_description: "Last year I started integrating TypeScript into all of my projects and workflows. It helped me write better and more predictable code."
 cover: assets/cover.jpg
-tags: []
+tags: ["Gatsby", "TypeScript"]
 date: 2021-10-15
 ---
 
@@ -54,7 +54,9 @@ gatsby develop
 
 After a few seconds, you will receive the following message in the console:
 
-```shell{numberLines: true}
+<!-- ```shell{numberLines: true} -->
+
+```shell
 You can now view gatsby-starter-default in the browser.
 ⠀
   http://localhost:8000/
@@ -85,4 +87,31 @@ Next, you’ll remove all unnecessary files. This includes gatsby-node.js, gatsb
 rm gatsby-node.js
 rm gatsby-browser.js
 rm gatsby-ssr.js
+```
+
+Next, to finish setup, you’re going to remove some boilerplate code from your project’s index page. In your project’s root directory, head to the `src` directory, followed by pages and then open the `index.js` file.
+
+you can delete Link, h1, and p tags. Your file will then look like the following:
+
+```jsx{numberLines: true}
+import * as React from "react"
+import { StaticImage } from "gatsby-plugin-image"
+import Layout from "../components/layout"
+import Seo from "../components/seo"
+
+const IndexPage = () => (
+  <Layout>
+    <Seo title="Home" />
+    <StaticImage
+      src="../images/gatsby-astronaut.png"
+      width={300}
+      quality={95}
+      formats={["auto", "webp", "avif"]}
+      alt="A Gatsby astronaut"
+      style={{ marginBottom: `1.45rem` }}
+    />
+  </Layout>
+)
+
+export default IndexPage
 ```
