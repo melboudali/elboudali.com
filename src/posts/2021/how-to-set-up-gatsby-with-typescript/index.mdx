@@ -56,7 +56,7 @@ After a few seconds, you will receive the following message in the console:
 
 <!-- ```shell{numberLines: true} -->
 
-```shell
+```log
 You can now view gatsby-starter-default in the browser.
 ⠀
   http://localhost:8000/
@@ -79,8 +79,6 @@ you can open up a new tab in your browser and navigate to http://localhost:8000 
 
 ![Gatsby Default Starter](./assets/gatsby-starter-default-image.png)
 
-you can rename any file inside of /src from `.js` to `.tsx` and it will work out of the box.
-
 Next, you’ll remove all unnecessary files. This includes gatsby-node.js, gatsby-browser.js, and gatsby-ssr.js:
 
 ```shell
@@ -93,11 +91,11 @@ Next, to finish setup, you’re going to remove some boilerplate code from your 
 
 you can delete Link, h1, and p tags. Your file will then look like the following:
 
-```jsx{numberLines: true}
-import * as React from "react"
-import { StaticImage } from "gatsby-plugin-image"
-import Layout from "../components/layout"
-import Seo from "../components/seo"
+```jsx
+import * as React from "react";
+import { StaticImage } from "gatsby-plugin-image";
+import Layout from "../components/layout";
+import Seo from "../components/seo";
 
 const IndexPage = () => (
   <Layout>
@@ -111,7 +109,80 @@ const IndexPage = () => (
       style={{ marginBottom: `1.45rem` }}
     />
   </Layout>
-)
+);
 
-export default IndexPage
+export default IndexPage;
 ```
+
+Save and close the file.
+
+Now that you’ve created your project and completed some initial setup, you are ready to install the necessary plugins.
+
+# Installing packages
+
+In order to set up support for TypeScript in Gatsby, you’ll need some additional plugins and dependencies, which you will install in this step.
+
+Since your app can read TypeScript files, you can now change Gatsby’s JavaScript files to a TypeScript file extension.
+
+Rename any file inside of `/src` or `/pages` from `.js` to `.tsx`:
+
+```shell
+mv src/components/header.js src/components/header.tsx
+mv src/components/layout.js src/components/layout.tsx
+mv src/components/seo.js src/components/seo.tsx
+mv src/pages/index.js src/pages/index.tsx
+mv src/pages/page-2.js src/pages/page-2.tsx
+mv src/pages/404.js src/pages/404.tsx
+```
+
+Its recommended to install types for react, react-dom, node and probably react-helmet. You can install thouse via npm like so:
+
+```shell
+npm i -D @types/react @types/react-dom @types/node @types/react-helmet
+```
+
+And we also need ts-node:
+
+```shell
+npm i ts-node
+```
+
+# Add tsconfig.json file
+
+The `tsconfig.json` file has two primary purposes:
+
+1. Establishing the root directory of the TypeScript project `'include'`.
+2. Overriding the TypeScript compiler’s default configurations `'compilerOptions'`.
+
+Create a new file at the root of your directory `'gatsby-typescript-tutorial/'` and name it tsconfig.json.
+
+My `tsconfig.json` file looks like this:
+
+```json
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es6",
+    "jsx": "preserve",
+    "lib": ["dom", "es2015", "es2017"],
+    "strict": true,
+    "noEmit": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "resolveJsonModule": true,
+    "removeComments": false
+  },
+  "include": ["./src/**/*"]
+}
+```
+
+> A TSConfig file in a directory indicates that the directory is the root of a TypeScript or JavaScript project. The TSConfig file can be either a `tsconfig.json` or `jsconfig.json`, both have the same set of config variables.
+
+[This page](https://www.typescriptlang.org/tsconfig) covers all of the different options available inside a TSConfig file.
+
+Save this file and close it when you are done.
