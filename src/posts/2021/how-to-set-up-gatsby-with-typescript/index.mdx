@@ -18,15 +18,13 @@ date: 2021-10-15
 
 Last year I started integrating TypeScript into all of my projects and workflows. It helped me write better and more predictable code, it is a JavaScript superset which extends the language to include type definitions allowing codebases to be statically checked for soundness.
 
-At the same time, Gatsby has emerged as a useful front-end framework for creating static websites. TypeScript’s static-typing abilities go well with a static-site generator like Gatsby, and Gatsby has built-in support for coding in TypeScript.
-
 Even if Gatsby framework provides an integrated experience out of the box, I found out that there was not enough documentation about their Config Files.
 
-In this article we will take a look on how to set up our Gatsby website and support it fully with Typescript.
+In this tutorial we will take a look on how to set up our Gatsby website and support it fully with Typescript.
 
 # Gatsby setup
 
-First of all, you'll need to install the Gatsby CLI
+First of all, you'll need to install the `Gatsby CLI`
 
 Open your computer’s console/terminal and run the following command:
 
@@ -46,7 +44,7 @@ This will take a few seconds to run as it sets up the necessary boilerplate file
 cd gatsby-typescript-tutorial
 ```
 
-Once the installation is completed, you can start your Gatsby app to make sure everything went ok. Run the following commands in your terminal.
+Once the installation is completed, you can start your Gatsby app to make sure everything went ok. Run the following command in your terminal.
 
 ```shell
 gatsby develop
@@ -75,11 +73,11 @@ Usually, the default port is :8000, but you can change this by running:
 gatsby develop -p another_number instead
 ```
 
-you can open up a new tab in your browser and navigate to http://localhost:8000 to see the Gatsby app in action.
+you can open up a new tab in your browser and navigate to `http://localhost:8000` to see the Gatsby app in action.
 
 ![Gatsby Default Starter](./assets/gatsby-starter-default-image.png)
 
-Next, you’ll remove all unnecessary files. This includes gatsby-node.js, gatsby-browser.js, and gatsby-ssr.js:
+Next, you’ll remove all unnecessary files. This includes `gatsby-node.js`, `gatsby-browser.js`, and `gatsby-ssr.js`:
 
 ```shell
 rm gatsby-node.js
@@ -135,13 +133,13 @@ mv src/pages/page-2.js src/pages/page-2.tsx
 mv src/pages/404.js src/pages/404.tsx
 ```
 
-Its recommended to install types for react, react-dom, node and probably react-helmet. You can install thouse via npm like so:
+Its recommended to install types for react, react-dom, node and probably react-helmet. You can install them via npm:
 
 ```shell
 npm i -D @types/react @types/react-dom @types/node @types/react-helmet
 ```
 
-And we also need ts-node:
+And we also need to install ts-node:
 
 ```shell
 npm i ts-node
@@ -186,3 +184,68 @@ My `tsconfig.json` file looks like this:
 [This page](https://www.typescriptlang.org/tsconfig) covers all of the different options available inside a TSConfig file.
 
 Save this file and close it when you are done.
+
+# Converting Gatsby Config and Node API to TypeScript
+
+In this part, we will examineto write `gatsby-config` in TypeScript.
+
+Remember the `ts-node` package we installed earlier? It’s a handy tool that helps JavaScript files understand TypeScript imports. `register` method is used to register `ts-node` only once and be available in subsequent JS/TS modules.
+
+So, we only need to register it once somewhere up the stream like in `gatsby-config.js`, and it will enable us to import TypeScript modules subsequently. That means we can configure our `gatsby-config` only once, and abstract away all the good parts written in TypeScript.
+
+Let’s open `gatsby-config.js` file and replace its content with this:
+
+```js
+"use strict";
+
+require("source-map-support").install();
+require("ts-node").register();
+
+module.exports = require("./gatsby-config.ts");
+```
+
+- **Source-map-support** mimics node's stack trace making debugging easier.
+- **ts-node register** helps importing and compiling TypeScript modules into JS.
+
+Create the TypeScript version of the config file at the root of your directory `'gatsby-typescript-tutorial/'` and name it `gatsby-config.ts`:
+
+```ts
+export default {
+  siteMetadata: {
+    title: `Gatsby Default Starter`,
+    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
+    author: `@gatsbyjs`,
+    siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
+  },
+  plugins: [
+    `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-image`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/src/images`,
+      },
+    },
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `gatsby-starter-default`,
+        short_name: `starter`,
+        start_url: `/`,
+        background_color: `#663399`,
+        display: `minimal-ui`,
+        icon: `src/images/gatsby-icon.png`,
+      },
+    },
+  ],
+};
+```
+
+# Conclusion
+
+Huge congrats, you successfully achieved 100% type-checked code. I hope this tutorial helps you use Gatsby & Typescript more effectively.
+
+Thank you for your time!
