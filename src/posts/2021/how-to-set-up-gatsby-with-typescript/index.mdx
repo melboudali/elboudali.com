@@ -29,7 +29,7 @@ First of all, you'll need to install the `Gatsby CLI`
 Open your computer’s console/terminal and run the following command:
 
 ```shell
-npm i -g gatsby-cli
+npm install -g gatsby-cli
 ```
 
 Create a Gatsby `gatsby-typescript-tutorial` project by running the following command:
@@ -65,12 +65,6 @@ View GraphiQL, an in-browser IDE, to explore your site's data and schema
 ⠀
 Note that the development build is not optimized.
 To create a production build, use gatsby build
-```
-
-Usually, the default port is :8000, but you can change this by running:
-
-```shell
-gatsby develop -p another_number instead
 ```
 
 you can open up a new tab in your browser and navigate to `http://localhost:8000` to see the Gatsby app in action.
@@ -125,7 +119,7 @@ TypeScript can be installed through three installation routes depending on how y
 You will need a copy of [Node.js](https://nodejs.org/en/) as an environment to run the package. Then you use a dependency manager like [npm](https://www.npmjs.com/), [yarn](https://yarnpkg.com/) or [pnpm](https://pnpm.js.org/) to download TypeScript into your project.
 
 ```shell
-npm install --save-dev typescript --save-dev
+npm install -D typescript
 ```
 
 ### Globally Installing TypeScript
@@ -135,7 +129,7 @@ You can use npm to install TypeScript globally, this means that you can use the 
 To do this, run:
 
 ```shell
-npm i -g typescript
+npm install -g typescript
 ```
 
 # Installing other packages
@@ -158,13 +152,13 @@ mv src/pages/404.js src/pages/404.tsx
 Its recommended to install types for react, react-dom, node and probably react-helmet. You can install them via npm:
 
 ```shell
-npm i -D @types/react @types/react-dom @types/node @types/react-helmet
+npm install -D @types/react @types/react-dom @types/node @types/react-helmet
 ```
 
 And we also need to install ts-node:
 
 ```shell
-npm i ts-node
+npm install ts-node
 ```
 
 # Add tsconfig.json file
