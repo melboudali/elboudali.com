@@ -44,7 +44,7 @@ This will take a few seconds to run as it sets up the necessary boilerplate file
 cd gatsby-typescript-tutorial
 ```
 
-Once the installation is completed, you can start your Gatsby app to make sure everything went ok. Run the following command in your terminal.
+Start your Gatsby app with the following command in your terminal to make sure everything went ok.
 
 ```shell
 gatsby develop
@@ -114,7 +114,7 @@ export default IndexPage;
 
 Save and close the file.
 
-Now that you’ve created your project and completed some initial setup, you are ready to install the necessary plugins.
+Now that you’ve created your project and completed some initial setup, you are ready to install the necessary packages.
 
 # Installing packages
 
@@ -185,9 +185,7 @@ My `tsconfig.json` file looks like this:
 
 Save this file and close it when you are done.
 
-# Converting Gatsby Config and Node API to TypeScript
-
-In this part, we will examineto write `gatsby-config` in TypeScript.
+# Converting Gatsby Config to TypeScript
 
 Remember the `ts-node` package we installed earlier? It’s a handy tool that helps JavaScript files understand TypeScript imports. `register` method is used to register `ts-node` only once and be available in subsequent JS/TS modules.
 
@@ -207,13 +205,13 @@ module.exports = require("./gatsby-config.ts");
 - **Source-map-support** mimics node's stack trace making debugging easier.
 - **ts-node register** helps importing and compiling TypeScript modules into JS.
 
-Create the TypeScript version of the config file at the root of your directory `'gatsby-typescript-tutorial/'` and name it `gatsby-config.ts`:
+The final step is to create the TypeScript version of the config file at the root of your directory `'gatsby-typescript-tutorial/'` and name it `gatsby-config.ts`:
 
 ```ts
 export default {
   siteMetadata: {
     title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
+    description: `Kick off your next, great Gatsby project with this default starter.`,
     author: `@gatsbyjs`,
     siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
   },
