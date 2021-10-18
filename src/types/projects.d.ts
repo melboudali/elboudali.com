@@ -42,6 +42,8 @@ export type project_topics_type = Partial<
   | "Cloudinary"
   | "Figma"
   | "Stripe"
+  | "GitHub"
+  | "GitHubActions"
 >;
 
 export type cardRepoType = Pick<Repo, "name" | "description" | "stargazers_count" | "html_url" | "homepage" | "created_at" | "pushed_at">;
