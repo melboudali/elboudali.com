@@ -131,10 +131,7 @@ export default {
             }: AllMdxQueryType) => {
               return nodes.map((node: NodeType) => ({
                 title: node.frontmatter.title,
-                description: node.frontmatter.summary,
                 url: config.siteUrl + node.fields?.slug,
-                guid: config.siteUrl + node.fields?.slug,
-                date: node.frontmatter.date,
               }));
             },
             query: `{
@@ -142,8 +139,6 @@ export default {
                   nodes{
                     frontmatter {
                       title
-                      summary
-                      date(formatString: "dddd, DD MMMM YYYY")
                     }
                     fields {
                       slug
