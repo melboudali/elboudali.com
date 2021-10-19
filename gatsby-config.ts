@@ -1,5 +1,8 @@
 import about from "./src/data/about";
 import config from "./src/data/config";
+import { AllMdxQueryType, NodeType } from "./src/types/blog";
+
+const titleAndDesc = `${about.fullName} | RSS`;
 
 export default {
   siteMetadata: {
@@ -114,6 +117,45 @@ export default {
       resolve: `gatsby-plugin-google-gtag`,
       options: {
         trackingIds: [config.googleAnalyticsTrackingID],
+      },
+    },
+    {
+      resolve: "gatsby-plugin-feed",
+      options: {
+        feeds: [
+          {
+            serialize: ({
+              query: {
+                allMdx: { nodes },
+              },
+            }: AllMdxQueryType) => {
+              return nodes.map((node: NodeType) => ({
+                title: node.frontmatter.title,
+                description: node.frontmatter.summary,
+                url: config.siteUrl + node.fields?.slug,
+                guid: config.siteUrl + node.fields?.slug,
+                date: node.frontmatter.date,
+              }));
+            },
+            query: `{
+							  allMdx(sort: {order: DESC, fields: [frontmatter___date]}) {
+                  nodes{
+                    frontmatter {
+                      title
+                      summary
+                      date(formatString: "dddd, DD MMMM YYYY")
+                    }
+                    fields {
+                      slug
+                    }
+                  }
+                }
+						}`,
+            output: "/rss.xml",
+            title: titleAndDesc,
+            description: titleAndDesc,
+          },
+        ],
       },
     },
   ],
