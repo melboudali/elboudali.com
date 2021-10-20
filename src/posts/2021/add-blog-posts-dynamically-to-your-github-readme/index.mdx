@@ -22,7 +22,7 @@ Here are some examples of information that visitors may find interesting, fun, o
 
 # Create profile README
 
-Adding your profile readme section is quite simple. All you need to do is create a new repository with your GitHub username your-github-username/your-github-username and add a `README.md` file. When you create the repository, GitHub will display a message containing `✨special ✨ repository`.
+Adding your profile readme section is quite simple. All you need to do is create a new repository with your GitHub username your-github-username/your-github-username and add a `README.md` file.
 
 ![Create profile README](./assets/1.jpg)
 
@@ -45,13 +45,11 @@ This example uses `<!--START_SECTION:feed--><!--END_SECTION:feed-->` as the targ
 
 # Create a GitHub Action
 
-To add a GitHub Action you should go to your repository and click on the `Actions` tab then `set up a workflow yourself`.
+To add a GitHub Action you should go to your repository and click on the `Actions` tab, then `set up a workflow yourself`.
 
 ![Create profile README](./assets/2.jpg)
 
-The action will be run according to your defined schedule, It will look for new articles in an RSS feed and update your `README.md`.
-
-However, for the sake of demonstration, i will use [my gatsby website](https://elboudali.com/) and [gatsby-plugin-feed](https://www.gatsbyjs.com/plugins/gatsby-plugin-feed/) to generate an `RSS feed`.
+For the sake of demonstration, i will use [my gatsby website](https://elboudali.com/) and [gatsby-plugin-feed](https://www.gatsbyjs.com/plugins/gatsby-plugin-feed/) to generate an `RSS feed`.
 
 > [Click Here](https://www.gatsbyjs.com/docs/how-to/adding-common-features/adding-an-rss-feed/) for more information about `Adding an RSS Feed with Gatsby`.
 
@@ -75,6 +73,8 @@ jobs:
           max: 5
           template: "* [{{ title }}]({{ link }})"
 ```
+
+The action will be run according to your defined schedule, It will look for new articles in an `RSS feed` and update your `README.md`.
 
 Next click `Start commit` then `Commit changes`.
 
