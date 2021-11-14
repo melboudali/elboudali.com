@@ -27,6 +27,7 @@ const Tooltip = styled.div<{ fill: string; color: string }>`
   font-size: 0.8125rem;
   font-weight: 500;
   color: ${({ color }) => color};
+  white-space: nowrap;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
   transform: translateX(-50%);
