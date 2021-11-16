@@ -57,7 +57,7 @@ const Seo = ({ title, image, description, location, type }: SeoProps) => {
       <meta name="twitter:creator" content={site?.siteMetadata?.twitter!} />
       <meta name="twitter:title" content={seo.title!} />
       <meta name="twitter:description" content={seo.description!} />
-      {seo.image && <meta name="twitter:image" content={seo.image} />}
+      {seo.image && <meta name="twitter:image:src" content={seo.image} />}
     </Helmet>
   );
 };
