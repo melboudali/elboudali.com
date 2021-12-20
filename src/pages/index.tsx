@@ -195,3 +195,32 @@ const Index = () => {
 };
 
 export default Index;
+
+export const query = graphql`
+  query LastPost {
+    LastPostMdx: allMdx(limit: 1, sort: { order: DESC, fields: frontmatter___date }) {
+      nodes {
+        nodes {
+          id
+          timeToRead
+          excerpt(pruneLength: 250)
+          fields {
+            slug
+          }
+          frontmatter {
+            title
+            summary
+            cover {
+              childImageSharp {
+                gatsbyImageData
+              }
+            }
+            tags
+            date(formatString: "dddd, DD MMMM YYYY")
+          }
+        }
+        totalCount
+      }
+    }
+  }
+`;
