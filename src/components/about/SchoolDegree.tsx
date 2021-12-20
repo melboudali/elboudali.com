@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import about from "../../data/about";
 import PropTypes from "prop-types";
 
@@ -9,16 +9,20 @@ const SchoolDegreesWrapper = styled.div`
   gap: 15px;
 `;
 
-const SchoolDegreeWrapper = styled.div`
+const MarginLeft = css`
   --marginLeft: 0;
-  display: flex;
-  align-content: flex-start;
-  flex-direction: column;
-  gap: 5px;
   margin-left: var(--marginLeft);
   @media (min-width: 750px) {
     --marginLeft: 45px;
   }
+`;
+
+const SchoolDegreeWrapper = styled.div`
+  ${MarginLeft}
+  display: flex;
+  align-content: flex-start;
+  flex-direction: column;
+  gap: 5px;
 `;
 
 const ScoolDegreeTitle = styled.h2`
@@ -72,6 +76,18 @@ const SchollWrapper = styled.div`
   }
 `;
 
+const ChallengesLink = styled.a`
+  ${MarginLeft}
+  margin-top:25px;
+  color: ${({ theme }) => theme.titleColor};
+  text-transform: capitalize;
+  font-size: 0.8rem;
+  &:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+`;
+
 interface SchoolDegreeItemProps {
   title: string;
   schoolName: string;
@@ -90,6 +106,14 @@ const SchoolDegree = () => (
         abbrExpantion={schoolDegree.abbrExpantion}
       />
     ))}
+    <ChallengesLink
+      href="https://github.com/melboudali/FreeCodeCamp"
+      aria-label="Challenges & working projects"
+      target="_blank"
+      rel="noreferrer"
+    >
+      click here to see all my FreeCodeCamp Challenges & working projects.
+    </ChallengesLink>
   </SchoolDegreesWrapper>
 );
 
