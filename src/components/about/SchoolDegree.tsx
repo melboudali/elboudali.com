@@ -80,7 +80,6 @@ const ChallengesLink = styled.a`
   ${MarginLeft}
   margin-top:25px;
   color: ${({ theme }) => theme.titleColor};
-  text-transform: capitalize;
   font-size: 0.8rem;
   &:hover {
     cursor: pointer;
@@ -112,7 +111,7 @@ const SchoolDegree = () => (
       target="_blank"
       rel="noreferrer"
     >
-      click here to see all my FreeCodeCamp Challenges & working projects.
+      Click here to see all my FreeCodeCamp Challenges & working projects.
     </ChallengesLink>
   </SchoolDegreesWrapper>
 );
