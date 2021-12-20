@@ -34,11 +34,11 @@ const about = {
       certificationLink: "https://www.freecodecamp.org/certification/elboudali/responsive-web-design",
     },
     {
-      title: "diploma of specialized technician in computer network techniques",
+      title: "Associate's Degree in computer networking systems",
       schoolName: "ofppt - ista ntic",
       abbrExpantion: "specialized institute of applied technology NTIC",
     },
-    { title: "baccalauréat in experimental science, life and earth", schoolName: "hassan ii high school" },
+    { title: "baccalauréat (high school diploma) in experimental science, life and earth", schoolName: "hassan ii high school" },
   ],
 };
 
