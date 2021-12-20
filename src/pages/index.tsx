@@ -23,11 +23,9 @@ const ShortAboutWrapper = styled.section`
   justify-content: center;
   align-items: center;
   flex-direction: var(--flexDirection);
-  /* flex-direction: column; */
   gap: 24px;
   @media (min-width: 850px) {
     --flexDirection: row;
-    /* flex-direction: row; */
   }
 `;
 
@@ -145,8 +143,6 @@ const CDADTitle = styled.h1`
 `;
 
 const Index = () => {
-  // const LongAboutWrapperRef = useRef<HTMLDivElement>(null);
-  // const { appear } = useAppearOnScroll(LongAboutWrapperRef);
   const { allFile }: AllFileQuery = useStaticQuery(graphql`
     query allFile {
       allFile(filter: { extension: { eq: "pdf" } }) {
@@ -167,12 +163,7 @@ const Index = () => {
         <ShortAbout>
           <PageTitle>{about.fullName}</PageTitle>
           <IconWithTitle type="role" />
-          <ShortAboutText>
-            {/* {about.summary.short[0]}
-            <span>{about.summary.short[1]}</span>
-            {about.summary.short[2]} */}
-            {about.summary.short}
-          </ShortAboutText>
+          <ShortAboutText>{about.summary.short}</ShortAboutText>
           <IconWithTitle type="location" />
           <IconsWrapper>
             <Icons />
