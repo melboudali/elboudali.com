@@ -168,17 +168,16 @@ const Index = () => {
           <PageTitle>{about.fullName}</PageTitle>
           <IconWithTitle type="role" />
           <ShortAboutText>
-            {about.summary.short[0]}
+            {/* {about.summary.short[0]}
             <span>{about.summary.short[1]}</span>
-            {about.summary.short[2]}
+            {about.summary.short[2]} */}
+            {about.summary.short}
           </ShortAboutText>
           <IconWithTitle type="location" />
           <IconsWrapper>
             <Icons />
-            <Icons name="Linkedin" />
             <Icons name="Github" />
             <Icons name="Twitter" />
-            <Icons name="Freecodecamp" />
             <Icons name="Hackerrank" />
             <Button url={allFile.nodes[0].publicURL!} />
           </IconsWrapper>
