@@ -78,7 +78,7 @@ const SchollWrapper = styled.div`
 
 const ChallengesLink = styled.a`
   ${MarginLeft}
-  margin-top:25px;
+  margin-top:10px;
   color: ${({ theme }) => theme.titleColor};
   font-size: 0.8rem;
   &:hover {
