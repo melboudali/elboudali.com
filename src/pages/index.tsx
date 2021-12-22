@@ -8,6 +8,7 @@ import PageTitle from "../components/common/PageTitle";
 import IconWithTitle from "../components/about/IconWithTitle";
 import Icons from "../components/about/Icons";
 import Button from "../components/about/Button";
+import Card from "../components/blog/Card";
 import SchoolDegree from "../components/about/SchoolDegree";
 import { LastPostAndResumeQuery } from "../../gatsby-graphql";
 
@@ -91,6 +92,17 @@ const LongAboutWrapper = styled.section`
     &:not(:last-child) {
       margin-bottom: 10px;
     }
+  }
+`;
+
+const ArticleWrapper = styled.div`
+  --width: 100%;
+  & > div {
+    width: var(--width);
+    margin: 25px auto 0;
+  }
+  @media (min-width: 750px) {
+    --width: 80%;
   }
 `;
 
@@ -201,7 +213,13 @@ const Index = () => {
           <p key={index}>{text}</p>
         ))}
       </LongAboutWrapper>
-      {/* <div>last post: {LastPost.nodes[0].frontmatter.title}</div> */}
+      <ArticleWrapper>
+        <PageTitle ItemsCountNumber={LastPost.totalCount}>⚡️ last article</PageTitle>
+        <div>
+          <Card key={LastPost.nodes[0].id} mdx={LastPost.nodes[0]} listType="list" />
+        </div>
+      </ArticleWrapper>
+
       <CertificatesDiplomasAndDegreesWrapper>
         <CDADTitle>
           <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
