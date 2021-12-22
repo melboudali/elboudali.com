@@ -41,7 +41,7 @@ const GlobalStyles = createGlobalStyle`
       --selectDarkBackground: #4C2A8D;
       --starsLightColor: var(--black);
       --starsDarkColor: #7031C0;
-      --cardLightBackground: var(--white);
+      --cardLightBackground: #FBFBFB;
       --cardDarkBackground: #1E1A32;
       --iconsLightColorAndButtonBorder: var(--black);
       --iconsDarkColorAndButtonBorder: #7031C0;
