@@ -111,7 +111,7 @@ const SchoolDegree = () => (
       target="_blank"
       rel="noreferrer"
     >
-      Click here to see all my FreeCodeCamp Challenges & working projects.
+      Click here to see all my FreeCodeCamp challenges & working projects.
     </ChallengesLink>
   </SchoolDegreesWrapper>
 );
