@@ -3,8 +3,7 @@ const about = {
   summary: {
     short: ["I enjoy coding and that's what really matters to me."],
     long: [
-      "I'm a Front End Developer, with 3+ years of hands-on experience designing, developing, and implementing applications and solutions using a range of technologies.",
-      "Seeking to leverage broad development experience and hands-on technical expertise in a challenging role as a Front End Developer.",
+      "I'm a Front End Developer, with over 3 years of hands-on experience designing, developing, and implementing applications and solutions using a range of technologies, seeking to leverage broad development experience and hands-on technical expertise in a challenging role as a Front End Developer.",
       "This website is my digital garden and a compendium of the things I've learned and created over the years.",
     ],
   },
