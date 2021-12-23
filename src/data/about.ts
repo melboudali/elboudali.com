@@ -36,7 +36,6 @@ const about = {
     {
       title: "Associate's Degree in computer networking systems",
       schoolName: "ofppt - ista ntic",
-      abbrExpantion: "specialized institute of applied technology NTIC",
     },
     { title: "baccalauréat (high school diploma) in experimental science, life and earth", schoolName: "hassan ii high school" },
   ],
