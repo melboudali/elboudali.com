@@ -146,8 +146,8 @@ const CDADTitle = styled.h1`
     transform: translateX(-10px);
     font-size: 0.6875rem;
     border-radius: 4px;
-    color: var(--white);
-    background-color: ${({ theme }) => theme.iconWithTitle};
+    color: ${({ theme }) => theme.balackAndWhite};
+    background: ${({ theme }) => theme.emailBorder};
   }
   @media (min-width: 375px) {
     --fontSize: 1.25rem;
