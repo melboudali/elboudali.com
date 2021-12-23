@@ -63,10 +63,6 @@ const SchollWrapper = styled.div`
     letter-spacing: 0.1em;
     line-height: 19px;
     color: ${({ theme }) => theme.iconWithTitle};
-    span {
-      font-size: 0.8125rem;
-      text-transform: capitalize;
-    }
   }
   svg > path {
     fill: ${({ theme }) => theme.iconWithTitle};
@@ -91,7 +87,6 @@ interface SchoolDegreeItemProps {
   title: string;
   schoolName: string;
   certificationLink?: string;
-  abbrExpantion?: string;
 }
 
 const SchoolDegree = () => (
@@ -102,7 +97,6 @@ const SchoolDegree = () => (
         title={schoolDegree.title}
         schoolName={schoolDegree.schoolName}
         certificationLink={schoolDegree.certificationLink}
-        abbrExpantion={schoolDegree.abbrExpantion}
       />
     ))}
     <ChallengesLink
@@ -116,7 +110,7 @@ const SchoolDegree = () => (
   </SchoolDegreesWrapper>
 );
 
-const SchoolDegreeItem = ({ title, schoolName, certificationLink, abbrExpantion }: SchoolDegreeItemProps) => (
+const SchoolDegreeItem = ({ title, schoolName, certificationLink }: SchoolDegreeItemProps) => (
   <SchoolDegreeWrapper>
     <ScoolDegreeTitle>
       {title}
@@ -132,9 +126,7 @@ const SchoolDegreeItem = ({ title, schoolName, certificationLink, abbrExpantion 
       <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M19.375 5.00001V5.62501C19.375 5.70789 19.3421 5.78738 19.2835 5.84598C19.2249 5.90459 19.1454 5.93751 19.0625 5.93751H18.125V6.40626C18.125 6.66513 17.9151 6.87501 17.6562 6.87501H2.34375C2.08488 6.87501 1.875 6.66513 1.875 6.40626V5.93751H0.9375C0.85462 5.93751 0.775134 5.90459 0.716529 5.84598C0.657924 5.78738 0.625 5.70789 0.625 5.62501V5.00001C0.625 4.93819 0.643339 4.87775 0.677695 4.82635C0.712052 4.77495 0.760882 4.7349 0.818008 4.71126L9.88051 1.27376C9.95702 1.24208 10.043 1.24208 10.1195 1.27376L19.182 4.71126C19.2391 4.7349 19.2879 4.77495 19.3223 4.82635C19.3567 4.87775 19.375 4.93819 19.375 5.00001ZM18.4375 16.875H1.5625C1.04473 16.875 0.625 17.2947 0.625 17.8125V18.4375C0.625 18.5204 0.657924 18.5999 0.716529 18.6585C0.775134 18.7171 0.85462 18.75 0.9375 18.75H19.0625C19.1454 18.75 19.2249 18.7171 19.2835 18.6585C19.3421 18.5999 19.375 18.5204 19.375 18.4375V17.8125C19.375 17.2947 18.9553 16.875 18.4375 16.875ZM3.75 7.50001V15H2.34375C2.08488 15 1.875 15.2099 1.875 15.4688V16.25H18.125V15.4688C18.125 15.2099 17.9151 15 17.6562 15H16.25V7.50001H13.75V15H11.25V7.50001H8.75V15H6.25V7.50001H3.75Z" />
       </svg>
-      <p>
-        {schoolName} {abbrExpantion && <span>({abbrExpantion})</span>}
-      </p>
+      <p>{schoolName}</p>
     </SchollWrapper>
   </SchoolDegreeWrapper>
 );
@@ -143,7 +135,6 @@ SchoolDegreeItem.propTypes = {
   title: PropTypes.string.isRequired,
   schoolName: PropTypes.string.isRequired,
   certificationLink: PropTypes.string,
-  abbrExpantion: PropTypes.string,
 };
 
 export default SchoolDegree;
