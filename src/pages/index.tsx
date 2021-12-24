@@ -99,7 +99,9 @@ const ArticleWrapper = styled.div`
   --width: 100%;
   & > div {
     width: var(--width);
-    margin: 25px auto 0;
+    display: flex;
+    justify-content: center;
+    margin: 25px 0;
   }
   @media (min-width: 750px) {
     --width: 80%;
