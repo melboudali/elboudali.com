@@ -101,7 +101,7 @@ const ArticleWrapper = styled.div`
     width: var(--width);
     display: flex;
     justify-content: center;
-    margin: 25px 0;
+    margin: 25px auto 0;
   }
   @media (min-width: 750px) {
     --width: 80%;
