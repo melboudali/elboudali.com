@@ -34,7 +34,7 @@ const about = {
       certificationLink: "https://www.freecodecamp.org/certification/elboudali/responsive-web-design",
     },
     {
-      title: "Associate's Degree in computer networking systems",
+      title: "Associate's Degree in computer science",
       schoolName: "ofppt - ista ntic",
     },
     { title: "baccalauréat (high school diploma) in experimental science, life and earth", schoolName: "hassan ii high school" },
