@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from "react";
-import useClickOutside from "../../../hook/useClickOutside";
+import useClickOutside from "../../../hooks/useClickOutside";
 import CustomLink from "./CustomLink";
 import styled, { css } from "styled-components";
 import PropTypes from "prop-types";
@@ -95,6 +95,10 @@ const Modal = ({ setMenuIsOpen, ScrollbarToggler, menuIsOpen }: ModalProps) => {
   );
 };
 
-Modal.propTypes = { setMenuIsOpen: PropTypes.func.isRequired, ScrollbarToggler: PropTypes.func.isRequired, menuIsOpen: PropTypes.bool.isRequired };
+Modal.propTypes = {
+  setMenuIsOpen: PropTypes.func.isRequired,
+  ScrollbarToggler: PropTypes.func.isRequired,
+  menuIsOpen: PropTypes.bool.isRequired,
+};
 
 export default Modal;
