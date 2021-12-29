@@ -1,12 +1,12 @@
 import React from "react";
 import styled, { ThemeProvider } from "styled-components";
 import GlobalStyles from "../../styles/GlobalStyles";
-import { useDarkMode } from "../../hook/useDarkMode";
+import { useDarkMode } from "../../hooks/useDarkMode";
 import { lightTheme } from "../../themes/light";
 import { darkTheme } from "../../themes/dark";
 import Navbar from "../common/navbar";
 import PropTypes from "prop-types";
-import useNavbar from "../../hook/useNavbar";
+import useNavbar from "../../hooks/useNavbar";
 
 const Header = styled.header<{ showNav: boolean; scrollDown: boolean }>`
   position: fixed;
