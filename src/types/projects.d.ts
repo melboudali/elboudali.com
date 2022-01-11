@@ -16,6 +16,7 @@ export type project_topics_type = Partial<
   | "TypeScript"
   | "React"
   | "Gatsby"
+  | "Shopify"
   | "Next"
   | "Styled Components"
   | "MaterialUI"
