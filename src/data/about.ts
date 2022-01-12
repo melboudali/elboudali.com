@@ -1,4 +1,4 @@
-const about = {
+export default {
   fullName: "Mohamed EL BOUDALI",
   summary: {
     short: [
@@ -39,8 +39,6 @@ const about = {
       title: "Associate's Degree in computer science",
       schoolName: "ofppt - ista ntic",
     },
-    { title: "baccalauréat (high school diploma) in experimental science, life and earth", schoolName: "hassan ii high school" },
+    // { title: "baccalauréat (high school diploma) in experimental science, life and earth", schoolName: "hassan ii high school" },
   ],
 };
-
-export default about;
