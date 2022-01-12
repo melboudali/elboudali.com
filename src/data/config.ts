@@ -1,6 +1,6 @@
 import about from "./about";
 
-const config = {
+export default {
   title: `${about.fullName} | ${about.role}`,
   siteUrl: "https://elboudali.com",
   siteLogo: "< el boudali />",
@@ -11,5 +11,3 @@ const config = {
   fbid: "3820447614661427",
   googleAnalyticsTrackingID: "G-R5X3QX1HXG",
 };
-
-export default config;
