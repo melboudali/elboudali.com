@@ -270,13 +270,13 @@ const selectedProjects: selectedProjectType[] = [
     project_figmaLink: "https://www.figma.com/file/eVm5akWnL1oFvEsPYpZWnz/instagram",
     project_last_commit: "2021-04-05T00:00:00Z",
   },
-  {
-    project_name: "King-Slices",
-    project_title: "🍕 king slices",
-    project_cover: "King-Slices.png",
-    project_topics: ["JavaScript", "React", "Gatsby", "Styled Components", "Netlify"],
-    project_last_commit: "2021-05-05T00:00:00Z",
-  },
+  // {
+  //   project_name: "King-Slices",
+  //   project_title: "🍕 king slices",
+  //   project_cover: "King-Slices.png",
+  //   project_topics: ["JavaScript", "React", "Gatsby", "Styled Components", "Netlify"],
+  //   project_last_commit: "2021-05-05T00:00:00Z",
+  // },
   {
     project_name: "elboudali.com",
     project_title: "👨‍💻 elboudali.com",
