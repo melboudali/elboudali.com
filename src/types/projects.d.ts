@@ -1,4 +1,4 @@
-import { Repo } from "../../gatsby-graphql";
+import { ImageSharp, Maybe, Repo } from "../../gatsby-graphql";
 
 export interface selectedProjectType {
   project_name: string;
