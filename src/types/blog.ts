@@ -1,5 +1,4 @@
-import { mdx } from "@mdx-js/react";
-import { Maybe, Mdx, MdxFrontmatter, MetaDataQuery } from "../../gatsby-graphql";
+import { ImageSharp, Maybe, Mdx, MdxFields, MdxFrontmatter } from "../../gatsby-graphql";
 
 export type MDXType = Pick<Mdx, "id" | "timeToRead" | "excerpt"> & {
   fields?: Maybe<Pick<MdxFields, "slug">>;
