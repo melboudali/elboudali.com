@@ -270,13 +270,13 @@ const selectedProjects: selectedProjectType[] = [
     project_figmaLink: "https://www.figma.com/file/eVm5akWnL1oFvEsPYpZWnz/instagram",
     project_last_commit: "2021-04-05T00:00:00Z",
   },
-  // {
-  //   project_name: "King-Slices",
-  //   project_title: "🍕 king slices",
-  //   project_cover: "King-Slices.png",
-  //   project_topics: ["JavaScript", "React", "Gatsby", "Styled Components", "Netlify"],
-  //   project_last_commit: "2021-05-05T00:00:00Z",
-  // },
+  {
+    project_name: "King-Slices",
+    project_title: "🍕 king slices",
+    project_cover: "King-Slices.png",
+    project_topics: ["JavaScript", "React", "Gatsby", "Styled Components", "Netlify"],
+    project_last_commit: "2021-05-05T00:00:00Z",
+  },
   {
     project_name: "elboudali.com",
     project_title: "👨‍💻 elboudali.com",
@@ -287,11 +287,26 @@ const selectedProjects: selectedProjectType[] = [
   },
   {
     project_name: "ESPIDA",
-    project_title: "Espida Clothing",
+    project_title: "👕 Espida Clothing",
     project_cover: "ESPIDA.png",
     project_topics: ["TypeScript", "React", "Gatsby", "Shopify", "Styled Components", "Netlify"],
     project_figmaLink: "https://www.figma.com/file/IyKqIRpj2MVdJb1QprSb5Q/Shopify?node-id=0%3A1",
     project_last_commit: "2022-01-11T00:00:00Z",
+  },
+  {
+    project_name: "jobs",
+    project_title: "💼 jobs",
+    project_cover: "jobs.png",
+    project_topics: ["TypeScript", "React", "Next", "Firebase", "SASS", "Vercel"],
+    project_figmaLink: "https://www.figma.com/file/hNY9MEQqA9hM9ULFlkfqgC/jobs",
+    project_last_commit: "Now",
+  },
+  {
+    project_name: "Github-User-Search",
+    project_title: "github search",
+    project_cover: "github.png",
+    project_topics: ["JavaScript", "React", "Bootstrap", "Heroku", "Netlify"],
+    project_last_commit: "2020-03-31T00:00:00Z",
   },
 ];
 
