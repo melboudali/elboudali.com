@@ -6,7 +6,8 @@ import { coverType, fullCardRepoType } from "../../types/projects";
 import styled, { css } from "styled-components";
 import PropTypes from "prop-types";
 
-const CardWrapper = styled.div`
+const CardWrapper = styled.div<{ lastCommit: string }>`
+  ${({ lastCommit }) => lastCommit === "Now" && "outline: 3px solid var(--current-project-corder)"};
   background-color: ${({ theme }) => theme.cardBackground};
   border-radius: 5px;
   box-shadow: ${({ theme }) => `0px 2px 5px -1px ${theme.firstBoxShadow}, 0px 1px 3px -1px ${theme.secondBoxShadow}`};
@@ -230,10 +231,17 @@ const Card = ({
   covers,
 }: CardProps) => {
   return (
-    <CardWrapper>
-      <GatsbyImage image={getProjectCover(project_cover, covers).childImageSharp.gatsbyImageData} alt={`${name} cover`} className="gatsby_image" />
+    <CardWrapper
+      lastCommit={project_last_commit}
+      title={project_last_commit === "Now" ? "Currently working on this project" : project_title}
+    >
+      <GatsbyImage
+        image={getProjectCover(project_cover, covers).childImageSharp?.gatsbyImageData}
+        alt={`${name} cover`}
+        className="gatsby_image"
+      />
       <Details>
-        <CardTitle title={project_title}>{project_title}</CardTitle>
+        <CardTitle>{project_title}</CardTitle>
         <DateAndStars>
           <DateWrapper title="First commit → Latest commit">
             <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -251,7 +259,12 @@ const Card = ({
               <path d="M3.98438 12.1875C4.3727 12.1875 4.6875 11.8727 4.6875 11.4844C4.6875 11.096 4.3727 10.7812 3.98438 10.7812C3.59605 10.7812 3.28125 11.096 3.28125 11.4844C3.28125 11.8727 3.59605 12.1875 3.98438 12.1875Z" />
               <path d="M6.32812 12.1875C6.71645 12.1875 7.03125 11.8727 7.03125 11.4844C7.03125 11.096 6.71645 10.7812 6.32812 10.7812C5.9398 10.7812 5.625 11.096 5.625 11.4844C5.625 11.8727 5.9398 12.1875 6.32812 12.1875Z" />
               <path d="M8.67188 12.1875C9.0602 12.1875 9.375 11.8727 9.375 11.4844C9.375 11.096 9.0602 10.7812 8.67188 10.7812C8.28355 10.7812 7.96875 11.096 7.96875 11.4844C7.96875 11.8727 8.28355 12.1875 8.67188 12.1875Z" />
-              <path d="M11.25 1.40625V2.34375M3.75 1.40625V2.34375V1.40625Z" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              <path
+                d="M11.25 1.40625V2.34375M3.75 1.40625V2.34375V1.40625Z"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
               <path d="M13.5938 4.6875H1.40625" strokeWidth="1.5" strokeLinejoin="round" />
             </svg>
             <DateContent>
@@ -259,7 +272,7 @@ const Card = ({
               <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M10.135 6.32831H1.28906C1.09491 6.32831 0.9375 6.48575 0.9375 6.67987V8.3205C0.9375 8.51462 1.09491 8.67206 1.28906 8.67206H10.135V10.0214C10.135 10.6479 10.8923 10.9616 11.3353 10.5186L13.8566 7.99737C14.1312 7.72281 14.1312 7.27756 13.8566 7.003L11.3353 4.48176C10.8924 4.03882 10.135 4.35253 10.135 4.97896V6.32831Z" />
               </svg>
-              <span>{getDate(project_last_commit)}</span>
+              <span>{project_last_commit === "Now" ? "Now" : getDate(project_last_commit)}</span>
             </DateContent>
           </DateWrapper>
           {!!stargazers_count && (
