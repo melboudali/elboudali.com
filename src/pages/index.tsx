@@ -248,15 +248,17 @@ const Index = () => {
             <Icons />
             <Icons name="Github" />
             <Icons name="Twitter" />
+            <Icons name="Leetcode" />
             <Icons name="Hackerrank" />
             {/* <Button url={Resume.nodes[0].publicURL!} /> */}
           </IconsWrapper>
         </ShortAbout>
       </ShortAboutWrapper>
       <LongAboutWrapper>
-        {about.summary.long.map((text, index) => (
+        {/* {about.summary.long.map((text, index) => (
           <p key={index}>{text}</p>
-        ))}
+        ))} */}
+        <p>{about.summary.long[0]}</p>
       </LongAboutWrapper>
       <ArticleWrapper>
         <PageTitle ItemsCountNumber={LastPost.totalCount}>⚡️ last article</PageTitle>
