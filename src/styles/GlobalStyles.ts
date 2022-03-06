@@ -76,6 +76,7 @@ const GlobalStyles = createGlobalStyle`
       --postThBorderColorDark: #432851;
       --postSecTrBgColorLight: #f6f8fa;
       --postSecTrBgColorDark: #120b18;
+      --current-project-corder: #A8C6EA
   }
 
   * {
