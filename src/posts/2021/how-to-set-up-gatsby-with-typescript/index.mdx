@@ -3,7 +3,7 @@ title: "How to set up Gatsby with TypeScript"
 summary: "Last year I started integrating TypeScript into all of my projects and workflows. It helped me write better and more predictable code, it is a JavaScript superset which extends the language to include type definitions allowing codebases to be statically checked for soundness."
 seo_description: "Last year I started integrating TypeScript into all of my projects and workflows. It helped me write better and more predictable code."
 cover: assets/cover.jpg
-tags: ["Gatsby", "TypeScript"]
+tags: ["TypeScript", "Gatsby"]
 date: 2021-10-15
 ---
 
@@ -14,7 +14,7 @@ date: 2021-10-15
   <figcaption></figcaption>
 </figure>
 
-# Introduction
+## Introduction
 
 Last year I started integrating TypeScript into all of my projects and workflows. It helped me write better and more predictable code, it is a JavaScript superset which extends the language to include type definitions allowing codebases to be statically checked for soundness.
 
@@ -22,7 +22,7 @@ Even if Gatsby framework provides an integrated experience out of the box, I fou
 
 In this tutorial we will take a look on how to set up our Gatsby website and support it fully with Typescript.
 
-# Gatsby setup
+## Gatsby setup
 
 First of all, you'll need to install the `Gatsby CLI`
 
@@ -110,11 +110,11 @@ Save and close the file.
 
 Now that you’ve created your project and completed some initial setup, you are ready to install the necessary packages.
 
-# Download TypeScript
+## Download TypeScript
 
 TypeScript can be installed through three installation routes depending on how you intend to use it: an npm module, a NuGet package or a Visual Studio Extension.
 
-### TypeScript in Your Project
+#### TypeScript in Your Project
 
 You will need a copy of [Node.js](https://nodejs.org/en/) as an environment to run the package. Then you use a dependency manager like [npm](https://www.npmjs.com/), [yarn](https://yarnpkg.com/) or [pnpm](https://pnpm.js.org/) to download TypeScript into your project.
 
@@ -122,7 +122,7 @@ You will need a copy of [Node.js](https://nodejs.org/en/) as an environment to r
 npm install -D typescript
 ```
 
-### Globally Installing TypeScript
+#### Globally Installing TypeScript
 
 You can use npm to install TypeScript globally, this means that you can use the `tsc` command anywhere in your terminal.
 
@@ -132,7 +132,7 @@ To do this, run:
 npm install -g typescript
 ```
 
-# Installing other packages
+## Installing other packages
 
 In order to set up support for TypeScript in Gatsby, you’ll need some additional plugins and dependencies, which you will install in this step.
 
@@ -161,7 +161,7 @@ And we also need to install ts-node:
 npm install ts-node
 ```
 
-# Add tsconfig.json file
+## Add tsconfig.json file
 
 The `tsconfig.json` file has two primary purposes:
 
@@ -201,7 +201,7 @@ My `tsconfig.json` file looks like this:
 
 Save this file and close it when you are done.
 
-# Converting Gatsby Config to TypeScript
+## Converting Gatsby Config to TypeScript
 
 Remember the `ts-node` package we installed earlier? It’s a handy tool that helps JavaScript files understand TypeScript imports. `register` method is used to register `ts-node` only once and be available in subsequent JS/TS modules.
 
@@ -258,7 +258,7 @@ export default {
 };
 ```
 
-# Conclusion
+## Conclusion
 
 Huge congrats, you successfully achieved 100% type-checked code. I hope this tutorial helps you use Gatsby & Typescript more effectively.
 
