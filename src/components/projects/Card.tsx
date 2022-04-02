@@ -3,11 +3,10 @@ import { GatsbyImage } from "gatsby-plugin-image";
 import TechIcon from "../common/card/TechIcon";
 import { getDate, getProjectCover } from "../../utils/projects";
 import { coverType, fullCardRepoType } from "../../types/projects";
-import styled, { css } from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 import PropTypes from "prop-types";
 
-const CardWrapper = styled.div<{ lastCommit: string }>`
-  ${({ lastCommit }) => lastCommit === "Now" && "outline: 3px solid var(--current-project-corder)"};
+const CardWrapper = styled.div`
   background-color: ${({ theme }) => theme.cardBackground};
   border-radius: 5px;
   box-shadow: ${({ theme }) => `0px 2px 5px -1px ${theme.firstBoxShadow}, 0px 1px 3px -1px ${theme.secondBoxShadow}`};
@@ -82,6 +81,51 @@ export const DateWrapper = styled.div`
 const DateContent = styled.div`
   ${FlexStyle}
   gap: 3px;
+`;
+
+const DotAnimation = keyframes`
+ 0% {
+  transform: scale(0, 0);
+  opacity: 0;
+    }
+50% {
+  opacity: 1;
+    }
+100% {
+  transform: scale(1, 1);
+  opacity: 0;
+    }
+`;
+
+const Now = styled.span`
+  display: flex;
+  align-items: center;
+  .dot__container {
+    position: relative;
+    height: 20px;
+    width: 20px;
+    margin-top: -1px;
+    div {
+      position: absolute;
+      border-radius: 50%;
+      &:nth-child(1) {
+        width: 7px;
+        height: 7px;
+        background-color: #fc6767;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      &:nth-child(2) {
+        border: 2px solid #fc6767;
+        height: 20px;
+        width: 20px;
+        inset: 0;
+        animation: ${DotAnimation} 1s ease-out infinite;
+        opacity: 0;
+      }
+    }
+  }
 `;
 
 const StarsWrapper = styled.div`
@@ -231,10 +275,7 @@ const Card = ({
   covers,
 }: CardProps) => {
   return (
-    <CardWrapper
-      lastCommit={project_last_commit}
-      title={project_last_commit === "Now" ? "Currently working on this project" : project_title}
-    >
+    <CardWrapper title={project_last_commit === "Now" ? "Currently working on this project" : project_title}>
       <GatsbyImage
         image={getProjectCover(project_cover, covers).childImageSharp?.gatsbyImageData}
         alt={`${name} cover`}
@@ -272,7 +313,17 @@ const Card = ({
               <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M10.135 6.32831H1.28906C1.09491 6.32831 0.9375 6.48575 0.9375 6.67987V8.3205C0.9375 8.51462 1.09491 8.67206 1.28906 8.67206H10.135V10.0214C10.135 10.6479 10.8923 10.9616 11.3353 10.5186L13.8566 7.99737C14.1312 7.72281 14.1312 7.27756 13.8566 7.003L11.3353 4.48176C10.8924 4.03882 10.135 4.35253 10.135 4.97896V6.32831Z" />
               </svg>
-              <span>{project_last_commit === "Now" ? "Now" : getDate(project_last_commit)}</span>
+              {project_last_commit === "Now" ? (
+                <Now>
+                  Now
+                  <div className="dot__container">
+                    <div />
+                    <div />
+                  </div>
+                </Now>
+              ) : (
+                <span>{getDate(project_last_commit)}</span>
+              )}
             </DateContent>
           </DateWrapper>
           {!!stargazers_count && (
