@@ -114,18 +114,18 @@ const TimeToRead = styled.div`
 `;
 
 const TopicsWrapper = styled.div<{ listType: "list" | "grid" }>`
-  --justifyContent: center;
+  /* --justifyContent: center; */
   min-height: 24px;
   margin: 0 0 10px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: var(--justifyContent);
+  /* justify-content: var(--justifyContent); */
   gap: 5px;
   flex-wrap: wrap;
-  @media (min-width: 750px) {
+  /* @media (min-width: 750px) {
     --justifyContent: flex-start;
     ${({ listType }) => (listType === "list" ? "--justifyContent: flex-start" : "--justifyContent: center")};
-  }
+  } */
 `;
 
 const Excerpt = styled.p`
@@ -145,7 +145,7 @@ interface CardProps {
 }
 
 const Card = ({ mdx, listType }: CardProps) => (
-  <ListItemWrapper to={mdx.fields?.slug} list_type={listType}>
+  <ListItemWrapper to={mdx.fields?.slug as string} list_type={listType}>
     <ImageWrapper listType={listType}>
       <GatsbyImage
         image={mdx.frontmatter?.cover?.childImageSharp?.gatsbyImageData}
