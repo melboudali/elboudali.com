@@ -9,35 +9,55 @@ const PageWrapper = styled.main`
 `;
 
 const ErrorWrapper = styled.h1`
-  font-size: 15rem;
+  --fontSize: 6rem;
+  font-size: var(--fontSize);
   font-weight: 900;
   color: ${({ theme }) => theme.errorColor};
   letter-spacing: 10px;
   margin: 0;
+  @media (min-width: 750px) {
+    --fontSize: 15rem;
+  }
 `;
 
 const ErrorNumber = styled.h2`
-  font-size: 8rem;
+  --fontSize: 4rem;
+  --margin: -3rem 0 0;
+  font-size: var(--fontSize);
   font-weight: 900;
   color: ${({ theme }) => theme.errorNumberColor};
   letter-spacing: 10px;
-  margin: 0;
-  margin-top: -8rem;
+  margin: var(--margin);
+  @media (min-width: 750px) {
+    --fontSize: 15rem;
+    --margin: -8rem 0 0;
+  }
 `;
 
 const ErrorTitle = styled.h2`
+  --fontSize: 1.5rem;
+  font-size: var(--fontSize);
   color: ${({ theme }) => theme.errorNumberColor};
   text-transform: capitalize;
-  font-size: 3rem;
   margin: 0 0 30px 0;
+  @media (min-width: 750px) {
+    --fontSize: 3rem;
+  }
 `;
 
 const ErrorMessage = styled.p`
+  --fontSize: 0.9rem;
+  --fontWeight: 500;
+  font-size: var(--fontSize);
   color: ${({ theme }) => theme.errorNumberColor};
-  font-weight: 700;
+  font-weight: var(--fontWeight);
   margin: 0;
   &:first-letter {
     text-transform: uppercase;
+  }
+  @media (min-width: 750px) {
+    --fontSize: 1rem;
+    --fontWeight: 700;
   }
 `;
 
