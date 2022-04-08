@@ -47,7 +47,7 @@ const ErrorTitle = styled.h2`
 
 const ErrorMessage = styled.p`
   --fontSize: 0.9rem;
-  --fontWeight: 500;
+  --fontWeight: 400;
   font-size: var(--fontSize);
   color: ${({ theme }) => theme.errorNumberColor};
   font-weight: var(--fontWeight);
