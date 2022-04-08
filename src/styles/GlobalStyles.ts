@@ -57,7 +57,7 @@ const GlobalStyles = createGlobalStyle`
       --tooltipSecondShdowLight: rgba(0, 0, 0, 0.23);
       --tooltipSecondShdowDark: rgba(112, 49, 192, 0.37);
       --errorColorLight: #dedee3;
-      --errorColorDark: #16141F;
+      --errorColorDark: #412665;
       --errorNumberColorLight: #16141F;
       --errorNumberColorDark: #4C2A8D;
       --postColorLight: #24292e;
