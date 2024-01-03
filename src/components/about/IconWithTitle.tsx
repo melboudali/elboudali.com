@@ -17,10 +17,31 @@ const IconWithTitleWrapper = styled.div<{ type: "role" | "location" }>`
     line-height: 19px;
     color: ${({ theme }) => theme.iconWithTitle};
   }
+  a{
+    /* margin: 1px 0 0 0;
+    font-size: inherit;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    line-height: 19px;
+    font-size: 0.9rem;
+    color: ${({ type, theme }) => type === "role" ? theme.titleColor : theme.iconWithTitle}; */
+    margin: 1px 0 0 0;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    line-height: 19px;
+    font-style: italic;
+    background: ${({ theme }) => `linear-gradient(92.01deg, ${theme.linearLeftColor} -14.07%, ${theme.linearRightColor} 102.13%)`};
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
   svg > path {
     ${({ type, theme }) => (type === "role" ? `fill: ${theme.iconWithTitle};` : `stroke: ${theme.iconWithTitle};`)}
   }
 `;
+
+
 
 interface IconWithTitleProps {
   type: "role" | "location";
@@ -38,7 +59,7 @@ const IconWithTitle = ({ type }: IconWithTitleProps) => (
         />
       )}
     </svg>
-    <h2>{type === "role" ? about.role : about.location}</h2>
+    <h2>{type === "role" ? about.role : about.location}</h2>{type === "role" && <a href={about.company.website} target="_blank">@ {about.company.name}</a>}
     {type === "location" && <StaticImage src="../../assets/images/image/ma.gif" alt="Moroccan Flag" className="my_image" />}
   </IconWithTitleWrapper>
 );

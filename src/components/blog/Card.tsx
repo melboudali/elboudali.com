@@ -131,7 +131,7 @@ const TopicsWrapper = styled.div<{ listType: "list" | "grid" }>`
 const Excerpt = styled.p`
   font-weight: 300;
   line-height: 24px;
-  margin: 0;
+  margin: 20px 0 0;
   text-align: justify;
   color: ${({ theme }) => theme.titleColor};
   &::first-letter {

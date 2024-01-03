@@ -299,7 +299,8 @@ const selectedProjects: selectedProjectType[] = [
     project_cover: "jobs.png",
     project_topics: ["TypeScript", "React", "Next", "Firebase", "SASS", "Vercel"],
     project_figmaLink: "https://www.figma.com/file/hNY9MEQqA9hM9ULFlkfqgC/jobs",
-    project_last_commit: "Now",
+    // project_last_commit: "Now",
+    project_last_commit: "2022-04-22T00:00:00Z",
   },
   {
     project_name: "Github-User-Search",

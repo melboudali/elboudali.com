@@ -99,7 +99,7 @@ const ImageWrapper = styled.div`
 
 const ShortAboutText = styled.p`
   --textAlignValue: center;
-  margin: 0;
+  margin: 10px 0;
   font-weight: 300;
   letter-spacing: 0.1em;
   line-height: 24px;
@@ -123,31 +123,31 @@ const IconsWrapper = styled.div`
   flex-wrap: wrap;
 `;
 
-const LongAboutWrapper = styled.section`
-  p {
-    margin: 0;
-    font-size: 1rem;
-    font-weight: 300;
-    line-height: 24px;
-    letter-spacing: 0.1em;
-    text-align: justify;
-    color: ${({ theme }) => theme.titleColor};
-    &:not(:last-child) {
-      margin-bottom: 10px;
-    }
-  }
-`;
+// const LongAboutWrapper = styled.section`
+//   p {
+//     margin: 0;
+//     font-size: 1rem;
+//     font-weight: 300;
+//     line-height: 24px;
+//     letter-spacing: 0.1em;
+//     text-align: justify;
+//     color: ${({ theme }) => theme.titleColor};
+//     &:not(:last-child) {
+//       margin-bottom: 10px;
+//     }
+//   }
+// `;
 
 const ArticleWrapper = styled.div`
-  --width: 100%;
+  --leftMargin: 0;
   & > div {
-    width: var(--width);
+    width: 100%;
     display: flex;
     justify-content: center;
-    margin: 25px auto 0;
+    margin: 25px 0 0 var(--leftMargin);
   }
   @media (min-width: 750px) {
-    --width: 80%;
+    --leftMargin: 45px;
   }
 `;
 
@@ -242,24 +242,25 @@ const Index = () => {
         <ShortAbout>
           <PageTitle>{about.fullName}</PageTitle>
           <IconWithTitle type="role" />
-          <ShortAboutText>{about.summary.short}</ShortAboutText>
+          {/* <ShortAboutText>{about.summary.short}</ShortAboutText> */}
+          <ShortAboutText>{about.summary.long[0]}</ShortAboutText>
           <IconWithTitle type="location" />
           <IconsWrapper>
             <Icons />
             <Icons name="Github" />
             <Icons name="Twitter" />
-            <Icons name="Leetcode" />
-            <Icons name="Hackerrank" />
+            {/* <Icons name="Leetcode" /> */}
+            {/* <Icons name="Hackerrank" /> */}
             {/* <Button url={Resume.nodes[0].publicURL!} /> */}
           </IconsWrapper>
         </ShortAbout>
       </ShortAboutWrapper>
-      <LongAboutWrapper>
-        {/* {about.summary.long.map((text, index) => (
+      {/* <LongAboutWrapper>
+         {about.summary.long.map((text, index) => (
           <p key={index}>{text}</p>
-        ))} */}
-        <p>{about.summary.long[0]}</p>
-      </LongAboutWrapper>
+        ))} 
+         <p>{about.summary.long[0]}</p> 
+      </LongAboutWrapper> */}
       <ArticleWrapper>
         <PageTitle ItemsCountNumber={LastPost.totalCount}>⚡️ last article</PageTitle>
         <div>
